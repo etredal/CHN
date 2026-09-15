@@ -1,0 +1,225 @@
+﻿import os
+import json
+from synthesizer import synthesize_audio
+
+story3 = {
+    "id": "hsk5_digital_nomads",
+    "title": {
+        "cn": "逃离“内卷”：大理数字游民的理想与现实",
+        "pinyin": "Táolí “Nèijuǎn”: Dàlǐ Shùzì Yóumín de Lǐxiǎng yǔ Xiànshí",
+        "en": "Escaping Involution: Dali's Digital Nomads"
+    },
+    "level": "HSK 5",
+    "category": "Society",
+    "stats": {
+        "characterCount": 950,
+        "audioDurationSeconds": 140,
+        "estimatedReadingTimeMinutes": 6
+    },
+    "audioUrl": "/audio/hsk5_digital_nomads.mp3",
+    "summary": {
+        "cn": "面对大都市的快节奏与无休止的职场内卷，越来越多的年轻专业人士选择来到云南大理，探讨作为‘数字游民’的自由、挑战与生活哲学。",
+        "en": "Confronted by rapid city life and endless workplace involution, more young Chinese professionals are moving to Dali as digital nomads, exploring freedom and trade-offs."
+    },
+    "sections": [
+        {
+            "partNumber": 1,
+            "partTitle": { "cn": "第一幕：告别北上广写字楼的年轻人", "en": "Act I: Farewell to Megacity Offices" },
+            "sentences": [
+                {
+                    "id": "s3_1",
+                    "cn": "早晨九点，阳光柔和地洒在苍山脚下的一间白族庭院里，三十岁的资深程序员李翔推开木窗，深吸了一口清新的空气。",
+                    "pinyin": "Zǎochén jiǔ diǎn, yángguāng róuhé de sǎ zài Cāngshān jiǎoxià de yì jiān Báizú tíngyuàn lǐ, sānshí suì de zīshēn chéngxùyuán Lǐ Xiáng tuīkāi mùchuāng, shēn xī le yì kǒu qīngxīn de kōngqì.",
+                    "en": "At nine in the morning, soft sunlight bathed a Bai-style courtyard at the foot of Mount Cangshan; thirty-year-old senior developer Li Xiang pushed open the wooden window and inhaled deeply."
+                },
+                {
+                    "id": "s3_2",
+                    "cn": "半年前，他还是深圳一家知名科技公司里日夜加班的骨干，每天在拥挤的地铁与无休止的“内卷”中疲于奔命。",
+                    "pinyin": "Bàn nián qián, tā hái shì Shēnzhèn yì jiā zhīmíng kējì gōngsī lǐ rìyè jiābān de gǔgàn, měitiān zài yōngjǐ de dìtiě yǔ wúxiūzhǐ de “nèijuǎn” zhōng pí yú bēnmìng.",
+                    "en": "Six months ago, he was a key engineer pulling day-and-night overtime at a Shenzhen tech firm, exhausted by crowded subways and endless involution."
+                },
+                {
+                    "id": "s3_3",
+                    "cn": "最终，他下定决心辞职退租，带上一台笔记本电脑，加入了来到大理的“数字游民”浪潮。",
+                    "pinyin": "Zuìzhōng, tā xiàdìng juéxīn cízhí tuìzū, dài shàng yì tái bǐjìběn diànnǎo, jiārù le láidào Dàlǐ de “shùzì yóumín” làngcháo.",
+                    "en": "Ultimately, he resolved to resign, gave up his lease, packed a laptop, and joined the wave of digital nomads heading to Dali."
+                }
+            ]
+        },
+        {
+            "partNumber": 2,
+            "partTitle": { "cn": "第二幕：苍山洱海下的自由与现实冲击", "en": "Act II: Freedom and Reality Check" },
+            "sentences": [
+                {
+                    "id": "s3_4",
+                    "cn": "在许多人的想象中，大理是一片远离世俗压力的世外桃源，面朝洱海，春暖花开。",
+                    "pinyin": "Zài xǔduō rén de xiǎngxiàng zhōng, Dàlǐ shì yí piàn yuǎnlí shìsú yālì de shìwàitáoyuán, miàn cháo Ěrhǎi, chūnnuǎn-huākāi.",
+                    "en": "In many people's imagination, Dali is an idyllic Shangri-la far from worldly pressures—facing Erhai Lake as spring flowers blossom."
+                },
+                {
+                    "id": "s3_5",
+                    "cn": "然而，自由往往是一把双刃剑：没有了公司考勤制度的约束，高度自律成了每天最大的考验，稍有懈怠便会陷入更深的虚无感。",
+                    "pinyin": "Rán’ér, zìyóu wǎngwǎng shì yì bǎ shuāngrènjiàn: méiyǒu le gōngsī kǎoqín zhìdù de yuēshù, gāodù zìlǜ chéng le měitiān zuì dà de kǎoyàn, shāo yǒu xièdài biàn huì xiànrù gèng shēn de xūwúgǎn.",
+                    "en": "Yet freedom is often a double-edged sword: without clock-in mandates, intense self-discipline becomes the daily test; the slightest laxity breeds nihilistic emptiness."
+                },
+                {
+                    "id": "s3_6",
+                    "cn": "不仅如此，波动的接单收入、异乡医疗保障的缺失，以及与传统家庭观念之间的隔阂，都在无声地提醒着他们现实的重量。",
+                    "pinyin": "Bùjǐn rúcǐ, bōdòng de jiēdān shōurù, yìxiāng yīliáo bǎozhàng de quēshī, yǐjí yǔ chuántǒng jiātíng guānniàn zhījiān de géhé, dōu zài wúshēng de tíxǐng zhe tāmen xiànshí de zhòngliàng.",
+                    "en": "Furthermore, fluctuating freelance contracts, lack of local healthcare, and estrangement from conservative family expectations silently remind them of reality's weight."
+                }
+            ]
+        },
+        {
+            "partNumber": 3,
+            "partTitle": { "cn": "第三幕：真正的自由源于内心的从容", "en": "Act III: True Freedom from Within" },
+            "sentences": [
+                {
+                    "id": "s3_7",
+                    "cn": "在洱海边的咖啡馆里，李翔与来自世界各地的设计师、写作者们交流心得，大家逐渐达成了一个共识。",
+                    "pinyin": "Zài Ěrhǎi biān de kāfēiguǎn lǐ, Lǐ Xiáng yǔ láizì shìjiè gèdì de shèjìshī, xiězhe-men jiāoliú xīndé, dàjiā zhújiàn dáchéng le yí gè gòngshí.",
+                    "en": "In a cafe by Erhai Lake, chatting with designers and writers from around the globe, Li Xiang and his peers gradually reached a consensus."
+                },
+                {
+                    "id": "s3_8",
+                    "cn": "地理位置的迁徙固然能让人暂时跳出嘈杂的怪圈，但若内心无法建立起清晰的秩序，焦虑便会如影随形。",
+                    "pinyin": "Dìlǐ wèizhì de qiānxǐ gùrán néng ràng rén zànshí tiàochū cáozá de guàiquān, dàn ruò nèixīn wúfǎ jiànlì qǐ qīngxī de zhìxù, jiāolǜ biàn huì rúyǐng-suíxíng.",
+                    "en": "Relocating geographically can indeed help one step out of the noisy rat race, but without building order within, anxiety will follow like a shadow."
+                },
+                {
+                    "id": "s3_9",
+                    "cn": "真正的从容，不是逃离某种生活方式，而是在看清生活的本质之后，依然拥有独立选择自己节奏的底气。",
+                    "pinyin": "Zhēnzhèng de cóngróng, bú shì táolí mǒuzhǒng shēnghuó fāngshì, ér shì zài kànqīng shēnghuó de běnzhì zhīhòu, yīrán yōngyǒu dúlì xuǎnzé zìjǐ jiézòu de dǐqì.",
+                    "en": "True serenity is not escaping a lifestyle, but after seeing life clearly, retaining the quiet confidence to march to your own rhythm."
+                }
+            ]
+        }
+    ],
+    "targetVocabulary": [
+        {
+            "word": "内卷",
+            "pinyin": "nèijuǎn",
+            "tone": 4,
+            "hsk": "HSK 5",
+            "definitions": ["involution", "hyper-competitive rat race with diminishing returns"],
+            "exampleSentence": {
+                "cn": "面对大都市职场的内卷，许多年轻人开始重新审视自己的生活方式。",
+                "pinyin": "Miànduì dà dūshì zhíchǎng de nèijuǎn, xǔduō niánqīngrén kāishǐ chóngxīn shěnshì zìjǐ de shēnghuó fāngshì.",
+                "en": "Faced with workplace involution in metropolises, many young people have begun scrutinizing their lifestyle."
+            }
+        },
+        {
+            "word": "自律",
+            "pinyin": "zìlǜ",
+            "tone": 4,
+            "hsk": "HSK 5",
+            "definitions": ["self-discipline", "autonomy and self-control"],
+            "exampleSentence": {
+                "cn": "脱离了固定打卡制度之后，高度自律成了每天工作的重要保障。",
+                "pinyin": "Tuōlí le gùdìng dǎkǎ zhìdù zhīhòu, gāodù zìlǜ chéng le měitiān gōngzuò de zhòngyào bǎozhàng.",
+                "en": "After leaving the fixed clock-in system, high self-discipline became the vital guarantee of daily work."
+            }
+        },
+        {
+            "word": "双刃剑",
+            "pinyin": "shuāngrènjiàn",
+            "tone": 1,
+            "hsk": "HSK 5",
+            "definitions": ["double-edged sword", "something with both advantages and liabilities"],
+            "exampleSentence": {
+                "cn": "完全的自由是一把双刃剑，既赋予人权利，也考验着人的定力。",
+                "pinyin": "Wánquán de zìyóu shì yì bǎ shuāngrènjiàn, jì fùyǔ rén quánlì, yě kǎoyàn zhe rén de dìnglì.",
+                "en": "Complete freedom is a double-edged sword: it grants agency while testing mental resolve."
+            }
+        },
+        {
+            "word": "潜移默化",
+            "pinyin": "qiányí-mòhuà",
+            "tone": 2,
+            "hsk": "HSK 6",
+            "definitions": ["subtle influence over time", "imperceptible transformation"],
+            "exampleSentence": {
+                "cn": "大理舒缓的自然节奏，正在潜移默化地改变着这群都市青年的心态。",
+                "pinyin": "Dàlǐ shūhuǎn de zìrán jiézòu, zhèngzài qiányí-mòhuà de gǎibiàn zhe zhè qún dūshì qīngnián de xīntài.",
+                "en": "The soothing natural rhythm of Dali is subtly transforming the mindset of these urban youths."
+            }
+        }
+    ],
+    "grammarNotes": [
+        {
+            "pattern": "固然...但/然而...",
+            "explanation": "Concessive pattern acknowledging the validity of a premise while emphasizing the contrasting reality (Granted that X is true, however Y).",
+            "exampleFromStory": "地理位置的迁徙固然能让人暂时跳出怪圈，但若内心无法建立秩序，焦虑便会如影随形。",
+            "additionalExamples": [
+                "物质条件固然重要，但精神的富足才是幸福的根本源泉。",
+                "高薪工作固然诱人，然而过度的透支身体绝非长久之计。"
+            ]
+        },
+        {
+            "pattern": "不是...而是...",
+            "explanation": "Clarifies distinction by refuting a false assumption and stating the real essence (Not X, but rather Y).",
+            "exampleFromStory": "真正的从容，不是逃离某种生活方式，而是在看清生活后依然拥有独立选择的底气。",
+            "additionalExamples": [
+                "成熟不是学会隐藏情感，而是学会坦然接纳不完美的自己。",
+                "旅行的目的不是为了向别人炫耀，而是为了拓宽自己的眼界。"
+            ]
+        }
+    ],
+    "quiz": [
+        {
+            "id": "q1",
+            "question": "文中李翔在成为‘数字游民’之后，面临的最大挑战是什么？",
+            "options": [
+                "大理的网络信号太差无法工作",
+                "白族庭院的租金过于昂贵",
+                "缺乏外部制度约束下对‘高度自律’的严峻考验以及收入波动",
+                "无法适应大理当地的气候与饮食"
+            ],
+            "correctIndex": 2,
+            "explanation": "第二幕指出：自由是一把双刃剑，“高度自律成了每天最大的考验”，且面临接单收入波动和医疗保障问题。"
+        },
+        {
+            "id": "q2",
+            "question": "故事中大理的数字游民们最后达成了怎样的共识？",
+            "options": [
+                "必须立刻返回一线城市买房落户",
+                "单靠地理上的逃离无法根除焦虑，唯有在内心建立起清晰的秩序与节奏才是真正的从容",
+                "所有人都应该放弃远程工作改为开客栈",
+                "数字游民生活只适合从事艺术创作的人"
+            ],
+            "correctIndex": 1,
+            "explanation": "第三幕总结：地理迁移固然能暂时脱离怪圈，但内心的秩序与底气才是从容的核心。"
+        },
+        {
+            "id": "q3",
+            "question": "文中“疲于奔命”的意思是指：",
+            "options": [
+                "为了生计忙碌奔波而感到筋疲力尽",
+                "在运动场上参加高强度长跑比赛",
+                "因为恐惧战争而四处逃亡",
+                "生命危在旦夕急需抢救"
+            ],
+            "correctIndex": 0,
+            "explanation": "“疲于奔命”原指因受指派四处奔走而疲惫，现代引申为为了应付繁重的工作生活而忙得精疲力竭。"
+        }
+    ]
+}
+
+s3_text = " ".join([s["cn"] for sec in story3["sections"] for s in sec["sentences"]])
+s3_mp3 = "client/public/audio/hsk5_digital_nomads.mp3"
+s3_vtt = "client/public/audio/hsk5_digital_nomads.vtt"
+s3_cues = synthesize_audio(s3_text, "zh-CN-XiaoxiaoNeural", s3_mp3, s3_vtt)
+
+s3_sentences = [s for sec in story3["sections"] for s in sec["sentences"]]
+for i, s in enumerate(s3_sentences):
+    if i < len(s3_cues):
+        s["startTime"] = round(s3_cues[i]["start"], 2)
+        s["endTime"] = round(s3_cues[i]["end"], 2)
+    else:
+        s["startTime"] = round(i * 9.5, 2)
+        s["endTime"] = round((i + 1) * 9.5, 2)
+
+with open("tools/hsk5_digital_nomads.json", "w", encoding="utf-8") as f:
+    json.dump(story3, f, ensure_ascii=False, indent=2)
+
+print("Story 3 generated successfully!")

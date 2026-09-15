@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --tone-1: #ef4444; /* red */
+    --tone-2: #f59e0b; /* amber */
+    --tone-3: #10b981; /* emerald/green */
+    --tone-4: #3b82f6; /* blue */
+    --tone-5: #6b7280; /* neutral gray */
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: text;
+  }
+}
+
+/* Custom Chinese Fonts */
+.font-chinese-sans {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+.font-chinese-serif {
+  font-family: "Songti SC", "SimSun", "STSong", "Noto Serif SC", "Source Han Serif SC", serif;
+}
+
+.font-chinese-kaiti {
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", "BiauKai", serif;
+}
+
+/* Ruby Text for Pinyin */
+ruby {
+  ruby-align: center;
+  ruby-position: over;
+}
+
+rt {
+  font-size: 0.55em;
+  line-height: 1;
+  user-select: none;
+  font-family: system-ui, -apple-system, sans-serif;
+  letter-spacing: normal;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Tone Colors */
+.tone-1 { color: var(--tone-1) !important; }
+.tone-2 { color: var(--tone-2) !important; }
+.tone-3 { color: var(--tone-3) !important; }
+.tone-4 { color: var(--tone-4) !important; }
+.tone-5 { color: var(--tone-5) !important; }
+
+/* Custom scrollbars for clean reader UI */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.7);
+}
+
