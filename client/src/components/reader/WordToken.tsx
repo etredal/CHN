@@ -1,6 +1,6 @@
 import React from 'react';
 import type { WordToken as IWordToken } from '../../types';
-import { useSettings } from '../../context/SettingsContext';
+import { useSettings, usePinyinVisible } from '../../context/SettingsContext';
 import { getToneColorClass } from '../../utils/pinyin';
 
 interface WordTokenProps {
@@ -11,6 +11,7 @@ interface WordTokenProps {
 
 export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, highlight }) => {
   const { settings } = useSettings();
+  const showPinyin = usePinyinVisible();
 
   const isPunc = /^[，。！？；：“”‘’（）《》、—…\.,!?;:\'\"()\[\]]$/.test(token.text);
 
@@ -22,7 +23,7 @@ export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, highlight 
   const isTarget = token.isTargetWord;
 
   const renderContent = () => {
-    if (settings.pinyinMode === 'below' && token.pinyin && token.pinyin !== token.text) {
+    if (showPinyin && token.pinyin && token.pinyin !== token.text) {
       // Pinyin is one syllable per character, space separated: annotate each
       // character so syllables sit over their own character.
       const chars = Array.from(token.text);
@@ -57,7 +58,8 @@ export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, highlight 
           hover:bg-amber-100/70 dark:hover:bg-amber-900/40 active:scale-95
           ${isTarget ? 'border-b-2 border-amber-400 dark:border-amber-500/80 font-medium' : ''}
           ${highlight ? 'bg-amber-300/30' : ''}`}
-        title={token.pinyin ? `${token.text} (${token.pinyin})` : token.text}
+        // The hover tooltip only reveals pinyin when pinyin is switched on.
+        title={showPinyin && token.pinyin && token.pinyin !== token.text ? `${token.text} (${token.pinyin})` : token.text}
       >
       {renderContent()}
     </span>

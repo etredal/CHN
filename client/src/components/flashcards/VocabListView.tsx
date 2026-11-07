@@ -4,12 +4,14 @@ import { getSavedFlashcards, removeFlashcard, exportToAnkiTsv } from '../../util
 import { pronounceWord } from '../../utils/pronounce';
 import { Bookmark, Volume2, Trash2, Download, Play, Search, Sparkles } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
+import { usePinyinVisible } from '../../context/SettingsContext';
 
 interface VocabListViewProps {
   onStartReview: (cards: Flashcard[]) => void;
 }
 
 export const VocabListView: React.FC<VocabListViewProps> = ({ onStartReview }) => {
+  const showPinyin = usePinyinVisible();
   const [cards, setCards] = useState<Flashcard[]>([]);
   const [search, setSearch] = useState('');
 
@@ -111,9 +113,11 @@ export const VocabListView: React.FC<VocabListViewProps> = ({ onStartReview }) =
                   </span>
                 </div>
 
-                <span className="text-xs text-amber-600 dark:text-amber-400 font-medium font-sans block mb-1">
-                  {c.pinyin}
-                </span>
+                {showPinyin && (
+                  <span className="text-xs text-amber-600 dark:text-amber-400 font-medium font-sans block mb-1">
+                    {c.pinyin}
+                  </span>
+                )}
 
                 <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-2">
                   {c.definitions.join(', ')}

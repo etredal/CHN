@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { pinyin, customPinyin } from 'pinyin-pro';
 import overrides from '../../utils/pinyinOverrides.json';
-import { useSettings } from '../../context/SettingsContext';
+import { usePinyinVisible } from '../../context/SettingsContext';
 
 interface ChineseTextProps {
   text: string;
@@ -34,8 +34,7 @@ function segment(text: string): Segment[] {
  * global pinyin setting is on. Punctuation, Latin text and digits are left as is.
  */
 export const ChineseText: React.FC<ChineseTextProps> = ({ text, className }) => {
-  const { settings } = useSettings();
-  const showPinyin = settings.pinyinMode === 'below';
+  const showPinyin = usePinyinVisible();
   const segments = useMemo(() => (showPinyin ? segment(text) : null), [text, showPinyin]);
 
   if (!segments) return <span className={className}>{text}</span>;

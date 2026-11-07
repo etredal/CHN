@@ -100,3 +100,6 @@ export const useSettings = (): SettingsContextType => {
   }
   return context;
 };
+
+/** Whether pinyin should be shown with Chinese text (the global 拼 toggle). */
+export const usePinyinVisible = (): boolean => useSettings().settings.pinyinMode === 'below';

@@ -73,4 +73,38 @@ test.describe('Global pinyin toggle', () => {
     await expect(page.locator('button[title="Hide pinyin"]')).toHaveAttribute('aria-pressed', 'true');
     await expect(page.locator('h2 rt').first()).toBeVisible();
   });
+
+  test('with pinyin off, no page shows any pinyin', async ({ page }) => {
+    // Any tone-marked vowel means pinyin is on screen (English has none).
+    const TONE_MARKS = /[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/;
+    const pinyinOnScreen = async () => {
+      const text = await page.locator('body').innerText();
+      const titles = await page.locator('[title]').evaluateAll(els => els.map(e => e.getAttribute('title')).join(' '));
+      return TONE_MARKS.test(text) || TONE_MARKS.test(titles);
+    };
+
+    await page.goto('http://localhost:5174');
+    expect(await pinyinOnScreen()).toBe(false); // library
+
+    await page.getByText('进入阅读').first().click();
+    expect(await pinyinOnScreen()).toBe(false); // story text, title, tooltips
+    for (const tab of [/^语法点/, /^随堂测验/, /^重点生词/]) {
+      await page.locator('button').filter({ hasText: tab }).click();
+      expect(await pinyinOnScreen()).toBe(false);
+    }
+
+    // Save a key-vocab word, then check the vocab list.
+    await page.locator('button').filter({ hasText: /^重点生词/ }).click();
+    await page.locator('div.cursor-pointer').filter({ hasText: /HSK/ }).first().click();
+    await page.locator('button[title="Save to Flashcards"]').click();
+    await page.mouse.click(5, 5);
+    await page.getByText('返回文库').click();
+    await page.getByRole('button', { name: /生词本/ }).first().click();
+    expect(await pinyinOnScreen()).toBe(false);
+
+    // Switching it on brings the pinyin lines back.
+    await page.locator('button[title="Show pinyin"]').click();
+    expect(await pinyinOnScreen()).toBe(true);
+  });
 });
+

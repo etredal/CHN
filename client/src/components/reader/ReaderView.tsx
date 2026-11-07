@@ -5,7 +5,7 @@ import { WordDrawer } from './WordDrawer';
 import { GrammarTab } from './GrammarTab';
 import { QuizTab } from './QuizTab';
 import { useAudioPlayer } from '../../context/AudioPlayerContext';
-import { useSettings } from '../../context/SettingsContext';
+import { useSettings, usePinyinVisible } from '../../context/SettingsContext';
 import {
   ArrowLeft,
   BookOpen,
@@ -28,6 +28,7 @@ interface ReaderViewProps {
 
 export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
   const { loadStoryAudio, pause } = useAudioPlayer();
+  const showPinyin = usePinyinVisible();
   const { settings, setPinyinMode, toggleShowEnglish, toggleToneColors, setFontSize, setTheme } = useSettings();
 
   const [activeTab, setActiveTab] = useState<'text' | 'grammar' | 'quiz' | 'vocab'>('text');
@@ -278,7 +279,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
               <ChineseText text={story.title.cn} />
             </h1>
             <p className="text-sm text-slate-400 dark:text-slate-500 font-sans mb-4">
-              {story.title.pinyin} — {story.title.en}
+              {story.title.en}
             </p>
 
             <div className="flex items-center justify-center gap-6 text-xs text-slate-500 border-t border-slate-100 dark:border-slate-800/80 pt-3">
@@ -369,9 +370,11 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                       {v.hsk}
                     </span>
                   </div>
-                  <span className="text-xs text-amber-600 dark:text-amber-400 font-medium block mb-2 font-sans">
-                    {v.pinyin}
-                  </span>
+                  {showPinyin && (
+                    <span className="text-xs text-amber-600 dark:text-amber-400 font-medium block mb-2 font-sans">
+                      {v.pinyin}
+                    </span>
+                  )}
                   <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-2">
                     {v.definitions.join(', ')}
                   </p>

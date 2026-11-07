@@ -124,7 +124,7 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
                 <ChineseText text={story.title.cn} />
               </h2>
               <p className="text-xs text-slate-400 dark:text-slate-500 font-sans mb-3">
-                {story.title.pinyin} • {story.title.en}
+                {story.title.en}
               </p>
 
               {/* Summary */}
