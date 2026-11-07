@@ -1,6 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import type { GrammarPoint } from '../../types';
 import { BookOpen, Sparkles } from 'lucide-react';
+import { ChineseText } from '../common/ChineseText';
 
 interface GrammarTabProps {
   notes: GrammarPoint[];
@@ -34,7 +35,7 @@ export const GrammarTab: React.FC<GrammarTabProps> = ({ notes }) => {
             {/* Pattern Badge */}
             <div className="flex items-center gap-2 mb-2">
               <span className="px-3 py-1 rounded-lg text-sm font-bold bg-amber-100 text-amber-900 dark:bg-amber-900/60 dark:text-amber-200 border border-amber-300 dark:border-amber-700">
-                {g.pattern}
+                <ChineseText text={g.pattern} />
               </span>
             </div>
 
@@ -47,7 +48,7 @@ export const GrammarTab: React.FC<GrammarTabProps> = ({ notes }) => {
             <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border-l-4 border-amber-500 text-sm mb-3">
               <span className="text-xs font-semibold text-slate-400 block mb-1">课文原句：</span>
               <p className="text-slate-800 dark:text-slate-200 font-chinese-sans font-medium">
-                {g.exampleFromStory}
+                <ChineseText text={g.exampleFromStory} />
               </p>
             </div>
 
@@ -58,7 +59,7 @@ export const GrammarTab: React.FC<GrammarTabProps> = ({ notes }) => {
                 {g.additionalExamples.map((ex, exIdx) => (
                   <div key={exIdx} className="text-xs text-slate-600 dark:text-slate-400 flex items-start gap-2">
                     <span className="text-amber-500 font-bold">•</span>
-                    <span className="font-chinese-sans">{ex}</span>
+                    <ChineseText className="font-chinese-sans" text={ex} />
                   </div>
                 ))}
               </div>

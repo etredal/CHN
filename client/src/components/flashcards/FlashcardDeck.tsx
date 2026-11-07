@@ -3,6 +3,7 @@ import type { Flashcard } from '../../types';
 import { updateCardSrs } from '../../utils/srs';
 import { pronounceWord } from '../../utils/pronounce';
 import { Volume2, ArrowLeft, Sparkles } from 'lucide-react';
+import { ChineseText } from '../common/ChineseText';
 
 interface FlashcardDeckProps {
   cards: Flashcard[];
@@ -110,7 +111,7 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ cards, onBack, onF
               {currentCard.exampleSentence && (
                 <div className="mt-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 text-xs text-left">
                   <p className="font-chinese-sans text-slate-800 dark:text-slate-200 font-medium">
-                    {currentCard.exampleSentence.cn}
+                    <ChineseText text={currentCard.exampleSentence.cn} />
                   </p>
                   <p className="text-slate-400 mt-0.5">{currentCard.exampleSentence.en}</p>
                 </div>

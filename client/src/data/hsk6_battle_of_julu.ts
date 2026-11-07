@@ -48,7 +48,7 @@ export const hsk6BattleOfJulu: LongStory = {
                 },
                 {
                   "text": "207",
-                  "pinyin": "2 0 7",
+                  "pinyin": "207",
                   "tone": 5,
                   "definitions": [],
                   "startTime": 0.795,
@@ -1284,15 +1284,15 @@ export const hsk6BattleOfJulu: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 49.145,
                   "endTime": 49.265
                 },
                 {
                   "text": "每一",
-                  "pinyin": "měi yī",
+                  "pinyin": "měi yí",
                   "tone": 3,
                   "definitions": [],
                   "startTime": 49.265,
@@ -1354,8 +1354,8 @@ export const hsk6BattleOfJulu: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 51.225,
                   "endTime": 51.365
@@ -1478,8 +1478,8 @@ export const hsk6BattleOfJulu: LongStory = {
                 },
                 {
                   "text": "一",
-                  "pinyin": "yī",
-                  "tone": 1,
+                  "pinyin": "yì",
+                  "tone": 4,
                   "definitions": [],
                   "startTime": 56.6,
                   "endTime": 56.94
@@ -1656,8 +1656,8 @@ export const hsk6BattleOfJulu: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 64.2,
                   "endTime": 64.4
@@ -1882,8 +1882,8 @@ export const hsk6BattleOfJulu: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 72.34,
                   "endTime": 72.48
@@ -1996,8 +1996,8 @@ export const hsk6BattleOfJulu: LongStory = {
                 },
                 {
                   "text": "一",
-                  "pinyin": "yī",
-                  "tone": 1,
+                  "pinyin": "yì",
+                  "tone": 4,
                   "definitions": [],
                   "startTime": 75.86,
                   "endTime": 76.04
@@ -2132,8 +2132,8 @@ export const hsk6BattleOfJulu: LongStory = {
                 },
                 {
                   "text": "地",
-                  "pinyin": "dì",
-                  "tone": 4,
+                  "pinyin": "de",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 82.64,
                   "endTime": 82.74

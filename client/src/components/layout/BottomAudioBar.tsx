@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { useAudioPlayer } from '../../context/AudioPlayerContext';
 import { useSettings } from '../../context/SettingsContext';
 import {
@@ -9,6 +9,7 @@ import {
   Repeat,
   Gauge
 } from 'lucide-react';
+import { ChineseText } from '../common/ChineseText';
 
 export const BottomAudioBar: React.FC = () => {
   const {
@@ -70,7 +71,7 @@ export const BottomAudioBar: React.FC = () => {
             )}
           </div>
           <p className="text-sm font-bold text-slate-800 dark:text-slate-100 truncate font-chinese-sans mt-0.5">
-            {activeSentence ? activeSentence.cn : '点击播放收听自然原声中文朗读'}
+            {activeSentence ? <ChineseText text={activeSentence.cn} /> : '点击播放收听自然原声中文朗读'}
           </p>
         </div>
 

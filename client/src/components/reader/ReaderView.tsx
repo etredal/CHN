@@ -18,6 +18,8 @@ import {
   Eye,
   EyeOff
 } from 'lucide-react';
+import { ChineseText } from '../common/ChineseText';
+import { PinyinToggle } from '../common/PinyinToggle';
 
 interface ReaderViewProps {
   story: LongStory;
@@ -50,12 +52,14 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
   };
 
   const getFontSizeClass = () => {
+    // Pinyin above the characters needs taller lines.
+    const leading = settings.pinyinMode === 'above' ? 'leading-[2.6]' : 'leading-loose';
     switch (settings.fontSize) {
-      case 'sm': return 'text-base leading-loose';
-      case 'base': return 'text-lg leading-loose';
-      case 'lg': return 'text-xl leading-loose';
-      case 'xl': return 'text-2xl leading-loose';
-      default: return 'text-xl leading-loose';
+      case 'sm': return `text-base ${leading}`;
+      case 'base': return `text-lg ${leading}`;
+      case 'lg': return `text-xl ${leading}`;
+      case 'xl': return `text-2xl ${leading}`;
+      default: return `text-xl ${leading}`;
     }
   };
 
@@ -74,10 +78,11 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
           <button
             onClick={onBack}
+            aria-label="返回文库"
             className="flex items-center gap-1.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white p-1 rounded-lg"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>返回文库</span>
+            <span className="hidden sm:inline">返回文库</span>
           </button>
 
           {/* Center Title */}
@@ -89,7 +94,8 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
           </div>
 
           {/* Quick Reader Settings Trigger */}
-          <div className="relative">
+          <div className="relative flex items-center gap-1">
+            <PinyinToggle />
             <button
               onClick={() => setShowSettingsMenu(!showSettingsMenu)}
               className="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors"
@@ -100,7 +106,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
 
             {/* Settings Popover Dropdown */}
             {showSettingsMenu && (
-              <div className="absolute right-0 mt-2 w-64 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl z-50 text-sm space-y-4 animate-in fade-in zoom-in-95 duration-150">
+              <div className="absolute right-0 top-full mt-2 w-64 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl z-50 text-sm space-y-4 animate-in fade-in zoom-in-95 duration-150">
                 {/* Pinyin Mode */}
                 <div>
                   <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">拼音显示 (Pinyin)</span>
@@ -269,7 +275,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
               {story.level} • {story.category}
             </span>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-chinese-sans mb-2 tracking-tight">
-              {story.title.cn}
+              <ChineseText text={story.title.cn} />
             </h1>
             <p className="text-sm text-slate-400 dark:text-slate-500 font-sans mb-4">
               {story.title.pinyin} — {story.title.en}
@@ -287,7 +293,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
             </div>
 
             <p className="text-sm text-slate-600 dark:text-slate-300 italic font-sans max-w-xl mx-auto mt-4 bg-white/80 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-100 dark:border-slate-800">
-              “{story.summary.cn}”
+              <ChineseText text={`“${story.summary.cn}”`} />
             </p>
           </div>
         )}
@@ -300,7 +306,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                 {/* Section Header */}
                 <div className="sticky top-24 z-10 my-6 py-2 px-4 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 backdrop-blur-xs border border-slate-200 dark:border-slate-700 flex items-center justify-between">
                   <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200 font-chinese-sans">
-                    {section.partTitle.cn}
+                    <ChineseText text={section.partTitle.cn} />
                   </h3>
                   <span className="text-xs text-slate-400 font-sans">
                     {section.partTitle.en}

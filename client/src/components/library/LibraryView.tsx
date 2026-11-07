@@ -1,7 +1,8 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import type { LongStory } from '../../types';
 import { ALL_STORIES } from '../../data';
 import { Search, BookOpen, Clock, Headphones, Sparkles, Filter } from 'lucide-react';
+import { ChineseText } from '../common/ChineseText';
 
 interface LibraryViewProps {
   onSelectStory: (story: LongStory) => void;
@@ -120,7 +121,7 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
 
               {/* Title */}
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white font-chinese-sans group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors mb-1">
-                {story.title.cn}
+                <ChineseText text={story.title.cn} />
               </h2>
               <p className="text-xs text-slate-400 dark:text-slate-500 font-sans mb-3">
                 {story.title.pinyin} • {story.title.en}
@@ -128,7 +129,7 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
 
               {/* Summary */}
               <p className="text-sm text-slate-600 dark:text-slate-300 font-chinese-sans line-clamp-3 leading-relaxed mb-4">
-                {story.summary.cn}
+                <ChineseText text={story.summary.cn} />
               </p>
             </div>
 

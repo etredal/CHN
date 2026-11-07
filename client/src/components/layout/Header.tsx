@@ -1,6 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { useSettings } from '../../context/SettingsContext';
 import { BookOpen, Bookmark, FileText, Moon, Sun, Coffee } from 'lucide-react';
+import { PinyinToggle } from '../common/PinyinToggle';
 
 interface HeaderProps {
   currentTab: 'library' | 'vocab' | 'importer';
@@ -87,6 +88,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
 
         {/* Quick Theme Switcher */}
         <div className="flex items-center gap-2">
+          <PinyinToggle />
           <button
             onClick={cycleTheme}
             className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"

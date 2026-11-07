@@ -23,13 +23,24 @@ export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, highlight 
 
   const renderContent = () => {
     if (settings.pinyinMode === 'above' && token.pinyin && token.pinyin !== token.text) {
+      // Pinyin is one syllable per character, space separated: annotate each
+      // character so syllables sit over their own character.
+      const chars = Array.from(token.text);
+      const syllables = token.pinyin.split(' ');
+      const pairs: [string, string][] = chars.length === syllables.length
+        ? chars.map((c, i) => [c, syllables[i]])
+        : [[token.text, token.pinyin]];
       return (
-        <ruby className="inline-flex flex-col items-center">
-          <rt className="text-xs text-slate-400 dark:text-slate-500 font-normal pb-0.5 select-none">
-            {token.pinyin}
-          </rt>
-          <span className={`transition-colors ${toneClass}`}>{token.text}</span>
-        </ruby>
+        <span className={`transition-colors ${toneClass}`}>
+          {pairs.map(([text, py], i) => (
+            py === text ? text : (
+              <ruby key={i}>
+                {text}
+                <rt>{py}</rt>
+              </ruby>
+            )
+          ))}
+        </span>
       );
     }
 

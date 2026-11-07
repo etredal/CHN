@@ -4,6 +4,7 @@ import { pronounceWord, preloadWordAudio, wordAudioSources } from '../../utils/p
 import { getToneBadgeClass } from '../../utils/pinyin';
 import { isWordSaved, saveFlashcard, removeFlashcard } from '../../utils/srs';
 import { Volume2, Bookmark, BookmarkCheck, X, Sparkles } from 'lucide-react';
+import { ChineseText } from '../common/ChineseText';
 
 interface WordDrawerProps {
   token: WordToken | null;
@@ -173,7 +174,7 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
                 <span>语境例句 (Context from Story)</span>
               </h4>
               <div className="p-3 rounded-xl bg-amber-50/50 dark:bg-slate-800/40 border border-amber-100 dark:border-slate-800 text-sm">
-                <p className="text-slate-800 dark:text-slate-100 font-chinese-sans leading-relaxed">{sentenceContext.cn}</p>
+                <p className="text-slate-800 dark:text-slate-100 font-chinese-sans leading-relaxed"><ChineseText text={sentenceContext.cn} /></p>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{sentenceContext.en}</p>
               </div>
             </div>

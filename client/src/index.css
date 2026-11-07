@@ -74,3 +74,24 @@ rt {
   background: rgba(156, 163, 175, 0.7);
 }
 
+
+/* Pinyin above Chinese text (ChineseText and WordToken) */
+.chinese-with-pinyin {
+  line-height: 2.2;
+}
+.chinese-with-pinyin rt,
+.word-token rt {
+  /* Half the text size, but never too small to read on small text. */
+  font-size: max(0.5em, 9px);
+  /* Keep neighbouring syllables from running together. */
+  padding: 0 0.15em;
+  font-weight: 400;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  color: rgb(100 116 139); /* slate-500 */
+  letter-spacing: 0;
+  user-select: none;
+}
+.dark .chinese-with-pinyin rt,
+.dark .word-token rt {
+  color: rgb(148 163 184); /* slate-400 */
+}

@@ -86,8 +86,8 @@ export const hsk5DigitalNomads: LongStory = {
                 },
                 {
                   "text": "地",
-                  "pinyin": "dì",
-                  "tone": 4,
+                  "pinyin": "de",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 2.28,
                   "endTime": 2.64
@@ -142,8 +142,8 @@ export const hsk5DigitalNomads: LongStory = {
                 },
                 {
                   "text": "一",
-                  "pinyin": "yī",
-                  "tone": 1,
+                  "pinyin": "yì",
+                  "tone": 4,
                   "definitions": [],
                   "startTime": 4.12,
                   "endTime": 4.3
@@ -756,8 +756,8 @@ export const hsk5DigitalNomads: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 27.02,
                   "endTime": 27.22
@@ -1100,8 +1100,8 @@ export const hsk5DigitalNomads: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 40.715,
                   "endTime": 40.795
@@ -1504,8 +1504,8 @@ export const hsk5DigitalNomads: LongStory = {
                 },
                 {
                   "text": "地",
-                  "pinyin": "dì",
-                  "tone": 4,
+                  "pinyin": "de",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 57.63,
                   "endTime": 57.83
@@ -1800,8 +1800,8 @@ export const hsk5DigitalNomads: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 68.005,
                   "endTime": 68.145

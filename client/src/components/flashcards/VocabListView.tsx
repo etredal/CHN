@@ -3,6 +3,7 @@ import type { Flashcard } from '../../types';
 import { getSavedFlashcards, removeFlashcard, exportToAnkiTsv } from '../../utils/srs';
 import { pronounceWord } from '../../utils/pronounce';
 import { Bookmark, Volume2, Trash2, Download, Play, Search, Sparkles } from 'lucide-react';
+import { ChineseText } from '../common/ChineseText';
 
 interface VocabListViewProps {
   onStartReview: (cards: Flashcard[]) => void;
@@ -120,7 +121,7 @@ export const VocabListView: React.FC<VocabListViewProps> = ({ onStartReview }) =
 
                 {c.exampleSentence && (
                   <p className="text-[11px] text-slate-400 italic line-clamp-1 mt-1">
-                    "{c.exampleSentence.cn}"
+                    <ChineseText text={`"${c.exampleSentence.cn}"`} />
                   </p>
                 )}
               </div>

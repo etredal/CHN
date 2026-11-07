@@ -1,5 +1,7 @@
 const fs = require('fs');
-const { pinyin } = require('../client/node_modules/pinyin-pro');
+const { pinyin, customPinyin } = require('../client/node_modules/pinyin-pro');
+// Words pinyin-pro gets wrong; shared with the app (ChineseText).
+customPinyin(require('../client/src/utils/pinyinOverrides.json'));
 
 const TONE_MARKS = {
   'ā': 1, 'ē': 1, 'ī': 1, 'ō': 1, 'ū': 1, 'ǖ': 1,
@@ -14,27 +16,46 @@ function getTone(py) {
   return 5;
 }
 
+const PUNC = /^[，。！？；：“”‘’（）《》、—…\.,!?;:\'\"()\[\]]$/;
+const PRONOUNS = new Set(['我', '你', '他', '她', '它', '我们', '你们', '他们', '她们', '咱们', '谁']);
+
+// Pinyin for each character, worked out from the whole sentence so that
+// polyphonic characters get their in-context reading (了 le, 长者 zhǎng...).
+function sentencePinyin(text) {
+  return pinyin(text, { type: 'all', toneType: 'symbol' }).map(c => (c.isZh ? c.pinyin : c.origin));
+}
+
+// Structural particles that pinyin-pro misreads even in context, when they
+// stand alone as a word: adverbial 地 (慢慢地走) and complement 得 (长得高).
+function fixParticle(tok, prev) {
+  if (tok.text === '地' && prev && !PUNC.test(prev.text) && (prev.text.length >= 2 || /[般样]$/.test(prev.text))) return 'de';
+  if (tok.text === '得' && prev && !PUNC.test(prev.text)) return PRONOUNS.has(prev.text) ? 'děi' : 'de';
+  return null;
+}
+
 function tokenize(text) {
   const seg = new Intl.Segmenter('zh-Hans', { granularity: 'word' });
-  const items = Array.from(seg.segment(text));
+  const charPinyin = sentencePinyin(text);
   const tokens = [];
 
-  for (const item of items) {
+  for (const item of seg.segment(text)) {
     const raw = item.segment;
     if (!raw.trim()) continue;
 
-    const isPunc = /^[，。！？；：“”‘’（）《》、—…\.,!?;:\'\"()\[\]]$/.test(raw);
-    if (isPunc) {
+    if (PUNC.test(raw)) {
       tokens.push({ text: raw, pinyin: raw, tone: 5, definitions: [] });
       continue;
     }
 
-    const py = pinyin(raw, { toneType: 'symbol' });
-    const tone = getTone(py);
+    const prev = tokens[tokens.length - 1];
+    // Tokens without any Chinese (Z282, 207) keep their text as "pinyin".
+    const py = !/\p{Script=Han}/u.test(raw)
+      ? raw
+      : fixParticle({ text: raw }, prev) ?? charPinyin.slice(item.index, item.index + raw.length).join(' ');
     tokens.push({
       text: raw,
       pinyin: py,
-      tone,
+      tone: getTone(py),
       definitions: [],
     });
   }

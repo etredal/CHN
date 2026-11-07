@@ -308,8 +308,8 @@ export const hsk5NightTrain: LongStory = {
                 },
                 {
                   "text": "地",
-                  "pinyin": "dì",
-                  "tone": 4,
+                  "pinyin": "de",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 9.5,
                   "endTime": 9.76
@@ -324,8 +324,8 @@ export const hsk5NightTrain: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 10.1,
                   "endTime": 10.22
@@ -364,7 +364,7 @@ export const hsk5NightTrain: LongStory = {
                 },
                 {
                   "text": "Z282",
-                  "pinyin": "Z 2 8 2",
+                  "pinyin": "Z282",
                   "tone": 5,
                   "definitions": [],
                   "startTime": 11.22,
@@ -578,8 +578,8 @@ export const hsk5NightTrain: LongStory = {
                 },
                 {
                   "text": "了三",
-                  "pinyin": "liǎo sān",
-                  "tone": 3,
+                  "pinyin": "le sān",
+                  "tone": 1,
                   "definitions": [],
                   "startTime": 18.94,
                   "endTime": 19.18
@@ -710,8 +710,8 @@ export const hsk5NightTrain: LongStory = {
                 },
                 {
                   "text": "地",
-                  "pinyin": "dì",
-                  "tone": 4,
+                  "pinyin": "de",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 23.36,
                   "endTime": 23.5
@@ -1208,8 +1208,8 @@ export const hsk5NightTrain: LongStory = {
                 },
                 {
                   "text": "不",
-                  "pinyin": "bù",
-                  "tone": 4,
+                  "pinyin": "bú",
+                  "tone": 2,
                   "definitions": [],
                   "startTime": 41.185,
                   "endTime": 41.305
@@ -1694,8 +1694,8 @@ export const hsk5NightTrain: LongStory = {
                 },
                 {
                   "text": "地",
-                  "pinyin": "dì",
-                  "tone": 4,
+                  "pinyin": "de",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 59.225,
                   "endTime": 59.365
@@ -1926,8 +1926,8 @@ export const hsk5NightTrain: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 67.325,
                   "endTime": 67.465
@@ -2090,8 +2090,8 @@ export const hsk5NightTrain: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 72.885,
                   "endTime": 73.505
@@ -2284,8 +2284,8 @@ export const hsk5NightTrain: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 79.025,
                   "endTime": 79.145
@@ -2364,8 +2364,8 @@ export const hsk5NightTrain: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 81.525,
                   "endTime": 81.665
@@ -2450,8 +2450,8 @@ export const hsk5NightTrain: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 84.42,
                   "endTime": 84.52
@@ -2724,8 +2724,8 @@ export const hsk5NightTrain: LongStory = {
                 },
                 {
                   "text": "地",
-                  "pinyin": "dì",
-                  "tone": 4,
+                  "pinyin": "de",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 94.02,
                   "endTime": 94.12

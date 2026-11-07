@@ -1,6 +1,7 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import type { QuizQuestion } from '../../types';
 import { HelpCircle, CheckCircle2, XCircle, RotateCcw, Award } from 'lucide-react';
+import { ChineseText } from '../common/ChineseText';
 
 interface QuizTabProps {
   quiz: QuizQuestion[];
@@ -86,7 +87,7 @@ export const QuizTab: React.FC<QuizTabProps> = ({ quiz }) => {
             >
               <h4 className="text-base font-bold text-slate-900 dark:text-slate-100 font-chinese-sans mb-3 flex items-start gap-2">
                 <span className="text-amber-500">{qIdx + 1}.</span>
-                <span>{q.question}</span>
+                <ChineseText text={q.question} />
               </h4>
 
               {/* Options */}
@@ -116,7 +117,7 @@ export const QuizTab: React.FC<QuizTabProps> = ({ quiz }) => {
                         <span className="w-6 h-6 rounded-full border border-current flex items-center justify-center text-xs shrink-0">
                           {String.fromCharCode(65 + optIdx)}
                         </span>
-                        <span>{opt}</span>
+                        <ChineseText text={opt} />
                       </div>
 
                       {submitted && optIdx === q.correctIndex && (
@@ -134,7 +135,7 @@ export const QuizTab: React.FC<QuizTabProps> = ({ quiz }) => {
               {submitted && (
                 <div className="mt-4 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 text-xs text-slate-600 dark:text-slate-300 font-sans border-l-4 border-amber-500">
                   <span className="font-bold text-slate-800 dark:text-slate-200 block mb-0.5">解析：</span>
-                  <p>{q.explanation}</p>
+                  <p className="font-chinese-sans text-sm"><ChineseText text={q.explanation} /></p>
                 </div>
               )}
             </div>

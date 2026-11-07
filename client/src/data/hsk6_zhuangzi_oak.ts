@@ -148,8 +148,8 @@ export const hsk6ZhuangziOak: LongStory = {
                 },
                 {
                   "text": "一",
-                  "pinyin": "yī",
-                  "tone": 1,
+                  "pinyin": "yí",
+                  "tone": 2,
                   "definitions": [],
                   "startTime": 4.92,
                   "endTime": 5.08
@@ -188,8 +188,8 @@ export const hsk6ZhuangziOak: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 6.64,
                   "endTime": 6.76
@@ -526,7 +526,7 @@ export const hsk6ZhuangziOak: LongStory = {
                 },
                 {
                   "text": "都不",
-                  "pinyin": "dōu bù",
+                  "pinyin": "dōu bú",
                   "tone": 1,
                   "definitions": [],
                   "startTime": 18.42,
@@ -644,8 +644,8 @@ export const hsk6ZhuangziOak: LongStory = {
                 },
                 {
                   "text": "地",
-                  "pinyin": "dì",
-                  "tone": 4,
+                  "pinyin": "de",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 22.86,
                   "endTime": 23
@@ -682,8 +682,8 @@ export const hsk6ZhuangziOak: LongStory = {
                 },
                 {
                   "text": "地",
-                  "pinyin": "dì",
-                  "tone": 4,
+                  "pinyin": "de",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 24.42,
                   "endTime": 24.56
@@ -1098,8 +1098,8 @@ export const hsk6ZhuangziOak: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 38.64,
                   "endTime": 38.78
@@ -1844,8 +1844,8 @@ export const hsk6ZhuangziOak: LongStory = {
                 },
                 {
                   "text": "了",
-                  "pinyin": "liǎo",
-                  "tone": 3,
+                  "pinyin": "le",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 64.22,
                   "endTime": 64.36
@@ -2258,8 +2258,8 @@ export const hsk6ZhuangziOak: LongStory = {
                 },
                 {
                   "text": "地",
-                  "pinyin": "dì",
-                  "tone": 4,
+                  "pinyin": "de",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 78.68,
                   "endTime": 79.02
@@ -2758,8 +2758,8 @@ export const hsk6ZhuangziOak: LongStory = {
                 },
                 {
                   "text": "一",
-                  "pinyin": "yī",
-                  "tone": 1,
+                  "pinyin": "yí",
+                  "tone": 2,
                   "definitions": [],
                   "startTime": 98.155,
                   "endTime": 98.255
@@ -2774,8 +2774,8 @@ export const hsk6ZhuangziOak: LongStory = {
                 },
                 {
                   "text": "儿",
-                  "pinyin": "ér",
-                  "tone": 2,
+                  "pinyin": "er",
+                  "tone": 5,
                   "definitions": [],
                   "startTime": 98.365,
                   "endTime": 98.475
