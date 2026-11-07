@@ -19,6 +19,7 @@ test.describe('Reader word click playback', () => {
 
     // Compare timestamps.
     const audio = page.locator('audio[data-testid="audio-player"]');
-    await expect(audio).toHaveAttribute('paused', 'false');
+    // `paused` is a DOM property, not an HTML attribute, so read it directly.
+    await expect.poll(() => audio.evaluate((el: HTMLAudioElement) => el.paused)).toBe(false);
   });
 });
