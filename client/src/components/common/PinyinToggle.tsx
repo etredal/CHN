@@ -4,10 +4,10 @@ import { useSettings } from '../../context/SettingsContext';
 /** One-tap switch for pinyin over all Chinese text in the app. */
 export const PinyinToggle: React.FC = () => {
   const { settings, setPinyinMode } = useSettings();
-  const on = settings.pinyinMode === 'above';
+  const on = settings.pinyinMode === 'below';
   return (
     <button
-      onClick={() => setPinyinMode(on ? 'off' : 'above')}
+      onClick={() => setPinyinMode(on ? 'off' : 'below')}
       aria-pressed={on}
       title={on ? 'Hide pinyin' : 'Show pinyin'}
       className={`h-9 min-w-9 px-2 rounded-xl text-xs font-bold font-chinese-sans border transition-colors flex items-center justify-center gap-1 ${

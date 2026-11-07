@@ -97,7 +97,7 @@ export interface LongStory {
   quiz: QuizQuestion[];
 }
 
-export type PinyinMode = 'off' | 'above' | 'on-demand';
+export type PinyinMode = 'off' | 'below' | 'on-demand';
 export type FontSize = 'sm' | 'base' | 'lg' | 'xl';
 export type FontFamily = 'sans' | 'serif' | 'kaiti';
 export type AppTheme = 'light' | 'sepia' | 'dark';

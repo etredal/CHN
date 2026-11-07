@@ -75,7 +75,12 @@ rt {
 }
 
 
-/* Pinyin above Chinese text (ChineseText and WordToken) */
+/* Pinyin below Chinese text (ChineseText and WordToken) */
+.chinese-with-pinyin ruby,
+.word-token ruby {
+  -webkit-ruby-position: after; /* older Safari */
+  ruby-position: under;
+}
 .chinese-with-pinyin {
   line-height: 2.2;
 }

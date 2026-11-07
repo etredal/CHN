@@ -52,8 +52,8 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
   };
 
   const getFontSizeClass = () => {
-    // Pinyin above the characters needs taller lines.
-    const leading = settings.pinyinMode === 'above' ? 'leading-[2.6]' : 'leading-loose';
+    // Pinyin under the characters needs taller lines.
+    const leading = settings.pinyinMode === 'below' ? 'leading-[2.6]' : 'leading-loose';
     switch (settings.fontSize) {
       case 'sm': return `text-base ${leading}`;
       case 'base': return `text-lg ${leading}`;
@@ -120,12 +120,12 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                       隐藏 (Off)
                     </button>
                     <button
-                      onClick={() => setPinyinMode('above')}
+                      onClick={() => setPinyinMode('below')}
                       className={`py-1 text-xs rounded-lg font-medium transition-all ${
-                        settings.pinyinMode === 'above' ? 'bg-white dark:bg-slate-700 shadow-xs text-amber-600 dark:text-amber-400' : 'text-slate-500'
+                        settings.pinyinMode === 'below' ? 'bg-white dark:bg-slate-700 shadow-xs text-amber-600 dark:text-amber-400' : 'text-slate-500'
                       }`}
                     >
-                      字上 (Above)
+                      字下 (Below)
                     </button>
                   </div>
                 </div>

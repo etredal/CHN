@@ -34,7 +34,11 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     if (typeof window === 'undefined') return DEFAULT_SETTINGS;
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      return saved ? { ...DEFAULT_SETTINGS, ...JSON.parse(saved) } : DEFAULT_SETTINGS;
+      if (!saved) return DEFAULT_SETTINGS;
+      const parsed = { ...DEFAULT_SETTINGS, ...JSON.parse(saved) };
+      // Pinyin used to be shown above the characters; it now goes below.
+      if (parsed.pinyinMode === 'above') parsed.pinyinMode = 'below';
+      return parsed;
     } catch {
       return DEFAULT_SETTINGS;
     }

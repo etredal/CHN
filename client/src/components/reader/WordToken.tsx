@@ -22,7 +22,7 @@ export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, highlight 
   const isTarget = token.isTargetWord;
 
   const renderContent = () => {
-    if (settings.pinyinMode === 'above' && token.pinyin && token.pinyin !== token.text) {
+    if (settings.pinyinMode === 'below' && token.pinyin && token.pinyin !== token.text) {
       // Pinyin is one syllable per character, space separated: annotate each
       // character so syllables sit over their own character.
       const chars = Array.from(token.text);

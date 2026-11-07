@@ -16,6 +16,16 @@ test.describe('Global pinyin toggle', () => {
     await expect(page.locator('.word-token rt').first()).toBeVisible();
     await expect(page.locator('h1 ruby').first()).toBeVisible();
 
+    // Pinyin sits below its character.
+    const ruby = page.locator('.word-token ruby').first();
+    const base = await ruby.evaluate(el => {
+      const r = document.createRange();
+      r.selectNodeContents(el.firstChild!);
+      return r.getBoundingClientRect();
+    });
+    const rt = await ruby.locator('rt').boundingBox();
+    expect(rt!.y).toBeGreaterThan(base.y + base.height / 2);
+
     // In-context readings: 登上了 is "le", not the isolated "liǎo".
     // (Text content includes the pinyin, so find the word by its title.)
     const le = page.locator('.word-token[title^="了 ("]').first();
@@ -53,5 +63,14 @@ test.describe('Global pinyin toggle', () => {
     await page.getByRole('button', { name: /复习|Review/ }).first().click();
     await expect(page.locator('h2').first()).toBeVisible();
     await expect(page.locator('h2 rt')).toHaveCount(0);
+  });
+
+  test('a saved "above" setting from before is migrated and still shows pinyin', async ({ page }) => {
+    await page.goto('http://localhost:5174');
+    await page.evaluate(() =>
+      localStorage.setItem('duchinese_reader_settings', JSON.stringify({ pinyinMode: 'above' })));
+    await page.reload();
+    await expect(page.locator('button[title="Hide pinyin"]')).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('h2 rt').first()).toBeVisible();
   });
 });

@@ -30,12 +30,12 @@ function segment(text: string): Segment[] {
 }
 
 /**
- * Renders Chinese text, with pinyin above each character when the reader's
+ * Renders Chinese text, with pinyin below each character when the reader's
  * global pinyin setting is on. Punctuation, Latin text and digits are left as is.
  */
 export const ChineseText: React.FC<ChineseTextProps> = ({ text, className }) => {
   const { settings } = useSettings();
-  const showPinyin = settings.pinyinMode === 'above';
+  const showPinyin = settings.pinyinMode === 'below';
   const segments = useMemo(() => (showPinyin ? segment(text) : null), [text, showPinyin]);
 
   if (!segments) return <span className={className}>{text}</span>;
