@@ -12,6 +12,10 @@ export interface WordToken {
   tone: number; // 1 to 5
   startTime?: number; // seconds from start of story audio
   endTime?: number;   // optional end time for the word
+  definitions: string[];
+  hskLevel?: HskLevel;
+  characters?: WordCharacter[];
+  isTargetWord?: boolean;
 }
 
 export interface Sentence {
