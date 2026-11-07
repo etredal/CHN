@@ -51,7 +51,7 @@ const MainApp: React.FC = () => {
             }}
           />
 
-          <main className="flex-1">
+          <main className={`flex-1 ${activeSentenceId ? 'pb-28' : ''}`}>
             {activeTab === 'library' && (
               <LibraryView onSelectStory={handleSelectStory} />
             )}
