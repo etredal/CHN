@@ -2,6 +2,8 @@ import React, { createContext, useContext, useState, useRef, useEffect, useCallb
 import type { Sentence } from '../types';
 import { useSettings } from './SettingsContext';
 import { speechService } from '../utils/speech';
+import { buildWordTimeline, sentenceIndexAt, wordAt } from '../utils/wordTimeline';
+import type { ActiveWord, WordTimeline } from '../utils/wordTimeline';
 
 interface AudioPlayerContextType {
   isPlaying: boolean;
@@ -9,6 +11,8 @@ interface AudioPlayerContextType {
   duration: number;
   activeSentenceId: string | null;
   activeSentence: Sentence | null;
+  /** The word currently being spoken, for karaoke-style highlighting. */
+  activeWord: ActiveWord | null;
   isLoopingSentence: boolean;
   hasAudioSource: boolean;
   play: () => void;
@@ -34,9 +38,12 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const [isLoopingSentence, setIsLoopingSentence] = useState(false);
   const [sentences, setSentences] = useState<Sentence[]>([]);
   const [hasAudioSource, setHasAudioSource] = useState(false);
+  const [activeWord, setActiveWord] = useState<ActiveWord | null>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const currentSentenceRef = useRef<Sentence | null>(null);
+  const timelineRef = useRef<WordTimeline>({ words: [], sentenceStarts: [] });
+  const activeWordRef = useRef<ActiveWord | null>(null);
 
   // Render hidden audio element for testing and playback
   // The audioRef will point to this element
@@ -55,6 +62,9 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
   const loadStoryAudio = useCallback((audioUrl?: string, storySentences: Sentence[] = []) => {
     setSentences(storySentences);
+    timelineRef.current = buildWordTimeline(storySentences);
+    activeWordRef.current = null;
+    setActiveWord(null);
     setActiveSentenceId(storySentences.length > 0 ? storySentences[0].id : null);
     currentSentenceRef.current = storySentences.length > 0 ? storySentences[0] : null;
 
@@ -85,43 +95,70 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
     }
   }, [audioRef.current]);
 
+  // Work out which sentence and word are being spoken at `time`, and only
+  // touch React state when either actually changes.
+  const syncToTime = useCallback((time: number) => {
+    const timeline = timelineRef.current;
+    const sIdx = sentenceIndexAt(timeline, time);
+    const sentence = sIdx >= 0 ? sentences[sIdx] : null;
+    if (sentence && sentence.id !== currentSentenceRef.current?.id) {
+      currentSentenceRef.current = sentence;
+      setActiveSentenceId(sentence.id);
+      if (settings.autoScroll) {
+        document.getElementById(`sentence-${sentence.id}`)
+          ?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    const word = wordAt(timeline, sentences, time);
+    const prev = activeWordRef.current;
+    if (word?.sentenceId !== prev?.sentenceId || word?.tokenIndex !== prev?.tokenIndex) {
+      activeWordRef.current = word;
+      setActiveWord(word);
+    }
+  }, [sentences, settings.autoScroll]);
+
+  // While playing, follow the audio every animation frame. The media
+  // 'timeupdate' event only fires ~4 times a second, which makes word
+  // highlighting visibly lag and stutter.
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || !isPlaying) return;
+    let frame = 0;
+    const tick = () => {
+      const cur = currentSentenceRef.current;
+      if (isLoopingSentence && cur && audio.currentTime >= cur.endTime) {
+        audio.currentTime = cur.startTime;
+      }
+      syncToTime(audio.currentTime);
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [isPlaying, isLoopingSentence, syncToTime]);
+
   // Attach audio event listeners when the <audio> element is ready
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const onTimeUpdate = () => {
-      const time = audio.currentTime;
-      setCurrentTime(time);
-
-      const cur = currentSentenceRef.current;
-      if (cur && isLoopingSentence && time >= cur.endTime) {
-        audio.currentTime = cur.startTime;
-        return;
-      }
-
-      const matched = sentences.find(s => time >= s.startTime && time < s.endTime);
-      if (matched && matched.id !== activeSentenceId) {
-        setActiveSentenceId(matched.id);
-        currentSentenceRef.current = matched;
-        if (settings.autoScroll) {
-          const el = document.getElementById(`sentence-${matched.id}`);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }
-        }
-      }
-    };
-
+    // Drives the progress bar; word/sentence tracking runs per frame above.
+    const onTimeUpdate = () => setCurrentTime(audio.currentTime);
+    // Keep highlighting right after a seek while paused.
+    const onSeeked = () => syncToTime(audio.currentTime);
     const onLoadedMetadata = () => setDuration(audio.duration || 0);
     const onPlay = () => setIsPlaying(true);
     const onPause = () => setIsPlaying(false);
     const onEnded = () => {
       setIsPlaying(false);
       setActiveSentenceId(null);
+      currentSentenceRef.current = null;
+      activeWordRef.current = null;
+      setActiveWord(null);
     };
 
     audio.addEventListener('timeupdate', onTimeUpdate);
+    audio.addEventListener('seeked', onSeeked);
     audio.addEventListener('loadedmetadata', onLoadedMetadata);
     audio.addEventListener('play', onPlay);
     audio.addEventListener('pause', onPause);
@@ -129,12 +166,13 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
     return () => {
       audio.removeEventListener('timeupdate', onTimeUpdate);
+      audio.removeEventListener('seeked', onSeeked);
       audio.removeEventListener('loadedmetadata', onLoadedMetadata);
       audio.removeEventListener('play', onPlay);
       audio.removeEventListener('pause', onPause);
       audio.removeEventListener('ended', onEnded);
     };
-  }, [sentences, isLoopingSentence, activeSentenceId, settings.autoScroll]);
+  }, [syncToTime]);
 
   const play = useCallback(() => {
     if (audioRef.current && hasAudioSource) {
@@ -244,6 +282,7 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
         duration,
         activeSentenceId,
         activeSentence,
+        activeWord,
         isLoopingSentence,
         hasAudioSource,
         play,

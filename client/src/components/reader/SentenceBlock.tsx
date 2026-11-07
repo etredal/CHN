@@ -11,35 +11,13 @@ interface SentenceBlockProps {
 }
 
 export const SentenceBlock: React.FC<SentenceBlockProps> = ({ sentence, onWordClick }) => {
-  const { activeSentenceId, seekToSentence, currentTime } = useAudioPlayer();
+  const { activeSentenceId, activeWord, seekToSentence } = useAudioPlayer();
   const { settings } = useSettings();
   const [localShowEnglish, setLocalShowEnglish] = useState(false);
   const isEnglishVisible = settings.showEnglish || localShowEnglish;
   const isActive = activeSentenceId === sentence.id;
-  // Calculate which word should be highlighted when sentence is active
-  const activeWordIndex = (() => {
-    if (!isActive) return -1;
-    // If any token has a startTime, use timestamp based lookup
-    const hasTimestamps = sentence.tokens.some(t => t.startTime !== undefined);
-    if (hasTimestamps) {
-      // Find the last token whose startTime is <= currentTime
-      for (let i = sentence.tokens.length - 1; i >= 0; i--) {
-        const t = sentence.tokens[i];
-        if (t.startTime !== undefined && t.startTime <= currentTime) {
-          return i;
-        }
-      }
-      return -1;
-    }
-    // Fallback to proportional calculation (previous logic)
-    const duration = sentence.endTime - sentence.startTime;
-    if (duration <= 0) return -1;
-    const elapsed = currentTime - sentence.startTime;
-    if (elapsed >= duration) return -1;
-    const progress = Math.max(0, Math.min(1, elapsed / duration));
-    const idx = Math.floor(progress * sentence.tokens.length);
-    return idx >= sentence.tokens.length ? sentence.tokens.length - 1 : idx;
-  })();
+  // Timing lives in the audio player (see utils/wordTimeline.ts).
+  const activeWordIndex = activeWord?.sentenceId === sentence.id ? activeWord.tokenIndex : -1;
 
   return (
     <div

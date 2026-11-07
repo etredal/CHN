@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+const fs = require('fs');
 const { pinyin } = require('../client/node_modules/pinyin-pro');
 
 const TONE_MARKS = {
@@ -41,6 +41,29 @@ function tokenize(text) {
   return tokens;
 }
 
+// Give each spoken token the onset of its first character, using the
+// per-character times written by tools/align_word_timings.py. A token ends
+// where the next spoken token starts (or at the end of the sentence).
+// Punctuation tokens get no times, so they are never highlighted.
+function addTokenTimes(sent, tokens) {
+  const charTimes = sent.charTimes;
+  if (!charTimes) return tokens;
+  let cursor = 0;
+  const timed = tokens.map(tok => {
+    const at = sent.cn.indexOf(tok.text, cursor);
+    if (at < 0) throw new Error(`Token "${tok.text}" not found in sentence ${sent.id}`);
+    cursor = at + tok.text.length;
+    const onsets = charTimes.slice(at, cursor).filter(t => t !== null && t !== undefined);
+    const { startTime, endTime, ...rest } = tok;
+    return onsets.length ? { ...rest, startTime: onsets[0] } : rest;
+  });
+  const spoken = timed.filter(t => t.startTime !== undefined);
+  spoken.forEach((tok, i) => {
+    tok.endTime = i + 1 < spoken.length ? spoken[i + 1].startTime : sent.endTime;
+  });
+  return timed;
+}
+
 const stories = [
   { jsonFile: 'tools/hsk5_night_train.json', tsFile: 'client/src/data/hsk5_night_train.ts', varName: 'hsk5NightTrain' },
   { jsonFile: 'tools/hsk6_battle_of_julu.json', tsFile: 'client/src/data/hsk6_battle_of_julu.ts', varName: 'hsk6BattleOfJulu' },
@@ -57,9 +80,12 @@ for (const s of stories) {
     paragraphs: [
       {
         id: `p_${sec.partNumber}_1`,
-        sentences: sec.sentences.map(sent => ({
+        sentences: sec.sentences.map(({ charTimes, ...sent }) => ({
           ...sent,
-          tokens: sent.tokens && sent.tokens.length > 0 ? sent.tokens : tokenize(sent.cn)
+          tokens: addTokenTimes(
+            { ...sent, charTimes },
+            sent.tokens && sent.tokens.length > 0 ? sent.tokens : tokenize(sent.cn)
+          )
         }))
       }
     ]
