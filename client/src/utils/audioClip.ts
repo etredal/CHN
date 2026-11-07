@@ -9,15 +9,30 @@ export interface AudioClip {
   end: number;   // seconds
 }
 
-let clipEl: HTMLAudioElement | null = null;
+// One element per file, so switching between recordings doesn't reload them.
+const elements = new Map<string, HTMLAudioElement>();
+let currentEl: HTMLAudioElement | null = null;
 let watchFrame = 0;
 let safetyTimer = 0;
 let finishCurrent: (() => void) | null = null;
 
+/** Get (creating and starting to fetch if needed) the element for `url`. */
+export function preloadAudio(url: string): HTMLAudioElement {
+  const src = new URL(url, document.baseURI).href;
+  let el = elements.get(src);
+  if (!el) {
+    el = new Audio();
+    el.preload = 'auto';
+    el.src = src;
+    elements.set(src, el);
+  }
+  return el;
+}
+
 export function stopAudioClip(): void {
   cancelAnimationFrame(watchFrame);
   clearTimeout(safetyTimer);
-  clipEl?.pause();
+  currentEl?.pause();
   const finish = finishCurrent;
   finishCurrent = null;
   finish?.();
@@ -31,13 +46,9 @@ export function stopAudioClip(): void {
 export function playAudioClip({ url, start, end }: AudioClip, rate = 1): Promise<void> {
   stopAudioClip();
 
-  if (!clipEl) {
-    clipEl = new Audio();
-    clipEl.preload = 'auto';
-  }
-  const el = clipEl;
-  const src = new URL(url, document.baseURI).href;
-  if (el.src !== src) el.src = src;
+  const el = preloadAudio(url);
+  const src = el.src;
+  currentEl = el;
 
   return new Promise<void>((resolve, reject) => {
     finishCurrent = resolve;
@@ -80,7 +91,8 @@ export function playAudioClip({ url, start, end }: AudioClip, rate = 1): Promise
       };
       el.addEventListener('loadedmetadata', onReady, { once: true });
       el.addEventListener('error', onError, { once: true });
-      el.load();
+      // Already fetching if it was preloaded; only kick off a load otherwise.
+      if (el.networkState === HTMLMediaElement.NETWORK_EMPTY || el.error) el.load();
     }
   });
 }

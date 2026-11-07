@@ -85,6 +85,8 @@ export interface LongStory {
     estimatedReadingTimeMinutes: number;
   };
   audioUrl?: string;
+  /** Standalone pronunciation of every word (tools/generate_word_audio.py). */
+  wordAudio?: WordAudio;
   summary: {
     cn: string;
     en: string;
@@ -136,4 +138,12 @@ export interface Flashcard {
     easeFactor: number;
     nextReviewDate: number; // timestamp ms
   };
+}
+export interface WordAudio {
+  /** Audio sprite with each word spoken on its own, at normal speed. */
+  url: string;
+  /** The same words recorded slowly. */
+  slowUrl: string;
+  /** word -> [start, end, slowStart, slowEnd] in seconds within the sprites. */
+  clips: Record<string, [number, number, number, number]>;
 }

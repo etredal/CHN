@@ -380,6 +380,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
       <WordDrawer
         token={selectedWord}
         sentenceContext={selectedSentence}
+        wordAudio={story.wordAudio}
         onClose={() => {
           setSelectedWord(null);
           setSelectedSentence(null);

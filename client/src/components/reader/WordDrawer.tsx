@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import type { WordToken, Sentence } from '../../types';
-import { pronounceWord } from '../../utils/pronounce';
-import { useAudioPlayer } from '../../context/AudioPlayerContext';
+import React, { useEffect, useState } from 'react';
+import type { WordToken, Sentence, WordAudio } from '../../types';
+import { pronounceWord, preloadWordAudio, wordAudioSources } from '../../utils/pronounce';
 import { getToneBadgeClass } from '../../utils/pinyin';
 import { isWordSaved, saveFlashcard, removeFlashcard } from '../../utils/srs';
 import { Volume2, Bookmark, BookmarkCheck, X, Sparkles } from 'lucide-react';
@@ -9,6 +8,8 @@ import { Volume2, Bookmark, BookmarkCheck, X, Sparkles } from 'lucide-react';
 interface WordDrawerProps {
   token: WordToken | null;
   sentenceContext?: Sentence | null;
+  /** The story's standalone word recordings, if it has them. */
+  wordAudio?: WordAudio;
   onClose: () => void;
 }
 
@@ -16,19 +17,16 @@ export const WordDrawer: React.FC<WordDrawerProps> = ({ token, ...rest }) =>
   // Keyed so each opened word starts with fresh state (e.g. its saved flag).
   token ? <WordDrawerBody key={`${token.text}@${token.startTime ?? ''}`} token={token} {...rest} /> : null;
 
-const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ token, sentenceContext, onClose }) => {
-  const { audioUrl } = useAudioPlayer();
+const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ token, sentenceContext, wordAudio, onClose }) => {
   const [saved, setSaved] = useState(() => isWordSaved(token.text));
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
 
-  // Story words carry their timing in the recording; imported text doesn't.
-  const audioClip = audioUrl && token.startTime !== undefined && token.endTime !== undefined
-    ? { url: audioUrl, start: token.startTime, end: token.endTime }
-    : undefined;
+  const sources = wordAudioSources(token.text, wordAudio);
+  useEffect(() => preloadWordAudio(wordAudio), [wordAudio]);
 
   const handleSpeak = (slow: boolean = false) => {
     setIsPlayingAudio(true);
-    pronounceWord(token.text, audioClip, slow).finally(() => setIsPlayingAudio(false));
+    pronounceWord(token.text, sources, slow).finally(() => setIsPlayingAudio(false));
   };
 
   const handleToggleSave = () => {
@@ -43,7 +41,7 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
         definitions: token.definitions.length > 0 ? token.definitions : ['definition not specified'],
         hskLevel: token.hskLevel,
         exampleSentence: sentenceContext ? { cn: sentenceContext.cn, en: sentenceContext.en } : undefined,
-        audioClip,
+        audioClip: sources.clip,
       });
       setSaved(true);
     }

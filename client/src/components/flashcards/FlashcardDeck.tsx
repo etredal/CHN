@@ -44,7 +44,7 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ cards, onBack, onF
   };
 
   const playWordAudio = () => {
-    pronounceWord(currentCard.word, currentCard.audioClip);
+    pronounceWord(currentCard.word, { clip: currentCard.audioClip });
   };
 
   return (
