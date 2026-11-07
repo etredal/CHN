@@ -1,6 +1,7 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import type { WordToken, Sentence } from '../../types';
-import { speechService } from '../../utils/speech';
+import { pronounceWord } from '../../utils/pronounce';
+import { useAudioPlayer } from '../../context/AudioPlayerContext';
 import { getToneBadgeClass } from '../../utils/pinyin';
 import { isWordSaved, saveFlashcard, removeFlashcard } from '../../utils/srs';
 import { Volume2, Bookmark, BookmarkCheck, X, Sparkles } from 'lucide-react';
@@ -11,16 +12,23 @@ interface WordDrawerProps {
   onClose: () => void;
 }
 
-export const WordDrawer: React.FC<WordDrawerProps> = ({ token, sentenceContext, onClose }) => {
-  if (!token) return null;
+export const WordDrawer: React.FC<WordDrawerProps> = ({ token, ...rest }) =>
+  // Keyed so each opened word starts with fresh state (e.g. its saved flag).
+  token ? <WordDrawerBody key={`${token.text}@${token.startTime ?? ''}`} token={token} {...rest} /> : null;
 
+const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ token, sentenceContext, onClose }) => {
+  const { audioUrl } = useAudioPlayer();
   const [saved, setSaved] = useState(() => isWordSaved(token.text));
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
 
+  // Story words carry their timing in the recording; imported text doesn't.
+  const audioClip = audioUrl && token.startTime !== undefined && token.endTime !== undefined
+    ? { url: audioUrl, start: token.startTime, end: token.endTime }
+    : undefined;
+
   const handleSpeak = (slow: boolean = false) => {
     setIsPlayingAudio(true);
-    speechService.speakWord(token.text, slow);
-    setTimeout(() => setIsPlayingAudio(false), 1200);
+    pronounceWord(token.text, audioClip, slow).finally(() => setIsPlayingAudio(false));
   };
 
   const handleToggleSave = () => {
@@ -35,6 +43,7 @@ export const WordDrawer: React.FC<WordDrawerProps> = ({ token, sentenceContext, 
         definitions: token.definitions.length > 0 ? token.definitions : ['definition not specified'],
         hskLevel: token.hskLevel,
         exampleSentence: sentenceContext ? { cn: sentenceContext.cn, en: sentenceContext.en } : undefined,
+        audioClip,
       });
       setSaved(true);
     }

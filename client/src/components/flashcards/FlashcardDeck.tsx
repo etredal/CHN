@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { Flashcard } from '../../types';
 import { updateCardSrs } from '../../utils/srs';
-import { speechService } from '../../utils/speech';
+import { pronounceWord } from '../../utils/pronounce';
 import { Volume2, ArrowLeft, Sparkles } from 'lucide-react';
 
 interface FlashcardDeckProps {
@@ -44,7 +44,7 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ cards, onBack, onF
   };
 
   const playWordAudio = () => {
-    speechService.speakWord(currentCard.word);
+    pronounceWord(currentCard.word, currentCard.audioClip);
   };
 
   return (

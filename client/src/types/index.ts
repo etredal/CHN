@@ -123,6 +123,12 @@ export interface Flashcard {
     en: string;
   };
   storyTitle?: string;
+  /** Where the word is spoken in its story's recording, if saved from a story. */
+  audioClip?: {
+    url: string;
+    start: number;
+    end: number;
+  };
   savedAt: number;
   srs: {
     interval: number; // days

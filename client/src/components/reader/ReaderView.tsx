@@ -25,7 +25,7 @@ interface ReaderViewProps {
 }
 
 export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
-  const { loadStoryAudio, seekTo, play } = useAudioPlayer();
+  const { loadStoryAudio, pause } = useAudioPlayer();
   const { settings, setPinyinMode, toggleShowEnglish, toggleToneColors, setFontSize, setTheme } = useSettings();
 
   const [activeTab, setActiveTab] = useState<'text' | 'grammar' | 'quiz' | 'vocab'>('text');
@@ -42,27 +42,11 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
   }, [story, loadStoryAudio]);
 
   const handleWordClick = (token: WordToken, sentenceContext?: Sentence) => {
+    // Looking a word up shouldn't talk over it: pause the story and leave the
+    // playback position where it is.
+    pause();
     setSelectedWord(token);
     setSelectedSentence(sentenceContext || null);
-    if (sentenceContext) {
-      // Prefer explicit timestamps on the token
-      const seekAndPlay = (time: number) => {
-        // Use context methods to seek and start playback
-        seekTo(time);
-        play();
-      };
-
-      if (token.startTime !== undefined) {
-        seekAndPlay(token.startTime);
-      } else {
-        const tokenIdx = sentenceContext.tokens.findIndex(t => t.text === token.text && t.pinyin === token.pinyin);
-        if (tokenIdx >= 0) {
-          const duration = sentenceContext.endTime - sentenceContext.startTime;
-          const tokenStart = sentenceContext.startTime + (duration * tokenIdx) / sentenceContext.tokens.length;
-          seekAndPlay(tokenStart);
-        }
-      }
-    }
   };
 
   const getFontSizeClass = () => {

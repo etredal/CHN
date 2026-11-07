@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useRef, useEffect, useCallb
 import type { Sentence } from '../types';
 import { useSettings } from './SettingsContext';
 import { speechService } from '../utils/speech';
+import { stopAudioClip } from '../utils/audioClip';
 import { buildWordTimeline, sentenceIndexAt, wordAt } from '../utils/wordTimeline';
 import type { ActiveWord, WordTimeline } from '../utils/wordTimeline';
 
@@ -15,6 +16,8 @@ interface AudioPlayerContextType {
   activeWord: ActiveWord | null;
   isLoopingSentence: boolean;
   hasAudioSource: boolean;
+  /** URL of the loaded story's recording, if it has one. */
+  audioUrl: string | null;
   play: () => void;
   pause: () => void;
   togglePlay: () => void;
@@ -38,6 +41,7 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const [isLoopingSentence, setIsLoopingSentence] = useState(false);
   const [sentences, setSentences] = useState<Sentence[]>([]);
   const [hasAudioSource, setHasAudioSource] = useState(false);
+  const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [activeWord, setActiveWord] = useState<ActiveWord | null>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -72,6 +76,7 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
     pendingAudioUrlRef.current = audioUrl || null;
     // Determine if we have an audio source
     setHasAudioSource(!!audioUrl);
+    setAudioUrl(audioUrl || null);
 
     if (audioRef.current) {
       audioRef.current.pause();
@@ -176,6 +181,7 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
   const play = useCallback(() => {
     if (audioRef.current && hasAudioSource) {
+      stopAudioClip();
       audioRef.current.play().catch(e => console.warn('Audio play prevented', e));
     }
   }, [hasAudioSource]);
@@ -285,6 +291,7 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
         activeWord,
         isLoopingSentence,
         hasAudioSource,
+        audioUrl,
         play,
         pause,
         togglePlay,

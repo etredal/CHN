@@ -1,7 +1,7 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Flashcard } from '../../types';
 import { getSavedFlashcards, removeFlashcard, exportToAnkiTsv } from '../../utils/srs';
-import { speechService } from '../../utils/speech';
+import { pronounceWord } from '../../utils/pronounce';
 import { Bookmark, Volume2, Trash2, Download, Play, Search, Sparkles } from 'lucide-react';
 
 interface VocabListViewProps {
@@ -128,7 +128,7 @@ export const VocabListView: React.FC<VocabListViewProps> = ({ onStartReview }) =
               {/* Action buttons */}
               <div className="flex flex-col items-center gap-1 shrink-0">
                 <button
-                  onClick={() => speechService.speakWord(c.word)}
+                  onClick={() => pronounceWord(c.word, c.audioClip)}
                   className="p-1.5 text-slate-400 hover:text-amber-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
                   title="Speak Word"
                 >
