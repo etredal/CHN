@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { pinyin, customPinyin } from 'pinyin-pro';
 import overrides from '../../utils/pinyinOverrides.json';
 import { usePinyinVisible } from '../../context/SettingsContext';
@@ -6,6 +6,13 @@ import { usePinyinVisible } from '../../context/SettingsContext';
 interface ChineseTextProps {
   text: string;
   className?: string;
+  /** English for this text: clicking the text reveals it underneath. */
+  en?: string;
+  /** Control the English from outside (e.g. a quiz question reveals its options too). */
+  showEn?: boolean;
+  onToggleEn?: () => void;
+  /** Interface labels skip pinyin; reading content gets it. */
+  pinyin?: boolean;
 }
 
 // Words pinyin-pro gets wrong; shared with tools/compile_ts_stories.cjs.
@@ -32,25 +39,59 @@ function segment(text: string): Segment[] {
 /**
  * Renders Chinese text, with pinyin below each character when the reader's
  * global pinyin setting is on. Punctuation, Latin text and digits are left as is.
+ *
+ * Given `en`, the text is clickable and toggles its English translation
+ * underneath. Clicks don't reach the parent (e.g. a card that opens a story).
  */
-export const ChineseText: React.FC<ChineseTextProps> = ({ text, className }) => {
-  const showPinyin = usePinyinVisible();
+export const ChineseText: React.FC<ChineseTextProps> = ({ text, className, en, showEn, onToggleEn, pinyin: annotate = true }) => {
+  const showPinyin = usePinyinVisible() && annotate;
   const segments = useMemo(() => (showPinyin ? segment(text) : null), [text, showPinyin]);
+  const [ownShowEn, setOwnShowEn] = useState(false);
+  const enVisible = showEn ?? ownShowEn;
 
-  if (!segments) return <span className={className}>{text}</span>;
+  const body = !segments ? text : segments.map((s, i) =>
+    s.zh ? (
+      <ruby key={i}>
+        {s.char}
+        <rt>{s.pinyin}</rt>
+      </ruby>
+    ) : (
+      <React.Fragment key={i}>{s.text}</React.Fragment>
+    )
+  );
+  const cls = `${segments ? 'chinese-with-pinyin' : ''} ${className ?? ''}`.trim() || undefined;
 
+  if (!en) return <span className={cls}>{body}</span>;
+
+  const toggle = (e: React.SyntheticEvent) => {
+    e.stopPropagation();
+    if (onToggleEn) onToggleEn();
+    else setOwnShowEn(v => !v);
+  };
   return (
-    <span className={`chinese-with-pinyin ${className ?? ''}`}>
-      {segments.map((s, i) =>
-        s.zh ? (
-          <ruby key={i}>
-            {s.char}
-            <rt>{s.pinyin}</rt>
-          </ruby>
-        ) : (
-          <React.Fragment key={i}>{s.text}</React.Fragment>
-        )
-      )}
+    <span
+      className={`translatable ${cls ?? ''}`}
+      role="button"
+      tabIndex={0}
+      aria-expanded={enVisible}
+      title={enVisible ? undefined : 'Click for English'}
+      onClick={toggle}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggle(e);
+        }
+      }}
+    >
+      {body}
+      {enVisible && <EnglishLine text={en} />}
     </span>
   );
 };
+
+/** An English translation revealed under Chinese text. */
+export const EnglishLine: React.FC<{ text: string }> = ({ text }) => (
+  <span lang="en" className="english-line block mt-1 text-[0.8em] leading-snug font-sans font-normal not-italic text-slate-500 dark:text-slate-400">
+    {text}
+  </span>
+);

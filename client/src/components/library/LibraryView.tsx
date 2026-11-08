@@ -3,6 +3,7 @@ import type { LongStory } from '../../types';
 import { ALL_STORIES } from '../../data';
 import { Search, BookOpen, Clock, Headphones, Sparkles, Filter } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
+import { categoryZh } from '../../utils/labels';
 
 interface LibraryViewProps {
   onSelectStory: (story: LongStory) => void;
@@ -33,13 +34,13 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
       <div className="text-center max-w-2xl mx-auto mb-10">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-900 dark:bg-amber-900/50 dark:text-amber-300 border border-amber-300 dark:border-amber-700 mb-3">
           <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-          <span>杜中文进阶阅读平台 • HSK 5 & 6 专区</span>
+          <ChineseText pinyin={false} text="杜中文进阶阅读平台 • HSK 5 & 6 专区" en="Du Chinese advanced reading platform • HSK 5 & 6" />
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3 font-chinese-sans">
-          沉浸式中文精读文库
+          <ChineseText pinyin={false} text="沉浸式中文精读文库" en="An immersive library for close reading in Chinese" />
         </h1>
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
-          精选长篇故事与思想深度解析，支持声调颜色标注、逐句中英对照切换、原生自然语音跟读同步与全功能词典速查。
+          <ChineseText pinyin={false} text="精选长篇故事与思想深度解析，支持声调颜色标注、逐句中英对照切换、原生自然语音跟读同步与全功能词典速查。" en="Hand-picked long stories with in-depth analysis, with tone colours, sentence-by-sentence translations, natural audio that follows along, and instant dictionary lookup." />
         </p>
       </div>
 
@@ -83,13 +84,14 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
+              title={cat === 'All' ? 'All topics' : cat}
               className={`px-3 py-1 rounded-lg transition-colors shrink-0 font-medium ${
                 selectedCategory === cat
                   ? 'bg-amber-500 text-white'
                   : 'bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
-              {cat === 'All' ? '全部题材' : cat}
+              {cat === 'All' ? '全部题材' : categoryZh(cat)}
             </button>
           ))}
         </div>
@@ -114,22 +116,21 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
                   {story.level}
                 </span>
 
-                <span className="text-xs text-slate-400 font-medium">
-                  {story.category}
+                <span className="text-xs text-slate-400 font-medium" title={story.category}>
+                  {categoryZh(story.category)}
                 </span>
               </div>
 
               {/* Title */}
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white font-chinese-sans group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors mb-1">
+                {/* The title opens the story like the rest of the card; its English
+                    is a click away on the story page, and the summary reveals its own. */}
                 <ChineseText text={story.title.cn} />
               </h2>
-              <p className="text-xs text-slate-400 dark:text-slate-500 font-sans mb-3">
-                {story.title.en}
-              </p>
 
               {/* Summary */}
-              <p className="text-sm text-slate-600 dark:text-slate-300 font-chinese-sans line-clamp-3 leading-relaxed mb-4">
-                <ChineseText text={story.summary.cn} />
+              <p className="text-sm text-slate-600 dark:text-slate-300 font-chinese-sans leading-relaxed mt-2 mb-4">
+                <ChineseText text={story.summary.cn} en={story.summary.en} />
               </p>
             </div>
 

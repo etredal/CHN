@@ -59,15 +59,20 @@ export interface GrammarPoint {
   pattern: string;
   explanation: string;
   exampleFromStory: string;
+  exampleFromStoryEn?: string;
   additionalExamples: string[];
+  additionalExamplesEn?: string[];
 }
 
 export interface QuizQuestion {
   id: string;
   question: string;
+  questionEn?: string;
   options: string[];
+  optionsEn?: string[];
   correctIndex: number;
   explanation: string;
+  explanationEn?: string;
 }
 
 export interface LongStory {

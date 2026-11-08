@@ -43,7 +43,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
                 HSK 5/6
               </span>
             </div>
-            <p className="text-[10px] text-slate-400 font-sans -mt-0.5">Advanced Chinese Graded Reader</p>
+            <p className="text-[10px] text-slate-400 font-chinese-sans -mt-0.5">进阶中文分级阅读</p>
           </div>
         </div>
 

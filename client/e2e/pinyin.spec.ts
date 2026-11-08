@@ -40,7 +40,7 @@ test.describe('Global pinyin toggle', () => {
     // Turning it off in the reading settings menu turns it off everywhere.
     await page.locator('button').filter({ hasText: /^正文/ }).click();
     await page.locator('button[title="Reading Settings"]').click();
-    await page.getByRole('button', { name: '隐藏 (Off)' }).click();
+    await page.getByRole('button', { name: '隐藏', exact: true }).click();
     await expect(page.locator('rt')).toHaveCount(0);
     await expect(page.locator('button[title="Show pinyin"]')).toHaveAttribute('aria-pressed', 'false');
 

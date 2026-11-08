@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import type { Flashcard } from '../../types';
 import { getSavedFlashcards, removeFlashcard, exportToAnkiTsv } from '../../utils/srs';
 import { pronounceWord } from '../../utils/pronounce';
@@ -12,16 +12,13 @@ interface VocabListViewProps {
 
 export const VocabListView: React.FC<VocabListViewProps> = ({ onStartReview }) => {
   const showPinyin = usePinyinVisible();
-  const [cards, setCards] = useState<Flashcard[]>([]);
+  // Read saved words up front so the first render isn't an empty list.
+  const [cards, setCards] = useState<Flashcard[]>(getSavedFlashcards);
   const [search, setSearch] = useState('');
 
   const loadCards = () => {
     setCards(getSavedFlashcards());
   };
-
-  useEffect(() => {
-    loadCards();
-  }, []);
 
   const handleDelete = (word: string) => {
     removeFlashcard(word);
@@ -52,7 +49,7 @@ export const VocabListView: React.FC<VocabListViewProps> = ({ onStartReview }) =
         <div>
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white font-chinese-sans flex items-center gap-2">
             <Bookmark className="w-6 h-6 text-amber-500 fill-current" />
-            <span>我的生词本 (Saved Vocabulary)</span>
+            <span>我的生词本</span>
           </h2>
           <p className="text-xs text-slate-500 mt-1">共收藏 {cards.length} 个单词 • 支持基于 SM-2 算法的间隔复习</p>
         </div>
@@ -106,7 +103,8 @@ export const VocabListView: React.FC<VocabListViewProps> = ({ onStartReview }) =
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-xl font-bold text-slate-900 dark:text-white font-chinese-sans">
-                    {c.word}
+                    {/* Click the word for its English meaning. */}
+                    <ChineseText pinyin={false} text={c.word} en={c.definitions.join(', ')} />
                   </span>
                   <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300">
                     {c.hskLevel || 'HSK'}
@@ -119,13 +117,9 @@ export const VocabListView: React.FC<VocabListViewProps> = ({ onStartReview }) =
                   </span>
                 )}
 
-                <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-2">
-                  {c.definitions.join(', ')}
-                </p>
-
                 {c.exampleSentence && (
-                  <p className="text-[11px] text-slate-400 italic line-clamp-1 mt-1">
-                    <ChineseText text={`"${c.exampleSentence.cn}"`} />
+                  <p className="text-[11px] text-slate-400 mt-1">
+                    <ChineseText text={`"${c.exampleSentence.cn}"`} en={c.exampleSentence.en} />
                   </p>
                 )}
               </div>

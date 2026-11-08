@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { QuizQuestion } from '../../types';
 import { HelpCircle, CheckCircle2, XCircle, RotateCcw, Award } from 'lucide-react';
-import { ChineseText } from '../common/ChineseText';
+import { ChineseText, EnglishLine } from '../common/ChineseText';
 
 interface QuizTabProps {
   quiz: QuizQuestion[];
@@ -9,6 +9,7 @@ interface QuizTabProps {
 
 export const QuizTab: React.FC<QuizTabProps> = ({ quiz }) => {
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, number>>({});
+  const [showEnglish, setShowEnglish] = useState<Record<string, boolean>>({});
   const [submitted, setSubmitted] = useState(false);
 
   if (!quiz || quiz.length === 0) {
@@ -53,7 +54,7 @@ export const QuizTab: React.FC<QuizTabProps> = ({ quiz }) => {
         <div className="flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-amber-500" />
           <h3 className="text-lg font-bold text-slate-900 dark:text-white font-sans">
-            阅读理解随堂测验 (Comprehension Quiz)
+            <ChineseText pinyin={false} text="阅读理解随堂测验" en="Reading comprehension quiz" />
           </h3>
         </div>
 
@@ -87,7 +88,13 @@ export const QuizTab: React.FC<QuizTabProps> = ({ quiz }) => {
             >
               <h4 className="text-base font-bold text-slate-900 dark:text-slate-100 font-chinese-sans mb-3 flex items-start gap-2">
                 <span className="text-amber-500">{qIdx + 1}.</span>
-                <ChineseText text={q.question} />
+                {/* Clicking the question reveals English for it and its options. */}
+                <ChineseText
+                  text={q.question}
+                  en={q.questionEn}
+                  showEn={!!showEnglish[q.id]}
+                  onToggleEn={() => setShowEnglish(prev => ({ ...prev, [q.id]: !prev[q.id] }))}
+                />
               </h4>
 
               {/* Options */}
@@ -117,7 +124,10 @@ export const QuizTab: React.FC<QuizTabProps> = ({ quiz }) => {
                         <span className="w-6 h-6 rounded-full border border-current flex items-center justify-center text-xs shrink-0">
                           {String.fromCharCode(65 + optIdx)}
                         </span>
-                        <ChineseText text={opt} />
+                        <span>
+                          <ChineseText text={opt} />
+                          {showEnglish[q.id] && q.optionsEn?.[optIdx] && <EnglishLine text={q.optionsEn[optIdx]} />}
+                        </span>
                       </div>
 
                       {submitted && optIdx === q.correctIndex && (
@@ -135,7 +145,7 @@ export const QuizTab: React.FC<QuizTabProps> = ({ quiz }) => {
               {submitted && (
                 <div className="mt-4 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 text-xs text-slate-600 dark:text-slate-300 font-sans border-l-4 border-amber-500">
                   <span className="font-bold text-slate-800 dark:text-slate-200 block mb-0.5">解析：</span>
-                  <p className="font-chinese-sans text-sm"><ChineseText text={q.explanation} /></p>
+                  <p className="font-chinese-sans text-sm"><ChineseText text={q.explanation} en={q.explanationEn} /></p>
                 </div>
               )}
             </div>

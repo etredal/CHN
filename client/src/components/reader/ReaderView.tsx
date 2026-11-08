@@ -20,11 +20,14 @@ import {
 } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
 import { PinyinToggle } from '../common/PinyinToggle';
+import { categoryZh } from '../../utils/labels';
 
 interface ReaderViewProps {
   story: LongStory;
   onBack: () => void;
 }
+
+const FONT_SIZE_LABELS = { sm: '小', base: '中', lg: '大', xl: '特大' } as const;
 
 export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
   const { loadStoryAudio, pause } = useAudioPlayer();
@@ -91,7 +94,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
             <h1 className="text-base font-bold text-slate-900 dark:text-white truncate font-chinese-sans">
               {story.title.cn}
             </h1>
-            <span className="text-xs text-slate-400 font-sans">{story.level} • {story.title.en}</span>
+            <span className="text-xs text-slate-400 font-sans">{story.level}</span>
           </div>
 
           {/* Quick Reader Settings Trigger */}
@@ -110,7 +113,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
               <div className="absolute right-0 top-full mt-2 w-64 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl z-50 text-sm space-y-4 animate-in fade-in zoom-in-95 duration-150">
                 {/* Pinyin Mode */}
                 <div>
-                  <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">拼音显示 (Pinyin)</span>
+                  <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">拼音显示</span>
                   <div className="grid grid-cols-2 gap-1.5 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
                     <button
                       onClick={() => setPinyinMode('off')}
@@ -118,7 +121,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                         settings.pinyinMode === 'off' ? 'bg-white dark:bg-slate-700 shadow-xs text-amber-600 dark:text-amber-400' : 'text-slate-500'
                       }`}
                     >
-                      隐藏 (Off)
+                      隐藏
                     </button>
                     <button
                       onClick={() => setPinyinMode('below')}
@@ -126,7 +129,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                         settings.pinyinMode === 'below' ? 'bg-white dark:bg-slate-700 shadow-xs text-amber-600 dark:text-amber-400' : 'text-slate-500'
                       }`}
                     >
-                      字下 (Below)
+                      显示
                     </button>
                   </div>
                 </div>
@@ -170,11 +173,12 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                       <button
                         key={size}
                         onClick={() => setFontSize(size)}
-                        className={`flex-1 py-1 text-xs rounded-lg font-medium capitalize ${
+                        title={size}
+                        className={`flex-1 py-1 text-xs rounded-lg font-medium ${
                           settings.fontSize === size ? 'bg-white dark:bg-slate-700 text-amber-600 dark:text-amber-400 shadow-xs' : 'text-slate-500'
                         }`}
                       >
-                        {size}
+                        {FONT_SIZE_LABELS[size]}
                       </button>
                     ))}
                   </div>
@@ -226,7 +230,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
             }`}
           >
             <FileText className="w-3.5 h-3.5" />
-            <span>正文 (Story)</span>
+            <span>正文</span>
           </button>
 
           <button
@@ -273,16 +277,13 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
         {activeTab === 'text' && (
           <div className="mb-8 p-6 rounded-3xl bg-linear-to-b from-amber-50/70 to-white dark:from-slate-800/40 dark:to-slate-900 border border-amber-100/80 dark:border-slate-800 text-center">
             <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 mb-3">
-              {story.level} • {story.category}
+              {story.level} • <span title={story.category}>{categoryZh(story.category)}</span>
             </span>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-chinese-sans mb-2 tracking-tight">
-              <ChineseText text={story.title.cn} />
+              <ChineseText text={story.title.cn} en={story.title.en} />
             </h1>
-            <p className="text-sm text-slate-400 dark:text-slate-500 font-sans mb-4">
-              {story.title.en}
-            </p>
 
-            <div className="flex items-center justify-center gap-6 text-xs text-slate-500 border-t border-slate-100 dark:border-slate-800/80 pt-3">
+            <div className="flex items-center justify-center gap-6 text-xs text-slate-500 border-t border-slate-100 dark:border-slate-800/80 pt-3 mt-4">
               <span className="flex items-center gap-1">
                 <BookOpen className="w-4 h-4 text-amber-500" />
                 {story.stats.characterCount} 字
@@ -294,7 +295,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
             </div>
 
             <p className="text-sm text-slate-600 dark:text-slate-300 italic font-sans max-w-xl mx-auto mt-4 bg-white/80 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-100 dark:border-slate-800">
-              <ChineseText text={`“${story.summary.cn}”`} />
+              <ChineseText text={`“${story.summary.cn}”`} en={story.summary.en} />
             </p>
           </div>
         )}
@@ -307,11 +308,8 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                 {/* Section Header */}
                 <div className="sticky top-24 z-10 my-6 py-2 px-4 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 backdrop-blur-xs border border-slate-200 dark:border-slate-700 flex items-center justify-between">
                   <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200 font-chinese-sans">
-                    <ChineseText text={section.partTitle.cn} />
+                    <ChineseText text={section.partTitle.cn} en={section.partTitle.en} />
                   </h3>
-                  <span className="text-xs text-slate-400 font-sans">
-                    {section.partTitle.en}
-                  </span>
                 </div>
 
                 {/* Paragraphs and Sentences */}
@@ -347,7 +345,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
         {activeTab === 'vocab' && (
           <div className="space-y-4 max-w-3xl mx-auto py-4">
             <h3 className="text-lg font-bold text-slate-900 dark:text-white font-sans border-b border-slate-200 dark:border-slate-800 pb-3">
-              本课重点考纲词汇 ({story.targetVocabulary.length} 词)
+              <ChineseText pinyin={false} text={`本课重点考纲词汇 (${story.targetVocabulary.length} 词)`} en={`Key exam vocabulary in this lesson (${story.targetVocabulary.length} words)`} />
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {story.targetVocabulary.map((v, idx) => (
@@ -375,9 +373,6 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                       {v.pinyin}
                     </span>
                   )}
-                  <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-2">
-                    {v.definitions.join(', ')}
-                  </p>
                 </div>
               ))}
             </div>

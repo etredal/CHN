@@ -17,7 +17,7 @@ export const PinyinToggle: React.FC = () => {
       }`}
     >
       <span className="text-sm leading-none">拼</span>
-      <span className="hidden sm:inline text-[11px] font-medium leading-none">Pinyin</span>
+      <span className="hidden sm:inline text-[11px] font-medium leading-none">拼音</span>
     </button>
   );
 };

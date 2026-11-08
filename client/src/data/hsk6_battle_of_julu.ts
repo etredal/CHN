@@ -2457,6 +2457,11 @@ export const hsk6BattleOfJulu: LongStory = {
       "additionalExamples": [
         "唯有经历风雨的洗礼，方能铸就坚毅的品格。",
         "唯有勇于直面内心的恐惧，方能迎来真正的自由。"
+      ],
+      "exampleFromStoryEn": "Only by putting yourself in a hopeless position can you find a way out of certain death.",
+      "additionalExamplesEn": [
+        "Only by weathering storms can one forge a resolute character.",
+        "Only by bravely facing your inner fears can you gain true freedom."
       ]
     },
     {
@@ -2466,6 +2471,11 @@ export const hsk6BattleOfJulu: LongStory = {
       "additionalExamples": [
         "阅读不仅能拓展知识面，更能陶冶人的情操。",
         "这项突破不仅降低了生产成本，更引领了整个行业的新变革。"
+      ],
+      "exampleFromStoryEn": "It not only completely crushed the Qin elite troops, but even forced the famous general Zhang Han to bow his head and surrender.",
+      "additionalExamplesEn": [
+        "Reading not only broadens your knowledge, but also cultivates your character.",
+        "This breakthrough not only cut production costs, but also led a new transformation across the whole industry."
       ]
     }
   ],
@@ -2480,7 +2490,15 @@ export const hsk6BattleOfJulu: LongStory = {
         "给赵国守将传递投降的信号"
       ],
       "correctIndex": 2,
-      "explanation": "项羽通过破釜沉舟切断所有退路，使全军置之死地而后生，爆发出以一当十的顽强战斗力。"
+      "explanation": "项羽通过破釜沉舟切断所有退路，使全军置之死地而后生，爆发出以一当十的顽强战斗力。",
+      "questionEn": "At the Battle of Julu, why did Xiang Yu order his troops to 'break the cauldrons and sink the boats'?",
+      "optionsEn": [
+        "The boats were too badly damaged to use",
+        "The army's provisions had been burned by the enemy",
+        "To cut off every retreat and every hope of escape, rousing a do-or-die will to win",
+        "To signal surrender to the Zhao garrison commander"
+      ],
+      "explanationEn": "By breaking the cauldrons and sinking the boats, Xiang Yu cut off every retreat, putting the whole army in a do-or-die position and unleashing a ferocious fighting power, each man fighting like ten."
     },
     {
       "id": "q2",
@@ -2492,7 +2510,15 @@ export const hsk6BattleOfJulu: LongStory = {
         "日夜兼程运输军粮"
       ],
       "correctIndex": 1,
-      "explanation": "第二句明确指出：各路诸侯震慑于秦军声势，“人人逡巡不前，作壁上观”。"
+      "explanation": "第二句明确指出：各路诸侯震慑于秦军声势，“人人逡巡不前，作壁上观”。",
+      "questionEn": "How does the text describe the other lords' armies while the Qin army besieged the city?",
+      "optionsEn": [
+        "They led the charge and fought fiercely",
+        "They hesitated to advance and watched from the ramparts",
+        "They secretly negotiated a surrender with the Qin army",
+        "They hauled supplies day and night"
+      ],
+      "explanationEn": "The second sentence states clearly that the lords, cowed by the Qin army's might, 'all hesitated to advance and watched from the ramparts'."
     },
     {
       "id": "q3",
@@ -2504,7 +2530,15 @@ export const hsk6BattleOfJulu: LongStory = {
         "作补语，表示程度不够"
       ],
       "correctIndex": 0,
-      "explanation": "“毋庸置疑”常作状语修饰动词（如证明、说明），强调事实确凿毫无疑虑。"
+      "explanation": "“毋庸置疑”常作状语修饰动词（如证明、说明），强调事实确凿毫无疑虑。",
+      "questionEn": "What is the main grammatical role of the idiom 毋庸置疑 in the sentence?",
+      "optionsEn": [
+        "An adverbial, showing the situation is absolutely certain and beyond doubt",
+        "A predicate, expressing a rebuttal",
+        "An attributive, modifying the enemy army",
+        "A complement, showing an insufficient degree"
+      ],
+      "explanationEn": "毋庸置疑 usually acts as an adverbial modifying a verb (such as 证明 or 说明), stressing that a fact is certain and beyond doubt."
     }
   ],
   "wordAudio": {

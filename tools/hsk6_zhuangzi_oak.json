@@ -737,6 +737,11 @@
       "additionalExamples": [
         "世人皆知财富的光鲜，却往往不知守护财富背后所承受的沉重代价。",
         "世人皆知言语的犀利，却往往不知沉默中所蕴含的巨大力量。"
+      ],
+      "exampleFromStoryEn": "Everyone knows the use of the useful, yet few realize that 'the use of the useless' is the supreme wisdom for preserving life.",
+      "additionalExamplesEn": [
+        "Everyone knows the glamour of wealth, yet few realize the heavy price paid to guard it.",
+        "Everyone knows the sharpness of words, yet few realize the immense power held in silence."
       ]
     },
     {
@@ -746,6 +751,11 @@
       "additionalExamples": [
         "在喧闹中选择独处，何尝不是一种成熟的心灵修行？",
         "失败后坦然认输，何尝不是一种需要极大勇气的豁达？"
+      ],
+      "exampleFromStoryEn": "Leaving a blank space in life — isn't that the deepest way to save yourself from the anxiety of our age?",
+      "additionalExamplesEn": [
+        "Choosing solitude amid the noise — isn't that a mature kind of spiritual practice?",
+        "Gracefully admitting defeat after failing — isn't that a broad-mindedness that takes great courage?"
       ]
     }
   ],
@@ -760,7 +770,15 @@
         "树叶带有剧毒，无人敢于接近"
       ],
       "correctIndex": 1,
-      "explanation": "第二幕阐明：因其不符合世俗功利标准，避开了被砍做栋梁或割漆的厄运，因而‘无用之用’成了保全生命的大智慧。"
+      "explanation": "第二幕阐明：因其不符合世俗功利标准，避开了被砍做栋梁或割漆的厄运，因而‘无用之用’成了保全生命的大智慧。",
+      "questionEn": "According to Zhuangzi, what is the fundamental reason the huge oak lived out its natural span and stood for hundreds of years?",
+      "optionsEn": [
+        "Offerings at the earth-god temple protected it from wind and rain",
+        "Because it was 'useless' in worldly eyes, it completely escaped the carpenters' axes",
+        "Its wood was as hard as iron, so carpenters' axes couldn't cut it",
+        "Its leaves were highly poisonous, so no one dared approach"
+      ],
+      "explanationEn": "Act II explains that because it didn't meet worldly, utilitarian standards, it escaped being cut down for beams or tapped for lacquer; so 'the use of the useless' became great wisdom for preserving life."
     },
     {
       "id": "q2",
@@ -772,7 +790,15 @@
         "盲目崇拜古代典籍而否定现代医学"
       ],
       "correctIndex": 1,
-      "explanation": "第三幕深入剖析了现代人急功近利、过度自我工具化和内耗的精神枷锁。"
+      "explanation": "第三幕深入剖析了现代人急功近利、过度自我工具化和内耗的精神枷锁。",
+      "questionEn": "Which harmful attitude of modern society does the article criticize through Zhuangzi's parable?",
+      "optionsEn": [
+        "Overvaluing art while neglecting science and technology",
+        "Extreme utilitarianism that is eager for quick success and measures everything in life by monetization and usefulness",
+        "Avoiding all work responsibilities and advocating anarchism",
+        "Blindly worshipping ancient classics while rejecting modern medicine"
+      ],
+      "explanationEn": "Act III analyzes in depth the mental shackles of modern people: eagerness for quick success, turning themselves into tools, and draining inner conflict."
     },
     {
       "id": "q3",
@@ -784,7 +810,15 @@
         "在显微镜下研究植物细胞的构造"
       ],
       "correctIndex": 1,
-      "explanation": "“见微知著”出自古代典籍，指看见微小的苗头就能预知其重大的发展或本质。"
+      "explanation": "“见微知著”出自古代典籍，指看见微小的苗头就能预知其重大的发展或本质。",
+      "questionEn": "What is the deeper meaning of the idiom 见微知著 in this kind of philosophical discussion?",
+      "optionsEn": [
+        "Looking only at small surface details without seeking deeper understanding",
+        "Being able to perceive the larger trend and essence of things from small, hidden signs",
+        "Carefully observing microscope images of the microscopic world",
+        "Studying the structure of plant cells under a microscope"
+      ],
+      "explanationEn": "见微知著 comes from ancient texts: seeing a tiny sign and foreseeing the major development or essence behind it."
     }
   ],
   "wordAudio": {

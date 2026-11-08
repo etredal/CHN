@@ -111,9 +111,8 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ cards, onBack, onF
               {currentCard.exampleSentence && (
                 <div className="mt-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 text-xs text-left">
                   <p className="font-chinese-sans text-slate-800 dark:text-slate-200 font-medium">
-                    <ChineseText text={currentCard.exampleSentence.cn} />
+                    <ChineseText text={currentCard.exampleSentence.cn} en={currentCard.exampleSentence.en} />
                   </p>
-                  <p className="text-slate-400 mt-0.5">{currentCard.exampleSentence.en}</p>
                 </div>
               )}
             </div>
@@ -131,7 +130,7 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ cards, onBack, onF
               onClick={() => setIsFlipped(true)}
               className="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-semibold text-sm shadow-md shadow-amber-500/20 cursor-pointer transition-all active:scale-98"
             >
-              翻转卡片 (Show Answer)
+              翻转卡片
             </button>
           ) : (
             <div className="grid grid-cols-4 gap-2">

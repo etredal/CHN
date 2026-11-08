@@ -2399,6 +2399,11 @@ export const hsk5DigitalNomads: LongStory = {
       "additionalExamples": [
         "物质条件固然重要，但精神的富足才是幸福的根本源泉。",
         "高薪工作固然诱人，然而过度的透支身体绝非长久之计。"
+      ],
+      "exampleFromStoryEn": "Moving somewhere else can certainly lift you out of the rut for a while, but if you can't build order within, anxiety will follow you like a shadow.",
+      "additionalExamplesEn": [
+        "Material conditions are certainly important, but spiritual richness is the root of happiness.",
+        "A high-paying job is certainly tempting, yet overworking your body is never a long-term plan."
       ]
     },
     {
@@ -2408,6 +2413,11 @@ export const hsk5DigitalNomads: LongStory = {
       "additionalExamples": [
         "成熟不是学会隐藏情感，而是学会坦然接纳不完美的自己。",
         "旅行的目的不是为了向别人炫耀，而是为了拓宽自己的眼界。"
+      ],
+      "exampleFromStoryEn": "True composure is not escaping a certain way of life, but still having the confidence to choose independently after seeing life clearly.",
+      "additionalExamplesEn": [
+        "Maturity is not learning to hide your feelings, but learning to calmly accept your imperfect self.",
+        "The point of travel is not to show off to others, but to broaden your own horizons."
       ]
     }
   ],
@@ -2422,7 +2432,15 @@ export const hsk5DigitalNomads: LongStory = {
         "无法适应大理当地的气候与饮食"
       ],
       "correctIndex": 2,
-      "explanation": "第二幕指出：自由是一把双刃剑，“高度自律成了每天最大的考验”，且面临接单收入波动和医疗保障问题。"
+      "explanation": "第二幕指出：自由是一把双刃剑，“高度自律成了每天最大的考验”，且面临接单收入波动和医疗保障问题。",
+      "questionEn": "After becoming a 'digital nomad', what is Li Xiang's biggest challenge?",
+      "optionsEn": [
+        "The internet in Dali is too poor to work",
+        "Renting a Bai-style courtyard is too expensive",
+        "The tough test of 'strict self-discipline' without outside structure, plus an unstable income",
+        "He can't adapt to Dali's local climate and food"
+      ],
+      "explanationEn": "Act II points out that freedom is a double-edged sword: 'strict self-discipline became the biggest test every day', along with irregular freelance income and a lack of health insurance."
     },
     {
       "id": "q2",
@@ -2434,7 +2452,15 @@ export const hsk5DigitalNomads: LongStory = {
         "数字游民生活只适合从事艺术创作的人"
       ],
       "correctIndex": 1,
-      "explanation": "第三幕总结：地理迁移固然能暂时脱离怪圈，但内心的秩序与底气才是从容的核心。"
+      "explanation": "第三幕总结：地理迁移固然能暂时脱离怪圈，但内心的秩序与底气才是从容的核心。",
+      "questionEn": "What consensus do the digital nomads in Dali finally reach?",
+      "optionsEn": [
+        "They must return to a first-tier city at once to buy a home and register residence",
+        "Physically running away can't cure anxiety; only building clear order and rhythm within brings true composure",
+        "Everyone should give up remote work and open a guesthouse",
+        "The digital nomad life only suits people doing artistic work"
+      ],
+      "explanationEn": "Act III concludes that moving somewhere new can lift you out of the rut for a while, but inner order and confidence are the heart of composure."
     },
     {
       "id": "q3",
@@ -2446,7 +2472,15 @@ export const hsk5DigitalNomads: LongStory = {
         "生命危在旦夕急需抢救"
       ],
       "correctIndex": 0,
-      "explanation": "“疲于奔命”原指因受指派四处奔走而疲惫，现代引申为为了应付繁重的工作生活而忙得精疲力竭。"
+      "explanation": "“疲于奔命”原指因受指派四处奔走而疲惫，现代引申为为了应付繁重的工作生活而忙得精疲力竭。",
+      "questionEn": "What does 疲于奔命 mean in the text?",
+      "optionsEn": [
+        "Worn out from rushing around to make a living",
+        "Running a high-intensity long-distance race",
+        "Fleeing in all directions out of fear of war",
+        "Being in mortal danger and needing emergency treatment"
+      ],
+      "explanationEn": "疲于奔命 originally meant being exhausted from running about on orders; today it means being worn out from coping with a heavy workload and busy life."
     }
   ],
   "wordAudio": {

@@ -731,6 +731,11 @@
       "additionalExamples": [
         "事情的失败往往不是因为能力不足，而是因为缺乏坚持。",
         "他的沉默往往不是冷漠，而是在静静思考解决的办法。"
+      ],
+      "exampleFromStoryEn": "Lying awake late at night is often not because the body isn't tired, but because the mind can't stop racing.",
+      "additionalExamplesEn": [
+        "Failure is often not due to a lack of ability, but to a lack of perseverance.",
+        "His silence is often not indifference, but quiet thinking about how to solve the problem."
       ]
     },
     {
@@ -740,6 +745,11 @@
       "additionalExamples": [
         "只要保持阅读的习惯，你的词汇量就一定会突飞猛进。",
         "只要心怀希望，任何逆境都能安然渡过。"
+      ],
+      "exampleFromStoryEn": "As long as I won more projects, happiness would arrive right on schedule.",
+      "additionalExamplesEn": [
+        "As long as you keep up the habit of reading, your vocabulary will grow by leaps and bounds.",
+        "As long as you hold on to hope, you can come through any adversity safely."
       ]
     }
   ],
@@ -754,7 +764,15 @@
         "寻找三十年前的一位老朋友"
       ],
       "correctIndex": 1,
-      "explanation": "文章开篇交代：林舟为了完成商贸综合体的设计竞标，熬了三个通宵后提着公文包登上深夜卧铺列车。"
+      "explanation": "文章开篇交代：林舟为了完成商贸综合体的设计竞标，熬了三个通宵后提着公文包登上深夜卧铺列车。",
+      "questionEn": "Why did Lin Zhou take the late-night sleeper train to Beijing?",
+      "optionsEn": [
+        "To return home and visit relatives he hadn't seen in years",
+        "He was rushing around, working through the night to finish a design bid for a commercial complex",
+        "To take a holiday in Beijing and ease his exhaustion",
+        "To look for an old friend from thirty years ago"
+      ],
+      "explanationEn": "The opening explains that Lin Zhou boarded the late-night sleeper train with his briefcase after three all-nighters finishing the design bid for a commercial complex."
     },
     {
       "id": "q2",
@@ -766,7 +784,15 @@
         "做建筑设计时缺乏创新灵感"
       ],
       "correctIndex": 1,
-      "explanation": "老者感叹年轻时日夜兼程奔波，虽然拥有了一切，却把最珍贵的人和岁月在不知不觉中弄丢了。"
+      "explanation": "老者感叹年轻时日夜兼程奔波，虽然拥有了一切，却把最珍贵的人和岁月在不知不觉中弄丢了。",
+      "questionEn": "What does the mysterious old man in the carriage think is the easiest mistake to make?",
+      "optionsEn": [
+        "Not working hard enough",
+        "Losing your most precious family ties and time without realizing it, while chasing wealth and career",
+        "Not keeping quiet on the train at night",
+        "Lacking creative inspiration in architectural design"
+      ],
+      "explanationEn": "The old man laments that he rushed day and night when he was young; though he gained everything, he lost the most precious people and years without even realizing it."
     },
     {
       "id": "q3",
@@ -778,7 +804,15 @@
         "看不见光明"
       ],
       "correctIndex": 0,
-      "explanation": "“堪”表示经受、承受。“不堪”在这里表示疲倦到了极点、无法再承受的程度。"
+      "explanation": "“堪”表示经受、承受。“不堪”在这里表示疲倦到了极点、无法再承受的程度。",
+      "questionEn": "Which option is closest in meaning to 不堪 in 疲惫不堪?",
+      "optionsEn": [
+        "Unable to bear; can't stand it",
+        "Not worth seeing",
+        "Unequal treatment",
+        "Unable to see the light"
+      ],
+      "explanationEn": "堪 means to endure or bear. Here 不堪 means being so exhausted that one cannot bear any more."
     }
   ],
   "wordAudio": {

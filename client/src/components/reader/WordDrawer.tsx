@@ -128,7 +128,7 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
           {/* Definitions */}
           <div>
             <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
-              英文释义 (Definitions)
+              释义
             </h4>
             {token.definitions.length > 0 ? (
               <ul className="space-y-1.5">
@@ -140,7 +140,7 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
                 ))}
               </ul>
             ) : (
-              <p className="text-sm text-slate-400 italic">No direct dictionary entry found.</p>
+              <p className="text-sm text-slate-400 font-chinese-sans">暂无词典释义</p>
             )}
           </div>
 
@@ -148,7 +148,7 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
           {token.characters && token.characters.length > 0 && (
             <div>
               <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
-                字义分解 (Character Breakdown)
+                字义分解
               </h4>
               <div className="grid grid-cols-2 gap-2">
                 {token.characters.map((ch, idx) => (
@@ -171,11 +171,10 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
             <div>
               <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                <span>语境例句 (Context from Story)</span>
+                <span>语境例句</span>
               </h4>
               <div className="p-3 rounded-xl bg-amber-50/50 dark:bg-slate-800/40 border border-amber-100 dark:border-slate-800 text-sm">
-                <p className="text-slate-800 dark:text-slate-100 font-chinese-sans leading-relaxed"><ChineseText text={sentenceContext.cn} /></p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{sentenceContext.en}</p>
+                <p className="text-slate-800 dark:text-slate-100 font-chinese-sans leading-relaxed"><ChineseText text={sentenceContext.cn} en={sentenceContext.en} /></p>
               </div>
             </div>
           )}
