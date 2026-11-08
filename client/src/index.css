@@ -1,5 +1,30 @@
 @import "tailwindcss";
 
+/* The theme button sets .dark on <html>; make dark: styles follow it rather
+   than the operating system's light/dark preference. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Sepia (羊皮纸): warm paper tones. Tailwind colours are CSS variables, so
+   redefining the neutrals recolours every screen at once. */
+.theme-sepia {
+  --color-white: #fbf6ea;
+  --color-stone-50: #f4ecd8;
+  --color-slate-50: #f1e7d2;
+  --color-slate-100: #ebdfc6;
+  --color-slate-200: #dfd0b2;
+  --color-slate-300: #cdb994;
+  --color-slate-400: #a8946f;
+  --color-slate-500: #8a7656;
+  --color-slate-600: #6e5c41;
+  --color-slate-700: #574730;
+  --color-slate-800: #3f3322;
+  --color-slate-900: #2f2618;
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
+
 @layer base {
   :root {
     --tone-1: #ef4444; /* red */
