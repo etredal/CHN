@@ -97,7 +97,8 @@ for (const s of stories) {
 
   const formattedSections = rawData.sections.map(sec => ({
     partNumber: sec.partNumber,
-    partTitle: sec.partTitle,
+    // Headings are split into words too, so they read like the story text.
+    partTitle: { ...sec.partTitle, tokens: tokenize(sec.partTitle.cn) },
     paragraphs: [
       {
         id: `p_${sec.partNumber}_1`,
@@ -114,6 +115,8 @@ for (const s of stories) {
 
   const storyObj = {
     ...rawData,
+    title: { ...rawData.title, tokens: tokenize(rawData.title.cn) },
+    summary: { ...rawData.summary, tokens: tokenize(rawData.summary.cn) },
     sections: formattedSections
   };
 

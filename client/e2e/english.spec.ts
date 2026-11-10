@@ -34,12 +34,17 @@ test.describe('English on demand', () => {
     await page.getByText('进入阅读').first().click();
     expect(await englishOnScreen(page)).toEqual([]);
 
-    // Title and section heading.
-    await page.locator('main h1').getByText(story.title.cn).click();
-    await expect(page.getByText(story.title.en)).toBeVisible();
-    const section = story.sections[0].partTitle;
-    await page.getByText(section.cn).click();
-    await expect(page.getByText(section.en)).toBeVisible();
+    // Title and section headings behave like story text: a word opens the
+    // drawer, whose context line (the heading) reveals the English.
+    const drawer = page.locator('div.fixed.inset-0.z-50');
+    for (const [heading, block] of [['main h1', story.title], ['main h2', story.sections[0].partTitle]] as const) {
+      await page.locator(heading).first().locator('.word-token').first().click();
+      await expect(drawer).toBeVisible();
+      await expect(page.getByText(block.en)).toHaveCount(0);
+      await drawer.locator('.translatable').filter({ hasText: block.cn }).click();
+      await expect(drawer.getByText(block.en)).toBeVisible();
+      await page.mouse.click(5, 5);
+    }
 
     // Grammar: the pattern reveals its explanation; examples their translation.
     await page.locator('button').filter({ hasText: /^语法点/ }).click();
@@ -65,10 +70,9 @@ test.describe('English on demand', () => {
 
     // Drawer: the context sentence reveals its translation.
     await page.locator('button').filter({ hasText: /^正文/ }).click();
-    await page.locator('.word-token').nth(3).click();
+    await page.locator('.story-sentence .word-token').nth(3).click();
     const sentence = story.sections[0].paragraphs[0].sentences[0];
     await expect(page.getByText(sentence.en)).toHaveCount(0);
-    const drawer = page.locator('div.fixed.inset-0.z-50');
     await drawer.locator('.translatable').filter({ hasText: sentence.cn }).click();
     await expect(page.getByText(sentence.en)).toBeVisible();
   });

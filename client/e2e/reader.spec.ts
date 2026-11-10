@@ -13,7 +13,7 @@ test('story reads as continuous text with a reading highlight and no tone colour
   await expect(page.locator('button[title="Play from this sentence"]')).toHaveCount(0);
 
   // One ink colour for all story words (no tone colours), and no setting for it.
-  const colours = await page.locator('.word-token').evaluateAll(els =>
+  const colours = await page.locator('.story-sentence .word-token').evaluateAll(els =>
     [...new Set(els.map(el => getComputedStyle(el).color))]);
   expect(colours).toHaveLength(1);
   await page.locator('button[title="Reading Settings"]').click();

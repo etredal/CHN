@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { LongStory, WordToken, Sentence } from '../../types';
 import { SentenceBlock } from './SentenceBlock';
+import { WordLine } from './WordLine';
 import { WordDrawer } from './WordDrawer';
 import { GrammarTab } from './GrammarTab';
 import { QuizTab } from './QuizTab';
@@ -259,8 +260,8 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
         {/* Story header: title, one quiet line of details, summary */}
         {activeTab === 'text' && (
           <header className="text-center mt-4 mb-12">
-            <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white font-chinese-sans tracking-tight">
-              <ChineseText text={story.title.cn} en={story.title.en} />
+            <h1 className={`text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white font-chinese-sans tracking-tight ${showPinyin ? 'leading-[2.2]' : ''}`}>
+              <WordLine block={story.title} id="title" onWordClick={handleWordClick} />
             </h1>
             <p className="mt-3 text-xs text-slate-400 dark:text-slate-500 flex items-center justify-center gap-2">
               <span>{story.level}</span>
@@ -271,8 +272,8 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
               <span aria-hidden>·</span>
               <span>约 {story.stats.estimatedReadingTimeMinutes} 分钟</span>
             </p>
-            <p className="mt-6 text-base text-slate-500 dark:text-slate-400 font-chinese-sans leading-relaxed max-w-xl mx-auto">
-              <ChineseText text={story.summary.cn} en={story.summary.en} />
+            <p className={`mt-6 text-base text-slate-500 dark:text-slate-400 font-chinese-sans max-w-xl mx-auto ${showPinyin ? 'leading-[2.4]' : 'leading-relaxed'}`}>
+              <WordLine block={story.summary} id="summary" onWordClick={handleWordClick} />
             </p>
           </header>
         )}
@@ -282,8 +283,8 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
           <article className={`story-text ${getFontSizeClass()} ${getFontFamilyClass()}`}>
             {story.sections.map(section => (
               <section key={section.partNumber} className="mb-12">
-                <h2 className="mb-5 text-base font-semibold text-slate-400 dark:text-slate-500 font-chinese-sans">
-                  <ChineseText text={section.partTitle.cn} en={section.partTitle.en} />
+                <h2 className={`mb-5 text-base font-semibold text-slate-400 dark:text-slate-500 font-chinese-sans ${showPinyin ? 'leading-[2.4]' : ''}`}>
+                  <WordLine block={section.partTitle} id={`part-${section.partNumber}`} onWordClick={handleWordClick} />
                 </h2>
                 {section.paragraphs.map(paragraph => (
                   <div key={paragraph.id} className="mb-6">

@@ -53,7 +53,7 @@ test.describe('Reader word lookup', () => {
     await page.locator('button[title="Play"]').click();
     await expect.poll(() => storyAudio(page).evaluate((el: HTMLAudioElement) => el.currentTime)).toBeGreaterThan(1);
 
-    const word = page.locator('.word-token').nth(WORD_INDEX);
+    const word = page.locator('.story-sentence .word-token').nth(WORD_INDEX);
     await word.scrollIntoViewIfNeeded();
     const before = await storyAudio(page).evaluate((el: HTMLAudioElement) => el.currentTime);
     await word.click();
@@ -68,7 +68,7 @@ test.describe('Reader word lookup', () => {
   for (const [label, slow] of [['标准发音', false], ['慢速 (0.6x)', true]] as const) {
     test(`"${label}" plays the word's own recording`, async ({ page }) => {
       const token = spokenTokens[WORD_INDEX];
-      const word = page.locator('.word-token').nth(WORD_INDEX);
+      const word = page.locator('.story-sentence .word-token').nth(WORD_INDEX);
       await word.scrollIntoViewIfNeeded();
       await expect(word).toHaveText(token.text);
       await word.click();
@@ -101,7 +101,7 @@ test.describe('Reader word lookup', () => {
 
   test('a word saved from a story keeps its recording for the vocab list', async ({ page }) => {
     const token = spokenTokens[WORD_INDEX];
-    const word = page.locator('.word-token').nth(WORD_INDEX);
+    const word = page.locator('.story-sentence .word-token').nth(WORD_INDEX);
     await word.scrollIntoViewIfNeeded();
     await word.click();
     await page.locator('button[title="Save to Flashcards"]').first().click();

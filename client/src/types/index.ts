@@ -33,12 +33,17 @@ export interface Paragraph {
   sentences: Sentence[];
 }
 
+/** A heading or summary: Chinese, its English, and its words. */
+export interface TextBlock {
+  cn: string;
+  en: string;
+  /** Split into words like story sentences (tools/compile_ts_stories.cjs). */
+  tokens?: WordToken[];
+}
+
 export interface Section {
   partNumber: number;
-  partTitle: {
-    cn: string;
-    en: string;
-  };
+  partTitle: TextBlock;
   paragraphs: Paragraph[];
 }
 
@@ -77,11 +82,7 @@ export interface QuizQuestion {
 
 export interface LongStory {
   id: string;
-  title: {
-    cn: string;
-    pinyin: string;
-    en: string;
-  };
+  title: TextBlock & { pinyin: string };
   level: 'HSK 5' | 'HSK 6';
   category: 'Fiction' | 'History' | 'Society' | 'Philosophy';
   stats: {
@@ -92,10 +93,7 @@ export interface LongStory {
   audioUrl?: string;
   /** Standalone pronunciation of every word (tools/generate_word_audio.py). */
   wordAudio?: WordAudio;
-  summary: {
-    cn: string;
-    en: string;
-  };
+  summary: TextBlock;
   sections: Section[];
   targetVocabulary: TargetWord[];
   grammarNotes: GrammarPoint[];

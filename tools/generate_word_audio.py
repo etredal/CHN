@@ -55,10 +55,12 @@ PUNCT = re.compile(r"^[，。！？；：“”‘’（）《》、—…\.,!?;
 
 
 def story_words(ts_path):
-    """Unique spoken words of a compiled story, in reading order."""
+    """Unique words of a compiled story (title, summary, headings, text), in order."""
     src = open(ts_path, encoding="utf-8").read()
     story = json.loads(src[src.index("= {") + 2:].rstrip().rstrip(";"))
     words = []
+    for heading in [story["title"], story["summary"]] + [sec["partTitle"] for sec in story["sections"]]:
+        words += [t["text"] for t in heading.get("tokens", []) if not PUNCT.match(t["text"])]
     for sec in story["sections"]:
         for para in sec["paragraphs"]:
             for sent in para["sentences"]:
