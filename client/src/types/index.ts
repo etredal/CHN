@@ -110,7 +110,6 @@ export type AppTheme = 'light' | 'sepia' | 'dark';
 export interface ReaderSettings {
   pinyinMode: PinyinMode;
   showEnglish: boolean;
-  showToneColors: boolean;
   fontSize: FontSize;
   fontFamily: FontFamily;
   theme: AppTheme;

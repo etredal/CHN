@@ -27,11 +27,6 @@
 
 @layer base {
   :root {
-    --tone-1: #ef4444; /* red */
-    --tone-2: #f59e0b; /* amber */
-    --tone-3: #10b981; /* emerald/green */
-    --tone-4: #3b82f6; /* blue */
-    --tone-5: #6b7280; /* neutral gray */
   }
 
   body {
@@ -73,12 +68,6 @@ rt {
   text-align: center;
 }
 
-/* Tone Colors */
-.tone-1 { color: var(--tone-1) !important; }
-.tone-2 { color: var(--tone-2) !important; }
-.tone-3 { color: var(--tone-3) !important; }
-.tone-4 { color: var(--tone-4) !important; }
-.tone-5 { color: var(--tone-5) !important; }
 
 /* Custom scrollbars for clean reader UI */
 ::-webkit-scrollbar {
@@ -138,4 +127,41 @@ rt {
 .translatable:focus-visible {
   outline: 2px solid rgb(245 158 11 / 0.6);
   outline-offset: 2px;
+}
+
+/* Story text: continuous paragraphs (Du Chinese style) */
+.story-text p {
+  text-align: justify;
+}
+.word-token {
+  cursor: pointer;
+  border-radius: 3px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-color 120ms;
+}
+.word-token:hover {
+  background-color: rgb(245 158 11 / 0.15);
+}
+.word-token.is-target {
+  text-decoration: underline;
+  text-decoration-color: rgb(245 158 11 / 0.7);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}
+/* The sentence being read aloud, and the word being spoken in it. */
+.story-sentence.is-active {
+  background-color: rgb(245 158 11 / 0.12);
+  border-radius: 4px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.word-token.is-spoken {
+  background-color: rgb(245 158 11 / 0.35);
+}
+.dark .story-sentence.is-active {
+  background-color: rgb(245 158 11 / 0.10);
+}
+.dark .word-token.is-spoken {
+  background-color: rgb(245 158 11 / 0.30);
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import type { WordToken as IWordToken } from '../../types';
-import { useSettings, usePinyinVisible } from '../../context/SettingsContext';
-import { getToneColorClass } from '../../utils/pinyin';
+import { usePinyinVisible } from '../../context/SettingsContext';
 
 interface WordTokenProps {
   token: IWordToken;
@@ -10,16 +9,14 @@ interface WordTokenProps {
 }
 
 export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, highlight }) => {
-  const { settings } = useSettings();
   const showPinyin = usePinyinVisible();
 
   const isPunc = /^[，。！？；：“”‘’（）《》、—…\.,!?;:\'\"()\[\]]$/.test(token.text);
 
   if (isPunc) {
-    return <span className="text-gray-400 dark:text-gray-500 select-none mx-0.5">{token.text}</span>;
+    return <span className="select-none">{token.text}</span>;
   }
 
-  const toneClass = settings.showToneColors ? getToneColorClass(token.tone) : '';
   const isTarget = token.isTargetWord;
 
   const renderContent = () => {
@@ -32,7 +29,7 @@ export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, highlight 
         ? chars.map((c, i) => [c, syllables[i]])
         : [[token.text, token.pinyin]];
       return (
-        <span className={`transition-colors ${toneClass}`}>
+        <>
           {pairs.map(([text, py], i) => (
             py === text ? text : (
               <ruby key={i}>
@@ -41,11 +38,11 @@ export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, highlight 
               </ruby>
             )
           ))}
-        </span>
+        </>
       );
     }
 
-    return <span className={`transition-colors ${toneClass}`}>{token.text}</span>;
+    return token.text;
   };
 
   return (
@@ -54,10 +51,7 @@ export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, highlight 
           e.stopPropagation();
           onClick(token);
         }}
-        className={`word-token inline-block cursor-pointer px-0.5 py-0.5 rounded transition-all select-text
-          hover:bg-amber-100/70 dark:hover:bg-amber-900/40 active:scale-95
-          ${isTarget ? 'border-b-2 border-amber-400 dark:border-amber-500/80 font-medium' : ''}
-          ${highlight ? 'bg-amber-300/30' : ''}`}
+        className={`word-token${isTarget ? ' is-target' : ''}${highlight ? ' is-spoken' : ''}`}
         // The hover tooltip only reveals pinyin when pinyin is switched on.
         title={showPinyin && token.pinyin && token.pinyin !== token.text ? `${token.text} (${token.pinyin})` : token.text}
       >

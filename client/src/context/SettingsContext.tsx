@@ -6,7 +6,6 @@ interface SettingsContextType {
   setPinyinMode: (mode: PinyinMode) => void;
   toggleShowEnglish: () => void;
   setShowEnglish: (val: boolean) => void;
-  toggleToneColors: () => void;
   setFontSize: (size: FontSize) => void;
   setFontFamily: (font: FontFamily) => void;
   setTheme: (theme: AppTheme) => void;
@@ -17,7 +16,6 @@ interface SettingsContextType {
 const DEFAULT_SETTINGS: ReaderSettings = {
   pinyinMode: 'off',
   showEnglish: false,
-  showToneColors: true,
   fontSize: 'lg',
   fontFamily: 'sans',
   theme: 'light',
@@ -66,7 +64,6 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const setPinyinMode = (pinyinMode: PinyinMode) => setSettings(s => ({ ...s, pinyinMode }));
   const toggleShowEnglish = () => setSettings(s => ({ ...s, showEnglish: !s.showEnglish }));
   const setShowEnglish = (showEnglish: boolean) => setSettings(s => ({ ...s, showEnglish }));
-  const toggleToneColors = () => setSettings(s => ({ ...s, showToneColors: !s.showToneColors }));
   const setFontSize = (fontSize: FontSize) => setSettings(s => ({ ...s, fontSize }));
   const setFontFamily = (fontFamily: FontFamily) => setSettings(s => ({ ...s, fontFamily }));
   const setTheme = (theme: AppTheme) => setSettings(s => ({ ...s, theme }));
@@ -80,7 +77,6 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         setPinyinMode,
         toggleShowEnglish,
         setShowEnglish,
-        toggleToneColors,
         setFontSize,
         setFontFamily,
         setTheme,

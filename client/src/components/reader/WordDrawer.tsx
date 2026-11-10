@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { WordToken, Sentence, WordAudio } from '../../types';
 import { pronounceWord, preloadWordAudio, wordAudioSources } from '../../utils/pronounce';
-import { getToneBadgeClass } from '../../utils/pinyin';
 import { isWordSaved, saveFlashcard, removeFlashcard } from '../../utils/srs';
 import { Volume2, Bookmark, BookmarkCheck, X, Sparkles } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
@@ -48,8 +47,6 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
     }
   };
 
-  const toneBadge = getToneBadgeClass(token.tone);
-
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/40 backdrop-blur-xs transition-opacity animate-in fade-in duration-200">
       {/* Background click to dismiss */}
@@ -75,7 +72,7 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
             </div>
 
             <div className="flex items-center gap-2 mt-1">
-              <span className={`px-2 py-0.5 text-sm font-medium rounded-md border ${toneBadge}`}>
+              <span className="px-2 py-0.5 text-sm font-medium rounded-md border border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
                 {token.pinyin}
               </span>
               <span className="text-xs text-slate-400">第 {token.tone === 5 ? '轻' : token.tone} 声</span>

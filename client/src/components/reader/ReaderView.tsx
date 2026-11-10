@@ -8,10 +8,8 @@ import { useAudioPlayer } from '../../context/AudioPlayerContext';
 import { useSettings, usePinyinVisible } from '../../context/SettingsContext';
 import {
   ArrowLeft,
-  BookOpen,
   HelpCircle,
   FileText,
-  Clock,
   Sparkles,
   Settings2,
   Bookmark,
@@ -32,7 +30,7 @@ const FONT_SIZE_LABELS = { sm: '小', base: '中', lg: '大', xl: '特大' } as 
 export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
   const { loadStoryAudio, pause } = useAudioPlayer();
   const showPinyin = usePinyinVisible();
-  const { settings, setPinyinMode, toggleShowEnglish, toggleToneColors, setFontSize, setTheme } = useSettings();
+  const { settings, setPinyinMode, toggleShowEnglish, setFontSize, setTheme } = useSettings();
 
   const [activeTab, setActiveTab] = useState<'text' | 'grammar' | 'quiz' | 'vocab'>('text');
   const [selectedWord, setSelectedWord] = useState<WordToken | null>(null);
@@ -150,21 +148,6 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                   </button>
                 </div>
 
-                {/* Tone Colors Toggle */}
-                <div className="flex items-center justify-between pt-1">
-                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">声调颜色</span>
-                  <button
-                    onClick={toggleToneColors}
-                    className={`px-3 py-1 rounded-lg text-xs font-medium border ${
-                      settings.showToneColors
-                        ? 'bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-900/40 dark:text-amber-300'
-                        : 'text-slate-500 border-slate-200 dark:border-slate-700'
-                    }`}
-                  >
-                    {settings.showToneColors ? '开启' : '关闭'}
-                  </button>
-                </div>
-
                 {/* Font Size */}
                 <div>
                   <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">字号大小</span>
@@ -223,7 +206,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
         <div className="max-w-4xl mx-auto px-4 flex items-center justify-center gap-2 border-t border-slate-100 dark:border-slate-800 py-1.5">
           <button
             onClick={() => setActiveTab('text')}
-            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
               activeTab === 'text'
                 ? 'bg-amber-100 text-amber-900 dark:bg-amber-900/60 dark:text-amber-200 font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
@@ -235,7 +218,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
 
           <button
             onClick={() => setActiveTab('grammar')}
-            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
               activeTab === 'grammar'
                 ? 'bg-amber-100 text-amber-900 dark:bg-amber-900/60 dark:text-amber-200 font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
@@ -247,7 +230,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
 
           <button
             onClick={() => setActiveTab('quiz')}
-            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
               activeTab === 'quiz'
                 ? 'bg-amber-100 text-amber-900 dark:bg-amber-900/60 dark:text-amber-200 font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
@@ -259,7 +242,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
 
           <button
             onClick={() => setActiveTab('vocab')}
-            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
               activeTab === 'vocab'
                 ? 'bg-amber-100 text-amber-900 dark:bg-amber-900/60 dark:text-amber-200 font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
@@ -273,49 +256,38 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
 
       {/* Main Canvas */}
       <main className="max-w-3xl mx-auto px-4 sm:px-6 py-6">
-        {/* Story Intro Card */}
+        {/* Story header: title, one quiet line of details, summary */}
         {activeTab === 'text' && (
-          <div className="mb-8 p-6 rounded-3xl bg-linear-to-b from-amber-50/70 to-white dark:from-slate-800/40 dark:to-slate-900 border border-amber-100/80 dark:border-slate-800 text-center">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 mb-3">
-              {story.level} • <span title={story.category}>{categoryZh(story.category)}</span>
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-chinese-sans mb-2 tracking-tight">
+          <header className="text-center mt-4 mb-12">
+            <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white font-chinese-sans tracking-tight">
               <ChineseText text={story.title.cn} en={story.title.en} />
             </h1>
-
-            <div className="flex items-center justify-center gap-6 text-xs text-slate-500 border-t border-slate-100 dark:border-slate-800/80 pt-3 mt-4">
-              <span className="flex items-center gap-1">
-                <BookOpen className="w-4 h-4 text-amber-500" />
-                {story.stats.characterCount} 字
-              </span>
-              <span className="flex items-center gap-1">
-                <Clock className="w-4 h-4 text-blue-500" />
-                约 {story.stats.estimatedReadingTimeMinutes} 分钟
-              </span>
-            </div>
-
-            <p className="text-sm text-slate-600 dark:text-slate-300 italic font-sans max-w-xl mx-auto mt-4 bg-white/80 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-100 dark:border-slate-800">
-              <ChineseText text={`“${story.summary.cn}”`} en={story.summary.en} />
+            <p className="mt-3 text-xs text-slate-400 dark:text-slate-500 flex items-center justify-center gap-2">
+              <span>{story.level}</span>
+              <span aria-hidden>·</span>
+              <span title={story.category}>{categoryZh(story.category)}</span>
+              <span aria-hidden>·</span>
+              <span>{story.stats.characterCount} 字</span>
+              <span aria-hidden>·</span>
+              <span>约 {story.stats.estimatedReadingTimeMinutes} 分钟</span>
             </p>
-          </div>
+            <p className="mt-6 text-base text-slate-500 dark:text-slate-400 font-chinese-sans leading-relaxed max-w-xl mx-auto">
+              <ChineseText text={story.summary.cn} en={story.summary.en} />
+            </p>
+          </header>
         )}
 
-        {/* Tab 1: Story Text View */}
+        {/* Tab 1: Story Text View: continuous paragraphs, like a page */}
         {activeTab === 'text' && (
-          <div className={`space-y-10 ${getFontSizeClass()} ${getFontFamilyClass()}`}>
+          <article className={`story-text ${getFontSizeClass()} ${getFontFamilyClass()}`}>
             {story.sections.map(section => (
-              <section key={section.partNumber} className="relative">
-                {/* Section Header */}
-                <div className="sticky top-24 z-10 my-6 py-2 px-4 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 backdrop-blur-xs border border-slate-200 dark:border-slate-700 flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200 font-chinese-sans">
-                    <ChineseText text={section.partTitle.cn} en={section.partTitle.en} />
-                  </h3>
-                </div>
-
-                {/* Paragraphs and Sentences */}
-                <div className="space-y-4">
-                  {section.paragraphs.map(paragraph => (
-                    <div key={paragraph.id} className="space-y-1">
+              <section key={section.partNumber} className="mb-12">
+                <h2 className="mb-5 text-base font-semibold text-slate-400 dark:text-slate-500 font-chinese-sans">
+                  <ChineseText text={section.partTitle.cn} en={section.partTitle.en} />
+                </h2>
+                {section.paragraphs.map(paragraph => (
+                  <div key={paragraph.id} className="mb-6">
+                    <p className="text-slate-800 dark:text-slate-100">
                       {paragraph.sentences.map(sentence => (
                         <SentenceBlock
                           key={sentence.id}
@@ -323,12 +295,18 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                           onWordClick={handleWordClick}
                         />
                       ))}
-                    </div>
-                  ))}
-                </div>
+                    </p>
+                    {/* 全部英文翻译: the paragraph's English underneath */}
+                    {settings.showEnglish && (
+                      <p lang="en" className="mt-2 text-base leading-relaxed text-slate-500 dark:text-slate-400 font-sans">
+                        {paragraph.sentences.map(s => s.en).join(' ')}
+                      </p>
+                    )}
+                  </div>
+                ))}
               </section>
             ))}
-          </div>
+          </article>
         )}
 
         {/* Tab 2: Grammar Notes */}
