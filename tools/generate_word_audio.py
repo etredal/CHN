@@ -49,6 +49,7 @@ STORIES = [
     ("tools/hsk6_battle_of_julu.json", "client/src/data/hsk6_battle_of_julu.ts"),
     ("tools/hsk5_digital_nomads.json", "client/src/data/hsk5_digital_nomads.ts"),
     ("tools/hsk6_zhuangzi_oak.json", "client/src/data/hsk6_zhuangzi_oak.ts"),
+    ("tools/hsk5_hometown.json", "client/src/data/hsk5_hometown.ts"),
 ]
 
 PUNCT = re.compile(r"^[，。！？；：“”‘’（）《》、—…\.,!?;:'\"()\[\]\s]+$")
@@ -147,13 +148,15 @@ def build_sprite(words, rate, out_path):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--concurrency", type=int, default=6)
+    ap.add_argument("stories", nargs="*", help="Story JSON files to (re)build (default: all)")
     args = ap.parse_args()
     if not os.path.exists("client/public"):
         sys.exit("Run this from the repository root.")
     os.makedirs(CACHE_DIR, exist_ok=True)
     os.makedirs(OUT_DIR, exist_ok=True)
 
-    per_story = [(j, t, story_words(t)) for j, t in STORIES]
+    selected = [(j, t) for j, t in STORIES if not args.stories or j in args.stories]
+    per_story = [(j, t, story_words(t)) for j, t in selected]
     jobs = {(w, r, cache_path(w, r)) for _, _, ws in per_story for w in ws for r in SPEEDS.values()}
     missing = [j for j in sorted(jobs) if not os.path.exists(j[2])]
     print(f"{len(jobs)} word takes needed, {len(missing)} not cached yet")

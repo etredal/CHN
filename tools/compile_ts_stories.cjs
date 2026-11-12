@@ -90,7 +90,25 @@ const stories = [
   { jsonFile: 'tools/hsk6_battle_of_julu.json', tsFile: 'client/src/data/hsk6_battle_of_julu.ts', varName: 'hsk6BattleOfJulu' },
   { jsonFile: 'tools/hsk5_digital_nomads.json', tsFile: 'client/src/data/hsk5_digital_nomads.ts', varName: 'hsk5DigitalNomads' },
   { jsonFile: 'tools/hsk6_zhuangzi_oak.json', tsFile: 'client/src/data/hsk6_zhuangzi_oak.ts', varName: 'hsk6ZhuangziOak' },
+  { jsonFile: 'tools/hsk5_hometown.json', tsFile: 'client/src/data/hsk5_hometown.ts', varName: 'hsk5Hometown' },
 ];
+
+function groupParagraphs(sentences) {
+  const groups = [];
+  let current = null;
+  for (const s of sentences) {
+    if (!groups.length || (s.paragraph ?? 1) !== current) {
+      groups.push([]);
+      current = s.paragraph ?? 1;
+    }
+    groups[groups.length - 1].push(s);
+  }
+  return groups;
+}
+
+// Tokens written by a story's generator (tools/generate_story5.cjs) win over
+// the automatic word split.
+const tokensOf = block => (block.tokens && block.tokens.length > 0 ? block.tokens : tokenize(block.cn));
 
 for (const s of stories) {
   const rawData = JSON.parse(fs.readFileSync(s.jsonFile, 'utf8'));
@@ -98,25 +116,25 @@ for (const s of stories) {
   const formattedSections = rawData.sections.map(sec => ({
     partNumber: sec.partNumber,
     // Headings are split into words too, so they read like the story text.
-    partTitle: { ...sec.partTitle, tokens: tokenize(sec.partTitle.cn) },
-    paragraphs: [
-      {
-        id: `p_${sec.partNumber}_1`,
-        sentences: sec.sentences.map(({ charTimes, ...sent }) => ({
-          ...sent,
-          tokens: addTokenTimes(
-            { ...sent, charTimes },
-            sent.tokens && sent.tokens.length > 0 ? sent.tokens : tokenize(sent.cn)
-          )
-        }))
-      }
-    ]
+    partTitle: { ...sec.partTitle, tokens: tokensOf(sec.partTitle) },
+    // Sentences may carry a paragraph number; without one, the whole
+    // section is a single paragraph.
+    paragraphs: groupParagraphs(sec.sentences).map((sentences, i) => ({
+      id: `p_${sec.partNumber}_${i + 1}`,
+      sentences: sentences.map(({ charTimes, paragraph, ...sent }) => ({
+        ...sent,
+        tokens: addTokenTimes(
+          { ...sent, charTimes },
+          sent.tokens && sent.tokens.length > 0 ? sent.tokens : tokenize(sent.cn)
+        )
+      }))
+    }))
   }));
 
   const storyObj = {
     ...rawData,
-    title: { ...rawData.title, tokens: tokenize(rawData.title.cn) },
-    summary: { ...rawData.summary, tokens: tokenize(rawData.summary.cn) },
+    title: { ...rawData.title, tokens: tokensOf(rawData.title) },
+    summary: { ...rawData.summary, tokens: tokensOf(rawData.summary) },
     sections: formattedSections
   };
 
@@ -130,14 +148,16 @@ import { hsk5NightTrain } from './hsk5_night_train';
 import { hsk6BattleOfJulu } from './hsk6_battle_of_julu';
 import { hsk5DigitalNomads } from './hsk5_digital_nomads';
 import { hsk6ZhuangziOak } from './hsk6_zhuangzi_oak';
+import { hsk5Hometown } from './hsk5_hometown';
 
-export { hsk5NightTrain, hsk6BattleOfJulu, hsk5DigitalNomads, hsk6ZhuangziOak };
+export { hsk5NightTrain, hsk6BattleOfJulu, hsk5DigitalNomads, hsk6ZhuangziOak, hsk5Hometown };
 
 export const ALL_STORIES: LongStory[] = [
   hsk5NightTrain,
   hsk6BattleOfJulu,
   hsk5DigitalNomads,
   hsk6ZhuangziOak,
+  hsk5Hometown,
 ];
 
 export function getStoryById(id: string): LongStory | undefined {

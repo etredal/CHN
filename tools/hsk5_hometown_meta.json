@@ -1,0 +1,195 @@
+{
+  "title": {
+    "cn": "故乡",
+    "pinyin": "Gùxiāng",
+    "en": "My Old Home"
+  },
+  "summary": {
+    "cn": "鲁迅的经典小说（1921年）。“我”回到二十多年没有回去的故乡，准备卖掉老屋、带母亲搬家。童年的好朋友闰土也来了，可是两个人之间已经有了一层看不见的厚墙。",
+    "en": "Lu Xun's classic short story (1921). The narrator returns to the hometown he left over twenty years ago to sell the family house and move his mother away. His childhood friend Runtu comes to see him, but an invisible wall now stands between them."
+  },
+  "targetVocabulary": [
+    {
+      "word": "盼望",
+      "pinyin": "pànwàng",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": ["to long for", "to look forward to"],
+      "exampleSentence": { "cn": "孩子们天天盼望着放暑假。", "pinyin": "Háizimen tiāntiān pànwàng zhe fàng shǔjià.", "en": "The children look forward to the summer holidays every day." }
+    },
+    {
+      "word": "模糊",
+      "pinyin": "móhu",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": ["blurred", "vague", "indistinct"],
+      "exampleSentence": { "cn": "时间久了，很多童年的记忆都变得模糊了。", "pinyin": "Shíjiān jiǔ le, hěn duō tóngnián de jìyì dōu biàn de móhu le.", "en": "After so long, many childhood memories have become blurred." }
+    },
+    {
+      "word": "沉默",
+      "pinyin": "chénmò",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": ["silent", "to fall silent", "silence"],
+      "exampleSentence": { "cn": "听到这个消息，他沉默了很久。", "pinyin": "Tīngdào zhège xiāoxi, tā chénmò le hěn jiǔ.", "en": "When he heard the news, he was silent for a long time." }
+    },
+    {
+      "word": "形容",
+      "pinyin": "xíngróng",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": ["to describe", "to put into words"],
+      "exampleSentence": { "cn": "那种心情，我真不知道该怎么形容。", "pinyin": "Nà zhǒng xīnqíng, wǒ zhēn bù zhīdào gāi zěnme xíngróng.", "en": "I really don't know how to describe that feeling." }
+    },
+    {
+      "word": "害羞",
+      "pinyin": "hàixiū",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": ["shy", "bashful"],
+      "exampleSentence": { "cn": "她第一次上台表演，有点儿害羞。", "pinyin": "Tā dì-yī cì shàngtái biǎoyǎn, yǒudiǎnr hàixiū.", "en": "It was her first time performing on stage, so she was a little shy." }
+    },
+    {
+      "word": "收拾",
+      "pinyin": "shōushi",
+      "tone": 1,
+      "hsk": "HSK 5",
+      "definitions": ["to tidy up", "to pack (luggage)", "to put in order"],
+      "exampleSentence": { "cn": "明天一早就要出发，今晚得把行李收拾好。", "pinyin": "Míngtiān yìzǎo jiù yào chūfā, jīnwǎn děi bǎ xíngli shōushi hǎo.", "en": "We're leaving first thing tomorrow, so the luggage has to be packed tonight." }
+    },
+    {
+      "word": "凄凉",
+      "pinyin": "qīliáng",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": ["dreary", "desolate", "sad and lonely"],
+      "exampleSentence": { "cn": "冬天的海边空无一人，显得十分凄凉。", "pinyin": "Dōngtiān de hǎibiān kōng wú yì rén, xiǎnde shífēn qīliáng.", "en": "The seaside in winter is empty and looks very desolate." }
+    },
+    {
+      "word": "恭敬",
+      "pinyin": "gōngjìng",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": ["respectful", "deferential"],
+      "exampleSentence": { "cn": "学生们恭敬地向老师鞠了一躬。", "pinyin": "Xuéshengmen gōngjìng de xiàng lǎoshī jū le yì gōng.", "en": "The students bowed respectfully to their teacher." }
+    },
+    {
+      "word": "留恋",
+      "pinyin": "liúliàn",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": ["to be reluctant to leave", "to feel attached to"],
+      "exampleSentence": { "cn": "毕业那天，大家都很留恋校园的生活。", "pinyin": "Bìyè nà tiān, dàjiā dōu hěn liúliàn xiàoyuán de shēnghuó.", "en": "On graduation day, everyone felt reluctant to leave campus life behind." }
+    },
+    {
+      "word": "麻木",
+      "pinyin": "mámù",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": ["numb", "apathetic", "insensitive"],
+      "exampleSentence": { "cn": "长期的辛苦工作让他对生活变得麻木了。", "pinyin": "Chángqī de xīnkǔ gōngzuò ràng tā duì shēnghuó biàn de mámù le.", "en": "Years of hard work had left him numb to life." }
+    }
+  ],
+  "grammarNotes": [
+    {
+      "pattern": "早期白话：罢＝吧，么＝吗，伊＝她，的＝地",
+      "explanation": "Lu Xun wrote in the early vernacular of the 1920s, before today's standard forms settled. 罢 is the modern particle 吧, 么 at the end of a question is 吗, 伊 means 她 (she), and 的 is often used where modern Chinese writes adverbial 地 (远远的站着 = 远远地站着).",
+      "exampleFromStory": "让我拿去罢。",
+      "exampleFromStoryEn": "Let me take it.",
+      "additionalExamples": ["“管贼么？”（＝管贼吗？）", "人都叫伊“豆腐西施”。（＝叫她）"],
+      "additionalExamplesEn": ["\"Guard them from thieves?\" (= 管贼吗?)", "Everyone called her the \"Beancurd Beauty.\" (= 叫她)"]
+    },
+    {
+      "pattern": "只是……罢了",
+      "explanation": "\"It's only…, that's all.\" 罢了 at the end of a sentence plays something down, often with 只是, 不过 or 只 earlier in the sentence. Modern Chinese still uses it, especially in writing.",
+      "exampleFromStory": "这只是我自己心情的改变罢了。",
+      "exampleFromStoryEn": "It was only my own mood that had changed, that's all.",
+      "additionalExamples": ["我只是随便问问罢了，你别多想。", "他不过是开个玩笑罢了。"],
+      "additionalExamplesEn": ["I was just asking, that's all — don't read anything into it.", "He was only joking, that's all."]
+    },
+    {
+      "pattern": "愈……便愈……（＝越……越……）",
+      "explanation": "\"The more…, the more…\" 愈 is a written word for 越. Yang Ersao uses it twice in a row to make a sarcastic circular argument.",
+      "exampleFromStory": "真是愈有钱，便愈是一毫不肯放松，愈是一毫不肯放松，便愈有钱……",
+      "exampleFromStoryEn": "It's true: the richer people get, the less they'll part with a single cent, and the less they'll part with a single cent, the richer they get…",
+      "additionalExamples": ["雨愈下愈大，我们只好在车站等着。", "这本书我愈读愈喜欢。"],
+      "additionalExamplesEn": ["The rain got heavier and heavier, so we had to wait at the station.", "The more I read this book, the more I like it."]
+    },
+    {
+      "pattern": "一面……一面……",
+      "explanation": "Two actions happening at the same time: \"while…, (also)…\". It works like 一边……一边…… but sounds more written.",
+      "exampleFromStory": "圆规一面愤愤的回转身，一面絮絮的说，慢慢向外走。",
+      "exampleFromStoryEn": "The Compasses turned away indignantly, muttering on and on, and walked slowly out.",
+      "additionalExamples": ["他一面听，一面在本子上记着。", "我们一面吃饭，一面聊着小时候的事。"],
+      "additionalExamplesEn": ["He listened while taking notes in his notebook.", "We ate and chatted about when we were little."]
+    },
+    {
+      "pattern": "仿佛……似的 / 像……似的",
+      "explanation": "\"As if… / just like…\". 似的 closes a comparison that starts with 仿佛, 像 or 好像. It can also follow a noun directly: 闪电似的 \"like lightning\".",
+      "exampleFromStory": "但又总觉得被什么挡着似的，单在脑里面回旋，吐不出口外去。",
+      "exampleFromStoryEn": "But somehow it felt as if something was blocking it; the words just went round and round in my head and would not come out.",
+      "additionalExamples": ["他高兴得像个孩子似的。", "她仿佛什么都没听见似的，继续往前走。"],
+      "additionalExamplesEn": ["He was as happy as a child.", "She kept walking as if she hadn't heard anything."]
+    },
+    {
+      "pattern": "无所谓……，无所谓……",
+      "explanation": "In the story's final lines 无所谓有，无所谓无 means \"it cannot be said to exist, nor can it be said not to exist\". In everyday modern Chinese, 无所谓 usually means \"it doesn't matter / I don't mind\".",
+      "exampleFromStory": "希望本是无所谓有，无所谓无的。",
+      "exampleFromStoryEn": "Hope cannot be said to exist, nor can it be said not to exist.",
+      "additionalExamples": ["去哪儿吃饭我都无所谓，你决定吧。", "成功和失败，对他来说似乎无所谓。"],
+      "additionalExamplesEn": ["I don't mind where we eat — you decide.", "Success or failure seems to make no difference to him."]
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "“我”这次回故乡是为了什么？",
+      "questionEn": "Why does the narrator return to his hometown this time?",
+      "options": ["回去过春节，看望老朋友", "卖掉老屋，带着家人搬到外地去", "在故乡买房子，准备以后住下来", "去参加一次大祭祀"],
+      "optionsEn": ["To spend the Spring Festival there and visit old friends", "To sell the old house and move his family elsewhere", "To buy a house in his hometown and settle down there", "To take part in a great ancestral ceremony"],
+      "correctIndex": 1,
+      "explanation": "文章开头说：老屋已经卖给别姓了，必须在正月初一以前搬家到“我”谋食的异地去。",
+      "explanationEn": "Early on we learn the old house has been sold and the family must move, before New Year's Day, to the place where the narrator earns his living."
+    },
+    {
+      "id": "q2",
+      "question": "在“我”的记忆里，少年闰土是什么样的？",
+      "questionEn": "In the narrator's memory, what was the boy Runtu like?",
+      "options": ["胆小，什么都不懂", "家里很有钱，常常进城", "紫色的圆脸，戴着银项圈，知道很多海边的新鲜事", "很爱读书，会写很多字"],
+      "optionsEn": ["Timid, and knew nothing", "From a rich family, often went to town", "A round ruddy face and a silver neck-ring, and full of wonderful stories about the seaside", "Loved reading and could write many characters"],
+      "correctIndex": 2,
+      "explanation": "少年闰土“紫色的圆脸……颈上套一个明晃晃的银项圈”，会捕鸟、捡贝壳、刺猹，“心里有无穷无尽的希奇的事”。",
+      "explanationEn": "Young Runtu had \"a round, ruddy-purple face… a gleaming silver ring around his neck\", knew how to trap birds, collect shells and fight the zha, and his mind was \"full of endless marvels.\""
+    },
+    {
+      "id": "q3",
+      "question": "杨二嫂为什么被“我”叫做“圆规”？",
+      "questionEn": "Why does the narrator call Yang Ersao \"the Compasses\"?",
+      "options": ["因为她很会画画", "因为她站着的时候两手搭在髀间、张着两脚，样子像圆规", "因为她做事很有规矩", "因为她卖的豆腐是圆的"],
+      "optionsEn": ["Because she was good at drawing", "Because she stood with her hands on her hips and her thin legs apart, like a pair of compasses", "Because she was very proper in everything she did", "Because the beancurd she sold was round"],
+      "correctIndex": 1,
+      "explanation": "她“两手搭在髀间，没有系裙，张着两脚，正像一个画图仪器里细脚伶仃的圆规”。",
+      "explanationEn": "She stood \"with her hands on her hips… her legs apart, exactly like a pair of compasses from a drawing set, all thin spindly legs.\""
+    },
+    {
+      "id": "q4",
+      "question": "闰土见到“我”时叫了一声“老爷”。这说明了什么？",
+      "questionEn": "When Runtu sees the narrator, he calls him \"Master\". What does this show?",
+      "options": ["闰土忘记了“我”的名字", "闰土在开玩笑", "两个人之间已经隔了一层“可悲的厚障壁”，不再是平等的朋友了", "“我”真的做了大官"],
+      "optionsEn": ["Runtu had forgotten the narrator's name", "Runtu was joking", "A \"sad, thick wall\" had grown up between them; they were no longer equals and friends", "The narrator really had become a high official"],
+      "correctIndex": 2,
+      "explanation": "“我就知道，我们之间已经隔了一层可悲的厚障壁了。”生活的苦和社会地位的不同，让童年的朋友变得陌生。",
+      "explanationEn": "\"I knew then that a sad, thick wall had grown up between us.\" Hardship and the gap in social status had turned childhood friends into strangers."
+    },
+    {
+      "id": "q5",
+      "question": "小说最后一句“其实地上本没有路，走的人多了，也便成了路”表达了什么意思？",
+      "questionEn": "What does the final line, \"there were no roads on the earth to begin with; when many people walk the same way, a road comes into being,\" express?",
+      "options": ["故乡的路太少，应该多修路", "希望本身说不上有没有，只要很多人去追求、去走，就能变成现实", "走路比坐船更好", "人们应该留在故乡，不要出门"],
+      "optionsEn": ["The hometown had too few roads and more should be built", "Hope cannot simply be said to exist or not; if enough people pursue it and walk that way, it can become real", "Walking is better than travelling by boat", "People should stay in their hometown and not go away"],
+      "correctIndex": 1,
+      "explanation": "作者把希望比作地上的路：希望“无所谓有，无所谓无”，要靠许多人一起去走，才会成为现实。",
+      "explanationEn": "The author compares hope to a road: it \"cannot be said to exist, nor not to exist\"; it becomes real only when many people walk towards it together."
+    }
+  ]
+}

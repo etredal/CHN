@@ -1,0 +1,276 @@
+# 《故乡》 by Lu Xun (鲁迅), first published May 1921 in 《新青年》, collected in 《呐喊》 (1923).
+# Public domain (Lu Xun died 1936; published before 1929).
+# Chinese text: the original, unabridged (footnote markers removed; 水果电 -> 水果店 and
+# 〔弓京〕 -> 弶 corrected from the source file). English translation written for this app.
+# Source text: https://github.com/letiantian/Pinyin2Hanzi/blob/master/train/hmm/article/呐喊.txt
+#
+# Format: "## <Chinese heading> || <English heading>" starts a section;
+# every other non-comment line is "<Chinese sentence> || <English>".
+# A blank line separates paragraphs (the paragraphs of the original).
+
+## 第一部分：回到故乡 || Part 1: Coming Home
+我冒了严寒，回到相隔二千余里，别了二十余年的故乡去。 || Braving the bitter cold, I went back to my hometown, more than two thousand li away, which I had left over twenty years before.
+
+时候既然是深冬；渐近故乡时，天气又阴晦了，冷风吹进船舱中，呜呜的响，从蓬隙向外一望，苍黄的天底下，远近横着几个萧索的荒村，没有一些活气。 || It was the depth of winter; as we drew near my hometown the sky turned gloomy, and a cold wind howled into the cabin of the boat. Looking out through a gap in the awning, I saw a few bleak, desolate villages scattered near and far under a grey-yellow sky, without the least sign of life.
+我的心禁不住悲凉起来了。 || I could not help feeling a deep sadness.
+阿！这不是我二十年来时时记得的故乡？ || Ah! Was this really the hometown I had remembered all through those twenty years?
+
+我所记得的故乡全不如此。 || The hometown I remembered was nothing like this.
+我的故乡好得多了。 || My hometown was far better.
+但要我记起他的美丽，说出他的佳处来，却又没有影像，没有言辞了。 || But if I tried to recall its beauty and put its good points into words, I found no image and no words.
+仿佛也就如此。 || It seemed it had been just like this after all.
+于是我自己解释说：故乡本也如此，——虽然没有进步，也未必有如我所感的悲凉，这只是我自己心情的改变罢了，因为我这次回乡，本没有什么好心绪。 || So I explained it to myself: my hometown had always been like this — though it had not improved, it was perhaps not as sad as I felt; it was only my own mood that had changed, because I had come home this time in no good spirits.
+
+我这次是专为了别他而来的。 || I had come this time only to bid it farewell.
+我们多年聚族而居的老屋，已经公同卖给别姓了，交屋的期限，只在本年，所以必须赶在正月初一以前，永别了熟识的老屋，而且远离了熟识的故乡，搬家到我在谋食的异地去。 || The old house where our clan had lived together for so many years had been sold jointly to another family, and it had to be handed over before the year was out. So before New Year's Day we had to say goodbye forever to the familiar old house, leave our familiar hometown far behind, and move to the distant place where I was earning my living.
+
+第二日清早晨我到了我家的门口了。 || Early the next morning I reached the gate of our house.
+瓦楞上许多枯草的断茎当风抖着，正在说明这老屋难免易主的原因。 || Broken stems of withered grass trembled in the wind along the ridges of the roof tiles, as if explaining why the old house could not avoid changing hands.
+几房的本家大约已经搬走了，所以很寂静。 || Most of the other branches of the family had probably already moved out, so it was very quiet.
+我到了自家的房外，我的母亲早已迎着出来了，接着便飞出了八岁的侄儿宏儿。 || When I reached our own rooms, my mother had already come out to meet me, and then my eight-year-old nephew Hong'er came flying out too.
+
+我的母亲很高兴，但也藏着许多凄凉的神情，教我坐下，歇息，喝茶，且不谈搬家的事。 || My mother was very happy, though she was also hiding a good deal of sadness. She had me sit down, rest and drink some tea, and for the moment said nothing about the move.
+宏儿没有见过我，远远的对面站着只是看。 || Hong'er had never seen me before; he stood some way off, facing me, and just stared.
+
+但我们终于谈到搬家的事。 || But in the end we did talk about the move.
+我说外间的寓所已经租定了，又买了几件家具，此外须将家里所有的木器卖去，再去增添。 || I said I had already rented a place to live out there and bought a few pieces of furniture; beyond that, we would have to sell all the wooden furniture here and buy more later.
+母亲也说好，而且行李也略已齐集，木器不便搬运的，也小半卖去了，只是收不起钱来。 || Mother agreed, and said the luggage was mostly packed already; some of the furniture that was hard to move had been sold, only the money was hard to collect.
+
+“你休息一两天，去拜望亲戚本家一回，我们便可以走了。”母亲说。 || "Rest for a day or two, pay a visit to our relatives, and then we can go," Mother said.
+
+“是的。” || "Yes."
+
+“还有闰土，他每到我家来时，总问起你，很想见你一回面。 || "And there's Runtu. Every time he comes to our house he asks about you; he very much wants to see you once.
+我已经将你到家的大约日期通知他，他也许就要来了。” || I've let him know roughly when you'd be home, so he may come any time now."
+
+## 第二部分：少年闰土 || Part 2: Runtu as a Boy
+这时候，我的脑里忽然闪出一幅神异的图画来：深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜，其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力的刺去，那猹却将身一扭，反从他的胯下逃走了。 || At that moment a wonderful picture suddenly flashed into my mind: a round golden moon hanging in a deep blue sky, and below it sandy land by the sea, planted with jade-green watermelons stretching as far as the eye could see. Among them stood a boy of eleven or twelve, a silver ring around his neck and a steel pitchfork in his hand, stabbing with all his strength at a zha. But the zha twisted its body and escaped between his legs.
+
+这少年便是闰土。 || That boy was Runtu.
+我认识他时，也不过十多岁，离现在将有三十年了；那时我的父亲还在世，家景也好，我正是一个少爷。 || When I met him I was only a little over ten myself — nearly thirty years ago now. My father was still alive then, the family was well off, and I was a young master.
+那一年，我家是一件大祭祀的值年。 || That year it was our family's turn to host a great ancestral ceremony.
+这祭祀，说是三十多年才能轮到一回，所以很郑重；正月里供祖像，供品很多，祭器很讲究，拜的人也很多，祭器也很要防偷去。 || It was said this turn came round only once in thirty-odd years, so it was taken very seriously. In the first month the ancestors' portraits were set out, with many offerings and fine ritual vessels; many people came to worship, and the vessels had to be guarded against theft.
+我家只有一个忙月（我们这里给人做工的分三种：整年给一定人家做工的叫长工；按日给人做工的叫短工；自己也种地，只在过年过节以及收租时候来给一定人家做工的称忙月），忙不过来，他便对父亲说，可以叫他的儿子闰土来管祭器的。 || We had only one "busy-month" man (here, hired workers came in three kinds: those who worked all year for one family were long-term hands; those hired by the day were day labourers; and those who farmed their own land but came to work for a particular family only at New Year, at festivals and when rents were collected were called busy-month men). He couldn't manage it all alone, so he told my father he could send for his son Runtu to look after the ritual vessels.
+
+我的父亲允许了；我也很高兴，因为我早听到闰土这名字，而且知道他和我仿佛年纪，闰月生的，五行缺土，所以他的父亲叫他闰土。 || My father agreed, and I was delighted too, for I had long heard the name Runtu and knew he was about my age. He had been born in a leap month, and his horoscope lacked the element earth, so his father named him Runtu — "leap earth."
+他是能装弶捉小鸟雀的。 || And he knew how to set traps to catch little birds.
+
+我于是日日盼望新年，新年到，闰土也就到了。 || So day after day I longed for the New Year, for when the New Year came, Runtu would come too.
+好容易到了年末，有一日，母亲告诉我，闰土来了，我便飞跑的去看。 || At long last the end of the year arrived. One day Mother told me Runtu had come, and I ran like the wind to see him.
+他正在厨房里，紫色的圆脸，头戴一顶小毡帽，颈上套一个明晃晃的银项圈，这可见他的父亲十分爱他，怕他死去，所以在神佛面前许下愿心，用圈子将他套住了。 || He was in the kitchen: a round, ruddy-purple face, a little felt cap on his head, and a gleaming silver ring around his neck. This showed how much his father loved him — afraid he might die, he had made a vow before the gods and Buddha and fastened him to life with the ring.
+他见人很怕羞，只是不怕我，没有旁人的时候，便和我说话，于是不到半日，我们便熟识了。 || He was very shy with people, but not with me. When nobody else was around he would talk to me, and in less than half a day we were friends.
+
+我们那时候不知道谈些什么，只记得闰土很高兴，说是上城之后，见了许多没有见过的东西。 || I don't know what we talked about then; I only remember that Runtu was very happy, and said that since coming to town he had seen lots of things he'd never seen before.
+
+第二日，我便要他捕鸟。他说： || The next day I wanted him to catch birds. He said:
+
+“这不能。须大雪下了才好。 || "Can't do it now. We need a heavy snowfall first.
+我们沙地上，下了雪，我扫出一块空地来，用短棒支起一个大竹匾，撒下秕谷，看鸟雀来吃时，我远远地将缚在棒上的绳子只一拉，那鸟雀就罩在竹匾下了。 || On our sandy land, when it snows, I sweep a patch clear, prop up a big bamboo tray with a short stick and scatter some husks. When the birds come to eat, I give one tug from far away on the string tied to the stick, and the birds are trapped under the tray.
+什么都有：稻鸡，角鸡，鹁鸪，蓝背……” || You get all kinds: rice birds, horned pheasants, wood pigeons, blue-backs…"
+
+我于是又很盼望下雪。 || After that, I longed for snow as well.
+
+闰土又对我说： || Runtu also told me:
+
+“现在太冷，你夏天到我们这里来。 || "It's too cold now. Come to our place in the summer.
+我们日里到海边捡贝壳去，红的绿的都有，鬼见怕也有，观音手也有。 || In the daytime we'll go to the seashore to pick up shells — there are red ones and green ones, 'ghost-scarers' and 'Guanyin's hands' too.
+晚上我和爹管西瓜去，你也去。” || In the evening Dad and I go to guard the watermelons. You can come too."
+
+“管贼么？” || "Guard them from thieves?"
+
+“不是。走路的人口渴了摘一个瓜吃，我们这里是不算偷的。 || "No. If someone walking by gets thirsty and picks a melon to eat, around here we don't call that stealing.
+要管的是獾猪，刺猬，猹。 || What we guard against are badgers, hedgehogs and zha.
+月亮底下，你听，啦啦的响了，猹在咬瓜了。 || Under the moon, you listen — there's a crunching sound: a zha is biting a melon.
+你便捏了胡叉，轻轻地走去……” || Then you grab your pitchfork and creep over quietly…"
+
+我那时并不知道这所谓猹的是怎么一件东西——便是现在也没有知道——只是无端的觉得状如小狗而很凶猛。 || At the time I had no idea what this so-called zha was — and I still don't know now — I just imagined, for no reason, that it looked like a little dog and was very fierce.
+
+“他不咬人么？” || "Doesn't it bite people?"
+
+“有胡叉呢。走到了，看见猹了，你便刺。 || "You've got the pitchfork. You get there, you see the zha, you stab.
+这畜生很伶俐，倒向你奔来，反从胯下窜了。 || But the creature is very clever — it rushes straight at you and darts away between your legs.
+他的皮毛是油一般的滑……” || Its fur is as slippery as oil…"
+
+我素不知道天下有这许多新鲜事：海边有如许五色的贝壳；西瓜有这样危险的经历，我先前单知道他在水果店里出卖罢了。 || I had never known there were so many new and wonderful things in the world: that the seashore had shells of so many colours, and that watermelons had such dangerous adventures — before, I had only known that they were sold in fruit shops.
+
+“我们沙地里，潮汛要来的时候，就有许多跳鱼儿只是跳，都有青蛙似的两个脚……” || "On our sandy land, when the high tide is coming, lots of jumping fish just keep jumping about. They all have two legs, like frogs…"
+
+阿！闰土的心里有无穷无尽的希奇的事，都是我往常的朋友所不知道的。 || Ah! Runtu's mind was full of endless marvels that none of my usual friends knew anything about.
+他们不知道一些事，闰土在海边时，他们都和我一样只看见院子里高墙上的四角的天空。 || They knew nothing of such things. While Runtu was by the sea, they, like me, could only see the square of sky above the high walls of the courtyard.
+
+可惜正月过去了，闰土须回家里去，我急得大哭，他也躲到厨房里，哭着不肯出门，但终于被他父亲带走了。 || Sadly, the first month came to an end and Runtu had to go home. I was so upset I burst into tears, and he hid in the kitchen, crying and refusing to leave, but in the end his father took him away.
+他后来还托他的父亲带给我一包贝壳和几支很好看的鸟毛，我也曾送他一两次东西，但从此没有再见面。 || Later he had his father bring me a packet of shells and a few very pretty feathers, and I sent him things once or twice too, but we never saw each other again.
+
+## 第三部分：豆腐西施 || Part 3: The "Beancurd Beauty"
+现在我的母亲提起了他，我这儿时的记忆，忽而全都闪电似的苏生过来，似乎看到了我的美丽的故乡了。 || Now that my mother had mentioned him, all these childhood memories suddenly came back to life like a flash of lightning, and I seemed to see my beautiful hometown at last.
+我应声说： || I answered:
+
+“这好极！他，——怎样？……” || "That's wonderful! And how — how is he?…"
+
+“他？……他景况也很不如意……”母亲说着，便向房外看，“这些人又来了。 || "Him?… Things haven't gone well for him either…" Mother said, glancing outside. "Those people are here again.
+说是买木器，顺手也就随便拿走的，我得去看看。” || They say they've come to buy furniture, but they just help themselves to whatever they like. I'd better go and look."
+
+母亲站起身，出去了。 || Mother stood up and went out.
+门外有几个女人的声音。 || I could hear several women's voices outside the door.
+我便招宏儿走近面前，和他闲话：问他可会写字，可愿意出门。 || I beckoned Hong'er over and chatted with him: I asked him whether he could write, and whether he wanted to go away.
+
+“我们坐火车去么？” || "Will we go by train?"
+
+“我们坐火车去。” || "We'll go by train."
+
+“船呢？” || "What about by boat?"
+
+“先坐船，……” || "First by boat…"
+
+“哈！这模样了！胡子这么长了！”一种尖利的怪声突然大叫起来。 || "Ha! Look at you now! Such a long moustache!" a strange, shrill voice suddenly shrieked.
+
+我吃了一吓，赶忙抬起头，却见一个凸颧骨，薄嘴唇，五十岁上下的女人站在我面前，两手搭在髀间，没有系裙，张着两脚，正像一个画图仪器里细脚伶仃的圆规。 || Startled, I quickly looked up and saw a woman of about fifty standing in front of me, with high cheekbones and thin lips. Her hands were on her hips, she wore no skirt, and she stood with her legs apart, exactly like a pair of compasses from a drawing set, all thin spindly legs.
+
+我愕然了。 || I was taken aback.
+
+“不认识了么？我还抱过你咧！” || "Don't you recognise me? Why, I used to carry you in my arms!"
+
+我愈加愕然了。 || I was even more taken aback.
+幸而我的母亲也就进来，从旁说： || Luckily my mother came in just then and said from the side:
+
+“他多年出门，统忘却了。你该记得罢，”便向着我说，“这是斜对门的杨二嫂，……开豆腐店的。” || "He's been away so many years, he's forgotten everything." Then, turning to me: "Surely you remember — this is Second Sister-in-law Yang from across the street… the one with the beancurd shop."
+
+哦，我记得了。 || Oh, now I remembered.
+我孩子时候，在斜对门的豆腐店里确乎终日坐着一个杨二嫂，人都叫伊“豆腐西施”。 || When I was a child, there really had been a Second Sister-in-law Yang who sat all day in the beancurd shop across the street, and everyone called her the "Beancurd Beauty."
+但是擦着白粉，颧骨没有这么高，嘴唇也没有这么薄，而且终日坐着，我也从没有见过这圆规式的姿势。 || But she used to wear white powder, her cheekbones were not so high nor her lips so thin, and since she sat all day long, I had never seen her in this compass-like pose.
+那时人说：因为伊，这豆腐店的买卖非常好。 || People said back then that it was because of her that the beancurd shop did such good business.
+但这大约因为年龄的关系，我却并未蒙着一毫感化，所以竟完全忘却了。 || But probably because of my age at the time, I was not the least bit affected by her charms, and so I had forgotten her completely.
+然而圆规很不平，显出鄙夷的神色，仿佛嗤笑法国人不知道拿破仑，美国人不知道华盛顿似的，冷笑说： || The Compasses, however, was most indignant. With a look of contempt, as if mocking a Frenchman who had never heard of Napoleon or an American who had never heard of Washington, she sneered:
+
+“忘了？这真是贵人眼高……” || "Forgotten? Well, important people do look down on others…"
+
+“那有这事……我……”我惶恐着，站起来说。 || "That's not it at all… I…" I said nervously, getting to my feet.
+
+“那么，我对你说。 || "Then let me tell you something.
+迅哥儿，你阔了，搬动又笨重，你还要什么这些破烂木器，让我拿去罢。 || Brother Xun, you're rich now, and these things are heavy to move. What do you want with this battered old furniture? Let me take it.
+我们小户人家，用得着。” || Poor folk like us can use it."
+
+“我并没有阔哩。我须卖了这些，再去……” || "I'm not rich at all. I have to sell these, and then…"
+
+“阿呀呀，你放了道台了，还说不阔？ || "Oh my, oh my! You've been made a Daotai, and you say you're not rich?
+你现在有三房姨太太；出门便是八抬的大轿，还说不阔？ || You've got three concubines now, and when you go out it's in a big sedan chair carried by eight men — and you say you're not rich?
+吓，什么都瞒不过我。” || Hah, you can't hide anything from me."
+
+我知道无话可说了，便闭了口，默默的站着。 || I knew there was nothing I could say, so I shut my mouth and stood there in silence.
+
+“阿呀阿呀，真是愈有钱，便愈是一毫不肯放松，愈是一毫不肯放松，便愈有钱……” || "Oh my, oh my — it's true: the richer people get, the less they'll part with a single cent, and the less they'll part with a single cent, the richer they get…"
+圆规一面愤愤的回转身，一面絮絮的说，慢慢向外走，顺便将我母亲的一副手套塞在裤腰里，出去了。 || The Compasses turned away indignantly, still muttering on and on, and walked slowly out — slipping a pair of my mother's gloves into the waistband of her trousers on the way.
+
+此后又有近处的本家和亲戚来访问我。 || After that, relatives and clansmen from nearby came to call on me.
+我一面应酬，偷空便收拾些行李，这样的过了三四天。 || I entertained them, and in spare moments did some packing; three or four days passed this way.
+
+## 第四部分：中年闰土 || Part 4: Runtu Grown Up
+一日是天气很冷的午后，我吃过午饭，坐着喝茶，觉得外面有人进来了，便回头去看。 || One very cold afternoon, after lunch, I was sitting drinking tea when I sensed someone coming in from outside, so I turned round to look.
+我看时，不由的非常出惊，慌忙站起身，迎着走去。 || When I saw who it was, I couldn't help being astonished; I hurried to my feet and went to meet him.
+
+这来的便是闰土。 || The visitor was Runtu.
+虽然我一见便知道是闰土，但又不是我这记忆上的闰土了。 || Although I knew at a glance that it was Runtu, he was no longer the Runtu of my memory.
+他身材增加了一倍；先前的紫色的圆脸，已经变作灰黄，而且加上了很深的皱纹；眼睛也像他父亲一样，周围都肿得通红，这我知道，在海边种地的人，终日吹着海风，大抵是这样的。 || He was twice the size he had been. His round, ruddy face had turned a sallow grey and was lined with deep wrinkles; his eyes, like his father's, were swollen and red around the rims — I knew that people who farm by the sea, in the sea wind all day, mostly end up like that.
+他头上是一顶破毡帽，身上只一件极薄的棉衣，浑身瑟索着；手里提着一个纸包和一支长烟管，那手也不是我所记得的红活圆实的手，却又粗又笨而且开裂，像是松树皮了。 || On his head was a shabby felt cap, and he wore only one very thin padded jacket, so he was shivering all over. He carried a paper package and a long pipe, and his hands were not the plump, rosy, lively hands I remembered, but coarse, clumsy and cracked, like the bark of a pine tree.
+
+我这时很兴奋，但不知道怎么说才好，只是说： || I was very excited, but didn't know what to say, and could only say:
+
+“阿！闰土哥，——你来了？……” || "Ah! Brother Runtu — you've come?…"
+
+我接着便有许多话，想要连珠一般涌出：角鸡，跳鱼儿，贝壳，猹，…… || Then I had so much to say, wanting it all to pour out like a string of pearls: horned pheasants, jumping fish, shells, zha…
+但又总觉得被什么挡着似的，单在脑里面回旋，吐不出口外去。 || But somehow it felt as if something was blocking it; the words just went round and round in my head and would not come out of my mouth.
+
+他站住了，脸上现出欢喜和凄凉的神情；动着嘴唇，却没有作声。 || He stood still, his face showing both joy and sadness. His lips moved, but he made no sound.
+他的态度终于恭敬起来了，分明的叫道： || Finally his manner became respectful, and he said clearly:
+
+“老爷！……” || "Master!…"
+
+我似乎打了一个寒噤；我就知道，我们之间已经隔了一层可悲的厚障壁了。 || I felt as if I had shivered; I knew then that a sad, thick wall had grown up between us.
+我也说不出话。 || I could not speak either.
+
+他回过头去说，“水生，给老爷磕头。” || He turned his head and said, "Shuisheng, kowtow to the master."
+便拖出躲在背后的孩子来，这正是一个廿年前的闰土，只是黄瘦些，颈子上没有银圈罢了。 || Then he pulled out a child who had been hiding behind him — the very image of Runtu twenty years before, only paler and thinner, and with no silver ring around his neck.
+“这是第五个孩子，没有见过世面，躲躲闪闪……” || "This is my fifth child. He hasn't seen anything of the world, so he's shy…"
+
+母亲和宏儿下楼来了，他们大约也听到了声音。 || Mother and Hong'er came downstairs; they had probably heard our voices.
+
+“老太太。信是早收到了。我实在喜欢的不得了，知道老爷回来……”闰土说。 || "Madam. I got your letter some time ago. I was really so happy to know the master was coming back…" said Runtu.
+
+“阿，你怎的这样客气起来。 || "Oh, why are you being so formal?
+你们先前不是哥弟称呼么？ || Didn't you two use to call each other brother?
+还是照旧：迅哥儿。”母亲高兴的说。 || Call him what you used to: Brother Xun," Mother said cheerfully.
+
+“阿呀，老太太真是……这成什么规矩。那时是孩子，不懂事……” || "Oh, Madam, really… that wouldn't be proper at all. We were children then and didn't know any better…"
+闰土说着，又叫水生上来打拱，那孩子却害羞，紧紧的只贴在他背后。 || As he said this, Runtu told Shuisheng to come forward and bow, but the child was shy and clung tightly to his father's back.
+
+“他就是水生？第五个？ || "So he's Shuisheng? Your fifth?
+都是生人，怕生也难怪的；还是宏儿和他去走走。”母亲说。 || We're all strangers to him, so it's no wonder he's shy. Hong'er, why don't you take him out for a walk," said Mother.
+
+宏儿听得这话，便来招水生，水生却松松爽爽同他一路出去了。 || Hearing this, Hong'er came and beckoned to Shuisheng, and Shuisheng went off with him quite happily.
+母亲叫闰土坐，他迟疑了一回，终于就了坐，将长烟管靠在桌旁，递过纸包来，说： || Mother asked Runtu to sit down. He hesitated for a while, but finally took a seat, leaned his long pipe against the table and handed over the paper package, saying:
+
+“冬天没有什么东西了。 || "There's not much to be had in winter.
+这一点干青豆倒是自家晒在那里的，请老爷……” || But these few dried green beans we dried ourselves. Please, master…"
+
+我问问他的景况。 || I asked him how things were with him.
+他只是摇头。 || He just shook his head.
+
+“非常难。第六个孩子也会帮忙了，却总是吃不够…… || "Very hard. My sixth child can help out now, but we never have enough to eat…
+又不太平…… || And there's no peace…
+什么地方都要钱，没有规定…… || Everywhere wants money, there are no fixed rules…
+收成又坏。 || And the harvests are bad.
+种出东西来，挑去卖，总要捐几回钱，折了本；不去卖，又只能烂掉……” || When we grow something and carry it to market, we always have to pay taxes several times over and lose money; if we don't sell it, it just rots…"
+
+他只是摇头；脸上虽然刻着许多皱纹，却全然不动，仿佛石像一般。 || He kept shaking his head. Though his face was carved with deep lines, it did not move at all, as if it were a stone statue.
+他大约只是觉得苦，却又形容不出，沉默了片时，便拿起烟管来默默的吸烟了。 || He probably just felt the bitterness without being able to put it into words. After a moment's silence he picked up his pipe and smoked without a word.
+
+母亲问他，知道他的家里事务忙，明天便得回去；又没有吃过午饭，便叫他自己到厨下炒饭吃去。 || Mother asked him and learned that he was busy at home and had to go back the next day. He hadn't had lunch yet, so she told him to go to the kitchen and fry himself some rice.
+
+他出去了；母亲和我都叹息他的景况：多子，饥荒，苛税，兵，匪，官，绅，都苦得他像一个木偶人了。 || After he went out, Mother and I both sighed over his situation: too many children, famine, harsh taxes, soldiers, bandits, officials, gentry — all of them had worn him down until he was like a wooden puppet.
+母亲对我说，凡是不必搬走的东西，尽可以送他，可以听他自己去拣择。 || Mother told me that anything we didn't need to take with us, we could give to him, and let him choose for himself.
+
+下午，他拣好了几件东西：两条长桌，四个椅子，一副香炉和烛台，一杆抬秤。 || In the afternoon he picked out a few things: two long tables, four chairs, an incense burner and candlesticks, and a large steelyard scale.
+他又要所有的草灰（我们这里煮饭是烧稻草的，那灰，可以做沙地的肥料），待我们启程的时候，他用船来载去。 || He also asked for all the straw ash (here we burn rice straw to cook, and the ash can be used to fertilise the sandy soil); when we set off, he would come with a boat to carry it away.
+
+夜间，我们又谈些闲天，都是无关紧要的话；第二天早晨，他就领了水生回去了。 || In the evening we chatted a little more, about nothing of any importance. The next morning he took Shuisheng and went home.
+
+## 第五部分：走的人多了，也便成了路 || Part 5: When Many People Walk, a Road Appears
+又过了九日，是我们启程的日期。 || Nine days later came the day of our departure.
+闰土早晨便到了，水生没有同来，却只带着一个五岁的女儿管船只。 || Runtu arrived in the morning. Shuisheng had not come with him; instead he had brought only his five-year-old daughter to look after the boat.
+我们终日很忙碌，再没有谈天的工夫。 || We were busy all day long and had no more time to talk.
+来客也不少，有送行的，有拿东西的，有送行兼拿东西的。 || There were plenty of visitors too: some came to see us off, some came to take things, and some came both to see us off and to take things.
+待到傍晚我们上船的时候，这老屋里的所有破旧大小粗细东西，已经一扫而空了。 || By the time we boarded the boat in the evening, every old and worn-out thing in the house, big or small, rough or fine, had been swept clean away.
+
+我们的船向前走，两岸的青山在黄昏中，都装成了深黛颜色，连着退向船后梢去。 || Our boat moved forward. The green hills on both banks had turned a deep blue-black in the dusk, and one after another they slipped away behind the stern.
+
+宏儿和我靠着船窗，同看外面模糊的风景，他忽然问道： || Hong'er and I leaned against the cabin window, looking out together at the blurred scenery, when he suddenly asked:
+
+“大伯！我们什么时候回来？” || "Uncle! When are we coming back?"
+
+“回来？你怎么还没有走就想回来了。” || "Coming back? Why are you thinking of coming back before we've even left?"
+
+“可是，水生约我到他家玩去咧……”他睁着大的黑眼睛，痴痴的想。 || "But Shuisheng invited me to come and play at his house…" His big dark eyes were wide open as he sat lost in thought.
+
+我和母亲也都有些惘然，于是又提起闰土来。 || Mother and I both felt a little lost too, and so we started talking about Runtu again.
+母亲说，那豆腐西施的杨二嫂，自从我家收拾行李以来，本是每日必到的，前天伊在灰堆里，掏出十多个碗碟来，议论之后，便定说是闰土埋着的，他可以在运灰的时候，一齐搬回家里去； || Mother said that ever since we had started packing, Second Sister-in-law Yang, the Beancurd Beauty, had come round every single day. The day before yesterday she had dug a dozen or so bowls and plates out of the ash heap, and after some discussion she declared that Runtu had buried them there, so that he could carry them all home along with the ash.
+杨二嫂发见了这件事，自己很以为功，便拿了那狗气杀（这是我们这里养鸡的器具，木盘上面有着栅栏，内盛食料，鸡可以伸进颈子去啄，狗却不能，只能看着气死），飞也似的跑了，亏伊装着这么高低的小脚，竟跑得这样快。 || Very pleased with herself for this discovery, she then took the "dog-vexer" (a device we use here for feeding chickens: a wooden tray with a fence on top and feed inside, so that chickens can stretch their necks in to peck but dogs can't, and can only watch and fume) and ran off as if flying — amazing how fast she could run on those tiny bound feet in their high-soled shoes.
+
+老屋离我愈远了；故乡的山水也都渐渐远离了我，但我却并不感到怎样的留恋。 || The old house fell further and further behind me; the hills and rivers of my hometown were slowly leaving me too, yet I felt no great reluctance to go.
+我只觉得我四面有看不见的高墙，将我隔成孤身，使我非常气闷；那西瓜地上的银项圈的小英雄的影像，我本来十分清楚，现在却忽地模糊了，又使我非常的悲哀。 || I only felt that there were invisible high walls all around me, cutting me off and leaving me alone, which made me feel stifled. The image of that little hero with the silver necklace in the watermelon field, once so clear to me, had suddenly blurred, and this too made me very sad.
+
+母亲和宏儿都睡着了。 || Mother and Hong'er had both fallen asleep.
+
+我躺着，听船底潺潺的水声，知道我在走我的路。 || I lay listening to the water gurgling under the boat, and knew that I was going my own way.
+我想：我竟与闰土隔绝到这地步了，但我们的后辈还是一气，宏儿不是正在想念水生么。 || I thought: Runtu and I have become so cut off from each other, yet our children are still of one heart — isn't Hong'er missing Shuisheng right now?
+我希望他们不再像我，又大家隔膜起来…… || I hope they will not be like us, growing apart from each other…
+然而我又不愿意他们因为要一气，都如我的辛苦展转而生活，也不愿意他们都如闰土的辛苦麻木而生活，也不愿意都如别人的辛苦恣睢而生活。 || And yet I would not want them, for the sake of staying close, to live a hard, restless life like mine; nor a hard, numbed life like Runtu's; nor a hard, reckless life like other people's.
+他们应该有新的生活，为我们所未经生活过的。 || They should have a new life, a life we have never lived.
+
+我想到希望，忽然害怕起来了。 || When I thought of hope, I suddenly felt afraid.
+闰土要香炉和烛台的时候，我还暗地里笑他，以为他总是崇拜偶像，什么时候都不忘却。 || When Runtu asked for the incense burner and candlesticks, I had secretly laughed at him, thinking he still worshipped idols and could never forget them.
+现在我所谓希望，不也是我自己手制的偶像么？ || But wasn't what I called hope also an idol made with my own hands?
+只是他的愿望切近，我的愿望茫远罢了。 || The only difference was that his wishes were close at hand, while mine were vague and far away.
+
+我在朦胧中，眼前展开一片海边碧绿的沙地来，上面深蓝的天空中挂着一轮金黄的圆月。 || As I drifted off, a stretch of jade-green sandy land by the sea spread out before my eyes, and above it a round golden moon hung in the deep blue sky.
+我想：希望本是无所谓有，无所谓无的。 || I thought: hope cannot be said to exist, nor can it be said not to exist.
+这正如地上的路；其实地上本没有路，走的人多了，也便成了路。 || It is just like the roads across the earth. In fact, there were no roads on the earth to begin with; when many people walk the same way, a road comes into being.
