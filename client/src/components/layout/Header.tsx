@@ -1,15 +1,25 @@
 import React from 'react';
 import { useSettings } from '../../context/SettingsContext';
-import { BookOpen, Bookmark, FileText, Moon, Sun, Coffee } from 'lucide-react';
+import { BookOpen, Bookmark, FileText, Moon, Sun, Coffee, Download } from 'lucide-react';
 import { PinyinToggle } from '../common/PinyinToggle';
+import { usePwa } from '../../pwa';
 
 interface HeaderProps {
-  currentTab: 'library' | 'vocab' | 'importer';
-  onSelectTab: (tab: 'library' | 'vocab' | 'importer') => void;
+  currentTab: Tab;
+  onSelectTab: (tab: Tab) => void;
 }
+
+type Tab = 'library' | 'vocab' | 'importer';
+
+const TABS: { id: Tab; label: string; Icon: typeof BookOpen }[] = [
+  { id: 'library', label: '精选文库', Icon: BookOpen },
+  { id: 'vocab', label: '生词本', Icon: Bookmark },
+  { id: 'importer', label: '文章导入', Icon: FileText },
+];
 
 export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
   const { settings, setTheme } = useSettings();
+  const { canInstall, install } = usePwa();
 
   const cycleTheme = () => {
     if (settings.theme === 'light') setTheme('sepia');
@@ -24,6 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
   };
 
   return (
+    <>
     <header className="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Brand */}
@@ -47,47 +58,36 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
           </div>
         </div>
 
-        {/* Navigation Tabs */}
-        <nav className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800/70 p-1 rounded-2xl">
-          <button
-            onClick={() => onSelectTab('library')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-              currentTab === 'library'
-                ? 'bg-white dark:bg-slate-700 text-amber-600 dark:text-amber-400 shadow-xs'
-                : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
-            }`}
-          >
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>精选文库</span>
-          </button>
-
-          <button
-            onClick={() => onSelectTab('vocab')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-              currentTab === 'vocab'
-                ? 'bg-white dark:bg-slate-700 text-amber-600 dark:text-amber-400 shadow-xs'
-                : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
-            }`}
-          >
-            <Bookmark className="w-3.5 h-3.5" />
-            <span>生词本</span>
-          </button>
-
-          <button
-            onClick={() => onSelectTab('importer')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-              currentTab === 'importer'
-                ? 'bg-white dark:bg-slate-700 text-amber-600 dark:text-amber-400 shadow-xs'
-                : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
-            }`}
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span>文章导入</span>
-          </button>
+        {/* Navigation Tabs (desktop; phones get the bottom tab bar below) */}
+        <nav className="hidden sm:flex items-center gap-1 bg-slate-100 dark:bg-slate-800/70 p-1 rounded-2xl">
+          {TABS.map(({ id, label, Icon }) => (
+            <button
+              key={id}
+              onClick={() => onSelectTab(id)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                currentTab === id
+                  ? 'bg-white dark:bg-slate-700 text-amber-600 dark:text-amber-400 shadow-xs'
+                  : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+              }`}
+            >
+              <Icon className="w-3.5 h-3.5" />
+              <span>{label}</span>
+            </button>
+          ))}
         </nav>
 
         {/* Quick Theme Switcher */}
         <div className="flex items-center gap-2">
+          {canInstall && (
+            <button
+              onClick={install}
+              className="p-2 rounded-xl text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-slate-800 transition-colors"
+              title="安装应用"
+              aria-label="安装应用"
+            >
+              <Download className="w-4 h-4" />
+            </button>
+          )}
           <PinyinToggle />
           <button
             onClick={cycleTheme}
@@ -99,5 +99,24 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
         </div>
       </div>
     </header>
+
+      {/* Bottom tab bar on phones (outside <header>: its backdrop-filter would trap a fixed child) */}
+      <nav className="sm:hidden fixed bottom-0 inset-x-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 pb-[env(safe-area-inset-bottom)]">
+        <div className="grid grid-cols-3 h-14">
+          {TABS.map(({ id, label, Icon }) => (
+            <button
+              key={id}
+              onClick={() => onSelectTab(id)}
+              className={`flex flex-col items-center justify-center gap-0.5 text-[11px] font-bold transition-colors ${
+                currentTab === id ? 'text-amber-600 dark:text-amber-400' : 'text-slate-400'
+              }`}
+            >
+              <Icon className="w-5 h-5" />
+              <span>{label}</span>
+            </button>
+          ))}
+        </div>
+      </nav>
+    </>
   );
 };
