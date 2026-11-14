@@ -105,6 +105,18 @@ export function formatInterval(days: number): string {
   return `${Math.round((days / 365) * 10) / 10}年`;
 }
 
+/** Placeholder stored for words saved before they had a definition. */
+export const NO_DEFINITION = 'definition not specified';
+
+/** Replace a saved card's definitions (e.g. filling in a placeholder). */
+export function setCardDefinitions(cardId: string, definitions: string[]): void {
+  const cards = getSavedFlashcards();
+  const card = cards.find(c => c.id === cardId);
+  if (!card) return;
+  card.definitions = definitions;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
+}
+
 export function isWordSaved(word: string): boolean {
   return getSavedFlashcards().some(c => c.word === word);
 }
