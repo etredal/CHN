@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { LongStory, WordToken, Sentence } from '../../types';
 import { SentenceBlock } from './SentenceBlock';
 import { WordLine } from './WordLine';
@@ -29,7 +29,7 @@ interface ReaderViewProps {
 const FONT_SIZE_LABELS = { sm: '小', base: '中', lg: '大', xl: '特大' } as const;
 
 export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
-  const { loadStoryAudio, pause } = useAudioPlayer();
+  const { loadStoryAudio, pause, togglePlay } = useAudioPlayer();
   const showPinyin = usePinyinVisible();
   const { settings, setPinyinMode, toggleShowEnglish, setFontSize, setTheme } = useSettings();
 
@@ -37,6 +37,38 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
   const [selectedWord, setSelectedWord] = useState<WordToken | null>(null);
   const [selectedSentence, setSelectedSentence] = useState<Sentence | null>(null);
   const [showSettingsMenu, setShowSettingsMenu] = useState(false);
+  const settingsMenuRef = useRef<HTMLDivElement>(null);
+
+  // Close the settings popover on a click outside it or Escape.
+  useEffect(() => {
+    if (!showSettingsMenu) return;
+    const onPointerDown = (e: PointerEvent) => {
+      if (!settingsMenuRef.current?.contains(e.target as Node)) setShowSettingsMenu(false);
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setShowSettingsMenu(false);
+    };
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [showSettingsMenu]);
+
+  // Space plays/pauses the story, unless focus is on something that uses it.
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.code !== 'Space' || e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (selectedWord) return;
+      const el = e.target as HTMLElement | null;
+      if (el?.closest('input, textarea, select, button, [role="button"], [contenteditable="true"]')) return;
+      e.preventDefault();
+      togglePlay();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [togglePlay, selectedWord]);
 
   // Collect all sentences from all sections for audio player
   useEffect(() => {
@@ -97,10 +129,12 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
           </div>
 
           {/* Quick Reader Settings Trigger */}
-          <div className="relative flex items-center gap-1">
+          <div ref={settingsMenuRef} className="relative flex items-center gap-1">
             <PinyinToggle />
             <button
               onClick={() => setShowSettingsMenu(!showSettingsMenu)}
+              aria-expanded={showSettingsMenu}
+              aria-label="阅读设置"
               className="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors"
               title="Reading Settings"
             >

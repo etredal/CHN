@@ -24,6 +24,14 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
   const sources = wordAudioSources(token.text, wordAudio);
   useEffect(() => preloadWordAudio(wordAudio), [wordAudio]);
 
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [onClose]);
+
   const handleSpeak = (slow: boolean = false) => {
     setIsPlayingAudio(true);
     pronounceWord(token.text, sources, slow).finally(() => setIsPlayingAudio(false));
@@ -48,7 +56,7 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/40 backdrop-blur-xs transition-opacity animate-in fade-in duration-200">
+    <div role="dialog" aria-modal="true" aria-label={token.text} className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/40 backdrop-blur-xs transition-opacity animate-in fade-in duration-200">
       {/* Background click to dismiss */}
       <div className="absolute inset-0" onClick={onClose} />
 
@@ -93,6 +101,7 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
             </button>
             <button
               onClick={onClose}
+              aria-label="关闭"
               className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             >
               <X className="w-5 h-5" />
