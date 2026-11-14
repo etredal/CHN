@@ -238,52 +238,52 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
         </div>
 
         {/* Tab switch bar */}
-        <div className="max-w-4xl mx-auto px-4 flex items-center justify-center gap-2 border-t border-slate-100 dark:border-slate-800 py-1.5">
+        <div className="max-w-4xl mx-auto px-2 sm:px-4 flex items-center justify-start sm:justify-center gap-1 sm:gap-2 overflow-x-auto border-t border-slate-100 dark:border-slate-800 py-1.5">
           <button
             onClick={() => setActiveTab('text')}
-            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
+            className={`flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap shrink-0 transition-all ${
               activeTab === 'text'
                 ? 'bg-amber-100 text-amber-900 dark:bg-amber-900/60 dark:text-amber-200 font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
-            <FileText className="w-3.5 h-3.5" />
+            <FileText className="w-3.5 h-3.5 hidden sm:block" />
             <span>正文</span>
           </button>
 
           <button
             onClick={() => setActiveTab('grammar')}
-            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
+            className={`flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap shrink-0 transition-all ${
               activeTab === 'grammar'
                 ? 'bg-amber-100 text-amber-900 dark:bg-amber-900/60 dark:text-amber-200 font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
-            <Sparkles className="w-3.5 h-3.5" />
+            <Sparkles className="w-3.5 h-3.5 hidden sm:block" />
             <span>语法点 ({story.grammarNotes.length})</span>
           </button>
 
           <button
             onClick={() => setActiveTab('quiz')}
-            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
+            className={`flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap shrink-0 transition-all ${
               activeTab === 'quiz'
                 ? 'bg-amber-100 text-amber-900 dark:bg-amber-900/60 dark:text-amber-200 font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
-            <HelpCircle className="w-3.5 h-3.5" />
+            <HelpCircle className="w-3.5 h-3.5 hidden sm:block" />
             <span>随堂测验 ({story.quiz.length})</span>
           </button>
 
           <button
             onClick={() => setActiveTab('vocab')}
-            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
+            className={`flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-lg text-xs font-medium whitespace-nowrap shrink-0 transition-all ${
               activeTab === 'vocab'
                 ? 'bg-amber-100 text-amber-900 dark:bg-amber-900/60 dark:text-amber-200 font-bold'
                 : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
-            <Bookmark className="w-3.5 h-3.5" />
+            <Bookmark className="w-3.5 h-3.5 hidden sm:block" />
             <span>重点生词 ({story.targetVocabulary.length})</span>
           </button>
         </div>
