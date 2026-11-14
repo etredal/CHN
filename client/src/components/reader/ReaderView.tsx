@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useSyncExternalStore } from 'react';
 import type { LongStory, WordToken, Sentence } from '../../types';
 import { SentenceBlock } from './SentenceBlock';
 import { WordLine } from './WordLine';
@@ -15,11 +15,31 @@ import {
   Settings2,
   Bookmark,
   Eye,
-  EyeOff
+  EyeOff,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
 import { PinyinToggle } from '../common/PinyinToggle';
 import { categoryZh } from '../../utils/labels';
+import { paginate } from '../../utils/paginate';
+
+// Characters per page: a screen or so on a desktop; phones get long pages so
+// reading is still mostly scrolling.
+const PAGE_CHARS_WIDE = 900;
+const PAGE_CHARS_NARROW = 3000;
+
+const WIDE_QUERY = '(min-width: 640px)';
+function useIsWide(): boolean {
+  return useSyncExternalStore(
+    onChange => {
+      const mq = window.matchMedia(WIDE_QUERY);
+      mq.addEventListener('change', onChange);
+      return () => mq.removeEventListener('change', onChange);
+    },
+    () => window.matchMedia(WIDE_QUERY).matches,
+  );
+}
 
 interface ReaderViewProps {
   story: LongStory;
@@ -29,7 +49,7 @@ interface ReaderViewProps {
 const FONT_SIZE_LABELS = { sm: '小', base: '中', lg: '大', xl: '特大' } as const;
 
 export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
-  const { loadStoryAudio, pause, togglePlay, playFrom, isStorySentence } = useAudioPlayer();
+  const { loadStoryAudio, pause, togglePlay, playFrom, isStorySentence, activeSentenceId, isPlaying, seekTo, hasAudioSource } = useAudioPlayer();
   const showPinyin = usePinyinVisible();
   const { settings, setPinyinMode, toggleShowEnglish, setFontSize, setTheme } = useSettings();
 
@@ -38,6 +58,64 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
   const [selectedSentence, setSelectedSentence] = useState<Sentence | null>(null);
   const [showSettingsMenu, setShowSettingsMenu] = useState(false);
   const settingsMenuRef = useRef<HTMLDivElement>(null);
+
+  // ---- Pages ----
+  const isWide = useIsWide();
+  const { pages, pageOfSentence } = useMemo(
+    () => paginate(story.sections, isWide ? PAGE_CHARS_WIDE : PAGE_CHARS_NARROW),
+    [story, isWide],
+  );
+  const [pageIndex, setPageIndex] = useState(0);
+  const page = Math.min(pageIndex, pages.length - 1);
+  /** Sentence to bring into view once its page has rendered. */
+  const scrollToSentenceRef = useRef<string | null>(null);
+
+  // Keep the reader on the same text when the page size changes (e.g. the
+  // window is resized or a phone is rotated).
+  const firstSentenceOnPage = useRef<string | null>(null);
+  useEffect(() => {
+    const id = firstSentenceOnPage.current;
+    if (id && pageOfSentence.has(id)) setPageIndex(pageOfSentence.get(id)!);
+  }, [pageOfSentence]);
+  useEffect(() => {
+    firstSentenceOnPage.current = pages[page]?.[0]?.paragraphs[0]?.sentences[0]?.id ?? null;
+  }, [pages, page]);
+
+  // Only page 1 has the title above the text, so the top of the window is
+  // the top of the page, page counter included.
+  const scrollToArticleTop = () => window.scrollTo({ top: 0, behavior: 'auto' });
+
+  const goToPage = (next: number) => {
+    if (next < 0 || next >= pages.length || next === page) return;
+    setPageIndex(next);
+    // While paused, turning the page moves the start point with it, so play
+    // reads the page in front of you. While playing, the audio carries on.
+    const first = pages[next][0]?.paragraphs[0]?.sentences[0];
+    if (!isPlaying && hasAudioSource && first) seekTo(first.startTime);
+    // The new page starts at the top, like turning a page.
+    requestAnimationFrame(scrollToArticleTop);
+  };
+
+  // Follow the audio onto another page: when it moves to a sentence there
+  // (playing on, seeking, skipping) or when playback starts with the current
+  // sentence on a page other than the one shown.
+  useEffect(() => {
+    if (!settings.autoScroll || !activeSentenceId) return;
+    const target = pageOfSentence.get(activeSentenceId);
+    if (target === undefined || target === page) return;
+    scrollToSentenceRef.current = activeSentenceId;
+    setPageIndex(target);
+    // Only react to the audio, not to the reader turning pages themselves.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeSentenceId, isPlaying, pageOfSentence, settings.autoScroll]);
+
+  // After a page turned to follow the audio, show the sentence being read.
+  useEffect(() => {
+    const id = scrollToSentenceRef.current;
+    if (!id) return;
+    scrollToSentenceRef.current = null;
+    document.getElementById(`sentence-${id}`)?.scrollIntoView({ behavior: 'auto', block: 'center' });
+  }, [page]);
 
   // Close the settings popover on a click outside it or Escape.
   useEffect(() => {
@@ -59,16 +137,24 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
   // Space plays/pauses the story, unless focus is on something that uses it.
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.code !== 'Space' || e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
-      if (selectedWord) return;
+      if (e.metaKey || e.ctrlKey || e.altKey || selectedWord) return;
       const el = e.target as HTMLElement | null;
-      if (el?.closest('input, textarea, select, button, [role="button"], [contenteditable="true"]')) return;
+      if (el?.closest('input, textarea, select, [contenteditable="true"]')) return;
+      // ← / → turn pages.
+      if (activeTab === 'text' && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+        e.preventDefault();
+        goToPage(page + (e.key === 'ArrowRight' ? 1 : -1));
+        return;
+      }
+      if (e.code !== 'Space' || e.repeat) return;
+      if (el?.closest('button, [role="button"]')) return;
       e.preventDefault();
       togglePlay();
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [togglePlay, selectedWord]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [togglePlay, selectedWord, activeTab, page, pages, isPlaying, hasAudioSource]);
 
   // Collect all sentences from all sections for audio player
   useEffect(() => {
@@ -298,8 +384,8 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
 
       {/* Main Canvas */}
       <main className="max-w-3xl mx-auto px-4 sm:px-6 py-6">
-        {/* Story header: title, one quiet line of details, summary */}
-        {activeTab === 'text' && (
+        {/* Story header: title, one quiet line of details, summary (first page only) */}
+        {activeTab === 'text' && page === 0 && (
           <header className="text-center mt-4 mb-12">
             <h1 className={`text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white font-chinese-sans tracking-tight ${showPinyin ? 'leading-[2.2]' : ''}`}>
               <WordLine block={story.title} id="title" onWordClick={handleWordClick} />
@@ -321,13 +407,24 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
 
         {/* Tab 1: Story Text View: continuous paragraphs, like a page */}
         {activeTab === 'text' && (
+          <>
+          {pages.length > 1 && (
+            <Pager page={page} count={pages.length} onGo={goToPage} compact />
+          )}
           <article className={`story-text ${getFontSizeClass()} ${getFontFamilyClass()}`}>
-            {story.sections.map(section => (
+            {pages[page].map(({ section, paragraphs, startsSection }) => (
               <section key={section.partNumber} className="mb-12">
-                <h2 className={`mb-5 text-base font-semibold text-slate-400 dark:text-slate-500 font-chinese-sans ${showPinyin ? 'leading-[2.4]' : ''}`}>
-                  <WordLine block={section.partTitle} id={`part-${section.partNumber}`} onWordClick={handleWordClick} />
-                </h2>
-                {section.paragraphs.map(paragraph => (
+                {startsSection ? (
+                  <h2 className={`mb-5 text-base font-semibold text-slate-400 dark:text-slate-500 font-chinese-sans ${showPinyin ? 'leading-[2.4]' : ''}`}>
+                    <WordLine block={section.partTitle} id={`part-${section.partNumber}`} onWordClick={handleWordClick} />
+                  </h2>
+                ) : (
+                  // A section carried over from the previous page: a quiet reminder of where we are.
+                  <p className="mb-5 text-xs text-slate-400 dark:text-slate-500 font-chinese-sans">
+                    {section.partTitle.cn}（续）
+                  </p>
+                )}
+                {paragraphs.map(paragraph => (
                   <div key={paragraph.id} className="mb-6">
                     <p className="text-slate-800 dark:text-slate-100">
                       {paragraph.sentences.map(sentence => (
@@ -349,6 +446,10 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
               </section>
             ))}
           </article>
+          {pages.length > 1 && (
+            <Pager page={page} count={pages.length} onGo={goToPage} />
+          )}
+          </>
         )}
 
         {/* Tab 2: Grammar Notes */}
@@ -412,5 +513,69 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
         }}
       />
     </div>
+  );
+};
+
+interface PagerProps {
+  page: number;
+  count: number;
+  onGo: (page: number) => void;
+  /** A small page count with arrows, for above the text. */
+  compact?: boolean;
+}
+
+const Pager: React.FC<PagerProps> = ({ page, count, onGo, compact }) => {
+  const isFirst = page === 0;
+  const isLast = page === count - 1;
+
+  if (compact) {
+    return (
+      <nav aria-label="分页" className="flex items-center justify-end gap-1 mb-4 text-xs text-slate-400 font-chinese-sans">
+        <button onClick={() => onGo(page - 1)} disabled={isFirst} aria-label="上一页" className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent">
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+        <span>第 {page + 1} / {count} 页</span>
+        <button onClick={() => onGo(page + 1)} disabled={isLast} aria-label="下一页" className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent">
+          <ChevronRight className="w-4 h-4" />
+        </button>
+      </nav>
+    );
+  }
+
+  const btn = 'flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-medium border transition-colors disabled:opacity-0 disabled:pointer-events-none';
+  return (
+    <nav aria-label="分页" className="mt-4 pt-6 border-t border-slate-200 dark:border-slate-800 font-chinese-sans">
+      <div className="flex items-center justify-between gap-3">
+        <button onClick={() => onGo(page - 1)} disabled={isFirst} className={`${btn} border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800`}>
+          <ChevronLeft className="w-4 h-4" />
+          上一页
+        </button>
+        <span className="text-xs text-slate-400">第 {page + 1} / {count} 页</span>
+        <button onClick={() => onGo(page + 1)} disabled={isLast} className={`${btn} border-amber-400 text-amber-700 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-950/40`}>
+          下一页
+          <ChevronRight className="w-4 h-4" />
+        </button>
+      </div>
+      {/* Jump straight to a page */}
+      {count > 2 && (
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5">
+          {Array.from({ length: count }, (_, i) => (
+            <button
+              key={i}
+              onClick={() => onGo(i)}
+              aria-label={`第 ${i + 1} 页`}
+              aria-current={i === page ? 'page' : undefined}
+              className={`w-8 h-8 rounded-lg text-xs font-medium transition-colors ${
+                i === page
+                  ? 'bg-amber-500 text-white'
+                  : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+              }`}
+            >
+              {i + 1}
+            </button>
+          ))}
+        </div>
+      )}
+    </nav>
   );
 };
