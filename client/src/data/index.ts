@@ -4,8 +4,9 @@ import { hsk6BattleOfJulu } from './hsk6_battle_of_julu';
 import { hsk5DigitalNomads } from './hsk5_digital_nomads';
 import { hsk6ZhuangziOak } from './hsk6_zhuangzi_oak';
 import { hsk5Hometown } from './hsk5_hometown';
+import { hsk6School611 } from './hsk6_school_611';
 
-export { hsk5NightTrain, hsk6BattleOfJulu, hsk5DigitalNomads, hsk6ZhuangziOak, hsk5Hometown };
+export { hsk5NightTrain, hsk6BattleOfJulu, hsk5DigitalNomads, hsk6ZhuangziOak, hsk5Hometown, hsk6School611 };
 
 export const ALL_STORIES: LongStory[] = [
   hsk5NightTrain,
@@ -13,6 +14,7 @@ export const ALL_STORIES: LongStory[] = [
   hsk5DigitalNomads,
   hsk6ZhuangziOak,
   hsk5Hometown,
+  hsk6School611,
 ];
 
 export function getStoryById(id: string): LongStory | undefined {
