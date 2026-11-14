@@ -4,7 +4,7 @@ import { ALL_STORIES } from '../../data';
 import { Search, BookOpen, Clock, Headphones, Sparkles, Filter } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
 import { categoryZh } from '../../utils/labels';
-import { getSavedTime } from '../../utils/readingProgress';
+import { getProgress } from '../../utils/readingProgress';
 
 interface LibraryViewProps {
   onSelectStory: (story: LongStory) => void;
@@ -108,10 +108,7 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredStories.map(story => {
           // How far into the recording the reader got, if they've started.
-          const saved = getSavedTime(story.audioUrl);
-          const progress = saved > 0 && story.stats.audioDurationSeconds > 0
-            ? Math.min(1, saved / story.stats.audioDurationSeconds)
-            : 0;
+          const progress = getProgress(story.audioUrl, story.stats.audioDurationSeconds);
           return (
           <div
             key={story.id}

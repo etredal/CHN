@@ -162,7 +162,7 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
     let lastSaved = 0;
     const remember = () => {
       const src = audio.getAttribute('src');
-      if (src && audio.readyState >= HTMLMediaElement.HAVE_METADATA) saveTime(src, audio.currentTime);
+      if (src && audio.readyState >= HTMLMediaElement.HAVE_METADATA) saveTime(src, audio.currentTime, audio.duration);
     };
     const onTimeUpdate = () => {
       setCurrentTime(audio.currentTime);

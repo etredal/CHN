@@ -43,7 +43,7 @@ export const hsk5NightTrain: LongStory = {
   "category": "Fiction",
   "stats": {
     "characterCount": 860,
-    "audioDurationSeconds": 130,
+    "audioDurationSeconds": 95,
     "estimatedReadingTimeMinutes": 6
   },
   "audioUrl": "audio/hsk5_night_train.mp3",

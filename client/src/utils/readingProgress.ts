@@ -4,7 +4,7 @@
 
 const STORAGE_KEY = 'chn_reading_progress_v1';
 
-type Progress = Record<string, { time: number; updatedAt: number }>;
+type Progress = Record<string, { time: number; duration?: number; updatedAt: number }>;
 
 function readAll(): Progress {
   try {
@@ -28,10 +28,23 @@ export function getSavedTime(audioUrl?: string): number {
   return readAll()[audioUrl]?.time ?? 0;
 }
 
-export function saveTime(audioUrl: string, time: number): void {
+/** Fraction of the recording heard (0 if not started), from the measured length when known. */
+export function getProgress(audioUrl: string | undefined, fallbackDuration: number): number {
+  if (!audioUrl) return 0;
+  const saved = readAll()[audioUrl];
+  const duration = saved?.duration || fallbackDuration;
+  if (!saved || !(duration > 0)) return 0;
+  return Math.min(1, saved.time / duration);
+}
+
+export function saveTime(audioUrl: string, time: number, duration?: number): void {
   const all = readAll();
   if (time < 1) delete all[audioUrl];
-  else all[audioUrl] = { time: Math.round(time * 10) / 10, updatedAt: Date.now() };
+  else all[audioUrl] = {
+    time: Math.round(time * 10) / 10,
+    ...(duration && Number.isFinite(duration) ? { duration: Math.round(duration) } : {}),
+    updatedAt: Date.now(),
+  };
   writeAll(all);
 }
 
