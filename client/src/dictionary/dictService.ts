@@ -1,6 +1,7 @@
 import type { WordToken, HskLevel, WordCharacter } from '../types';
 import { pinyin } from 'pinyin-pro';
 import { getToneFromPinyin } from '../utils/pinyin';
+import { isPunctuation } from '../utils/punctuation';
 
 export interface DictEntry {
   pinyin: string;
@@ -125,8 +126,7 @@ export function tokenizeChinese(text: string): WordToken[] {
     const raw = seg.segment;
     if (!raw.trim()) continue;
 
-    const isPunctuation = /^[，。！？；：“”‘’（）《》、—…\.,!?;:\'\"()\[\]]$/.test(raw);
-    if (isPunctuation) {
+    if (isPunctuation(raw)) {
       tokens.push({
         text: raw,
         pinyin: raw,

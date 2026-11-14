@@ -16,14 +16,20 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
 
   const categories = ['All', 'Fiction', 'History', 'Society', 'Philosophy'];
 
+  const query = searchQuery.trim().toLowerCase();
   const filteredStories = ALL_STORIES.filter(story => {
     const matchesLevel = selectedLevel === 'All' || story.level === selectedLevel;
     const matchesCategory = selectedCategory === 'All' || story.category === selectedCategory;
-    const matchesSearch =
-      story.title.cn.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      story.title.pinyin.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      story.title.en.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      story.summary.cn.includes(searchQuery);
+    // Pinyin is matched with and without tone marks and spaces, so
+    // "guxiang" finds 故乡 (Gùxiāng).
+    const plain = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f\s]/g, '').toLowerCase();
+    const matchesSearch = !query ||
+      story.title.cn.includes(query) ||
+      story.title.pinyin.toLowerCase().includes(query) ||
+      plain(story.title.pinyin).includes(plain(query)) ||
+      story.title.en.toLowerCase().includes(query) ||
+      story.summary.cn.includes(query) ||
+      story.summary.en.toLowerCase().includes(query);
 
     return matchesLevel && matchesCategory && matchesSearch;
   });
@@ -40,7 +46,7 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
           <ChineseText pinyin={false} text="沉浸式中文精读文库" en="An immersive library for close reading in Chinese" />
         </h1>
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
-          <ChineseText pinyin={false} text="精选长篇故事与思想深度解析，支持声调颜色标注、逐句中英对照切换、原生自然语音跟读同步与全功能词典速查。" en="Hand-picked long stories with in-depth analysis, with tone colours, sentence-by-sentence translations, natural audio that follows along, and instant dictionary lookup." />
+          <ChineseText pinyin={false} text="精选长篇故事与思想深度解析，支持拼音标注、点击查看英文翻译、原生自然语音跟读同步与全功能词典速查。" en="Hand-picked long stories with in-depth analysis, with optional pinyin, English a click away, natural audio that follows along, and instant dictionary lookup." />
         </p>
       </div>
 

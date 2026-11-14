@@ -1,4 +1,5 @@
 import type { Sentence } from '../types';
+import { isPunctuation } from './punctuation';
 
 /** One spoken word in the story audio, in playback order. */
 export interface TimelineWord {
@@ -18,8 +19,6 @@ export interface ActiveWord {
   sentenceId: string;
   tokenIndex: number;
 }
-
-const PUNCTUATION = /^[\s，。！？；：“”‘’（）《》、—…\.,!?;:'"()[\]]+$/;
 
 /**
  * Build a flat, time-sorted list of every spoken word in the story.
@@ -44,7 +43,7 @@ export function buildWordTimeline(sentences: Sentence[]): WordTimeline {
 
     const spoken = sentence.tokens
       .map((token, tokenIndex) => ({ token, tokenIndex }))
-      .filter(({ token }) => !PUNCTUATION.test(token.text));
+      .filter(({ token }) => !isPunctuation(token.text));
     const totalChars = spoken.reduce((n, { token }) => n + token.text.length, 0);
     const span = sentence.endTime - sentence.startTime;
     if (!totalChars || span <= 0) return;

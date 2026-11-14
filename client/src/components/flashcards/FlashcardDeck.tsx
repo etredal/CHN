@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { Flashcard } from '../../types';
-import { updateCardSrs } from '../../utils/srs';
+import { updateCardSrs, calculateNextReview, formatInterval } from '../../utils/srs';
 import { pronounceWord } from '../../utils/pronounce';
 import { Volume2, ArrowLeft, Sparkles } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
@@ -12,8 +12,11 @@ interface FlashcardDeckProps {
 }
 
 export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ cards, onBack, onFinishReview }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // Cards still to get through. Ones marked 重来 go back to the end, so the
+  // session only finishes once every card has been recalled.
+  const [queue, setQueue] = useState<Flashcard[]>(cards);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [doneCount, setDoneCount] = useState(0);
 
   if (!cards || cards.length === 0) {
     return (
@@ -31,18 +34,25 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ cards, onBack, onF
     );
   }
 
-  const currentCard = cards[currentIndex];
+  const currentCard = queue[0];
+  if (!currentCard) return null;
 
   const handleGrade = (rating: number) => {
-    updateCardSrs(currentCard.id, rating);
+    const updated = updateCardSrs(currentCard.id, rating) ?? currentCard;
+    const rest = queue.slice(1);
+    const next = rating === 0 ? [...rest, updated] : rest;
+    if (rating !== 0) setDoneCount(n => n + 1);
 
-    if (currentIndex < cards.length - 1) {
-      setCurrentIndex(prev => prev + 1);
+    if (next.length > 0) {
+      setQueue(next);
       setIsFlipped(false);
     } else {
       onFinishReview();
     }
   };
+
+  // What each grade would schedule, so the buttons show real intervals.
+  const intervalLabel = (rating: number) => formatInterval(calculateNextReview(currentCard.srs, rating).interval);
 
   const playWordAudio = () => {
     pronounceWord(currentCard.word, { clip: currentCard.audioClip });
@@ -61,7 +71,7 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ cards, onBack, onF
         </button>
 
         <span className="text-xs font-bold text-slate-400">
-          进度: {currentIndex + 1} / {cards.length}
+          进度: {doneCount} / {cards.length}
         </span>
       </div>
 
@@ -142,7 +152,7 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ cards, onBack, onF
                 className="py-2.5 px-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 dark:bg-rose-950/40 dark:text-rose-300 font-bold text-xs flex flex-col items-center gap-1 border border-rose-200 dark:border-rose-900 transition-colors"
               >
                 <span>重来</span>
-                <span className="text-[10px] font-normal opacity-70">1天</span>
+                <span className="text-[10px] font-normal opacity-70">{intervalLabel(0)}</span>
               </button>
 
               <button
@@ -153,7 +163,7 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ cards, onBack, onF
                 className="py-2.5 px-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300 font-bold text-xs flex flex-col items-center gap-1 border border-amber-200 dark:border-amber-900 transition-colors"
               >
                 <span>较难</span>
-                <span className="text-[10px] font-normal opacity-70">2天</span>
+                <span className="text-[10px] font-normal opacity-70">{intervalLabel(1)}</span>
               </button>
 
               <button
@@ -164,7 +174,7 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ cards, onBack, onF
                 className="py-2.5 px-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 font-bold text-xs flex flex-col items-center gap-1 border border-emerald-200 dark:border-emerald-900 transition-colors"
               >
                 <span>良好</span>
-                <span className="text-[10px] font-normal opacity-70">4天</span>
+                <span className="text-[10px] font-normal opacity-70">{intervalLabel(2)}</span>
               </button>
 
               <button
@@ -175,7 +185,7 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ cards, onBack, onF
                 className="py-2.5 px-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300 font-bold text-xs flex flex-col items-center gap-1 border border-blue-200 dark:border-blue-900 transition-colors"
               >
                 <span>容易</span>
-                <span className="text-[10px] font-normal opacity-70">7天</span>
+                <span className="text-[10px] font-normal opacity-70">{intervalLabel(3)}</span>
               </button>
             </div>
           )}

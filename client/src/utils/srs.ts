@@ -26,8 +26,12 @@ export function calculateNextReview(
     } else if (repetition === 1) {
       interval = rating === 3 ? 4 : 2;
     } else {
-      const modifier = rating === 1 ? 1.1 : rating === 3 ? 1.3 : 1.0;
-      interval = Math.round(interval * easeFactor * modifier);
+      // Hard grows the interval only a little, Good by the ease factor and
+      // Easy by a bit more, so the three always stay in that order.
+      const next = rating === 1
+        ? interval * 1.2
+        : interval * easeFactor * (rating === 3 ? 1.3 : 1);
+      interval = Math.max(interval + 1, Math.round(next));
     }
     repetition += 1;
   }
@@ -86,6 +90,21 @@ export function removeFlashcard(word: string): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
 }
 
+/** Cards whose next review is due now, most overdue first. */
+export function getDueFlashcards(cards: Flashcard[] = getSavedFlashcards(), now = Date.now()): Flashcard[] {
+  return cards
+    .filter(c => c.srs.nextReviewDate <= now)
+    .sort((a, b) => a.srs.nextReviewDate - b.srs.nextReviewDate);
+}
+
+/** Short label for how long until the next review, e.g. "1天", "3周", "2月". */
+export function formatInterval(days: number): string {
+  if (days < 14) return `${days}天`;
+  if (days < 60) return `${Math.round(days / 7)}周`;
+  if (days < 365) return `${Math.round(days / 30)}月`;
+  return `${Math.round((days / 365) * 10) / 10}年`;
+}
+
 export function isWordSaved(word: string): boolean {
   return getSavedFlashcards().some(c => c.word === word);
 }
@@ -107,10 +126,12 @@ export function updateCardSrs(cardId: string, rating: number): Flashcard | null 
   */
 export function exportToAnkiTsv(cards: Flashcard[]): string {
   const header = '# Hanzi\tPinyin\tDefinitions\tHSK\tContext Sentence\n';
+  // Tabs or line breaks inside a field would split it into extra columns/rows.
+  const clean = (field: string) => field.replace(/[\t\r\n]+/g, ' ');
   const rows = cards.map(c => {
-    const defs = c.definitions.join('; ').replace(/\t/g, ' ');
+    const defs = c.definitions.join('; ');
     const context = c.exampleSentence ? `${c.exampleSentence.cn} (${c.exampleSentence.en})` : '';
-    return `${c.word}\t${c.pinyin}\t${defs}\t${c.hskLevel || ''}\t${context}`;
+    return [c.word, c.pinyin, defs, c.hskLevel || '', context].map(clean).join('\t');
   });
   return header + rows.join('\n');
 }

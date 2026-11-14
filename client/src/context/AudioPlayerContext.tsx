@@ -49,20 +49,12 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const timelineRef = useRef<WordTimeline>({ words: [], sentenceStarts: [] });
   const activeWordRef = useRef<ActiveWord | null>(null);
 
-  // Render hidden audio element for testing and playback
-  // The audioRef will point to this element
-  // The event listeners are attached via a useEffect below the return statement
-  // (see added useEffect after the Provider's JSX)
-
-
   // Update playback speed whenever settings change
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.playbackRate = settings.playbackSpeed;
     }
   }, [settings.playbackSpeed]);
-
-  const pendingAudioUrlRef = React.useRef<string | null>(null);
 
   const loadStoryAudio = useCallback((audioUrl?: string, storySentences: Sentence[] = []) => {
     setSentences(storySentences);
@@ -72,12 +64,10 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
     setActiveSentenceId(storySentences.length > 0 ? storySentences[0].id : null);
     currentSentenceRef.current = storySentences.length > 0 ? storySentences[0] : null;
 
-    // Store pending URL
-    pendingAudioUrlRef.current = audioUrl || null;
-    // Determine if we have an audio source
     setHasAudioSource(!!audioUrl);
     setAudioUrl(audioUrl || null);
 
+    speechService.stop();
     if (audioRef.current) {
       audioRef.current.pause();
       if (audioUrl) {
@@ -91,14 +81,6 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
       setIsPlaying(false);
     }
   }, []);
-
-  // Apply pending audio URL when audio element is ready
-  useEffect(() => {
-    if (audioRef.current && pendingAudioUrlRef.current) {
-      audioRef.current.src = pendingAudioUrlRef.current;
-      audioRef.current.load();
-    }
-  }, [audioRef.current]);
 
   // Work out which sentence and word are being spoken at `time`, and only
   // touch React state when either actually changes.
@@ -179,14 +161,8 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
     };
   }, [syncToTime]);
 
-  const play = useCallback(() => {
-    if (audioRef.current && hasAudioSource) {
-      stopAudioClip();
-      audioRef.current.play().catch(e => console.warn('Audio play prevented', e));
-    }
-  }, [hasAudioSource]);
-
   const pause = useCallback(() => {
+    speechService.stop();
     if (audioRef.current) {
       audioRef.current.pause();
     }
@@ -194,57 +170,51 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
     setIsPlaying(false);
   }, []);
 
-  const togglePlay = useCallback(() => {
-    if (isPlaying) {
-      pause();
-    } else {
-      play();
+  // Seek once the audio can play. Only the latest request is kept, so
+  // clicking around before the file has loaded doesn't stack up seeks.
+  const pendingSeekRef = useRef<(() => void) | null>(null);
+  const whenReady = useCallback((action: () => void) => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (pendingSeekRef.current) {
+      audio.removeEventListener('canplay', pendingSeekRef.current);
+      pendingSeekRef.current = null;
     }
-  }, [isPlaying, play, pause]);
+    if (audio.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      action();
+      return;
+    }
+    const onCanPlay = () => {
+      pendingSeekRef.current = null;
+      action();
+    };
+    pendingSeekRef.current = onCanPlay;
+    audio.addEventListener('canplay', onCanPlay, { once: true });
+  }, []);
+
+  // Point the looped/active sentence at whatever is playing at `time`, so a
+  // manual seek isn't immediately undone by the sentence loop.
+  const followSentenceAt = useCallback((time: number) => {
+    const sIdx = sentenceIndexAt(timelineRef.current, time);
+    const sentence = sIdx >= 0 ? sentences[sIdx] : null;
+    if (sentence && sentence.id !== currentSentenceRef.current?.id) {
+      currentSentenceRef.current = sentence;
+      setActiveSentenceId(sentence.id);
+      if (settings.autoScroll) {
+        document.getElementById(`sentence-${sentence.id}`)
+          ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }, [sentences, settings.autoScroll]);
 
   const seekTo = useCallback((timeSeconds: number) => {
-    if (audioRef.current && hasAudioSource) {
-      const setAndSeek = () => {
-        audioRef.current!.currentTime = timeSeconds;
-        setCurrentTime(timeSeconds);
-      };
-      if (audioRef.current.readyState >= 2) {
-        setAndSeek();
-      } else {
-        const onCanPlay = () => {
-          setAndSeek();
-          audioRef.current!.removeEventListener('canplay', onCanPlay);
-        };
-        audioRef.current.addEventListener('canplay', onCanPlay);
-      }
-    }
-  }, [hasAudioSource]);
-
-  const seekToSentence = useCallback((sentence: Sentence) => {
-    setActiveSentenceId(sentence.id);
-    currentSentenceRef.current = sentence;
-    if (audioRef.current && hasAudioSource) {
-      const setAndPlay = () => {
-        audioRef.current!.currentTime = sentence.startTime;
-        setCurrentTime(sentence.startTime);
-        audioRef.current!.play().catch(console.warn);
-      };
-      // If metadata already loaded, readyState >= HAVE_CURRENT_DATA (2)
-      if (audioRef.current.readyState >= 2) {
-        setAndPlay();
-      } else {
-        const onCanPlay = () => {
-          setAndPlay();
-          audioRef.current!.removeEventListener('canplay', onCanPlay);
-        };
-        audioRef.current.addEventListener('canplay', onCanPlay);
-        // No explicit load() here – assume src already set via loadStoryAudio
-      }
-    } else {
-      // Fallback to on-device Web Speech API for this sentence
-      playSentenceSpeech(sentence);
-    }
-  }, [hasAudioSource]);
+    if (!audioRef.current || !hasAudioSource) return;
+    followSentenceAt(timeSeconds);
+    setCurrentTime(timeSeconds);
+    whenReady(() => {
+      audioRef.current!.currentTime = timeSeconds;
+    });
+  }, [hasAudioSource, followSentenceAt, whenReady]);
 
   const playSentenceSpeech = useCallback((sentence: Sentence) => {
     setActiveSentenceId(sentence.id);
@@ -257,6 +227,40 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
       },
     });
   }, [settings.playbackSpeed]);
+
+  const play = useCallback(() => {
+    if (audioRef.current && hasAudioSource) {
+      stopAudioClip();
+      audioRef.current.play().catch(e => console.warn('Audio play prevented', e));
+    } else if (currentSentenceRef.current) {
+      // No recording: read the current sentence with the device's voice.
+      playSentenceSpeech(currentSentenceRef.current);
+    }
+  }, [hasAudioSource, playSentenceSpeech]);
+
+  const togglePlay = useCallback(() => {
+    if (isPlaying) {
+      pause();
+    } else {
+      play();
+    }
+  }, [isPlaying, play, pause]);
+
+  const seekToSentence = useCallback((sentence: Sentence) => {
+    setActiveSentenceId(sentence.id);
+    currentSentenceRef.current = sentence;
+    if (audioRef.current && hasAudioSource) {
+      stopAudioClip();
+      setCurrentTime(sentence.startTime);
+      whenReady(() => {
+        audioRef.current!.currentTime = sentence.startTime;
+        audioRef.current!.play().catch(console.warn);
+      });
+    } else {
+      // Fallback to on-device Web Speech API for this sentence
+      playSentenceSpeech(sentence);
+    }
+  }, [hasAudioSource, whenReady, playSentenceSpeech]);
 
   const nextSentence = useCallback(() => {
     if (!sentences.length) return;
