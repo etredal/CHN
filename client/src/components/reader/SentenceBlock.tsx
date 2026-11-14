@@ -14,7 +14,7 @@ interface SentenceProps {
  * a stronger one.
  */
 export const SentenceBlock: React.FC<SentenceProps> = ({ sentence, onWordClick }) => {
-  const { activeSentenceId, activeWord, isPlaying, currentTime } = useAudioPlayer();
+  const { activeSentenceId, activeWord, isPlaying, currentTime, playFrom } = useAudioPlayer();
   // Highlight only once listening has started, not on a fresh story.
   const isActive = activeSentenceId === sentence.id && (isPlaying || currentTime > 0);
   // Timing lives in the audio player (see utils/wordTimeline.ts).
@@ -27,6 +27,8 @@ export const SentenceBlock: React.FC<SentenceProps> = ({ sentence, onWordClick }
           key={`${sentence.id}-tok-${idx}`}
           token={token}
           onClick={(tok) => onWordClick(tok, sentence)}
+          // Press and hold a word to play the story from there.
+          onLongPress={() => playFrom(sentence, idx)}
           highlight={isActive && idx === activeWordIndex}
         />
       ))}
