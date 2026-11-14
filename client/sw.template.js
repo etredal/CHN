@@ -47,7 +47,10 @@ self.addEventListener('fetch', (event) => {
 
 async function networkFirstPage(req) {
   try {
-    const res = await fetch(req);
+    // Ask the server every time rather than reusing the browser's HTTP cache
+    // (GitHub Pages lets it keep pages for 10 minutes), so a new deploy shows
+    // up on the next reload.
+    const res = await fetch(req, { cache: 'no-cache' });
     if (res.ok) (await caches.open(SHELL_CACHE)).put(scopeUrl('./index.html'), res.clone());
     return res;
   } catch {
