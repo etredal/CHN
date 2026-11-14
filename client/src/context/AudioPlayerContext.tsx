@@ -200,8 +200,12 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
     if (sentence && sentence.id !== currentSentenceRef.current?.id) {
       currentSentenceRef.current = sentence;
       setActiveSentenceId(sentence.id);
+      if (settings.autoScroll) {
+        document.getElementById(`sentence-${sentence.id}`)
+          ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
-  }, [sentences]);
+  }, [sentences, settings.autoScroll]);
 
   const seekTo = useCallback((timeSeconds: number) => {
     if (!audioRef.current || !hasAudioSource) return;

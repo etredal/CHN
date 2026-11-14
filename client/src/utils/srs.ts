@@ -26,8 +26,12 @@ export function calculateNextReview(
     } else if (repetition === 1) {
       interval = rating === 3 ? 4 : 2;
     } else {
-      const modifier = rating === 1 ? 1.1 : rating === 3 ? 1.3 : 1.0;
-      interval = Math.round(interval * easeFactor * modifier);
+      // Hard grows the interval only a little, Good by the ease factor and
+      // Easy by a bit more, so the three always stay in that order.
+      const next = rating === 1
+        ? interval * 1.2
+        : interval * easeFactor * (rating === 3 ? 1.3 : 1);
+      interval = Math.max(interval + 1, Math.round(next));
     }
     repetition += 1;
   }
