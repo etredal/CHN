@@ -8,6 +8,7 @@ import { ReaderView } from './components/reader/ReaderView';
 import { ImporterView } from './components/importer/ImporterView';
 import { VocabListView } from './components/flashcards/VocabListView';
 import { FlashcardDeck } from './components/flashcards/FlashcardDeck';
+import { UpdateToast } from './components/common/UpdateToast';
 import type { LongStory, Flashcard } from './types';
 
 const MainApp: React.FC = () => {
@@ -51,7 +52,7 @@ const MainApp: React.FC = () => {
             }}
           />
 
-          <main className={`flex-1 ${activeSentenceId ? 'pb-28' : ''}`}>
+          <main className={`flex-1 ${activeSentenceId ? 'pb-[calc(10.5rem+env(safe-area-inset-bottom))] sm:pb-28' : 'pb-[calc(3.5rem+env(safe-area-inset-bottom))] sm:pb-0'}`}>
             {activeTab === 'library' && (
               <LibraryView onSelectStory={handleSelectStory} />
             )}
@@ -68,7 +69,7 @@ const MainApp: React.FC = () => {
           </main>
 
           {/* Show audio bar if any audio was previously active */}
-          {activeSentenceId && <BottomAudioBar />}
+          {activeSentenceId && <BottomAudioBar aboveTabBar />}
         </>
       )}
     </div>
@@ -80,6 +81,7 @@ export default function App() {
     <SettingsProvider>
       <AudioPlayerProvider>
         <MainApp />
+        <UpdateToast />
       </AudioPlayerProvider>
     </SettingsProvider>
   );

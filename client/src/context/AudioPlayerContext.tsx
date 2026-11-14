@@ -23,6 +23,10 @@ interface AudioPlayerContextType {
   togglePlay: () => void;
   seekTo: (timeSeconds: number) => void;
   seekToSentence: (sentence: Sentence) => void;
+  /** Whether `sentenceId` is part of the loaded story (titles and headings aren't). */
+  isStorySentence: (sentenceId: string) => boolean;
+  /** Start playing from a word in the story. */
+  playFrom: (sentence: Sentence, tokenIndex: number) => void;
   nextSentence: () => void;
   prevSentence: () => void;
   toggleLoopSentence: () => void;
@@ -262,6 +266,33 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
     }
   }, [hasAudioSource, whenReady, playSentenceSpeech]);
 
+  const isStorySentence = useCallback(
+    (sentenceId: string) => sentences.some(s => s.id === sentenceId),
+    [sentences],
+  );
+
+  const playFrom = useCallback((sentence: Sentence, tokenIndex: number) => {
+    if (!audioRef.current || !hasAudioSource) {
+      // No recording: the device voice can only read whole sentences.
+      playSentenceSpeech(sentence);
+      return;
+    }
+    // The word's measured onset, else where the timeline places it, else the
+    // start of its sentence.
+    const sIdx = sentences.findIndex(s => s.id === sentence.id);
+    const timed = timelineRef.current.words.find(w => w.sentenceIndex === sIdx && w.tokenIndex === tokenIndex);
+    const time = sentence.tokens[tokenIndex]?.startTime ?? timed?.start ?? sentence.startTime;
+
+    stopAudioClip();
+    currentSentenceRef.current = sentence;
+    setActiveSentenceId(sentence.id);
+    setCurrentTime(time);
+    whenReady(() => {
+      audioRef.current!.currentTime = time;
+      audioRef.current!.play().catch(console.warn);
+    });
+  }, [hasAudioSource, sentences, whenReady, playSentenceSpeech]);
+
   const nextSentence = useCallback(() => {
     if (!sentences.length) return;
     const currentIndex = sentences.findIndex(s => s.id === activeSentenceId);
@@ -301,6 +332,8 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
         togglePlay,
         seekTo,
         seekToSentence,
+        isStorySentence,
+        playFrom,
         nextSentence,
         prevSentence,
         toggleLoopSentence,

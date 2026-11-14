@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import type { WordToken, Sentence, WordAudio } from '../../types';
 import { pronounceWord, preloadWordAudio, wordAudioSources } from '../../utils/pronounce';
 import { isWordSaved, saveFlashcard, removeFlashcard } from '../../utils/srs';
-import { Volume2, Bookmark, BookmarkCheck, X, Sparkles } from 'lucide-react';
+import { Volume2, Bookmark, BookmarkCheck, X, Sparkles, PlayCircle } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
 
 interface WordDrawerProps {
@@ -10,6 +10,8 @@ interface WordDrawerProps {
   sentenceContext?: Sentence | null;
   /** The story's standalone word recordings, if it has them. */
   wordAudio?: WordAudio;
+  /** Play the story from this word (only for words in the story text). */
+  onPlayFromHere?: () => void;
   onClose: () => void;
 }
 
@@ -17,7 +19,7 @@ export const WordDrawer: React.FC<WordDrawerProps> = ({ token, ...rest }) =>
   // Keyed so each opened word starts with fresh state (e.g. its saved flag).
   token ? <WordDrawerBody key={`${token.text}@${token.startTime ?? ''}`} token={token} {...rest} /> : null;
 
-const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ token, sentenceContext, wordAudio, onClose }) => {
+const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ token, sentenceContext, wordAudio, onPlayFromHere, onClose }) => {
   const [saved, setSaved] = useState(() => isWordSaved(token.text));
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
 
@@ -130,6 +132,24 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
               <span>慢速 (0.6x)</span>
             </button>
           </div>
+
+          {onPlayFromHere && (
+            <div>
+              <button
+                onClick={() => {
+                  onPlayFromHere();
+                  onClose();
+                }}
+                className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl border border-amber-300 dark:border-amber-700 text-amber-700 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-950/40 text-sm font-medium transition-colors"
+              >
+                <PlayCircle className="w-4 h-4" />
+                <span>从这里播放</span>
+              </button>
+              <p className="mt-1 text-center text-[11px] text-slate-400 font-chinese-sans">
+                提示：在正文中长按任意词语，也可以直接从那里播放
+              </p>
+            </div>
+          )}
 
           {/* Definitions */}
           <div>

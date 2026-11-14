@@ -29,7 +29,7 @@ interface ReaderViewProps {
 const FONT_SIZE_LABELS = { sm: '小', base: '中', lg: '大', xl: '特大' } as const;
 
 export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
-  const { loadStoryAudio, pause, togglePlay } = useAudioPlayer();
+  const { loadStoryAudio, pause, togglePlay, playFrom, isStorySentence } = useAudioPlayer();
   const showPinyin = usePinyinVisible();
   const { settings, setPinyinMode, toggleShowEnglish, setFontSize, setTheme } = useSettings();
 
@@ -85,6 +85,13 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
     setSelectedWord(token);
     setSelectedSentence(sentenceContext || null);
   };
+
+  // The tapped word's place in the story, if it is in the story text (not a
+  // title, heading or the vocabulary list).
+  const tokenIndex = selectedWord && selectedSentence ? selectedSentence.tokens.indexOf(selectedWord) : -1;
+  const playFromHere = selectedSentence && tokenIndex >= 0 && isStorySentence(selectedSentence.id)
+    ? () => playFrom(selectedSentence, tokenIndex)
+    : undefined;
 
   const getFontSizeClass = () => {
     // Pinyin under the characters needs taller lines.
@@ -398,6 +405,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
         token={selectedWord}
         sentenceContext={selectedSentence}
         wordAudio={story.wordAudio}
+        onPlayFromHere={playFromHere}
         onClose={() => {
           setSelectedWord(null);
           setSelectedSentence(null);

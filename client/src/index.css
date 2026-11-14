@@ -143,6 +143,15 @@ rt {
 .word-token:hover {
   background-color: rgb(245 158 11 / 0.15);
 }
+/* Words that can be held to play from there: on touch screens, holding
+   shouldn't select text or open the system menu instead. */
+@media (pointer: coarse) {
+  .word-token.can-hold {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+}
 .word-token.is-target {
   text-decoration: underline;
   text-decoration-color: rgb(245 158 11 / 0.7);
