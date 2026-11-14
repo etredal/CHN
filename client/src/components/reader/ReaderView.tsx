@@ -23,6 +23,7 @@ import { ChineseText } from '../common/ChineseText';
 import { PinyinToggle } from '../common/PinyinToggle';
 import { categoryZh } from '../../utils/labels';
 import { paginate } from '../../utils/paginate';
+import { getSavedTime } from '../../utils/readingProgress';
 
 // Characters per page: a screen or so on a desktop; phones get long pages so
 // reading is still mostly scrolling.
@@ -74,10 +75,18 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
     () => paginate(story.sections, isWide ? PAGE_CHARS_WIDE : PAGE_CHARS_NARROW),
     [story, isWide],
   );
-  const [pageIndex, setPageIndex] = useState(0);
+  // Open on the page where the reader left off, scrolled to that sentence.
+  const [resumeSentenceId] = useState(() => {
+    const t = getSavedTime(story.audioUrl);
+    if (t <= 0) return null;
+    const all = story.sections.flatMap(sec => sec.paragraphs.flatMap(p => p.sentences));
+    return [...all].reverse().find(s => s.startTime <= t)?.id ?? null;
+  });
+  const [pageIndex, setPageIndex] = useState(() =>
+    (resumeSentenceId && pageOfSentence.get(resumeSentenceId)) || 0);
   const page = Math.min(pageIndex, pages.length - 1);
   /** Sentence to bring into view once its page has rendered. */
-  const scrollToSentenceRef = useRef<string | null>(null);
+  const scrollToSentenceRef = useRef<string | null>(resumeSentenceId);
 
   // Keep the reader on the same text when the page size changes (e.g. the
   // window is resized or a phone is rotated).
