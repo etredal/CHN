@@ -23,6 +23,7 @@ import { ChineseText } from '../common/ChineseText';
 import { PinyinToggle } from '../common/PinyinToggle';
 import { categoryZh } from '../../utils/labels';
 import { paginate } from '../../utils/paginate';
+import { getSavedTime } from '../../utils/readingProgress';
 
 // Characters per page: a screen or so on a desktop; phones get long pages so
 // reading is still mostly scrolling.
@@ -53,7 +54,16 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
   const showPinyin = usePinyinVisible();
   const { settings, setPinyinMode, toggleShowEnglish, setFontSize, setTheme } = useSettings();
 
-  const [activeTab, setActiveTab] = useState<'text' | 'grammar' | 'quiz' | 'vocab'>('text');
+  const [activeTab, setActiveTabState] = useState<'text' | 'grammar' | 'quiz' | 'vocab'>('text');
+  // Each tab keeps its own scroll position, so going to the quiz and back
+  // returns to the same place in the text.
+  const tabScroll = useRef<Record<string, number>>({});
+  const setActiveTab = (tab: typeof activeTab) => {
+    if (tab === activeTab) return;
+    tabScroll.current[activeTab] = window.scrollY;
+    setActiveTabState(tab);
+    requestAnimationFrame(() => window.scrollTo({ top: tabScroll.current[tab] ?? 0, behavior: 'auto' }));
+  };
   const [selectedWord, setSelectedWord] = useState<WordToken | null>(null);
   const [selectedSentence, setSelectedSentence] = useState<Sentence | null>(null);
   const [showSettingsMenu, setShowSettingsMenu] = useState(false);
@@ -65,10 +75,18 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
     () => paginate(story.sections, isWide ? PAGE_CHARS_WIDE : PAGE_CHARS_NARROW),
     [story, isWide],
   );
-  const [pageIndex, setPageIndex] = useState(0);
+  // Open on the page where the reader left off, scrolled to that sentence.
+  const [resumeSentenceId] = useState(() => {
+    const t = getSavedTime(story.audioUrl);
+    if (t <= 0) return null;
+    const all = story.sections.flatMap(sec => sec.paragraphs.flatMap(p => p.sentences));
+    return [...all].reverse().find(s => s.startTime <= t)?.id ?? null;
+  });
+  const [pageIndex, setPageIndex] = useState(() =>
+    (resumeSentenceId && pageOfSentence.get(resumeSentenceId)) || 0);
   const page = Math.min(pageIndex, pages.length - 1);
   /** Sentence to bring into view once its page has rendered. */
-  const scrollToSentenceRef = useRef<string | null>(null);
+  const scrollToSentenceRef = useRef<string | null>(resumeSentenceId);
 
   // Keep the reader on the same text when the page size changes (e.g. the
   // window is resized or a phone is rotated).
@@ -384,8 +402,11 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
 
       {/* Main Canvas */}
       <main className="max-w-3xl mx-auto px-4 sm:px-6 py-6">
+        {/* Every tab stays mounted (hidden when not shown), so quiz answers and
+            the place in the text survive a look at another tab. */}
+        <div hidden={activeTab !== 'text'}>
         {/* Story header: title, one quiet line of details, summary (first page only) */}
-        {activeTab === 'text' && page === 0 && (
+        {page === 0 && (
           <header className="text-center mt-4 mb-12">
             <h1 className={`text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white font-chinese-sans tracking-tight ${showPinyin ? 'leading-[2.2]' : ''}`}>
               <WordLine block={story.title} id="title" onWordClick={handleWordClick} />
@@ -406,8 +427,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
         )}
 
         {/* Tab 1: Story Text View: continuous paragraphs, like a page */}
-        {activeTab === 'text' && (
-          <>
+        <>
           {pages.length > 1 && (
             <Pager page={page} count={pages.length} onGo={goToPage} compact />
           )}
@@ -449,21 +469,21 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
           {pages.length > 1 && (
             <Pager page={page} count={pages.length} onGo={goToPage} />
           )}
-          </>
-        )}
+        </>
+        </div>
 
         {/* Tab 2: Grammar Notes */}
-        {activeTab === 'grammar' && (
+        <div hidden={activeTab !== 'grammar'}>
           <GrammarTab notes={story.grammarNotes} />
-        )}
+        </div>
 
         {/* Tab 3: Comprehension Quiz */}
-        {activeTab === 'quiz' && (
+        <div hidden={activeTab !== 'quiz'}>
           <QuizTab quiz={story.quiz} />
-        )}
+        </div>
 
         {/* Tab 4: Target Vocabulary List */}
-        {activeTab === 'vocab' && (
+        <div hidden={activeTab !== 'vocab'}>
           <div className="space-y-4 max-w-3xl mx-auto py-4">
             <h3 className="text-lg font-bold text-slate-900 dark:text-white font-sans border-b border-slate-200 dark:border-slate-800 pb-3">
               <ChineseText pinyin={false} text={`本课重点考纲词汇 (${story.targetVocabulary.length} 词)`} en={`Key exam vocabulary in this lesson (${story.targetVocabulary.length} words)`} />
@@ -498,7 +518,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
               ))}
             </div>
           </div>
-        )}
+        </div>
       </main>
 
       {/* Word Inspector Drawer */}

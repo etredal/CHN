@@ -5,6 +5,7 @@ import { speechService } from '../utils/speech';
 import { stopAudioClip } from '../utils/audioClip';
 import { buildWordTimeline, sentenceIndexAt, wordAt } from '../utils/wordTimeline';
 import type { ActiveWord, WordTimeline } from '../utils/wordTimeline';
+import { getSavedTime, saveTime, clearTime } from '../utils/readingProgress';
 
 interface AudioPlayerContextType {
   isPlaying: boolean;
@@ -30,6 +31,10 @@ interface AudioPlayerContextType {
   nextSentence: () => void;
   prevSentence: () => void;
   toggleLoopSentence: () => void;
+  /**
+   * Load a story's recording and sentences, resuming where the reader left
+   * off. Opening the story that is already loaded leaves playback alone.
+   */
   loadStoryAudio: (audioUrl?: string, storySentences?: Sentence[]) => void;
   playSentenceSpeech: (sentence: Sentence) => void;
 }
@@ -61,12 +66,25 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
   }, [settings.playbackSpeed]);
 
   const loadStoryAudio = useCallback((audioUrl?: string, storySentences: Sentence[] = []) => {
+    // Coming back to the story that's playing (e.g. from the library):
+    // keep going rather than rewinding.
+    if (audioUrl && audioRef.current?.getAttribute('src') === audioUrl) {
+      setSentences(storySentences);
+      timelineRef.current = buildWordTimeline(storySentences);
+      return;
+    }
+
     setSentences(storySentences);
-    timelineRef.current = buildWordTimeline(storySentences);
+    const timeline = buildWordTimeline(storySentences);
+    timelineRef.current = timeline;
     activeWordRef.current = null;
     setActiveWord(null);
-    setActiveSentenceId(storySentences.length > 0 ? storySentences[0].id : null);
-    currentSentenceRef.current = storySentences.length > 0 ? storySentences[0] : null;
+    // Resume where the reader left off.
+    const resumeAt = audioUrl ? getSavedTime(audioUrl) : 0;
+    const resumeIdx = Math.max(0, sentenceIndexAt(timeline, resumeAt));
+    const startSentence = storySentences[resumeIdx] ?? null;
+    setActiveSentenceId(startSentence?.id ?? null);
+    currentSentenceRef.current = startSentence;
 
     setHasAudioSource(!!audioUrl);
     setAudioUrl(audioUrl || null);
@@ -81,8 +99,14 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
         audioRef.current.removeAttribute('src');
       }
       audioRef.current.currentTime = 0;
-      setCurrentTime(0);
+      setCurrentTime(resumeAt);
       setIsPlaying(false);
+      if (resumeAt > 0) {
+        const audio = audioRef.current;
+        audio.addEventListener('loadedmetadata', () => {
+          if (audio.getAttribute('src') === audioUrl) audio.currentTime = resumeAt;
+        }, { once: true });
+      }
     }
   }, []);
 
@@ -134,13 +158,34 @@ export const AudioPlayerProvider: React.FC<{ children: React.ReactNode }> = ({ c
     if (!audio) return;
 
     // Drives the progress bar; word/sentence tracking runs per frame above.
-    const onTimeUpdate = () => setCurrentTime(audio.currentTime);
+    // Remember the position every few seconds while playing, and on pause.
+    let lastSaved = 0;
+    const remember = () => {
+      const src = audio.getAttribute('src');
+      if (src && audio.readyState >= HTMLMediaElement.HAVE_METADATA) saveTime(src, audio.currentTime, audio.duration);
+    };
+    const onTimeUpdate = () => {
+      setCurrentTime(audio.currentTime);
+      if (!audio.paused && Date.now() - lastSaved > 3000) {
+        lastSaved = Date.now();
+        remember();
+      }
+    };
     // Keep highlighting right after a seek while paused.
-    const onSeeked = () => syncToTime(audio.currentTime);
+    const onSeeked = () => {
+      syncToTime(audio.currentTime);
+      if (audio.paused) remember();
+    };
     const onLoadedMetadata = () => setDuration(audio.duration || 0);
     const onPlay = () => setIsPlaying(true);
-    const onPause = () => setIsPlaying(false);
+    const onPause = () => {
+      setIsPlaying(false);
+      remember();
+    };
     const onEnded = () => {
+      // Finished: next time start from the beginning.
+      const src = audio.getAttribute('src');
+      if (src) clearTime(src);
       setIsPlaying(false);
       setActiveSentenceId(null);
       currentSentenceRef.current = null;

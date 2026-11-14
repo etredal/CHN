@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { Flashcard } from '../../types';
-import { getSavedFlashcards, getDueFlashcards, removeFlashcard, exportToAnkiTsv } from '../../utils/srs';
+import { getSavedFlashcards, getDueFlashcards, removeFlashcard, exportToAnkiTsv, setCardDefinitions, NO_DEFINITION } from '../../utils/srs';
+import { lookupCedict } from '../../dictionary/cedict';
 import { pronounceWord } from '../../utils/pronounce';
 import { Bookmark, Volume2, Trash2, Download, Play, Search, Sparkles } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
@@ -21,6 +22,23 @@ export const VocabListView: React.FC<VocabListViewProps> = ({ onStartReview }) =
   const loadCards = () => {
     setCards(getSavedFlashcards());
   };
+
+  // Words saved before story words had definitions were stored without one;
+  // fill those in from the dictionary.
+  useEffect(() => {
+    const missing = getSavedFlashcards().filter(c => c.definitions.length === 1 && c.definitions[0] === NO_DEFINITION);
+    if (!missing.length) return;
+    let cancelled = false;
+    Promise.all(missing.map(async c => {
+      const found = await lookupCedict(c.word, c.pinyin).catch(() => []);
+      if (found[0]?.definitions.length) setCardDefinitions(c.id, found[0].definitions);
+    })).then(() => {
+      if (!cancelled) setCards(getSavedFlashcards());
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const handleDelete = (word: string) => {
     removeFlashcard(word);

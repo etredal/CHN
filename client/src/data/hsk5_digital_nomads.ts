@@ -97,7 +97,7 @@ export const hsk5DigitalNomads: LongStory = {
   "category": "Society",
   "stats": {
     "characterCount": 950,
-    "audioDurationSeconds": 140,
+    "audioDurationSeconds": 89,
     "estimatedReadingTimeMinutes": 6
   },
   "audioUrl": "audio/hsk5_digital_nomads.mp3",

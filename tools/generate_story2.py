@@ -13,7 +13,7 @@ story2 = {
     "category": "History",
     "stats": {
         "characterCount": 1150,
-        "audioDurationSeconds": 155,
+        "audioDurationSeconds": 92,
         "estimatedReadingTimeMinutes": 7
     },
     "audioUrl": "/audio/hsk6_battle_of_julu.mp3",

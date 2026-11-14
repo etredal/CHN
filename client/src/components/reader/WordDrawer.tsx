@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import type { WordToken, Sentence, WordAudio } from '../../types';
 import { pronounceWord, preloadWordAudio, wordAudioSources } from '../../utils/pronounce';
-import { isWordSaved, saveFlashcard, removeFlashcard } from '../../utils/srs';
+import { isWordSaved, saveFlashcard, removeFlashcard, NO_DEFINITION } from '../../utils/srs';
 import { Volume2, Bookmark, BookmarkCheck, X, Sparkles, PlayCircle } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
+import { useWordDetails } from '../../dictionary/useWordDetails';
+import { CEDICT_ATTRIBUTION_URL } from '../../dictionary/cedict';
 
 interface WordDrawerProps {
   token: WordToken | null;
@@ -22,6 +24,7 @@ export const WordDrawer: React.FC<WordDrawerProps> = ({ token, ...rest }) =>
 const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ token, sentenceContext, wordAudio, onPlayFromHere, onClose }) => {
   const [saved, setSaved] = useState(() => isWordSaved(token.text));
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const details = useWordDetails(token);
 
   const sources = wordAudioSources(token.text, wordAudio);
   useEffect(() => preloadWordAudio(wordAudio), [wordAudio]);
@@ -48,7 +51,7 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
         word: token.text,
         pinyin: token.pinyin,
         tone: token.tone,
-        definitions: token.definitions.length > 0 ? token.definitions : ['definition not specified'],
+        definitions: details.definitions.length > 0 ? details.definitions : [NO_DEFINITION],
         hskLevel: token.hskLevel,
         exampleSentence: sentenceContext ? { cn: sentenceContext.cn, en: sentenceContext.en } : undefined,
         audioClip: sources.clip,
@@ -85,7 +88,10 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
               <span className="px-2 py-0.5 text-sm font-medium rounded-md border border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
                 {token.pinyin}
               </span>
-              <span className="text-xs text-slate-400">第 {token.tone === 5 ? '轻' : token.tone} 声</span>
+              {/* A tone belongs to one syllable, so only label single characters. */}
+              {Array.from(token.text).length === 1 && token.tone >= 1 && token.tone <= 5 && (
+                <span className="text-xs text-slate-400">{token.tone === 5 ? '轻声' : `第 ${token.tone} 声`}</span>
+              )}
             </div>
           </div>
 
@@ -156,28 +162,44 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
             <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
               释义
             </h4>
-            {token.definitions.length > 0 ? (
+            {details.fromParts && (
+              <p className="mb-1.5 text-xs text-slate-400 font-chinese-sans">词典未单独收录，按组成部分解释：</p>
+            )}
+            {details.definitions.length > 0 ? (
               <ul className="space-y-1.5">
-                {token.definitions.map((def, idx) => (
+                {details.definitions.map((def, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-200">
                     <span className="text-amber-500 font-bold">•</span>
                     <span>{def}</span>
                   </li>
                 ))}
               </ul>
+            ) : details.loading ? (
+              <p className="text-sm text-slate-400 font-chinese-sans animate-pulse">查询中…</p>
             ) : (
-              <p className="text-sm text-slate-400 font-chinese-sans">暂无词典释义</p>
+              <p className="text-sm text-slate-400 font-chinese-sans">
+                暂无词典释义{details.characters.length > 0 && '，可参考下方字义'}
+              </p>
+            )}
+            {details.fromCedict && (
+              <p className="mt-2 text-[10px] text-slate-400">
+                释义来自{' '}
+                <a href={CEDICT_ATTRIBUTION_URL} target="_blank" rel="noreferrer" className="underline hover:text-slate-600 dark:hover:text-slate-200">
+                  CC-CEDICT
+                </a>
+                {' '}(CC BY-SA 4.0)
+              </p>
             )}
           </div>
 
           {/* Character Breakdown (for multi-character words) */}
-          {token.characters && token.characters.length > 0 && (
+          {details.characters.length > 0 && (
             <div>
               <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
                 字义分解
               </h4>
               <div className="grid grid-cols-2 gap-2">
-                {token.characters.map((ch, idx) => (
+                {details.characters.map((ch, idx) => (
                   <div key={idx} className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                     <div className="flex items-baseline justify-between">
                       <span className="font-bold text-slate-900 dark:text-white font-chinese-sans">{ch.char}</span>

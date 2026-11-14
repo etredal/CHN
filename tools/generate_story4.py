@@ -13,7 +13,7 @@ story4 = {
     "category": "Philosophy",
     "stats": {
         "characterCount": 1050,
-        "audioDurationSeconds": 150,
+        "audioDurationSeconds": 107,
         "estimatedReadingTimeMinutes": 7
     },
     "audioUrl": "/audio/hsk6_zhuangzi_oak.mp3",

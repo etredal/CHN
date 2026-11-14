@@ -4,6 +4,7 @@ import { ALL_STORIES } from '../../data';
 import { Search, BookOpen, Clock, Headphones, Sparkles, Filter } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
 import { categoryZh } from '../../utils/labels';
+import { getProgress } from '../../utils/readingProgress';
 
 interface LibraryViewProps {
   onSelectStory: (story: LongStory) => void;
@@ -105,7 +106,10 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
 
       {/* Stories Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {filteredStories.map(story => (
+        {filteredStories.map(story => {
+          // How far into the recording the reader got, if they've started.
+          const progress = getProgress(story.audioUrl, story.stats.audioDurationSeconds);
+          return (
           <div
             key={story.id}
             onClick={() => onSelectStory(story)}
@@ -157,12 +161,26 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
                 </span>
               </div>
 
-              <span className="font-semibold text-amber-600 dark:text-amber-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-0.5">
-                进入阅读 →
+              <span className="font-semibold text-amber-600 dark:text-amber-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-0.5 whitespace-nowrap">
+                {progress > 0 ? '继续阅读 →' : '进入阅读 →'}
               </span>
             </div>
+            {progress > 0 && (
+              <div
+                className="mt-3 h-1 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden"
+                role="progressbar"
+                aria-label="阅读进度"
+                aria-valuenow={Math.round(progress * 100)}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                title={`已听 ${Math.round(progress * 100)}%`}
+              >
+                <div className="h-full bg-amber-500 rounded-full" style={{ width: `${Math.max(2, progress * 100)}%` }} />
+              </div>
+            )}
           </div>
-        ))}
+          );
+        })}
       </div>
 
       {filteredStories.length === 0 && (
