@@ -11,7 +11,8 @@ import {
 } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
 
-export const BottomAudioBar: React.FC = () => {
+/** `aboveTabBar`: sit above the phone bottom tab bar instead of at the screen edge. */
+export const BottomAudioBar: React.FC<{ aboveTabBar?: boolean }> = ({ aboveTabBar = false }) => {
   const {
     isPlaying,
     currentTime,
@@ -42,7 +43,7 @@ export const BottomAudioBar: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 shadow-2xl transition-colors">
+    <div className={`fixed inset-x-0 z-40 ${aboveTabBar ? 'bottom-[calc(3.5rem+env(safe-area-inset-bottom))] sm:bottom-0' : 'bottom-0 pb-[env(safe-area-inset-bottom)]'} bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 shadow-2xl transition-colors`}>
       {/* Progress Bar */}
       <div className="relative w-full h-1.5 bg-slate-100 dark:bg-slate-800 cursor-pointer group">
         <div
