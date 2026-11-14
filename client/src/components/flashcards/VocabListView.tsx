@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { Flashcard } from '../../types';
-import { getSavedFlashcards, removeFlashcard, exportToAnkiTsv } from '../../utils/srs';
+import { getSavedFlashcards, getDueFlashcards, removeFlashcard, exportToAnkiTsv } from '../../utils/srs';
 import { pronounceWord } from '../../utils/pronounce';
 import { Bookmark, Volume2, Trash2, Download, Play, Search, Sparkles } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
@@ -15,6 +15,8 @@ export const VocabListView: React.FC<VocabListViewProps> = ({ onStartReview }) =
   // Read saved words up front so the first render isn't an empty list.
   const [cards, setCards] = useState<Flashcard[]>(getSavedFlashcards);
   const [search, setSearch] = useState('');
+
+  const dueCards = getDueFlashcards(cards);
 
   const loadCards = () => {
     setCards(getSavedFlashcards());
@@ -33,7 +35,8 @@ export const VocabListView: React.FC<VocabListViewProps> = ({ onStartReview }) =
     a.href = url;
     a.download = `duchinese_vocab_${new Date().toISOString().slice(0,10)}.tsv`;
     a.click();
-    URL.revokeObjectURL(url);
+    // Revoking straight away can cancel the download in some browsers.
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
   const filteredCards = cards.filter(c =>
@@ -51,7 +54,7 @@ export const VocabListView: React.FC<VocabListViewProps> = ({ onStartReview }) =
             <Bookmark className="w-6 h-6 text-amber-500 fill-current" />
             <span>我的生词本</span>
           </h2>
-          <p className="text-xs text-slate-500 mt-1">共收藏 {cards.length} 个单词 • 支持基于 SM-2 算法的间隔复习</p>
+          <p className="text-xs text-slate-500 mt-1">共收藏 {cards.length} 个单词 • 今日待复习 {dueCards.length} 个 • 支持基于 SM-2 算法的间隔复习</p>
         </div>
 
         <div className="flex items-center gap-2">
@@ -66,13 +69,26 @@ export const VocabListView: React.FC<VocabListViewProps> = ({ onStartReview }) =
                 <span>导出 Anki</span>
               </button>
 
-              <button
-                onClick={() => onStartReview(cards)}
-                className="flex items-center gap-1.5 px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold shadow-md shadow-amber-500/20 active:scale-95 transition-all"
-              >
-                <Play className="w-4 h-4 fill-current" />
-                <span>开始复习 ({cards.length})</span>
-              </button>
+              {dueCards.length > 0 ? (
+                <button
+                  onClick={() => onStartReview(dueCards)}
+                  className="flex items-center gap-1.5 px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold shadow-md shadow-amber-500/20 active:scale-95 transition-all"
+                  title="Review the words that are due"
+                >
+                  <Play className="w-4 h-4 fill-current" />
+                  <span>开始复习 ({dueCards.length})</span>
+                </button>
+              ) : (
+                // Nothing due: still allow an extra pass over everything.
+                <button
+                  onClick={() => onStartReview(cards)}
+                  className="flex items-center gap-1.5 px-5 py-2 rounded-xl border border-amber-400 text-amber-700 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-950/40 text-xs font-bold active:scale-95 transition-all"
+                  title="Nothing is due; review all words anyway"
+                >
+                  <Play className="w-4 h-4 fill-current" />
+                  <span>今日已完成 · 全部复习 ({cards.length})</span>
+                </button>
+              )}
             </>
           )}
         </div>
