@@ -1,6 +1,7 @@
 import React from 'react';
 import type { WordToken as IWordToken } from '../../types';
 import { usePinyinVisible } from '../../context/SettingsContext';
+import { isPunctuation } from '../../utils/punctuation';
 
 interface WordTokenProps {
   token: IWordToken;
@@ -11,9 +12,7 @@ interface WordTokenProps {
 export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, highlight }) => {
   const showPinyin = usePinyinVisible();
 
-  const isPunc = /^[，。！？；：“”‘’（）《》、—…\.,!?;:\'\"()\[\]]$/.test(token.text);
-
-  if (isPunc) {
+  if (isPunctuation(token.text)) {
     return <span className="select-none">{token.text}</span>;
   }
 
