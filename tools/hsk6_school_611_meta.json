@@ -1,0 +1,205 @@
+{
+  "title": {
+    "cn": "学校像监狱？“611学制”再次引发有关中国教育体制的讨论",
+    "pinyin": "Xuéxiào xiàng jiānyù? “611 xuézhì” zàicì yǐnfā yǒuguān Zhōngguó jiàoyù tǐzhì de tǎolùn",
+    "en": "School Like a Prison? The \"611\" Schedule Reignites China's Education Debate"
+  },
+  "summary": {
+    "cn": "美国之音2025年的报道。一项网上调查收到了全国1800多所学校的投稿：很多学生从早上6点学到晚上11点，寒假只有几天。老师、家长、项目发起人和美国的教育专家谈了他们的看法：教育到底要培养什么样的人？",
+    "en": "A 2025 report by Voice of America (VOA). An online survey received reports from more than 1,800 schools across China: many students study from 6 a.m. to 11 p.m. and get only a few days of winter holiday. Teachers, parents, the project's organisers and American education experts give their views: what kind of people should education produce?"
+  },
+  "targetVocabulary": [
+    {
+      "word": "普遍",
+      "pinyin": "pǔbiàn",
+      "tone": 3,
+      "hsk": "HSK 5",
+      "definitions": ["common", "widespread", "universal"],
+      "exampleSentence": { "cn": "在大城市，孩子上补习班的现象很普遍。", "pinyin": "Zài dà chéngshì, háizi shàng bǔxíbān de xiànxiàng hěn pǔbiàn.", "en": "In big cities it is very common for children to go to tutoring classes." }
+    },
+    {
+      "word": "现象",
+      "pinyin": "xiànxiàng",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": ["phenomenon", "situation (that can be observed)"],
+      "exampleSentence": { "cn": "年轻人越来越晚结婚，这是一个值得注意的社会现象。", "pinyin": "Niánqīngrén yuè lái yuè wǎn jiéhūn, zhè shì yí gè zhíde zhùyì de shèhuì xiànxiàng.", "en": "Young people are marrying later and later; this is a social phenomenon worth noting." }
+    },
+    {
+      "word": "竞争",
+      "pinyin": "jìngzhēng",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": ["to compete", "competition"],
+      "exampleSentence": { "cn": "这个工作的竞争非常激烈，一百多个人申请。", "pinyin": "Zhège gōngzuò de jìngzhēng fēicháng jīliè, yìbǎi duō gè rén shēnqǐng.", "en": "The competition for this job is very fierce: over a hundred people applied." }
+    },
+    {
+      "word": "培养",
+      "pinyin": "péiyǎng",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": ["to train", "to cultivate", "to bring up (people, habits)"],
+      "exampleSentence": { "cn": "父母应该从小培养孩子读书的习惯。", "pinyin": "Fùmǔ yīnggāi cóngxiǎo péiyǎng háizi dúshū de xíguàn.", "en": "Parents should help children develop a reading habit from an early age." }
+    },
+    {
+      "word": "承受",
+      "pinyin": "chéngshòu",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": ["to bear", "to endure", "to withstand"],
+      "exampleSentence": { "cn": "她一个人承受了太多的压力，终于病倒了。", "pinyin": "Tā yí gè rén chéngshòu le tài duō de yālì, zhōngyú bìngdǎo le.", "en": "She bore too much pressure on her own, and in the end she fell ill." }
+    },
+    {
+      "word": "缓解",
+      "pinyin": "huǎnjiě",
+      "tone": 3,
+      "hsk": "HSK 6",
+      "definitions": ["to ease", "to relieve", "to alleviate"],
+      "exampleSentence": { "cn": "运动可以帮助缓解学习带来的压力。", "pinyin": "Yùndòng kěyǐ bāngzhù huǎnjiě xuéxí dàilái de yālì.", "en": "Exercise can help relieve the stress of studying." }
+    },
+    {
+      "word": "负担",
+      "pinyin": "fùdān",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": ["burden", "load", "to bear (a cost or duty)"],
+      "exampleSentence": { "cn": "房租太贵，给年轻人带来了很大的经济负担。", "pinyin": "Fángzū tài guì, gěi niánqīngrén dàilái le hěn dà de jīngjì fùdān.", "en": "Rent is so expensive that it puts a heavy financial burden on young people." }
+    },
+    {
+      "word": "途径",
+      "pinyin": "tújìng",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": ["way", "channel", "route (to achieve something)"],
+      "exampleSentence": { "cn": "考大学不是成功的唯一途径。", "pinyin": "Kǎo dàxué bú shì chénggōng de wéiyī tújìng.", "en": "Getting into university is not the only route to success." }
+    },
+    {
+      "word": "反思",
+      "pinyin": "fǎnsī",
+      "tone": 3,
+      "hsk": "HSK 6",
+      "definitions": ["to reflect on", "to rethink", "reflection"],
+      "exampleSentence": { "cn": "考试失败以后，他认真反思了自己的学习方法。", "pinyin": "Kǎoshì shībài yǐhòu, tā rènzhēn fǎnsī le zìjǐ de xuéxí fāngfǎ.", "en": "After failing the exam, he thought hard about his study methods." }
+    },
+    {
+      "word": "极端",
+      "pinyin": "jíduān",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": ["extreme", "extremely"],
+      "exampleSentence": { "cn": "一天只睡四个小时，这种做法太极端了。", "pinyin": "Yì tiān zhǐ shuì sì gè xiǎoshí, zhè zhǒng zuòfǎ tài jíduān le.", "en": "Sleeping only four hours a day is far too extreme." }
+    }
+  ],
+  "grammarNotes": [
+    {
+      "pattern": "不仅……而且……",
+      "explanation": "\"Not only … but also …\". The second clause adds something further, often more serious. 而且 is often followed by 还 or 也.",
+      "exampleFromStory": "现在的学生不仅在校学习时间长，而且放学后还要上各种补习班。",
+      "exampleFromStoryEn": "Students now not only spend long hours studying at school, but also have to go to all kinds of tutoring classes after school.",
+      "additionalExamples": ["这家饭馆不仅便宜，而且很好吃。", "他不仅会说中文，而且还会写书法。"],
+      "additionalExamplesEn": ["This restaurant is not only cheap but also delicious.", "He not only speaks Chinese but can also do calligraphy."]
+    },
+    {
+      "pattern": "A 取决于 B",
+      "explanation": "\"A depends on B\" / \"A is decided by B\". A formal verb common in news and essays; B is often a question-like phrase (什么、怎么、是否…).",
+      "exampleFromStory": "评判一个教育体制的好坏取决于每个社会希望学生成为什么样的人。",
+      "exampleFromStoryEn": "Whether an education system is good or bad depends on what kind of people each society wants its students to become.",
+      "additionalExamples": ["去不去旅行，取决于天气怎么样。", "一个人能不能成功，不只取决于努力。"],
+      "additionalExamplesEn": ["Whether we travel depends on the weather.", "Whether someone succeeds doesn't depend only on hard work."]
+    },
+    {
+      "pattern": "越 A 越 B",
+      "explanation": "\"The more A, the more B\". Both parts usually share the same subject; A and B can be verbs or adjectives. Compare 越来越 + adjective (\"more and more\").",
+      "exampleFromStory": "老师、学生、家长都亚历山大，而且越改革越严重。",
+      "exampleFromStoryEn": "Teachers, students and parents are all under enormous pressure, and the more reforms there are, the worse it gets.",
+      "additionalExamples": ["这本书我越看越喜欢。", "雨越下越大。"],
+      "additionalExamplesEn": ["The more I read this book, the more I like it.", "The rain is getting heavier and heavier."]
+    },
+    {
+      "pattern": "即使……也……",
+      "explanation": "\"Even if … still …\". 即使 introduces a supposition (true or not), and 也 marks that the result doesn't change. 即使不是不可能 is a set phrase: \"if not impossible\".",
+      "exampleFromStory": "从职业高中到普通学术大学的途径，即使不是不可能，也还是非常困难的。",
+      "exampleFromStoryEn": "The route from a vocational high school to an ordinary academic university is very difficult, if not impossible.",
+      "additionalExamples": ["即使下雨，比赛也会照常进行。", "即使工作再忙，他也每天给妈妈打电话。"],
+      "additionalExamplesEn": ["Even if it rains, the match will go ahead as usual.", "However busy work gets, he still calls his mother every day."]
+    },
+    {
+      "pattern": "少则……，多则……",
+      "explanation": "\"At least … at most …\", giving the range of a number. A compact written pattern from classical Chinese; 则 here means \"then\".",
+      "exampleFromStory": "许多网友也在“耻辱名单”上提供了他们的补习费用，少则几百，多则几万。",
+      "exampleFromStoryEn": "Many users also listed their tutoring costs on the \"wall of shame\", from a few hundred to tens of thousands of yuan.",
+      "additionalExamples": ["这种病，少则一周，多则一个月才能好。", "每天来参观的人，少则几十，多则上千。"],
+      "additionalExamplesEn": ["This illness takes at least a week and at most a month to clear up.", "Visitors each day range from a few dozen to over a thousand."]
+    },
+    {
+      "pattern": "网络流行语：亚历山大、卷、大V",
+      "explanation": "Internet slang now common in everyday speech. 亚历山大 (\"Alexander\") is a pun on 压力山大, \"pressure as big as a mountain\". 卷 (from 内卷, \"involution\") describes pointless, exhausting competition where everyone works harder but nobody gets ahead. 大V is an influencer with a large following (from the V for \"verified\" on Weibo).",
+      "exampleFromStory": "当然也有很卷的父母。",
+      "exampleFromStoryEn": "Of course some parents are extremely competitive.",
+      "additionalExamples": ["快考试了，我最近真是亚历山大。", "现在找工作太卷了，大家都在加班。"],
+      "additionalExamplesEn": ["Exams are coming up and I'm under so much pressure lately.", "Job hunting is so cut-throat now that everyone works overtime."]
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "“611学制”是什么意思？",
+      "questionEn": "What does the \"611\" schedule mean?",
+      "options": ["每年上学611天", "学生从早上6点学习到晚上11点", "每个班有61个学生，1个老师", "6年小学，1年初中，1年高中"],
+      "optionsEn": ["Going to school 611 days a year", "Students study from 6 a.m. until 11 p.m.", "61 students and 1 teacher in each class", "6 years of primary school, 1 of middle school and 1 of high school"],
+      "correctIndex": 1,
+      "explanation": "文章说：“611指的是学生从早6点到晚上11点都需要学习。”",
+      "explanationEn": "The article says: \"'611' means that students have to study from 6 in the morning until 11 at night.\""
+    },
+    {
+      "id": "q2",
+      "question": "截至2月10日，这个项目收到了多少所学校的投稿？",
+      "questionEn": "As of 10 February, the project had received reports about how many schools?",
+      "options": ["260多所", "500多所", "670多所", "1800多所"],
+      "optionsEn": ["Over 260", "Over 500", "Over 670", "Over 1,800"],
+      "correctIndex": 3,
+      "explanation": "项目“已经收到全国1800多所学校学生及家长的投稿”。260、500和670是寒假和每月放假天数的数字。",
+      "explanationEn": "The project \"had received submissions from students and parents at more than 1,800 schools\". 260, 500 and 670 are figures about holidays and days off."
+    },
+    {
+      "id": "q3",
+      "question": "蒋不认为611学制是从哪里来的？",
+      "questionEn": "Where does Jiang Bu think the 611 schedule came from?",
+      "options": ["美国学校的作息时间", "“衡水模式”在中国的扩张", "家长自己的要求", "职业教育的发展"],
+      "optionsEn": ["American school timetables", "The spread of the \"Hengshui model\" across China", "Parents' own demands", "The growth of vocational education"],
+      "correctIndex": 1,
+      "explanation": "蒋不认为，“中国学生的611学制现象源自‘衡水模式’在中国的扩张”。其他省份想快速获得衡水中学的升学成果。",
+      "explanationEn": "Jiang Bu believes the 611 schedule \"comes from the spread of the 'Hengshui model' across China\": other provinces wanted Hengshui High School's results quickly."
+    },
+    {
+      "id": "q4",
+      "question": "厦门的陈老师辅导学生作文，收费是多少？",
+      "questionEn": "How much does Mr Chen in Xiamen charge to tutor essay writing?",
+      "options": ["一次90分钟1千元", "一次一小时100元", "一个月7200元", "一年一万元"],
+      "optionsEn": ["1,000 yuan for 90 minutes", "100 yuan for an hour", "7,200 yuan a month", "10,000 yuan a year"],
+      "correctIndex": 0,
+      "explanation": "陈老师说：“我辅导学生作文，一次90分钟1千元，一周一次就是4千元。”7200元是江西一位网友说的一个学期加暑假的补习费。",
+      "explanationEn": "Mr Chen says: \"I tutor students in essay writing at 1,000 yuan for 90 minutes.\" 7,200 yuan is what a Jiangxi user said a term plus the summer holiday of tutoring costs."
+    },
+    {
+      "id": "q5",
+      "question": "朱永泉教授对学习时间的看法是什么？",
+      "questionEn": "What is Professor Kevin Gee's view on study time?",
+      "options": ["学习时间越长，效果越好", "每天学习6个小时是最完美的时长", "学得太久会“收益递减”，还要平衡家人、朋友、锻炼等其他方面", "中国的做法一定比美国差"],
+      "optionsEn": ["The longer students study, the better the results", "Six hours a day is the perfect amount", "Studying too long brings \"diminishing returns\", and study must be balanced with family, friends, exercise and so on", "China's approach is definitely worse than America's"],
+      "correctIndex": 2,
+      "explanation": "他说学习太久“肯定存在收益递减的点”，也强调要平衡学习和其他重要方面。他不认为有最佳时长，也避免评断哪个国家“更好”。",
+      "explanationEn": "He says studying too long definitely has \"a point of diminishing returns\" and stresses balancing study with other parts of life. He doesn't think there is an ideal number of hours, and avoids judging which country is \"better\"."
+    },
+    {
+      "id": "q6",
+      "question": "程华宇认为，中国家庭怎么看职业教育？",
+      "questionEn": "According to Hua-Yu Sebastian Cherng, how do Chinese families see vocational education?",
+      "options": ["是最好的出路", "是一个教育“死胡同”", "比普通大学更难考", "和美国的职业教育一样"],
+      "optionsEn": ["As the best path", "As an educational \"dead end\"", "As harder to get into than an ordinary university", "As the same as vocational education in America"],
+      "correctIndex": 1,
+      "explanation": "他说：“中国家庭本质上将职业教育视为一个教育死胡同。”所以政府需要给职业高中的学生进入普通大学的途径。",
+      "explanationEn": "He says: \"Chinese families essentially see vocational education as an educational dead end.\" So the government needs to give vocational students a way into ordinary universities."
+    }
+  ]
+}

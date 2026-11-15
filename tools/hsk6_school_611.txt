@@ -1,0 +1,200 @@
+# 《学校像监狱？“611学制”再次引发有关中国教育体制的讨论》
+# Voice of America (美国之音) Chinese, by 莉雅 and 魏之, 11 February 2025.
+# https://www.voachinese.com/a/china-extremely-long-study-time-students/7969506.html
+# Public domain: material produced by VOA is in the public domain (credit: VOA).
+# Chinese text: the full article. Section headings are the article's own; the first
+# one (引言) is added. Typos corrected: 人类展发学院 -> 人类发展学院 (x2),
+# 在校学校时间长 -> 在校学习时间长, 情況 -> 情况, 超时学校的情况 -> 超时学习的情况,
+# 是投稿人是以 -> 是投稿人以, 从早上6点学校到晚上11点 -> 从早上6点到晚上11点.
+# English translation written for this app.
+#
+# Format: "## <Chinese heading> || <English heading>" starts a section;
+# every other non-comment line is "<Chinese sentence> || <English>".
+# A blank line separates paragraphs (the paragraphs of the original).
+
+## 引言 || Introduction
+由知名网络大V“李老师不是你老师”的团队发起的一项网上问卷调查显示，中国全国各地的小初高中的学生普遍存在超时学习的现象，导致学生苦不堪言。 || An online survey launched by the team of the well-known internet influencer "Teacher Li Is Not Your Teacher" shows that primary, middle and high school students all over China commonly study excessively long hours, leaving them in misery.
+有学生甚至说，学校像监狱。 || Some students even say that school is like a prison.
+美国的教育专家认为，评判一个教育体制的好坏取决于每个社会希望学生成为什么样的人，以及他们认为教育的目的是什么。 || American education experts say that whether an education system is good or bad depends on what kind of people each society wants its students to become, and on what it thinks education is for.
+他们还认为，教育体制应当给学生更多元的选择和出路。 || They also believe an education system should give students more varied choices and paths forward.
+
+## 611学制遍及全国 || The "611" Schedule Is Everywhere
+截至2月10日，由“李老师不是你老师”的团队发起的“611 ICU全国小初高中超时学习学校耻辱名单”项目已经收到全国1800多所学校学生及家长的投稿。 || As of 10 February, the "611 ICU National Wall of Shame for Schools with Excessive Study Hours", a project launched by the "Teacher Li Is Not Your Teacher" team, had received submissions from students and parents at more than 1,800 schools across the country.
+根据这些自动提交的匿名报告，许多学校的学习时间是早上6点至晚上10点左右；500多所学校寒假放假时间不超过10天，260多所学校的寒假在7天以内。 || According to these voluntarily submitted anonymous reports, many schools have students studying from 6 a.m. to around 10 p.m.; more than 500 schools give no more than 10 days of winter holiday, and over 260 give less than 7 days.
+670多所学校每月放假的天数不超过两天。 || More than 670 schools give no more than two days off a month.
+这些投稿还说，一些学校存在学生自杀现象。 || The submissions also say that students have taken their own lives at some schools.
+
+611指的是学生从早6点到晚上11点都需要学习，也被称为“611”学制。 || "611" means that students have to study from 6 in the morning until 11 at night; it is also called the "611" schedule.
+
+陕西宝鸡一所中学的毕业生在投稿中说：“现在该校的作息时间是这样的：学校重点班从高一起就是高三作息，平时早上6:50到班，晚上10：30放学，从周一到周五；周六早上到班时间跟平常一样，下午5点50放学，周天早上10点就又要回学校开始听讲座（普班下午到校），下午考练，直到晚上10点30才放学。 || A graduate of a secondary school in Baoji, Shaanxi wrote: "This is the school's timetable now: from the first year of high school, the top classes follow the final-year schedule. On weekdays you're in class at 6:50 a.m. and leave at 10:30 p.m., Monday to Friday. On Saturday you arrive at the usual time and leave at 5:50 p.m., and at 10 a.m. on Sunday you're back at school for lectures (ordinary classes come in the afternoon), with practice tests in the afternoon, and you don't leave until 10:30 at night.
+也就是说，一周只有16个小时的休息时间！ || In other words, there are only 16 hours of rest in a whole week!
+而今年该校做的更绝，高三重点班的寒假只有3天（普班5天）。” || And this year the school went even further: the top final-year classes got only 3 days of winter holiday (ordinary classes, 5)."
+
+这位同学显然对这种做法很有看法：“此前也有学生向当地教育局举报，但没有一次成功（学校和教育局有极其强大的后台关系，狼狈为奸），暑假也只有2周多一点。 || This student clearly has strong views about it: "Students have reported it to the local education bureau before, but it never worked once (the school has extremely powerful connections with the bureau, and they're in it together). The summer holiday is only a little over two weeks, too.
+由于该校为寄宿制学校，平日里几乎所有时间都待在学校，承受着巨大的学习和精神压力，而每周只有16个小时能回家，在家睡了一觉，还没干啥，就又该返校，离开家时就像上刑场，7天后才能重新回家（又是90多个小时的学习时间）。 || Because it's a boarding school, you spend almost all your time at school under huge academic and mental pressure, and you only get 16 hours a week at home. You sleep once, and before you've done anything it's time to go back. Leaving home feels like walking to your execution, and you can't come home again for 7 days (another 90-plus hours of studying).
+这曾经对我的身心健康造成了极大的损害，每天都活在绝望与无望当中。” || It did enormous damage to my physical and mental health; every day I lived in despair and hopelessness."
+
+山西另一名网友说：“学校规定课间休息时间只有5分钟，午休时间还有作业，从初一开始就是611，早晨从起床到出早操时间很紧张，大多数孩子选择晚上睡觉不脱衣服，孩子们每天只能休息7个小时，上午上课瞌睡的很多，最后一个晚自习更是难熬，平时考试巨多，每次考试都要公布排名，孩子们压力很大，身心俱疲，十分煎熬。” || Another internet user from Shanxi said: "The school allows only 5 minutes between classes, there's homework during the lunch break, and it's 611 from the first year of middle school. In the morning there's so little time between getting up and morning exercises that most kids sleep in their clothes. The children get only 7 hours of rest a day, lots of them doze off in morning classes, and the last evening study session is even harder to get through. There are tons of tests, and the rankings are published after every one. The kids are under huge pressure, exhausted in body and mind; it's torture."
+
+## 厦门的老师：老师、学生、家长都亚历山大 || A Teacher in Xiamen: Teachers, Students and Parents Are All Under Pressure
+由于这些信息是投稿人以匿名形式在网络上提交的，发起调查的团队并不清楚这些人是谁。 || Because this information was submitted online anonymously, the team running the survey does not know who these people are.
+美国之音无法独立核实这些投稿人提供的信息。 || VOA could not independently verify the information they provided.
+
+不过，长期在福建厦门从事教育工作的一位陈姓老师证实说，的确存在这种情况，而学生家长也深受其害。 || However, a teacher surnamed Chen who has worked in education in Xiamen, Fujian for many years confirmed that this really does happen, and that parents suffer from it too.
+
+他告诉美国之音：“这个情况久矣。 || He told VOA: "This has been going on for a long time.
+老师、学生、家长都亚历山大，而且越改革越严重。 || Teachers, students and parents are all under enormous pressure, and the more reforms there are, the worse it gets.
+春节遇到幼儿园老师，感觉压力越来越大。 || Over Spring Festival I met a kindergarten teacher, and even she feels the pressure growing.
+中学生可想而知。 || You can imagine what it's like for secondary school students.
+家长压力大，父母谁管孩子学习，谁抓狂，母亲心理问题多，乳腺疾病高发。 || Parents are under great pressure. Whichever parent supervises the child's studies goes crazy; many mothers have psychological problems, and breast disease is common.
+孩子压力大。 || The children are under great pressure.
+厌学逃学很普遍。 || Hating school and skipping school are very common.
+有条件的上补习班，连轴转，累；没条件的，想进补习班都难，望洋兴叹，越拉越远，家长看着孩子学习不好，想帮都难，着急。” || Kids whose families can afford it go to tutoring classes non-stop and are worn out. Those who can't afford it can hardly get into a class at all; they can only look on helplessly as the gap grows wider. Parents watch their children do badly at school, find it hard to help, and get anxious."
+
+湖北省赤壁市一所实验高中的老师也向美国之音证实，重点高中大多是类似611学制的做法。 || A teacher at an experimental high school in Chibi, Hubei Province also confirmed to VOA that most key high schools follow something like the 611 schedule.
+
+## 学校像监狱？ || Is School Like a Prison?
+除了学习时间长以外，一些投稿人还披露了更为极端的情况。 || Besides the long study hours, some contributors described even more extreme situations.
+
+毕业于湖北孝感一所高中的网友说，“这里不像学校，像监狱。” || An internet user who graduated from a high school in Xiaogan, Hubei said, "This place isn't like a school; it's like a prison."
+
+辽宁的一名学生说，“学校鼓励同学之间互相举报，并且宣传只要学不死就往死里学，有同学发烧生病也不让出去看病，老师给两个中药就打发了。” || A student from Liaoning said: "The school encourages classmates to report on each other, and its slogan is that as long as studying doesn't kill you, you should study yourself to death. When a classmate had a fever, they weren't allowed out to see a doctor; the teacher just handed over a couple of Chinese herbal medicines and sent them away."
+
+山西的一名学生说：“有学生请假学校也不给请，最后晚上凌晨在宿舍里高烧到40.6度被紧急送去了医院，不知道学校怎么会有这样的反人类规定。 || A student from Shanxi said: "A student asked for leave and the school refused. In the end, in the early hours of the morning, their fever reached 40.6 degrees in the dorm and they were rushed to hospital. I don't know how a school can have such inhumane rules.
+学生生病了不准请假，还是寄宿生。” || Students aren't allowed to take sick leave, and they're boarders, too."
+
+山西的另一名网友说：“教室的摄像头时刻在监视孩子们，说是学校，犹如监狱。 || Another internet user from Shanxi said: "The classroom cameras watch the children every moment. It's called a school, but it's like a prison.
+衡水流毒，全国泛滥，祸害学生，贻害无穷。 || The poison of Hengshui has spread across the whole country; it harms students and the damage will go on and on.
+孩子们80％近视。” || 80% of the children are short-sighted."
+
+## 项目发起人：希望引起更多的关注 || The Project's Founders Want More Attention
+这些投稿的人表示，希望通过这次的问卷能有更多的人听见他们的声音。 || The people who sent in reports said they hope the survey will let more people hear their voices.
+
+发起这个项目的“李老师不是你老师”在接受美国之音采访时表示，他们希望这个问题引起更多人的关注。 || "Teacher Li Is Not Your Teacher", who started the project, told VOA in an interview that they hope the issue will get more people's attention.
+
+他说：“我们一直关注这些问题，但是过去，国内的媒体被噤声，而在海外的人也很难有办法可以帮助这些孩子。 || He said: "We have always followed these issues, but in the past the media in China were silenced, and people overseas had very few ways to help these children.
+但是现在，因为有了更多的力量和声量，我们可以有更多的机会，利用自身的影响力和社区的行动力，去关注和介入到国内问题上。” || But now, because we have more strength and a louder voice, we have more chances to use our own influence and our community's ability to act, to follow and get involved in problems inside China."
+
+负责这个项目统筹协调工作的蒋不（网名）说，他看到数据时才意识到这个问题的严重性。 || Jiang Bu (an online name), who coordinates the project, said he only realised how serious the problem was when he saw the data.
+
+他对美国之音表示：“我因为毕业很多年，也在国外生活了几年，所以之前并没有意识到这个问题如此严重。 || He told VOA: "I graduated many years ago and have lived abroad for a few years, so I hadn't realised the problem was this serious.
+直到近期李老师收到了很多投稿，我开始整理、编辑这些数据时才发现，原来我的学弟学妹们的生活、学习压力竟然如此巨大，我觉得已经构成了对他们权利和人权的侵害。 || Only recently, when Teacher Li received lots of submissions and I began sorting and editing the data, did I discover that the pressure on the students who came after me, in their lives and their studies, was actually this enormous. I think it amounts to a violation of their rights and their human rights.
+同时整理时我也看到了很多留言，更能对他们的痛苦感同身受。” || While sorting the data I also read many of the comments, and I could feel their pain even more as if it were my own."
+
+他希望这个项目引发的关注能够帮助缓解学生目前的处境。 || He hopes the attention the project brings can help ease the students' current situation.
+
+蒋不说，“我们首先希望超时学习、学习压力过大的情况能够得到更广泛的关注和讨论。 || Jiang Bu said: "First of all, we hope excessive study hours and excessive study pressure will get wider attention and discussion.
+很多人在这样的环境下生活久了，甚至意识不到这是有问题的。 || Many people have lived in this environment for so long that they don't even realise there is a problem.
+同时也希望通过我们的公开和呼吁，去在一定程度上影响、缓解学生面临的问题。” || We also hope that by making this public and speaking out, we can to some extent influence and ease the problems students face."
+
+他说，有多所学校在表单公布后，修改了寒假开学的时间，尽管未必是表单的直接影响，但确实帮助了学生们维护自己的权益。 || He said several schools changed the date school starts again after the winter holiday once the list was published. That may not have been a direct result of the list, but it did help students stand up for their rights.
+
+## “衡水模式”的后续反应？ || The Aftermath of the "Hengshui Model"?
+蒋不认为，中国学生的611学制现象源自“衡水模式”在中国的扩张。 || Jiang Bu believes the 611 schedule comes from the spread of the "Hengshui model" across China.
+
+所谓的“衡水模式”，是河北衡水中学为适应当前高考制度而形成的一种应试教育模式。 || The so-called "Hengshui model" is an exam-focused style of education developed by Hengshui High School in Hebei to suit the current gaokao (university entrance exam) system.
+1992年，李金池被任命为衡水中学校长后，提出了题海战术、激情教育等理念。 || After Li Jinchi was appointed head of Hengshui High School in 1992, he introduced ideas such as the "sea of exercises" tactic and "passion education".
+在这种模式下，学校如同一座高考加工厂，学生如同工厂中的机器不停运转，在备战氛围和题海战术中失去了创造力。 || Under this model, the school is like a gaokao factory and the students are like machines in it that never stop running; in the battle-ready atmosphere and the sea of exercises, they lose their creativity.
+这种模式升学率在当地相当高，但备受社会争议。 || The model has a very high rate of students going on to university locally, but it is highly controversial.
+
+蒋不说：“衡水模式的短期成果（升学率，清北率等）被其他省份效仿，在教育资源短缺和极度不平衡的情况下，其他省份想要快速获得衡水模式的成果。” || Jiang Bu said: "Other provinces copied the short-term results of the Hengshui model (university admission rates, the share getting into Tsinghua and Peking University and so on). With educational resources scarce and extremely unequal, other provinces wanted to get Hengshui's results quickly."
+
+## 全国各地情况有所不同，一些家长也认同 || It Varies Around the Country, and Some Parents Approve
+据了解，超时学习的情况也会因学生的年龄以及学校的不同而有所不同。 || Excessive study hours are reported to vary with students' ages and from school to school.
+
+湖北赤壁市一位家长的孩子在一所私立学校读小学六年级。 || One parent in Chibi, Hubei has a child in the sixth year of primary school at a private school.
+这位家长说，孩子早晨7点多到校，下午4点10分正式下课。 || This parent said the child arrives at school a little after 7 a.m. and lessons officially end at 4:10 p.m.
+然后会在学校自习一个小时，但这需要额外交费，自习完了之后就可以回家了。 || After that the child does an hour of self-study at school, which costs extra, and can go home once it's finished.
+至于晚上是否要学习就看孩子自己的自觉性了，学校并没有硬性规定。 || Whether to study in the evening is up to the child's own self-discipline; the school has no fixed rule.
+
+另一位中学老师也表示，她所在的地方也没有611的情况。 || Another secondary school teacher also said there is no 611 schedule where she works.
+
+这位老师说：“我们这边孩子最早是七点半到校，下午放学正常是六点。 || This teacher said: "Here the children arrive at 7:30 at the earliest, and school normally ends at six in the afternoon.
+个别培优班，晚上有两个小时晚自习。 || A few advanced classes have two hours of evening study.
+孩子自己写作业，写到多晚，那可能成绩不理想、拖的、磨叽的，时间长一点。” || How late children stay up doing their homework depends on them; those who aren't doing so well, or who procrastinate and dawdle, may take a bit longer."
+
+与此同时，把超时学校的现象当成理所应当的人也不在少数。 || At the same time, quite a few people take excessively long school hours for granted.
+
+网友“杨二发”在李老师不是你老师的推文下评论：“少壮不努力，老大徒伤悲。” || Under a post by Teacher Li Is Not Your Teacher, a user called "Yang Erfa" commented: "If you don't work hard while you're young, you'll grieve in vain when you're old."
+
+网友“sleep”评论说：“我20多年前上初中，高中时就是这样的情况了。” || A user called "sleep" commented: "When I was in middle and high school over 20 years ago, it was already like this."
+
+## 补习不断现象背后的经济利益 || The Money Behind Never-Ending Tutoring
+与以往不同的是，现在的学生不仅在校学习时间长，而且放学后还要上各种补习班，给家庭带来了巨大的经济压力。 || What is different from the past is that students now not only spend long hours studying at school, but also have to go to all kinds of tutoring classes after school, which puts huge financial pressure on families.
+
+厦门的陈姓老师对美国之音说：“中等家庭，上补习班的支出，是难以承受的。 || Mr Chen, the teacher in Xiamen, told VOA: "For an average family, the cost of tutoring classes is hard to bear.
+我辅导学生作文，一次90分钟1千元，一周一次就是4千元。 || I tutor students in essay writing at 1,000 yuan for 90 minutes; once a week, that's 4,000 yuan a month.
+那个学生还有数学、英语物理等要花钱，工薪阶层父母一人一万左右，一个孩子补习就可能花掉5千到一万。 || That student also has maths, English, physics and so on to pay for. Working-class parents earn about 10,000 yuan each, and tutoring for one child can cost 5,000 to 10,000.
+真不是一般家庭花得起的。” || That really isn't something an ordinary family can afford."
+
+许多网友也在“耻辱名单”上提供了他们的补习费用，少则几百，多则几万。 || Many users also listed their tutoring costs on the "wall of shame", ranging from a few hundred to tens of thousands of yuan.
+
+山东的一位网友说：“学校有很多老师在课外开展补习班，自己从中谋利，并且有很多腐败，在国际级别考试透露题型。” || A user from Shandong said: "Many teachers at the school run tutoring classes outside lessons to make money for themselves, and there's a lot of corruption, like leaking the question types for international-level exams."
+
+江西一位网友说：“这所学校在24年一个初中学生压力太大跳楼以后取消了初中部的晚自习。 || A user from Jiangxi said: "This school cancelled evening study for its middle-school section in 2024, after a middle-school student under too much pressure jumped from a building.
+在这之前，初一开始就要每天上晚自习，初三更是每天要学很久很久。 || Before that, there was evening study every day from the first year of middle school, and in the third year you had to study for a very, very long time every day.
+取消晚自习后，学校老师私自开补习班捞钱，收取高额的补课费用，让学生‘自愿’补课，大概下个学期加一个暑假的补习费用就要7200元，对家庭负担不小。” || After evening study was cancelled, teachers privately set up tutoring classes to rake in money, charging high fees and having students attend 'voluntarily'. The fees for next term plus the summer holiday come to about 7,200 yuan, which is no small burden for a family."
+
+湖北赤壁一所公立学校的老师告诉美国之音，学生周末培训是“各个家长自己去找路子培优补差，情况不一而论”。 || A teacher at a public school in Chibi, Hubei told VOA that for weekend tutoring, "each family finds its own way to push strong students further or help weak ones catch up, and every case is different."
+当然也有很卷的父母，但“一般也要结合孩子的愿望和家里的经济情况。” || Of course some parents are extremely competitive, but "generally it also depends on what the child wants and on the family's finances."
+这位老师还说，公办学校的老师是不准参与校外的学生培训的。 || This teacher also said that public school teachers are not allowed to take part in tutoring students outside school.
+
+蒋不认为，补习收费问题的更深层的原因是中国教育资源分配不足和不平衡。 || Jiang Bu believes the deeper cause of the tutoring-fee problem is that educational resources in China are insufficient and unevenly distributed.
+
+## 教育专家：竞争激烈使然 || An Education Expert: It's Driven by Fierce Competition
+纽约大学斯坦哈特文化教育和人类发展学院研究和公平副院长、国际教育教授程华宇(Hua-Yu Sebastian Cherng)每年至少去中国两次，对中国的教育系统有深刻的了解。 || Hua-Yu Sebastian Cherng, Vice Dean for Research and Equity at New York University's Steinhardt School of Culture, Education, and Human Development and a professor of international education, goes to China at least twice a year and knows its education system well.
+他同情学生和他们的家庭，因为竞争越来越激烈。 || He sympathises with students and their families, because the competition is getting fiercer and fiercer.
+他说：“我不认为在未来几年内，教育的压力会真正减轻。 || He said: "I don't think the pressure in education will really ease in the next few years.
+情况只会变得更糟。 || It will only get worse.
+但与此同时，我认为中国高等教育的承诺也带来了值得怀疑的回报。 || But at the same time, I think the promise of higher education in China is bringing questionable returns.
+中国受过高等教育的大学生正是有史以来失业率最高的地方。” || University graduates in China are facing the highest unemployment rate there has ever been."
+
+程华宇说，这种情况促使家长在孩子更小的时候就给他们施加压力，不仅要让他们考上好的高中，还要让他们考上最好的高中，这样他们才能考上最好的大学。 || Cherng said this pushes parents to put pressure on their children at an even younger age: not just to get them into a good high school, but into the very best high school, so that they can get into the very best university.
+所以从结构上讲，所有这些也是有道理的。 || So structurally, all of this makes sense.
+
+“在当今的中国，如果你说，‘这对年轻人来说不是太过分了吗？’ || "In China today, if you say, 'Isn't this too much for young people?'
+其他家长和老师会感到很惊愕，他们会说，‘不，不，不，不，不。 || other parents and teachers will be shocked. They'll say, 'No, no, no, no, no.
+你必须为了生存不择手段。’” || You have to do whatever it takes to survive.'"
+
+他还提到了“鄙视链”给父母带来的压力。 || He also mentioned the pressure that the "chain of contempt" puts on parents.
+这指的是父母之间拼命的相互竞争，相互攀比，让大家觉得自己是好父母，否则会受到别的家长的鄙视。 || This means parents competing desperately with each other and comparing themselves to each other, so that everyone feels they're a good parent; otherwise they'll be looked down on by other parents.
+
+## 学时过长对孩子产生负面影响 || Too Many Hours of Study Harm Children
+相比于中国，美国的学生，从小学、初中到高中，通常每周上五天学，学生在学校呆的时间大约6个小时。 || Compared with China, American students from primary through middle to high school usually go to school five days a week, and spend about 6 hours a day there.
+学生在学校之外的家庭作业所需要的时间会因人而异。 || How much time homework takes outside school varies from student to student.
+
+加州大学戴维斯分校教育学院的华裔教授朱永泉(Kevin Gee)曾在广东中山大学教授英语专业。 || Kevin Gee, a Chinese-American professor at the School of Education of the University of California, Davis, once taught English majors at Sun Yat-sen University in Guangdong.
+在他看来，迫使学生学习很长的时间并不能达到家长所希望看到的结果。 || In his view, forcing students to study for very long hours does not bring the results parents hope to see.
+
+他在接受美国之音采访时说：“我认为，如果学生被强迫学习太久，肯定存在收益递减的点——我担心的是，更多的学习时间可能会对孩子产生负面影响，而不是任何潜在的好处，尤其是对年轻的学习者。 || He told VOA in an interview: "I think if students are forced to study too long, there is definitely a point of diminishing returns. My worry is that more study time may have negative effects on children rather than any potential benefits, especially for young learners.
+我认为这种现象在一定程度上是由建立在‘越多越好’的信念之上的超级竞争系统驱动的——因此，为了取得更多成就和获得更多成功，学生被迫学习更多，将更多精力投入到家庭作业中。” || I think this is driven to some extent by a hyper-competitive system built on the belief that 'more is better', so to achieve more and be more successful, students are forced to study more and put more energy into homework."
+
+这位教授不认为有一个完美或最佳时长，因为每个人的情况不一样，但从早上6点到晚上11点是非常极端的。 || The professor doesn't think there is a perfect or ideal number of hours, because everyone's situation is different, but 6 a.m. to 11 p.m. is extremely extreme.
+
+他强调，还需要考虑在学生生活中对他们的整体健康（身体和精神）至关重要的其他重要方面之间平衡学习时间，例如与家人、朋友共度时光、锻炼或参加课外活动。 || He stressed that study time also needs to be balanced against the other parts of students' lives that are vital to their overall health, physical and mental, such as spending time with family and friends, exercising or taking part in extracurricular activities.
+
+## 教育要培养什么样的人？ || What Kind of People Should Education Produce?
+不过，朱永泉避免对中国目前的这种做法进行评断。 || However, Gee avoided passing judgement on China's current approach.
+
+“我不敢说哪个‘更好’，这取决于每个社会希望学生成为什么样的人，以及他们认为教育的目的是什么，”他说。 || "I wouldn't dare say which is 'better'. It depends on what kind of people each society wants its students to become, and on what they think the purpose of education is," he said.
+“我想说的是，很重要的是，任何社会都必须考虑教育的更广泛目的，以及教育如何与社会的愿景相吻合——虽然教育是为了获得知识和技能，但教育的一些重要方面还在于培养和造就有思想的人，使社会变得更美好——不仅为了这一代人，而且为了子孙后代。 || "What I would say is that it's very important for any society to consider the broader purpose of education and how education fits its vision for itself. Education is for gaining knowledge and skills, but some important parts of it are about nurturing thoughtful people who make society better, not only for this generation but for generations to come.
+这意味着投资于帮助学生茁壮成长并充分发挥潜力的机会。” || That means investing in opportunities that help students thrive and reach their full potential."
+
+负责“611 ICU全国小初高中超时学习学校耻辱名单”项目统筹协调工作的蒋不也认为，中国人需要反思教育的目的。 || Jiang Bu, coordinator of the "611 ICU National Wall of Shame for Schools with Excessive Study Hours", also believes Chinese people need to rethink the purpose of education.
+
+他说：“中国的教育和军训类似，就是要把每个学生培养成一名合格的螺丝钉，泯灭个性，让他们成为一名浑浑噩噩，对社会没有危害的人。 || He said: "Education in China is like military training: the aim is to make every student a qualified cog in the machine, wipe out their individuality, and turn them into muddle-headed people who are no threat to society.
+这在衡水模式推广之前就是这样。 || It was like this even before the Hengshui model spread.
+衡水模式推广后，中国中学直接从军训变成了监狱。 || Since the Hengshui model spread, Chinese secondary schools have gone straight from military training to prison.
+从问卷得到的很多反馈中，我们也能看到教师缺乏对学生最基本的尊重，所以更深层的问题是，我们的教育究竟要培养什么样的人，教育系统也应该反思。” || In much of the feedback from the survey we can also see that teachers lack the most basic respect for students. So the deeper question is what kind of people our education is really meant to produce, and the education system should reflect on that too."
+
+## 职业教育是否可以缓解恶性竞争？ || Could Vocational Education Ease the Cut-Throat Competition?
+中国在近几年开始推动职业教育的发展。 || In recent years China has begun promoting vocational education.
+官方的说法是，职业教育是培养高素质技术技能人才、促进就业创业创新、支撑产业转型升级的重要途径。 || The official line is that vocational education is an important way to train highly skilled technical workers, promote employment, entrepreneurship and innovation, and support the transformation and upgrading of industry.
+美国专家和中国的许多民众都认为这样做的意图虽然是好的，可以拓展学生就业的途径，但中国还需要给接受职业教育的学生更多的出路和提升自己的路径，才能完善教育体系。 || American experts and many ordinary Chinese people think the intention is good and can widen students' routes into work, but that China still needs to give vocational students more options and more ways to better themselves if it wants to improve its education system.
+
+纽约大学斯坦哈特文化教育和人类发展学院研究和公平副院长程华宇说，“我认为职业教育是一个很好的可行选择。 || Cherng, the NYU Steinhardt vice dean, said: "I think vocational education is a good, workable option.
+需要注意的是，中国家庭本质上将职业教育视为一个教育死胡同。 || The thing to note is that Chinese families essentially see vocational education as an educational dead end.
+这虽然会让他们的孩子找到一份工作，但是他们在教育等级制度方面能取得的进展真的很少。” || It may get their children a job, but they can make very little progress up the educational hierarchy."
+
+他说，从职业高中到普通学术大学的途径，即使不是不可能，也还是非常困难的。 || He said the route from a vocational high school to an ordinary academic university is very difficult, if not impossible.
+因此，政府需要重新审视这个问题，为职业高中的学生提供进入普通大学的某些专业的途径。 || So the government needs to look at this again and give vocational high school students a way into certain programmes at ordinary universities.

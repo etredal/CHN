@@ -91,6 +91,7 @@ const stories = [
   { jsonFile: 'tools/hsk5_digital_nomads.json', tsFile: 'client/src/data/hsk5_digital_nomads.ts', varName: 'hsk5DigitalNomads' },
   { jsonFile: 'tools/hsk6_zhuangzi_oak.json', tsFile: 'client/src/data/hsk6_zhuangzi_oak.ts', varName: 'hsk6ZhuangziOak' },
   { jsonFile: 'tools/hsk5_hometown.json', tsFile: 'client/src/data/hsk5_hometown.ts', varName: 'hsk5Hometown' },
+  { jsonFile: 'tools/hsk6_school_611.json', tsFile: 'client/src/data/hsk6_school_611.ts', varName: 'hsk6School611' },
 ];
 
 function groupParagraphs(sentences) {
@@ -149,8 +150,9 @@ import { hsk6BattleOfJulu } from './hsk6_battle_of_julu';
 import { hsk5DigitalNomads } from './hsk5_digital_nomads';
 import { hsk6ZhuangziOak } from './hsk6_zhuangzi_oak';
 import { hsk5Hometown } from './hsk5_hometown';
+import { hsk6School611 } from './hsk6_school_611';
 
-export { hsk5NightTrain, hsk6BattleOfJulu, hsk5DigitalNomads, hsk6ZhuangziOak, hsk5Hometown };
+export { hsk5NightTrain, hsk6BattleOfJulu, hsk5DigitalNomads, hsk6ZhuangziOak, hsk5Hometown, hsk6School611 };
 
 export const ALL_STORIES: LongStory[] = [
   hsk5NightTrain,
@@ -158,6 +160,7 @@ export const ALL_STORIES: LongStory[] = [
   hsk5DigitalNomads,
   hsk6ZhuangziOak,
   hsk5Hometown,
+  hsk6School611,
 ];
 
 export function getStoryById(id: string): LongStory | undefined {

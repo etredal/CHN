@@ -50,6 +50,7 @@ STORIES = [
     ("tools/hsk5_digital_nomads.json", "client/src/data/hsk5_digital_nomads.ts"),
     ("tools/hsk6_zhuangzi_oak.json", "client/src/data/hsk6_zhuangzi_oak.ts"),
     ("tools/hsk5_hometown.json", "client/src/data/hsk5_hometown.ts"),
+    ("tools/hsk6_school_611.json", "client/src/data/hsk6_school_611.ts"),
 ]
 
 PUNCT = re.compile(r"^[，。！？；：“”‘’（）《》、—…\.,!?;:'\"()\[\]\s]+$")

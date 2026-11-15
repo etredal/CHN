@@ -15,14 +15,7 @@
 //   node tools/compile_ts_stories.cjs
 //   python tools/generate_word_audio.py && node tools/compile_ts_stories.cjs
 // (Behind the session proxy, edge-tts needs SSL_CERT_FILE and --proxy "$HTTPS_PROXY".)
-const fs = require('fs');
-const { execFileSync } = require('child_process');
-const { pinyin, customPinyin } = require('../client/node_modules/pinyin-pro');
-customPinyin(require('../client/src/utils/pinyinOverrides.json'));
-
-const SRC = 'tools/hsk5_hometown.txt';
-const OUT = 'tools/hsk5_hometown.json';
-const AUDIO_TEXT = 'tools/.hometown_audio.txt';
+const { buildStory } = require('./story_builder.cjs');
 
 // ---------------------------------------------------------------------------
 // Word segmentation fixes. Each entry fixes the word boundaries inside every
@@ -122,163 +115,18 @@ const READINGS = {
 // Words written with a capital letter in the sentence pinyin.
 const PROPER = new Set(['闰土', '宏儿', '水生', '杨二嫂', '迅', '西施', '拿破仑', '华盛顿', '法国', '美国', '观音手', '闰土哥', '杨']);
 
-const PUNC_RE = /^[，。！？；：“”‘’（）《》、—…\.,!?;:'"()\[\]\s]+$/;
-const TONES = { 'ā': 1, 'ē': 1, 'ī': 1, 'ō': 1, 'ū': 1, 'ǖ': 1, 'á': 2, 'é': 2, 'í': 2, 'ó': 2, 'ú': 2, 'ǘ': 2, 'ǎ': 3, 'ě': 3, 'ǐ': 3, 'ǒ': 3, 'ǔ': 3, 'ǚ': 3, 'à': 4, 'è': 4, 'ì': 4, 'ò': 4, 'ù': 4, 'ǜ': 4 };
-const tone = py => { for (const c of py) if (TONES[c]) return TONES[c]; return 5; };
-
-function allIndexes(text, sub) {
-  const out = [];
-  for (let i = text.indexOf(sub); i >= 0; i = text.indexOf(sub, i + 1)) out.push(i);
-  return out;
-}
-
-function segment(text) {
-  const seg = new Intl.Segmenter('zh-Hans', { granularity: 'word' });
-  // cuts[i] = true when a word boundary falls before text[i].
-  const cuts = new Array(text.length + 1).fill(false);
-  for (const s of seg.segment(text)) { cuts[s.index] = true; cuts[s.index + s.segment.length] = true; }
-  // 了 after a verb is its own word (隔了 -> 隔 / 了), except in these words.
-  const KEEP_LE = new Set(['为了', '罢了', '不得了', '除了', '算了']);
-  for (const s of seg.segment(text)) {
-    const w = s.segment;
-    if (w.length >= 2 && w.endsWith('了') && !KEEP_LE.has(w)) cuts[s.index + w.length - 1] = true;
-    if (w.length >= 2 && w.startsWith('了')) cuts[s.index + 1] = true;
-  }
-  // Punctuation is always its own token, one mark at a time.
-  for (let i = 0; i < text.length; i++) if (PUNC_RE.test(text[i])) { cuts[i] = true; cuts[i + 1] = true; }
-  // Longer patterns last, so they have the final say.
-  const patterns = [...SEGMENT].sort((a, b) => a.replace(/\//g, '').length - b.replace(/\//g, '').length);
-  for (const pat of patterns) {
-    const plain = pat.replace(/\//g, '');
-    const inner = [];
-    let k = 0;
-    for (const ch of pat) { if (ch === '/') inner.push(k); else k++; }
-    for (const at of allIndexes(text, plain)) {
-      cuts[at] = true; cuts[at + plain.length] = true;
-      for (let j = 1; j < plain.length; j++) cuts[at + j] = inner.includes(j);
-    }
-  }
-  const words = [];
-  let start = 0;
-  for (let i = 1; i <= text.length; i++) {
-    if (cuts[i] || i === text.length) { if (text.slice(start, i).trim()) words.push({ text: text.slice(start, i), index: start }); start = i; }
-  }
-  return words;
-}
-
-function charReadings(text) {
-  const py = pinyin(text, { type: 'all', toneType: 'symbol' }).map(c => (c.isZh ? c.pinyin : c.origin));
-  // Shorter keys first, so longer (more specific) ones win.
-  const keys = Object.keys(READINGS).sort((a, b) => a.length - b.length);
-  for (const key of keys) {
-    const sylls = READINGS[key].split(' ');
-    for (const at of allIndexes(text, key)) {
-      let s = 0;
-      for (let j = 0; j < key.length; j++) {
-        if (/\p{Script=Han}/u.test(key[j])) py[at + j] = sylls[s++].replace(/[，。；]/g, '');
-      }
-    }
-  }
-  return py;
-}
-
-function tokenize(text) {
-  const py = charReadings(text);
-  return segment(text).map(w => {
-    if (PUNC_RE.test(w.text)) return { text: w.text, pinyin: w.text, tone: 5, definitions: [] };
-    const p = /\p{Script=Han}/u.test(w.text) ? py.slice(w.index, w.index + w.text.length).join(' ') : w.text;
-    return { text: w.text, pinyin: p, tone: tone(p), definitions: [] };
-  });
-}
-
-const ASCII_PUNC = { '，': ',', '。': '.', '！': '!', '？': '?', '；': ';', '：': ':', '、': ',', '（': '(', '）': ')' };
-const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
-
-// Sentence pinyin for display: syllables joined within words, capitalised
-// at sentence starts and on names.
-function sentencePinyin(tokens) {
-  let out = '';
-  let capNext = true;
-  for (const t of tokens) {
-    if (PUNC_RE.test(t.text)) {
-      const p = ASCII_PUNC[t.text] ?? t.text;
-      if (t.text === '“' || t.text === '（') out += (out && !out.endsWith(' ') ? ' ' : '') + p;
-      else if (t.text === '—') out += p === '—' ? '—' : p;
-      else out += p + (t.text === '”' || t.text === '）' || t.text === '…' ? '' : ' ');
-      if ('。！？'.includes(t.text)) capNext = true;
-      continue;
-    }
-    let w = t.pinyin.split(' ').join('');
-    // Apostrophe before a syllable starting with a vowel inside a word (Hóng'ér).
-    w = t.pinyin.split(' ').reduce((acc, s, i) => acc + (i > 0 && /^[aeoāáǎàēéěèōóǒò]/.test(s) ? "'" : '') + s, '');
-    if (PROPER.has(t.text) || capNext) w = cap(w);
-    capNext = false;
-    if (out && !/[\s“(—]$/.test(out)) out += ' ';
-    out += w;
-  }
-  return out.replace(/\s+/g, ' ').replace(/ ([,.!?;:)”])/g, '$1').trim();
-}
-
-// ---------------------------------------------------------------------------
-// A blank line starts a new paragraph (Lu Xun's own paragraphs are kept).
-const lines = fs.readFileSync(SRC, 'utf8').split('\n').filter(l => !l.startsWith('# ') && l !== '#');
-const sections = [];
-let paragraph = 1;
-let blank = false;
-for (const line of lines) {
-  if (!line.trim()) { blank = true; continue; }
-  const [cn, en] = line.replace(/^## /, '').split(' || ').map(s => s.trim());
-  if (line.startsWith('## ')) {
-    sections.push({ partNumber: sections.length + 1, partTitle: { cn, en, tokens: tokenize(cn) }, sentences: [] });
-    paragraph = 1;
-  } else {
-    const sec = sections[sections.length - 1];
-    if (blank && sec.sentences.length) paragraph++;
-    const tokens = tokenize(cn);
-    sec.sentences.push({ id: `s5_${sec.partNumber}_${sec.sentences.length + 1}`, paragraph, cn, pinyin: sentencePinyin(tokens), en, tokens });
-  }
-  blank = false;
-}
-
-// Keep timings measured earlier (align_word_timings.py) if the text is unchanged.
-let previous = {};
-if (fs.existsSync(OUT)) {
-  for (const sec of JSON.parse(fs.readFileSync(OUT, 'utf8')).sections) for (const s of sec.sentences) previous[s.id] = s;
-}
-for (const sec of sections) for (const s of sec.sentences) {
-  const old = previous[s.id];
-  if (old && old.cn === s.cn) Object.assign(s, { startTime: old.startTime, endTime: old.endTime, charTimes: old.charTimes });
-  else Object.assign(s, { startTime: 0, endTime: 0 });
-}
-
-const meta = require('./hsk5_hometown_meta.json');
-const MP3 = 'client/public/audio/hsk5_hometown.mp3';
-let audioSeconds = 0;
-try {
-  audioSeconds = Math.round(Number(execFileSync('ffprobe', ['-v', 'quiet', '-show_entries', 'format=duration', '-of', 'csv=p=0', MP3]).toString()));
-} catch { /* no audio yet */ }
-const allText = sections.flatMap(sec => sec.sentences.map(s => s.cn)).join('');
-const oldStory = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf8')) : {};
-const story = {
+buildStory({
   id: 'hsk5_hometown',
-  title: { ...meta.title, tokens: tokenize(meta.title.cn) },
+  src: 'tools/hsk5_hometown.txt',
+  out: 'tools/hsk5_hometown.json',
+  audioText: 'tools/.hometown_audio.txt',
+  mp3: 'client/public/audio/hsk5_hometown.mp3',
+  meta: require('./hsk5_hometown_meta.json'),
   level: 'HSK 5',
   category: 'Fiction',
-  stats: {
-    characterCount: (allText.match(/\p{Script=Han}/gu) || []).length,
-    audioDurationSeconds: audioSeconds || oldStory.stats?.audioDurationSeconds || 0,
-    estimatedReadingTimeMinutes: 25,
-  },
-  audioUrl: 'audio/hsk5_hometown.mp3',
-  summary: { ...meta.summary, tokens: tokenize(meta.summary.cn) },
-  sections,
-  targetVocabulary: meta.targetVocabulary,
-  grammarNotes: meta.grammarNotes,
-  quiz: meta.quiz,
-  ...(oldStory.wordAudio ? { wordAudio: oldStory.wordAudio } : {}),
-};
-fs.writeFileSync(OUT, JSON.stringify(story, null, 2) + '\n', 'utf8');
-
-// Text for the narration: one sentence per line, sections separated by a blank line.
-fs.writeFileSync(AUDIO_TEXT, sections.map(sec => sec.sentences.map(s => s.cn).join('\n')).join('\n\n') + '\n', 'utf8');
-console.log(`Wrote ${OUT}: ${sections.length} sections, ${sections.reduce((n, s) => n + s.sentences.length, 0)} sentences, ${story.stats.characterCount} characters`);
+  idPrefix: 's5',
+  readingMinutes: 25,
+  segmentFixes: SEGMENT,
+  readings: READINGS,
+  proper: PROPER,
+});

@@ -40,6 +40,7 @@ STORY_JSONS = [
     "tools/hsk5_digital_nomads.json",
     "tools/hsk6_zhuangzi_oak.json",
     "tools/hsk5_hometown.json",
+    "tools/hsk6_school_611.json",
 ]
 
 PUNCT = set("，。！？；：“”‘’（）《》、—…,.!?;:'\"()[] \t\n")
