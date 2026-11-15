@@ -1,13 +1,13 @@
 /* Service worker for 杜中文. Generated at build time by vite.config.ts, which
    fills in the build version and the list of app-shell files to precache. */
-const VERSION = '945a368d22ac';
+const VERSION = '750eeaf3ae26';
 const SHELL_CACHE = `shell-${VERSION}`;
 const RUNTIME_CACHE = 'runtime-v1';
 const MEDIA_CACHE = 'media-v1';
 const PRECACHE = [
   "./",
   "index.html",
-  "assets/index-DMWtWzE0.js",
+  "assets/index-C_i2POR9.js",
   "assets/index-CtCHULAe.css",
   "manifest.webmanifest",
   "icons/icon-192.png",
