@@ -184,3 +184,12 @@ rt {
 .dark .word-token.is-spoken {
   background-color: rgb(245 158 11 / 0.30);
 }
+
+/* Turning a page: the new page slides in from the side it came from. */
+@keyframes page-in-next { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
+@keyframes page-in-prev { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: none; } }
+.page-turn-next { animation: page-in-next 220ms ease-out; }
+.page-turn-prev { animation: page-in-prev 220ms ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .page-turn-next, .page-turn-prev { animation: none; }
+}
