@@ -50,6 +50,15 @@ export function calculateNextReview(
   };
 }
 
+/** Fired on window whenever the saved word list changes (see useSavedWords). */
+export const VOCAB_CHANGED_EVENT = 'chn:vocab-changed';
+export const VOCAB_STORAGE_KEY = STORAGE_KEY;
+
+function writeCards(cards: Flashcard[]): void {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
+  window.dispatchEvent(new Event(VOCAB_CHANGED_EVENT));
+}
+
 export function getSavedFlashcards(): Flashcard[] {
   if (typeof window === 'undefined') return [];
   try {
@@ -81,13 +90,13 @@ export function saveFlashcard(
   };
 
   cards.push(newCard);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
+  writeCards(cards);
   return newCard;
 }
 
 export function removeFlashcard(word: string): void {
   const cards = getSavedFlashcards().filter(c => c.word !== word);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
+  writeCards(cards);
 }
 
 /** Cards whose next review is due now, most overdue first. */
@@ -114,7 +123,7 @@ export function setCardDefinitions(cardId: string, definitions: string[]): void 
   const card = cards.find(c => c.id === cardId);
   if (!card) return;
   card.definitions = definitions;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
+  writeCards(cards);
 }
 
 export function isWordSaved(word: string): boolean {
@@ -129,7 +138,7 @@ export function updateCardSrs(cardId: string, rating: number): Flashcard | null 
   const card = cards[index];
   card.srs = calculateNextReview(card.srs, rating);
   cards[index] = card;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
+  writeCards(cards);
   return card;
 }
 

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import type { WordToken as IWordToken } from '../../types';
 import { usePinyinVisible } from '../../context/SettingsContext';
 import { isPunctuation } from '../../utils/punctuation';
+import { useSavedWords } from '../../utils/useSavedWords';
 
 interface WordTokenProps {
   token: IWordToken;
@@ -17,6 +18,7 @@ const MOVE_TOLERANCE_PX = 10;
 
 export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, onLongPress, highlight }) => {
   const showPinyin = usePinyinVisible();
+  const savedWords = useSavedWords();
   const pressTimer = useRef(0);
   const pressStart = useRef<{ x: number; y: number } | null>(null);
   const longPressed = useRef(false);
@@ -26,6 +28,8 @@ export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, onLongPres
   }
 
   const isTarget = token.isTargetWord;
+  // Words in the vocabulary list are marked wherever they appear.
+  const isSaved = savedWords.has(token.text);
 
   const renderContent = () => {
     if (showPinyin && token.pinyin && token.pinyin !== token.text) {
@@ -95,9 +99,9 @@ export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, onLongPres
           }
           onClick(token);
         }}
-        className={`word-token${isTarget ? ' is-target' : ''}${highlight ? ' is-spoken' : ''}${onLongPress ? ' can-hold' : ''}`}
+        className={`word-token${isTarget ? ' is-target' : ''}${isSaved ? ' is-saved' : ''}${highlight ? ' is-spoken' : ''}${onLongPress ? ' can-hold' : ''}`}
         // The hover tooltip only reveals pinyin when pinyin is switched on.
-        title={showPinyin && token.pinyin && token.pinyin !== token.text ? `${token.text} (${token.pinyin})` : token.text}
+        title={(showPinyin && token.pinyin && token.pinyin !== token.text ? `${token.text} (${token.pinyin})` : token.text) + (isSaved ? " · 已在生词本" : "")}
       >
       {renderContent()}
     </span>

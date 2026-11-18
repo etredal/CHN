@@ -158,6 +158,16 @@ rt {
   text-decoration-thickness: 2px;
   text-underline-offset: 0.3em;
 }
+/* Words saved to the vocabulary list (生词本): a dotted blue underline. */
+.word-token.is-saved {
+  text-decoration: underline dotted;
+  text-decoration-color: rgb(14 165 233 / 0.8);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}
+.dark .word-token.is-saved {
+  text-decoration-color: rgb(56 189 248 / 0.8);
+}
 /* The sentence being read aloud, and the word being spoken in it. */
 .story-sentence.is-active {
   background-color: rgb(245 158 11 / 0.12);
