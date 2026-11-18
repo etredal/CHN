@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { keyWords } = require('./key_words.cjs');
 const { pinyin, customPinyin } = require('../client/node_modules/pinyin-pro');
 // Words pinyin-pro gets wrong; shared with the app (ChineseText).
 customPinyin(require('../client/src/utils/pinyinOverrides.json'));
@@ -147,7 +148,12 @@ for (const s of stories) {
     ...rawData,
     title: { ...rawData.title, tokens: tokensOf(rawData.title) },
     summary: { ...rawData.summary, tokens: tokensOf(rawData.summary) },
-    sections: formattedSections
+    sections: formattedSections,
+    // The hand-written key words, then more HSK 5/6 words from the story.
+    targetVocabulary: keyWords(
+      rawData.targetVocabulary,
+      formattedSections.flatMap(sec => sec.paragraphs.flatMap(p => p.sentences)),
+    ),
   };
 
   const tsContent = `import type { LongStory } from '../types';\n\nexport const ${s.varName}: LongStory = ${JSON.stringify(storyObj, null, 2)};\n`;

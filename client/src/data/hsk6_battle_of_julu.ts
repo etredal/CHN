@@ -2981,6 +2981,224 @@ export const hsk6BattleOfJulu: LongStory = {
         "pinyin": "Miànduì qiángdí, zhūhóu dàjūn jūnxīn huànsàn, zuòbìshàngguān.",
         "en": "Confronted by the formidable enemy, the allied armies lost morale and merely stood by spectating."
       }
+    },
+    {
+      "word": "率领",
+      "pinyin": "shuàilǐng",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to lead",
+        "to command",
+        "to head"
+      ],
+      "exampleSentence": {
+        "cn": "公元前207年冬，秦国名将章邯与王离率领数十万虎狼之师，将赵国重镇巨鹿层层合围，城中粮饷告罄，形势岌岌可危。",
+        "pinyin": "Gōngyuán qián 207 nián dōng, Qínguó míngjiàng Zhāng Hán yǔ Wáng Lí shuàilǐng shùshí wàn hǔláng zhī shī, jiāng Zhàoguó zhòngzhèn Jùlù céngcéng héwéi, chéng zhōng liángxiǎng gàoqìng, xíngshì jíjíkěwēi.",
+        "en": "In the winter of 207 BC, Qin generals Zhang Han and Wang Li surrounded the strategic city of Julu with hundreds of thousands of crack troops; provisions were depleted, and the city hung by a thread."
+      }
+    },
+    {
+      "word": "形势",
+      "pinyin": "xíngshì",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": [
+        "circumstances",
+        "situation",
+        "terrain"
+      ],
+      "exampleSentence": {
+        "cn": "公元前207年冬，秦国名将章邯与王离率领数十万虎狼之师，将赵国重镇巨鹿层层合围，城中粮饷告罄，形势岌岌可危。",
+        "pinyin": "Gōngyuán qián 207 nián dōng, Qínguó míngjiàng Zhāng Hán yǔ Wáng Lí shuàilǐng shùshí wàn hǔláng zhī shī, jiāng Zhàoguó zhòngzhèn Jùlù céngcéng héwéi, chéng zhōng liángxiǎng gàoqìng, xíngshì jíjíkěwēi.",
+        "en": "In the winter of 207 BC, Qin generals Zhang Han and Wang Li surrounded the strategic city of Julu with hundreds of thousands of crack troops; provisions were depleted, and the city hung by a thread."
+      }
+    },
+    {
+      "word": "军队",
+      "pinyin": "jūnduì",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": [
+        "armed forces; troops",
+        "量词: 支, 个"
+      ],
+      "exampleSentence": {
+        "cn": "齐、燕等各路诸侯的大军虽已赶至外围，却震慑于秦军的威势，人人逡巡不前，作壁上观，没有一支军队敢于主动破敌。",
+        "pinyin": "Qí, Yàn děng gèlù zhūhóu de dàjūn suī yǐ gǎnzhì wàiwéi, què zhènshè yú Qínjūn de wēishì, rénrén qūnxún bù qián, zuòbìshàngguān, méiyǒu yì zhī jūnduì gǎnyú zhǔdòng pòdí.",
+        "en": "Although the armies of allied lords from Qi and Yan had arrived at the perimeter, they were intimidated by the Qin army's ferocity; all hung back in fear, merely spectating from afar."
+      }
+    },
+    {
+      "word": "主动",
+      "pinyin": "zhǔdòng",
+      "tone": 3,
+      "hsk": "HSK 5",
+      "definitions": [
+        "to take the initiative",
+        "to do sth of one's own accord",
+        "spontaneous"
+      ],
+      "exampleSentence": {
+        "cn": "齐、燕等各路诸侯的大军虽已赶至外围，却震慑于秦军的威势，人人逡巡不前，作壁上观，没有一支军队敢于主动破敌。",
+        "pinyin": "Qí, Yàn děng gèlù zhūhóu de dàjūn suī yǐ gǎnzhì wàiwéi, què zhènshè yú Qínjūn de wēishì, rénrén qūnxún bù qián, zuòbìshàngguān, méiyǒu yì zhī jūnduì gǎnyú zhǔdòng pòdí.",
+        "en": "Although the armies of allied lords from Qi and Yan had arrived at the perimeter, they were intimidated by the Qin army's ferocity; all hung back in fear, merely spectating from afar."
+      }
+    },
+    {
+      "word": "毅然",
+      "pinyin": "yìrán",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "firmly",
+        "resolutely",
+        "without hesitation"
+      ],
+      "exampleSentence": {
+        "cn": "唯有二十五岁的楚军统帅项羽，毅然率领五万精锐横渡滔滔漳水。",
+        "pinyin": "Wéiyǒu èrshíwǔ suì de Chǔjūn tǒngshuài Xiàng Yǔ, yìrán shuàilǐng wǔ wàn jīngruì héngdù tāotāo Zhāng Shuǐ.",
+        "en": "Only twenty-five-year-old Chu commander Xiang Yu resolutely led his fifty thousand elite troops across the roaring Zhang River."
+      }
+    },
+    {
+      "word": "震撼",
+      "pinyin": "zhènhàn",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to shake",
+        "to shock",
+        "to stun"
+      ],
+      "exampleSentence": {
+        "cn": "“此战要么击溃秦军，要么葬身沙场，绝不留任何苟活的退路！”他的呼喊气壮山河，深深震撼了每一位将士。",
+        "pinyin": "“Cǐ zhàn yàome jīkuì Qínjūn, yàome zàngshēn shāchǎng, jué bù liú rènhé gǒuhuó de tuìlù!” Tā de hūhǎn qìzhuàng-shānhé, shēnshēn zhènshè le měi yí wèi jiàngshì.",
+        "en": "“In this battle we either crush the Qin army or die on the field; there is no retreat to scrape by!” His cry shook the mountains and rivers, electrifying every soldier."
+      }
+    },
+    {
+      "word": "断绝",
+      "pinyin": "duànjué",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to sever; to break off"
+      ],
+      "exampleSentence": {
+        "cn": "断绝了退路的楚军自知无处可逃，人人同仇敌忾，杀入敌阵时以一当十，喊杀之声令群山颤动。",
+        "pinyin": "Duànjué le tuìlù de Chǔjūn zìzhī wúchù kětáo, rénrén tóngchóu-díkài, shārù dízhèn shí yǐyīdāngshí, hǎnshā zhī shēng lìng qúnshān chàndòng.",
+        "en": "Cut off from retreat, the Chu soldiers knew they had nowhere to flee; united in desperate fury, each fought like ten men, their battle cries shaking the mountains."
+      }
+    },
+    {
+      "word": "彻底",
+      "pinyin": "chèdǐ",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "thorough",
+        "thoroughly",
+        "complete"
+      ],
+      "exampleSentence": {
+        "cn": "项羽身先士卒，九战九捷，不仅彻底粉碎了秦军精锐，生擒王离，更逼得一代名将章邯最终俯首受降。",
+        "pinyin": "Xiàng Yǔ xiānxiān-shìzú, jiǔ zhàn jiǔ jié, bùjǐn chèdǐ fěnsuì le Qínjūn jīngruì, shēngqín Wáng Lí, gèng bī de yí dài míngjiàng Zhāng Hán zuìzhōng fǔshǒu shòuxiáng.",
+        "en": "Xiang Yu led from the front, winning nine victories in nine clashes, completely smashing the Qin elite, capturing Wang Li alive, and compelling the great general Zhang Han to surrender."
+      }
+    },
+    {
+      "word": "粉碎",
+      "pinyin": "fěnsuì",
+      "tone": 3,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to crush; to smash; to shatter"
+      ],
+      "exampleSentence": {
+        "cn": "项羽身先士卒，九战九捷，不仅彻底粉碎了秦军精锐，生擒王离，更逼得一代名将章邯最终俯首受降。",
+        "pinyin": "Xiàng Yǔ xiānxiān-shìzú, jiǔ zhàn jiǔ jié, bùjǐn chèdǐ fěnsuì le Qínjūn jīngruì, shēngqín Wáng Lí, gèng bī de yí dài míngjiàng Zhāng Hán zuìzhōng fǔshǒu shòuxiáng.",
+        "en": "Xiang Yu led from the front, winning nine victories in nine clashes, completely smashing the Qin elite, capturing Wang Li alive, and compelling the great general Zhang Han to surrender."
+      }
+    },
+    {
+      "word": "扭转",
+      "pinyin": "niǔzhuǎn",
+      "tone": 3,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to reverse",
+        "to turn around (an undesirable situation)",
+        "(mechanics) torsion"
+      ],
+      "exampleSentence": {
+        "cn": "巨鹿之战不仅彻底扭转了秦末抗暴的天下大势，更将“破釜沉舟”这一成语化作了中华文化中置之死地而后生的精神象征。",
+        "pinyin": "Jùlù zhī Zhàn bùjǐn chèdǐ niǔzhuǎn le Qínmò kàngbào de tiānxià dàshì, gèng jiāng “pòfǔ-chénzhōu” zhè yì chéngyǔ huàzuò le Zhōnghuá wénhuà zhōng zhìzhī-sǐdì ér hòushēng de jīngshén xiàngzhēng.",
+        "en": "The Battle of Julu not only turned the tides against the Qin empire, but immortalized 'breaking cauldrons and sinking boats' as the ultimate Chinese symbol of triumph through resolute desperation."
+      }
+    },
+    {
+      "word": "成语",
+      "pinyin": "chéngyǔ",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": [
+        "Chinese set expression, typically of 4 characters, often alluding to a story or historical quotation; idiom; proverb; saying; adage",
+        "量词: 条, 本, 句"
+      ],
+      "exampleSentence": {
+        "cn": "巨鹿之战不仅彻底扭转了秦末抗暴的天下大势，更将“破釜沉舟”这一成语化作了中华文化中置之死地而后生的精神象征。",
+        "pinyin": "Jùlù zhī Zhàn bùjǐn chèdǐ niǔzhuǎn le Qínmò kàngbào de tiānxià dàshì, gèng jiāng “pòfǔ-chénzhōu” zhè yì chéngyǔ huàzuò le Zhōnghuá wénhuà zhōng zhìzhī-sǐdì ér hòushēng de jīngshén xiàngzhēng.",
+        "en": "The Battle of Julu not only turned the tides against the Qin empire, but immortalized 'breaking cauldrons and sinking boats' as the ultimate Chinese symbol of triumph through resolute desperation."
+      }
+    },
+    {
+      "word": "精神",
+      "pinyin": "jīngshén",
+      "tone": 1,
+      "hsk": "HSK 5",
+      "definitions": [
+        "spirit",
+        "mind",
+        "consciousness"
+      ],
+      "exampleSentence": {
+        "cn": "巨鹿之战不仅彻底扭转了秦末抗暴的天下大势，更将“破釜沉舟”这一成语化作了中华文化中置之死地而后生的精神象征。",
+        "pinyin": "Jùlù zhī Zhàn bùjǐn chèdǐ niǔzhuǎn le Qínmò kàngbào de tiānxià dàshì, gèng jiāng “pòfǔ-chénzhōu” zhè yì chéngyǔ huàzuò le Zhōnghuá wénhuà zhōng zhìzhī-sǐdì ér hòushēng de jīngshén xiàngzhēng.",
+        "en": "The Battle of Julu not only turned the tides against the Qin empire, but immortalized 'breaking cauldrons and sinking boats' as the ultimate Chinese symbol of triumph through resolute desperation."
+      }
+    },
+    {
+      "word": "象征",
+      "pinyin": "xiàngzhēng",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "emblem",
+        "symbol",
+        "token"
+      ],
+      "exampleSentence": {
+        "cn": "巨鹿之战不仅彻底扭转了秦末抗暴的天下大势，更将“破釜沉舟”这一成语化作了中华文化中置之死地而后生的精神象征。",
+        "pinyin": "Jùlù zhī Zhàn bùjǐn chèdǐ niǔzhuǎn le Qínmò kàngbào de tiānxià dàshì, gèng jiāng “pòfǔ-chénzhōu” zhè yì chéngyǔ huàzuò le Zhōnghuá wénhuà zhōng zhìzhī-sǐdì ér hòushēng de jīngshén xiàngzhēng.",
+        "en": "The Battle of Julu not only turned the tides against the Qin empire, but immortalized 'breaking cauldrons and sinking boats' as the ultimate Chinese symbol of triumph through resolute desperation."
+      }
+    },
+    {
+      "word": "从容",
+      "pinyin": "cóngróng",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to go easy",
+        "unhurried",
+        "calm"
+      ],
+      "exampleSentence": {
+        "cn": "历史毋庸置疑地证明：很多时候，让人脱颖而出的往往不是顺境中的从容，而是身处绝境时不留退路的惊人决绝。",
+        "pinyin": "Lìshǐ wúyōng-zhìyí de zhèngmíng: hěn duō shíhou, ràng rén tuōyǐng’érchū de wǎngwǎng bú shì shùnjìng zhōng de cóngróng, ér shì shēnchǔ juéjìng shí bù liú tuìlù de jīngrén juéjué.",
+        "en": "History proves beyond doubt: what elevates exceptional souls is rarely unhurried ease in calm times, but the astonishing resolve to burn one's boats when facing an impossible impasse."
+      }
     }
   ],
   "grammarNotes": [

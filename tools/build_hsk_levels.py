@@ -1,32 +1,34 @@
-"""Build client/src/utils/hskLevels.json: the official HSK 2.0 word list (5,000
-words, levels 1-6) as one space-separated string of words per level.
+"""Build client/src/utils/hskLevels.json: the official HSK 2.0 word list (the
+2012 revision, about 5,000 words in levels 1-6) as one space-separated string
+of words per level.
 
-Source: the `hsk-words` npm package by John Heroy (MIT licence), which ships
-the list in db/hsk-words.sqlite:
+Source: the official list published by Hanban (the HSK exam body), as packaged
+in the `@leonsilicon/hsk2.0` npm package (HSK2.0_words_level1..6.json). Get it
+without running any package code:
 
-    npm pack hsk-words && tar xzf hsk-words-*.tgz
-    python tools/build_hsk_levels.py package/db/hsk-words.sqlite
+    npm pack @leonsilicon/hsk2.0 && tar xzf leonsilicon-hsk2.0-*.tgz
+    python tools/build_hsk_levels.py package
 
-A word listed at two levels (长, 得, 还...) keeps the lower one; patterns such
-as …分之… are skipped.
+A word listed at two levels keeps the lower one; patterns such as
+因为……所以…… are skipped.
 """
 
 import json
+import os
 import re
-import sqlite3
 import sys
 
 OUT = "client/src/utils/hskLevels.json"
 
 
-def main(db_path):
+def main(package_dir):
     levels = {}
-    with sqlite3.connect(db_path) as db:
-        for level, word in db.execute("SELECT level, simplified FROM Words"):
-            word = word.strip()
-            if not re.fullmatch(r"[一-鿿]+", word):
-                continue
-            levels[word] = min(level, levels.get(word, level))
+    for level in range(1, 7):
+        with open(os.path.join(package_dir, f"HSK2.0_words_level{level}.json"), encoding="utf-8") as f:
+            for word in json.load(f):
+                word = word.strip()
+                if re.fullmatch(r"[一-鿿]+", word):
+                    levels.setdefault(word, level)
     by_level = {str(n): " ".join(sorted(w for w, l in levels.items() if l == n)) for n in range(1, 7)}
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(by_level, f, ensure_ascii=False, indent=0)

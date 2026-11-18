@@ -3641,6 +3641,321 @@ export const hsk6ZhuangziOak: LongStory = {
         "pinyin": "Tā wéirén huòdá-dàdù, cóng bù wèile wēibùzúdào de xiǎoshì jīnjīn-jìjiào.",
         "en": "He is open-minded and generous, never quibbling over trivialities."
       }
+    },
+    {
+      "word": "纷纷",
+      "pinyin": "fēnfēn",
+      "tone": 1,
+      "hsk": "HSK 5",
+      "definitions": [
+        "one after another",
+        "in succession",
+        "one by one"
+      ],
+      "exampleSentence": {
+        "cn": "那棵大树树冠之大可庇护数千头耕牛，树干需百人合抱，引得路人纷纷驻足惊叹，唯独老木匠看都不看一眼，径直扬长而去。",
+        "pinyin": "Nà kē dàshù shùguān zhī dà kě bìhù shù qiān tóu gēngniú, shùgàn xū bǎi rén hébào, yǐnde lùrén fēnfēn zhùzú jīngtàn, wéidú lǎo mùjiang kàn dōu bú kàn yì yǎn, jìngzhí yángcháng’érqù.",
+        "en": "The canopy could shelter thousands of cattle, its trunk required a hundred men to encircle; passersby paused in awe, yet the carpenter passed without a glance."
+      }
+    },
+    {
+      "word": "徒弟",
+      "pinyin": "túdì",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "apprentice",
+        "disciple"
+      ],
+      "exampleSentence": {
+        "cn": "徒弟追上前去不解地询问，木匠不屑地冷笑道：“那不过是一棵毫无价值的‘散木’！做船便沉，做器皿便裂，做门窗便渗出黏液，毫无用处，才能长到如此巨大！”",
+        "pinyin": "Túdì zhuī shàngqián qù bùjiě de xúnwèn, mùjiang búxiè de lěngxiào dào: “Nà búguò shì yì kē háowú jiàzhí de ‘sǎnmù’! Zuò chuán biàn chén, zuò qìmǐn biàn liè, zuò ménchuāng biàn shènchū niányè, háowú yòngchù, cái néng zhǎng dào rúcǐ jùdà!”",
+        "en": "His apprentice caught up in bewilderment; the carpenter sneered: 'That is merely worthless scrub! Boats made of it sink, vessels split, doors warp—it grew so gigantic only because it is utterly useless!'"
+      }
+    },
+    {
+      "word": "询问",
+      "pinyin": "xúnwèn",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": [
+        "to inquire"
+      ],
+      "exampleSentence": {
+        "cn": "徒弟追上前去不解地询问，木匠不屑地冷笑道：“那不过是一棵毫无价值的‘散木’！做船便沉，做器皿便裂，做门窗便渗出黏液，毫无用处，才能长到如此巨大！”",
+        "pinyin": "Túdì zhuī shàngqián qù bùjiě de xúnwèn, mùjiang búxiè de lěngxiào dào: “Nà búguò shì yì kē háowú jiàzhí de ‘sǎnmù’! Zuò chuán biàn chén, zuò qìmǐn biàn liè, zuò ménchuāng biàn shènchū niányè, háowú yòngchù, cái néng zhǎng dào rúcǐ jùdà!”",
+        "en": "His apprentice caught up in bewilderment; the carpenter sneered: 'That is merely worthless scrub! Boats made of it sink, vessels split, doors warp—it grew so gigantic only because it is utterly useless!'"
+      }
+    },
+    {
+      "word": "毫无",
+      "pinyin": "háowú",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "not in the least",
+        "to completely lack"
+      ],
+      "exampleSentence": {
+        "cn": "徒弟追上前去不解地询问，木匠不屑地冷笑道：“那不过是一棵毫无价值的‘散木’！做船便沉，做器皿便裂，做门窗便渗出黏液，毫无用处，才能长到如此巨大！”",
+        "pinyin": "Túdì zhuī shàngqián qù bùjiě de xúnwèn, mùjiang búxiè de lěngxiào dào: “Nà búguò shì yì kē háowú jiàzhí de ‘sǎnmù’! Zuò chuán biàn chén, zuò qìmǐn biàn liè, zuò ménchuāng biàn shènchū niányè, háowú yòngchù, cái néng zhǎng dào rúcǐ jùdà!”",
+        "en": "His apprentice caught up in bewilderment; the carpenter sneered: 'That is merely worthless scrub! Boats made of it sink, vessels split, doors warp—it grew so gigantic only because it is utterly useless!'"
+      }
+    },
+    {
+      "word": "价值",
+      "pinyin": "jiàzhí",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "value",
+        "worth",
+        "fig. values (ethical, cultural etc)"
+      ],
+      "exampleSentence": {
+        "cn": "徒弟追上前去不解地询问，木匠不屑地冷笑道：“那不过是一棵毫无价值的‘散木’！做船便沉，做器皿便裂，做门窗便渗出黏液，毫无用处，才能长到如此巨大！”",
+        "pinyin": "Túdì zhuī shàngqián qù bùjiě de xúnwèn, mùjiang búxiè de lěngxiào dào: “Nà búguò shì yì kē háowú jiàzhí de ‘sǎnmù’! Zuò chuán biàn chén, zuò qìmǐn biàn liè, zuò ménchuāng biàn shènchū niányè, háowú yòngchù, cái néng zhǎng dào rúcǐ jùdà!”",
+        "en": "His apprentice caught up in bewilderment; the carpenter sneered: 'That is merely worthless scrub! Boats made of it sink, vessels split, doors warp—it grew so gigantic only because it is utterly useless!'"
+      }
+    },
+    {
+      "word": "巨大",
+      "pinyin": "jùdà",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "huge; immense; enormous; gigantic"
+      ],
+      "exampleSentence": {
+        "cn": "徒弟追上前去不解地询问，木匠不屑地冷笑道：“那不过是一棵毫无价值的‘散木’！做船便沉，做器皿便裂，做门窗便渗出黏液，毫无用处，才能长到如此巨大！”",
+        "pinyin": "Túdì zhuī shàngqián qù bùjiě de xúnwèn, mùjiang búxiè de lěngxiào dào: “Nà búguò shì yì kē háowú jiàzhí de ‘sǎnmù’! Zuò chuán biàn chén, zuò qìmǐn biàn liè, zuò ménchuāng biàn shènchū niányè, háowú yòngchù, cái néng zhǎng dào rúcǐ jùdà!”",
+        "en": "His apprentice caught up in bewilderment; the carpenter sneered: 'That is merely worthless scrub! Boats made of it sink, vessels split, doors warp—it grew so gigantic only because it is utterly useless!'"
+      }
+    },
+    {
+      "word": "哲学",
+      "pinyin": "zhéxué",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": [
+        "philosophy"
+      ],
+      "exampleSentence": {
+        "cn": "哲学家庄子得知此事后，却发出了截然相反的慨叹：“世人皆知有用之用，却往往不知‘无用之用’才是保全生命的无上智慧。”",
+        "pinyin": "Zhéxuéjiā Zhuāngzǐ dézhī cǐ shì hòu, què fāchū le jiérán-xiāngfǎn de kǎitàn: “Shìrén jiē zhī yǒuyòng zhī yòng, què wǎngwǎng bùzhī ‘wúyòng zhī yòng’ cái shì bǎoquán shēngmìng de wúshàng zhìhuì.”",
+        "en": "Hearing of this, philosopher Zhuangzi offered a radically contrary insight: 'All men know the utility of the useful, yet none know that the usefulness of the useless is the supreme wisdom of preservation.'"
+      }
+    },
+    {
+      "word": "智慧",
+      "pinyin": "zhìhuì",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "wisdom; intelligence"
+      ],
+      "exampleSentence": {
+        "cn": "哲学家庄子得知此事后，却发出了截然相反的慨叹：“世人皆知有用之用，却往往不知‘无用之用’才是保全生命的无上智慧。”",
+        "pinyin": "Zhéxuéjiā Zhuāngzǐ dézhī cǐ shì hòu, què fāchū le jiérán-xiāngfǎn de kǎitàn: “Shìrén jiē zhī yǒuyòng zhī yòng, què wǎngwǎng bùzhī ‘wúyòng zhī yòng’ cái shì bǎoquán shēngmìng de wúshàng zhìhuì.”",
+        "en": "Hearing of this, philosopher Zhuangzi offered a radically contrary insight: 'All men know the utility of the useful, yet none know that the usefulness of the useless is the supreme wisdom of preservation.'"
+      }
+    },
+    {
+      "word": "挺拔",
+      "pinyin": "tǐngbá",
+      "tone": 3,
+      "hsk": "HSK 6",
+      "definitions": [
+        "tall and straight"
+      ],
+      "exampleSentence": {
+        "cn": "那些笔直挺拔的桂树被砍来做栋梁，香气馥郁的漆树被割破皮肉流出漆汁，正是因为它们对人类‘有用’，才难逃中途夭折的惨痛命运。",
+        "pinyin": "Nàxiē bǐzhí tǐngbá de guìshù bèi kǎn lái zuò dòngliáng, xiāngqì fùyù de qīshù bèi gēpò píròu liúchū qīzhī, zhèng shì yīnwèi tāmen duì rénlèi ‘yǒuyòng’, cái nán táo zhōngtú yāozhé de cǎntòng mìngyùn.",
+        "en": "Straight cinnamon trees are felled for pillars, fragrant lacquer trees slashed for resin—precisely because they are 'useful' to humans, they cannot escape premature death."
+      }
+    },
+    {
+      "word": "人类",
+      "pinyin": "rénlèi",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": [
+        "humanity",
+        "human race",
+        "mankind"
+      ],
+      "exampleSentence": {
+        "cn": "那些笔直挺拔的桂树被砍来做栋梁，香气馥郁的漆树被割破皮肉流出漆汁，正是因为它们对人类‘有用’，才难逃中途夭折的惨痛命运。",
+        "pinyin": "Nàxiē bǐzhí tǐngbá de guìshù bèi kǎn lái zuò dòngliáng, xiāngqì fùyù de qīshù bèi gēpò píròu liúchū qīzhī, zhèng shì yīnwèi tāmen duì rénlèi ‘yǒuyòng’, cái nán táo zhōngtú yāozhé de cǎntòng mìngyùn.",
+        "en": "Straight cinnamon trees are felled for pillars, fragrant lacquer trees slashed for resin—precisely because they are 'useful' to humans, they cannot escape premature death."
+      }
+    },
+    {
+      "word": "命运",
+      "pinyin": "mìngyùn",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "fate; destiny",
+        "量词: 个"
+      ],
+      "exampleSentence": {
+        "cn": "那些笔直挺拔的桂树被砍来做栋梁，香气馥郁的漆树被割破皮肉流出漆汁，正是因为它们对人类‘有用’，才难逃中途夭折的惨痛命运。",
+        "pinyin": "Nàxiē bǐzhí tǐngbá de guìshù bèi kǎn lái zuò dòngliáng, xiāngqì fùyù de qīshù bèi gēpò píròu liúchū qīzhī, zhèng shì yīnwèi tāmen duì rénlèi ‘yǒuyòng’, cái nán táo zhōngtú yāozhé de cǎntòng mìngyùn.",
+        "en": "Straight cinnamon trees are felled for pillars, fragrant lacquer trees slashed for resin—precisely because they are 'useful' to humans, they cannot escape premature death."
+      }
+    },
+    {
+      "word": "现代",
+      "pinyin": "xiàndài",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "modern times",
+        "modern age",
+        "modern era"
+      ],
+      "exampleSentence": {
+        "cn": "反观当下，现代文明往往将‘变现’与‘效率’作为衡量个体价值的唯一标尺，人们无时无刻不在急功近利地将自己塑造成符合社会期待的‘栋梁之材’。",
+        "pinyin": "Fǎnguān dāngxià, xiàndài wénmíng wǎngwǎng jiāng ‘biànxiàn’ yǔ ‘xiàolǜ’ zuòwéi héngliáng gètǐ jiàzhí de wéiyī biāochǐ, rénmen wúshí-wúkè bú zài jígōng-jìnlì de jiāng zìjǐ sùzào chéng fúhé shèhuì qīdài de ‘dòngliáng zhī cái’.",
+        "en": "Looking at contemporary times, modern civilization often enshrines monetization and efficiency as the sole yardsticks, constantly urging people to mold themselves into utilitarian pillars."
+      }
+    },
+    {
+      "word": "文明",
+      "pinyin": "wénmíng",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": [
+        "civilized",
+        "civilization",
+        "culture"
+      ],
+      "exampleSentence": {
+        "cn": "反观当下，现代文明往往将‘变现’与‘效率’作为衡量个体价值的唯一标尺，人们无时无刻不在急功近利地将自己塑造成符合社会期待的‘栋梁之材’。",
+        "pinyin": "Fǎnguān dāngxià, xiàndài wénmíng wǎngwǎng jiāng ‘biànxiàn’ yǔ ‘xiàolǜ’ zuòwéi héngliáng gètǐ jiàzhí de wéiyī biāochǐ, rénmen wúshí-wúkè bú zài jígōng-jìnlì de jiāng zìjǐ sùzào chéng fúhé shèhuì qīdài de ‘dòngliáng zhī cái’.",
+        "en": "Looking at contemporary times, modern civilization often enshrines monetization and efficiency as the sole yardsticks, constantly urging people to mold themselves into utilitarian pillars."
+      }
+    },
+    {
+      "word": "效率",
+      "pinyin": "xiàolǜ",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "efficiency"
+      ],
+      "exampleSentence": {
+        "cn": "反观当下，现代文明往往将‘变现’与‘效率’作为衡量个体价值的唯一标尺，人们无时无刻不在急功近利地将自己塑造成符合社会期待的‘栋梁之材’。",
+        "pinyin": "Fǎnguān dāngxià, xiàndài wénmíng wǎngwǎng jiāng ‘biànxiàn’ yǔ ‘xiàolǜ’ zuòwéi héngliáng gètǐ jiàzhí de wéiyī biāochǐ, rénmen wúshí-wúkè bú zài jígōng-jìnlì de jiāng zìjǐ sùzào chéng fúhé shèhuì qīdài de ‘dòngliáng zhī cái’.",
+        "en": "Looking at contemporary times, modern civilization often enshrines monetization and efficiency as the sole yardsticks, constantly urging people to mold themselves into utilitarian pillars."
+      }
+    },
+    {
+      "word": "作为",
+      "pinyin": "zuòwéi",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "one's conduct",
+        "deed",
+        "activity"
+      ],
+      "exampleSentence": {
+        "cn": "反观当下，现代文明往往将‘变现’与‘效率’作为衡量个体价值的唯一标尺，人们无时无刻不在急功近利地将自己塑造成符合社会期待的‘栋梁之材’。",
+        "pinyin": "Fǎnguān dāngxià, xiàndài wénmíng wǎngwǎng jiāng ‘biànxiàn’ yǔ ‘xiàolǜ’ zuòwéi héngliáng gètǐ jiàzhí de wéiyī biāochǐ, rénmen wúshí-wúkè bú zài jígōng-jìnlì de jiāng zìjǐ sùzào chéng fúhé shèhuì qīdài de ‘dòngliáng zhī cái’.",
+        "en": "Looking at contemporary times, modern civilization often enshrines monetization and efficiency as the sole yardsticks, constantly urging people to mold themselves into utilitarian pillars."
+      }
+    },
+    {
+      "word": "个体",
+      "pinyin": "gètǐ",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "individual"
+      ],
+      "exampleSentence": {
+        "cn": "反观当下，现代文明往往将‘变现’与‘效率’作为衡量个体价值的唯一标尺，人们无时无刻不在急功近利地将自己塑造成符合社会期待的‘栋梁之材’。",
+        "pinyin": "Fǎnguān dāngxià, xiàndài wénmíng wǎngwǎng jiāng ‘biànxiàn’ yǔ ‘xiàolǜ’ zuòwéi héngliáng gètǐ jiàzhí de wéiyī biāochǐ, rénmen wúshí-wúkè bú zài jígōng-jìnlì de jiāng zìjǐ sùzào chéng fúhé shèhuì qīdài de ‘dòngliáng zhī cái’.",
+        "en": "Looking at contemporary times, modern civilization often enshrines monetization and efficiency as the sole yardsticks, constantly urging people to mold themselves into utilitarian pillars."
+      }
+    },
+    {
+      "word": "外界",
+      "pinyin": "wàijiè",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "the outside world",
+        "external"
+      ],
+      "exampleSentence": {
+        "cn": "然而，当我们为了迎合外界标准而过度耗损精神、透支健康时，内心深处那片原本可以逍遥自得的净土，也随之荒芜殆尽。",
+        "pinyin": "Rán’ér, dāng wǒmen wèile yínghé wàijiè biāozhǔn ér guòdù hàosǔn jīngshén, tòuzhī jiànkāng shí, nèixīn shēnchù nà piàn yuánběn kěyǐ xiāoyáo-zìdé de jìngtǔ, yě suízhī huāngwú dàijìn.",
+        "en": "Yet when we exhaust our spirit and overdraft health to satisfy external benchmarks, the tranquil sanctuary within us that could have wandered carefree becomes desolate."
+      }
+    },
+    {
+      "word": "过度",
+      "pinyin": "guòdù",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "excessive",
+        "over-",
+        "excess"
+      ],
+      "exampleSentence": {
+        "cn": "然而，当我们为了迎合外界标准而过度耗损精神、透支健康时，内心深处那片原本可以逍遥自得的净土，也随之荒芜殆尽。",
+        "pinyin": "Rán’ér, dāng wǒmen wèile yínghé wàijiè biāozhǔn ér guòdù hàosǔn jīngshén, tòuzhī jiànkāng shí, nèixīn shēnchù nà piàn yuánběn kěyǐ xiāoyáo-zìdé de jìngtǔ, yě suízhī huāngwú dàijìn.",
+        "en": "Yet when we exhaust our spirit and overdraft health to satisfy external benchmarks, the tranquil sanctuary within us that could have wandered carefree becomes desolate."
+      }
+    },
+    {
+      "word": "考核",
+      "pinyin": "kǎohé",
+      "tone": 3,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to examine",
+        "to check up on",
+        "to assess"
+      ],
+      "exampleSentence": {
+        "cn": "学会停下来，去读一本‘无用’的书，去发一会儿‘无用’的呆，给生命留出一片不被考核的空白，何尝不是抵抗时代焦虑最深刻的豁达与自救？",
+        "pinyin": "Xuéhuì tíng xiàlai, qù dú yì běn ‘wúyòng’ de shū, qù fā yíhuìr ‘wúyòng’ de dāi, gěi shēngmìng liúchū yí piàn bú bèi kǎohé de kòngbái, hécháng bú shì dǐkàng shídài jiāolǜ zuì shēnkè de huòdá yǔ zìjiù?",
+        "en": "Learning to pause—to read a 'useless' book, to gaze into space without purpose, carving out a space exempt from evaluation—is this not the profoundest wisdom to resist modern anxiety?"
+      }
+    },
+    {
+      "word": "空白",
+      "pinyin": "kòngbái",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "blank space"
+      ],
+      "exampleSentence": {
+        "cn": "学会停下来，去读一本‘无用’的书，去发一会儿‘无用’的呆，给生命留出一片不被考核的空白，何尝不是抵抗时代焦虑最深刻的豁达与自救？",
+        "pinyin": "Xuéhuì tíng xiàlai, qù dú yì běn ‘wúyòng’ de shū, qù fā yíhuìr ‘wúyòng’ de dāi, gěi shēngmìng liúchū yí piàn bú bèi kǎohé de kòngbái, hécháng bú shì dǐkàng shídài jiāolǜ zuì shēnkè de huòdá yǔ zìjiù?",
+        "en": "Learning to pause—to read a 'useless' book, to gaze into space without purpose, carving out a space exempt from evaluation—is this not the profoundest wisdom to resist modern anxiety?"
+      }
+    },
+    {
+      "word": "抵抗",
+      "pinyin": "dǐkàng",
+      "tone": 3,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to resist",
+        "resistance"
+      ],
+      "exampleSentence": {
+        "cn": "学会停下来，去读一本‘无用’的书，去发一会儿‘无用’的呆，给生命留出一片不被考核的空白，何尝不是抵抗时代焦虑最深刻的豁达与自救？",
+        "pinyin": "Xuéhuì tíng xiàlai, qù dú yì běn ‘wúyòng’ de shū, qù fā yíhuìr ‘wúyòng’ de dāi, gěi shēngmìng liúchū yí piàn bú bèi kǎohé de kòngbái, hécháng bú shì dǐkàng shídài jiāolǜ zuì shēnkè de huòdá yǔ zìjiù?",
+        "en": "Learning to pause—to read a 'useless' book, to gaze into space without purpose, carving out a space exempt from evaluation—is this not the profoundest wisdom to resist modern anxiety?"
+      }
     }
   ],
   "grammarNotes": [

@@ -3324,6 +3324,307 @@ export const hsk5NightTrain: LongStory = {
         "pinyin": "Zuì zhēnguì de rén hé suìyuè, zǎojiù zài bùzhī-bùjué zhōng bèi zìjǐ nòng diū le.",
         "en": "The most precious people and moments had been lost without him even realizing."
       }
+    },
+    {
+      "word": "沉闷",
+      "pinyin": "chénmèn",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "oppressive (of weather)",
+        "heavy",
+        "depressed"
+      ],
+      "exampleSentence": {
+        "cn": "雨水敲打着上海虹桥站的玻璃顶棚，发出沉闷而连绵的声响。",
+        "pinyin": "Yǔshuǐ qiāodǎ zhe Shànghǎi Hóngqiáo zhàn de bōli dǐngpéng, fāchū chénmèn ér liánmián de shēngxiǎng.",
+        "en": "Rain tapped against the glass roof of Shanghai Hongqiao Station, making a dull, continuous sound."
+      }
+    },
+    {
+      "word": "建筑",
+      "pinyin": "jiànzhù",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "to construct",
+        "building",
+        "量词: 个"
+      ],
+      "exampleSentence": {
+        "cn": "三十二岁的建筑师林舟提着公文包，步履匆匆地登上了开往北京的Z282次深夜卧铺列车。",
+        "pinyin": "Sānshí’èr suì de jiànzhùshī Lín Zhōu tí zhe gōngwénbāo, bùlǚ cōngcōng de dēngshàng le kāiwǎng Běijīng de Z282 cì shēnyè wòpù lièchē.",
+        "en": "Thirty-two-year-old architect Lin Zhou hurried onto the Z282 midnight sleeper train to Beijing, briefcase in hand."
+      }
+    },
+    {
+      "word": "列车",
+      "pinyin": "lièchē",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "(railway) train"
+      ],
+      "exampleSentence": {
+        "cn": "三十二岁的建筑师林舟提着公文包，步履匆匆地登上了开往北京的Z282次深夜卧铺列车。",
+        "pinyin": "Sānshí’èr suì de jiànzhùshī Lín Zhōu tí zhe gōngwénbāo, bùlǚ cōngcōng de dēngshàng le kāiwǎng Běijīng de Z282 cì shēnyè wòpù lièchē.",
+        "en": "Thirty-two-year-old architect Lin Zhou hurried onto the Z282 midnight sleeper train to Beijing, briefcase in hand."
+      }
+    },
+    {
+      "word": "综合",
+      "pinyin": "zōnghé",
+      "tone": 1,
+      "hsk": "HSK 5",
+      "definitions": [
+        "comprehensive",
+        "composite",
+        "synthesized"
+      ],
+      "exampleSentence": {
+        "cn": "为了完成那座商贸综合体的设计竞标，他已经在工作室里连续熬了三个通宵，整个人疲惫不堪。",
+        "pinyin": "Wèile wánchéng nà zuò shāngmào zōnghétǐ de shèjì jìngbiāo, tā yǐjīng zài gōngzuòshì lǐ liánxù áo le sān gè tōngxiāo, zhěng gè rén píbèi bùkān.",
+        "en": "To finish the design bid for that commercial complex, he had pulled three consecutive all-nighters in the studio, leaving him completely exhausted."
+      }
+    },
+    {
+      "word": "设计",
+      "pinyin": "shèjì",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "to design; to plan",
+        "design; plan"
+      ],
+      "exampleSentence": {
+        "cn": "为了完成那座商贸综合体的设计竞标，他已经在工作室里连续熬了三个通宵，整个人疲惫不堪。",
+        "pinyin": "Wèile wánchéng nà zuò shāngmào zōnghétǐ de shèjì jìngbiāo, tā yǐjīng zài gōngzuòshì lǐ liánxù áo le sān gè tōngxiāo, zhěng gè rén píbèi bùkān.",
+        "en": "To finish the design bid for that commercial complex, he had pulled three consecutive all-nighters in the studio, leaving him completely exhausted."
+      }
+    },
+    {
+      "word": "连续",
+      "pinyin": "liánxù",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": [
+        "continuous",
+        "in a row",
+        "serial"
+      ],
+      "exampleSentence": {
+        "cn": "为了完成那座商贸综合体的设计竞标，他已经在工作室里连续熬了三个通宵，整个人疲惫不堪。",
+        "pinyin": "Wèile wánchéng nà zuò shāngmào zōnghétǐ de shèjì jìngbiāo, tā yǐjīng zài gōngzuòshì lǐ liánxù áo le sān gè tōngxiāo, zhěng gè rén píbèi bùkān.",
+        "en": "To finish the design bid for that commercial complex, he had pulled three consecutive all-nighters in the studio, leaving him completely exhausted."
+      }
+    },
+    {
+      "word": "整个",
+      "pinyin": "zhěnggè",
+      "tone": 3,
+      "hsk": "HSK 5",
+      "definitions": [
+        "whole",
+        "entire",
+        "total"
+      ],
+      "exampleSentence": {
+        "cn": "为了完成那座商贸综合体的设计竞标，他已经在工作室里连续熬了三个通宵，整个人疲惫不堪。",
+        "pinyin": "Wèile wánchéng nà zuò shāngmào zōnghétǐ de shèjì jìngbiāo, tā yǐjīng zài gōngzuòshì lǐ liánxù áo le sān gè tōngxiāo, zhěng gè rén píbèi bùkān.",
+        "en": "To finish the design bid for that commercial complex, he had pulled three consecutive all-nighters in the studio, leaving him completely exhausted."
+      }
+    },
+    {
+      "word": "规律",
+      "pinyin": "guīlǜ",
+      "tone": 1,
+      "hsk": "HSK 5",
+      "definitions": [
+        "rule (e.g. of science)",
+        "law of behavior",
+        "regular pattern"
+      ],
+      "exampleSentence": {
+        "cn": "车轮在铁轨上规律地颠簸着，车厢里的灯光早已调至微弱的夜间模式。",
+        "pinyin": "Chēlún zài tiěguǐ shang guīlǜ de diānbǒ zhe, chēxiāng lǐ de dēngguāng zǎoyǐ tiáozhì wēiruò de yèjiān móshì.",
+        "en": "The wheels jolted rhythmically on the rails, and the carriage lights had long been dimmed to night mode."
+      }
+    },
+    {
+      "word": "车厢",
+      "pinyin": "chēxiāng",
+      "tone": 1,
+      "hsk": "HSK 5",
+      "definitions": [
+        "carriage",
+        "量词: 节"
+      ],
+      "exampleSentence": {
+        "cn": "车轮在铁轨上规律地颠簸着，车厢里的灯光早已调至微弱的夜间模式。",
+        "pinyin": "Chēlún zài tiěguǐ shang guīlǜ de diānbǒ zhe, chēxiāng lǐ de dēngguāng zǎoyǐ tiáozhì wēiruò de yèjiān móshì.",
+        "en": "The wheels jolted rhythmically on the rails, and the carriage lights had long been dimmed to night mode."
+      }
+    },
+    {
+      "word": "模式",
+      "pinyin": "móshì",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "mode; pattern; model"
+      ],
+      "exampleSentence": {
+        "cn": "车轮在铁轨上规律地颠簸着，车厢里的灯光早已调至微弱的夜间模式。",
+        "pinyin": "Chēlún zài tiěguǐ shang guīlǜ de diānbǒ zhe, chēxiāng lǐ de dēngguāng zǎoyǐ tiáozhì wēiruò de yèjiān móshì.",
+        "en": "The wheels jolted rhythmically on the rails, and the carriage lights had long been dimmed to night mode."
+      }
+    },
+    {
+      "word": "毫无",
+      "pinyin": "háowú",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "not in the least",
+        "to completely lack"
+      ],
+      "exampleSentence": {
+        "cn": "林舟毫无睡意，他独自来到车厢连接处的折叠窗前，望着窗外无边无际的漆黑原野。",
+        "pinyin": "Lín Zhōu háowú shuìyì, tā dúzì láidào chēxiāng liánjiēchù de zhédié chuāng qián, wàng zhe chuāngwài wúbiān-wújì de qīhēi yuányě.",
+        "en": "Lin Zhou felt no drowsiness; he went alone to the folding window by the gangway, gazing into the boundless, pitch-black wilderness outside."
+      }
+    },
+    {
+      "word": "忽然",
+      "pinyin": "hūrán",
+      "tone": 1,
+      "hsk": "HSK 5",
+      "definitions": [
+        "suddenly; all of a sudden"
+      ],
+      "exampleSentence": {
+        "cn": "身后忽然响起温和的声音：“年轻人，深夜不眠，往往不是因为身体不累，而是脑子里的思绪停不下来吧。”",
+        "pinyin": "Shēnhòu hūrán xiǎngqǐ wēnhé de shēngyīn: “Niánqīngrén, shēnyè bùmián, wǎngwǎng bú shì yīnwèi shēntǐ bú lèi, ér shì nǎozǐ lǐ de sīxù tíng bu xiàlai ba.”",
+        "en": "A gentle voice suddenly spoke behind him: “Young man, sleepless in the dead of night—it is rarely because the body isn't tired, but because the mind cannot stop churning.”"
+      }
+    },
+    {
+      "word": "温和",
+      "pinyin": "wēnhé",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": [
+        "mild",
+        "gentle",
+        "moderate"
+      ],
+      "exampleSentence": {
+        "cn": "身后忽然响起温和的声音：“年轻人，深夜不眠，往往不是因为身体不累，而是脑子里的思绪停不下来吧。”",
+        "pinyin": "Shēnhòu hūrán xiǎngqǐ wēnhé de shēngyīn: “Niánqīngrén, shēnyè bùmián, wǎngwǎng bú shì yīnwèi shēntǐ bú lèi, ér shì nǎozǐ lǐ de sīxù tíng bu xiàlai ba.”",
+        "en": "A gentle voice suddenly spoke behind him: “Young man, sleepless in the dead of night—it is rarely because the body isn't tired, but because the mind cannot stop churning.”"
+      }
+    },
+    {
+      "word": "奔波",
+      "pinyin": "bēnbō",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to rush about",
+        "to be constantly on the move"
+      ],
+      "exampleSentence": {
+        "cn": "老者从笔记本中抽出一封泛黄的信件，叹道：“三十年前，我也曾为了所谓的远大前程，日夜兼程地奔波在各大城市之间。”",
+        "pinyin": "Lǎozhě cóng bǐjìběn zhōng chōuchū yì fēng fànhuáng de xìnjiàn, tàn dào: “Sānshí nián qián, wǒ yě céng wèile suǒwèi de yuǎndà qiánchéng, rìyè-jiānchéng de bēnbō zài gèdà chéngshì zhījiān.”",
+        "en": "The elder pulled a yellowed letter from the notebook and sighed: “Thirty years ago, I too rushed night and day between cities for the sake of a so-called grand career.”"
+      }
+    },
+    {
+      "word": "项目",
+      "pinyin": "xiàngmù",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "item",
+        "project",
+        "(sports) event"
+      ],
+      "exampleSentence": {
+        "cn": "“那时我总以为只要赢得更多项目，幸福就会如期而至。可当我拥有了一切，才发现最珍贵的人和岁月，早就在不知不觉中被自己弄丢了。”",
+        "pinyin": "“Nà shí wǒ zǒng yǐwéi zhǐyào yíngdé gèng duō xiàngmù, xìngfú jiù huì rúqī’érzhì. Kě dāng wǒ yōngyǒu le yíqiè, cái fāxiàn zuì zhēnguì de rén hé suìyuè, zǎojiù zài bùzhī-bùjué zhōng bèi zìjǐ nòng diū le.”",
+        "en": "“Back then I thought as long as I won more projects, happiness would arrive on schedule. But when I had everything, I realized the most precious people and moments had been lost without me even realizing.”"
+      }
+    },
+    {
+      "word": "拥有",
+      "pinyin": "yōngyǒu",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to have; to possess"
+      ],
+      "exampleSentence": {
+        "cn": "“那时我总以为只要赢得更多项目，幸福就会如期而至。可当我拥有了一切，才发现最珍贵的人和岁月，早就在不知不觉中被自己弄丢了。”",
+        "pinyin": "“Nà shí wǒ zǒng yǐwéi zhǐyào yíngdé gèng duō xiàngmù, xìngfú jiù huì rúqī’érzhì. Kě dāng wǒ yōngyǒu le yíqiè, cái fāxiàn zuì zhēnguì de rén hé suìyuè, zǎojiù zài bùzhī-bùjué zhōng bèi zìjǐ nòng diū le.”",
+        "en": "“Back then I thought as long as I won more projects, happiness would arrive on schedule. But when I had everything, I realized the most precious people and moments had been lost without me even realizing.”"
+      }
+    },
+    {
+      "word": "珍贵",
+      "pinyin": "zhēnguì",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": [
+        "precious"
+      ],
+      "exampleSentence": {
+        "cn": "“那时我总以为只要赢得更多项目，幸福就会如期而至。可当我拥有了一切，才发现最珍贵的人和岁月，早就在不知不觉中被自己弄丢了。”",
+        "pinyin": "“Nà shí wǒ zǒng yǐwéi zhǐyào yíngdé gèng duō xiàngmù, xìngfú jiù huì rúqī’érzhì. Kě dāng wǒ yōngyǒu le yíqiè, cái fāxiàn zuì zhēnguì de rén hé suìyuè, zǎojiù zài bùzhī-bùjué zhōng bèi zìjǐ nòng diū le.”",
+        "en": "“Back then I thought as long as I won more projects, happiness would arrive on schedule. But when I had everything, I realized the most precious people and moments had been lost without me even realizing.”"
+      }
+    },
+    {
+      "word": "岁月",
+      "pinyin": "suìyuè",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "years",
+        "time"
+      ],
+      "exampleSentence": {
+        "cn": "“那时我总以为只要赢得更多项目，幸福就会如期而至。可当我拥有了一切，才发现最珍贵的人和岁月，早就在不知不觉中被自己弄丢了。”",
+        "pinyin": "“Nà shí wǒ zǒng yǐwéi zhǐyào yíngdé gèng duō xiàngmù, xìngfú jiù huì rúqī’érzhì. Kě dāng wǒ yōngyǒu le yíqiè, cái fāxiàn zuì zhēnguì de rén hé suìyuè, zǎojiù zài bùzhī-bùjué zhōng bèi zìjǐ nòng diū le.”",
+        "en": "“Back then I thought as long as I won more projects, happiness would arrive on schedule. But when I had everything, I realized the most precious people and moments had been lost without me even realizing.”"
+      }
+    },
+    {
+      "word": "即将",
+      "pinyin": "jíjiāng",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "about to; on the point of; soon"
+      ],
+      "exampleSentence": {
+        "cn": "当广播播报列车即将驶入北京南站时，林舟心中那些纠缠已久的焦虑，终于奇迹般地释怀了。",
+        "pinyin": "Dāng guǎngbō bōbào lièchē jíjiāng shǐrù Běijīng Nán Zhàn shí, Lín Zhōu xīnzhōng nàxiē jiūchán yǐjiǔ de jiāolǜ, zhōngyú qíjì-bān de shìhuái le.",
+        "en": "When the announcer declared the train was approaching Beijing South Station, the anxieties that had entangled Lin Zhou for so long finally, miraculously, dissolved."
+      }
+    },
+    {
+      "word": "奇迹",
+      "pinyin": "qíjì",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": [
+        "miracle; wonder; marvel"
+      ],
+      "exampleSentence": {
+        "cn": "当广播播报列车即将驶入北京南站时，林舟心中那些纠缠已久的焦虑，终于奇迹般地释怀了。",
+        "pinyin": "Dāng guǎngbō bōbào lièchē jíjiāng shǐrù Běijīng Nán Zhàn shí, Lín Zhōu xīnzhōng nàxiē jiūchán yǐjiǔ de jiāolǜ, zhōngyú qíjì-bān de shìhuái le.",
+        "en": "When the announcer declared the train was approaching Beijing South Station, the anxieties that had entangled Lin Zhou for so long finally, miraculously, dissolved."
+      }
     }
   ],
   "grammarNotes": [
