@@ -554,6 +554,13 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                     tone: v.tone,
                     definitions: v.definitions,
                     hskLevel: v.hsk,
+                  }, v.exampleSentence && {
+                    // The word's example, shown in the popup as 语境例句.
+                    id: `example-${idx}`,
+                    ...v.exampleSentence,
+                    startTime: 0,
+                    endTime: 0,
+                    tokens: [],
                   })}
                   className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-400 cursor-pointer transition-all shadow-xs"
                 >
@@ -569,6 +576,11 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                     <span className="text-xs text-amber-600 dark:text-amber-400 font-medium block mb-2 font-sans">
                       {v.pinyin}
                     </span>
+                  )}
+                  {v.exampleSentence && (
+                    <p data-testid="key-word-example" className="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400 font-chinese-sans line-clamp-2">
+                      {v.exampleSentence.cn}
+                    </p>
                   )}
                 </div>
               ))}
