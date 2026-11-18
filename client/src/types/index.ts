@@ -119,6 +119,8 @@ export interface ReaderSettings {
   theme: AppTheme;
   autoScroll: boolean;
   playbackSpeed: number;
+  /** Underline HSK 5 and HSK 6 words in the story text. */
+  hskMarks: boolean;
 }
 
 export interface Flashcard {

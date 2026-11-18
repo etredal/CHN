@@ -158,6 +158,18 @@ rt {
   text-decoration-thickness: 2px;
   text-underline-offset: 0.3em;
 }
+/* HSK 5 and HSK 6 words (reading settings can hide these): a thin
+   coloured underline, green for HSK 5 and violet for HSK 6. */
+.word-token.hsk-5,
+.word-token.hsk-6 {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}
+.word-token.hsk-5 { text-decoration-color: rgb(16 185 129 / 0.55); }
+.word-token.hsk-6 { text-decoration-color: rgb(139 92 246 / 0.55); }
+.dark .word-token.hsk-5 { text-decoration-color: rgb(52 211 153 / 0.6); }
+.dark .word-token.hsk-6 { text-decoration-color: rgb(167 139 250 / 0.6); }
 /* Words saved to the vocabulary list (生词本): a dotted blue underline. */
 .word-token.is-saved {
   text-decoration: underline dotted;

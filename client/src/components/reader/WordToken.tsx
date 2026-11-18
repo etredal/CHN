@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import type { WordToken as IWordToken } from '../../types';
-import { usePinyinVisible } from '../../context/SettingsContext';
+import { usePinyinVisible, useSettings } from '../../context/SettingsContext';
+import { hskLevelOf } from '../../utils/hsk';
 import { isPunctuation } from '../../utils/punctuation';
 import { useSavedWords } from '../../utils/useSavedWords';
 
@@ -19,6 +20,7 @@ const MOVE_TOLERANCE_PX = 10;
 export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, onLongPress, highlight }) => {
   const showPinyin = usePinyinVisible();
   const savedWords = useSavedWords();
+  const { settings } = useSettings();
   const pressTimer = useRef(0);
   const pressStart = useRef<{ x: number; y: number } | null>(null);
   const longPressed = useRef(false);
@@ -30,6 +32,9 @@ export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, onLongPres
   const isTarget = token.isTargetWord;
   // Words in the vocabulary list are marked wherever they appear.
   const isSaved = savedWords.has(token.text);
+  // HSK 5 and HSK 6 words get a coloured underline (reading settings can turn it off).
+  const level = settings.hskMarks ? (token.hskLevel ?? hskLevelOf(token.text)) : undefined;
+  const hskClass = level === 'HSK 5' ? ' hsk-5' : level === 'HSK 6' ? ' hsk-6' : '';
 
   const renderContent = () => {
     if (showPinyin && token.pinyin && token.pinyin !== token.text) {
@@ -99,9 +104,9 @@ export const WordToken: React.FC<WordTokenProps> = ({ token, onClick, onLongPres
           }
           onClick(token);
         }}
-        className={`word-token${isTarget ? ' is-target' : ''}${isSaved ? ' is-saved' : ''}${highlight ? ' is-spoken' : ''}${onLongPress ? ' can-hold' : ''}`}
+        className={`word-token${isTarget ? ' is-target' : ''}${hskClass}${isSaved ? ' is-saved' : ''}${highlight ? ' is-spoken' : ''}${onLongPress ? ' can-hold' : ''}`}
         // The hover tooltip only reveals pinyin when pinyin is switched on.
-        title={(showPinyin && token.pinyin && token.pinyin !== token.text ? `${token.text} (${token.pinyin})` : token.text) + (isSaved ? " · 已在生词本" : "")}
+        title={(showPinyin && token.pinyin && token.pinyin !== token.text ? `${token.text} (${token.pinyin})` : token.text) + (hskClass ? ` · ${level}` : "") + (isSaved ? " · 已在生词本" : "")}
       >
       {renderContent()}
     </span>
