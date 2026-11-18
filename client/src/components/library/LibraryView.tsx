@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import type { LongStory } from '../../types';
-import { ALL_STORIES } from '../../data';
+import type { StorySummary } from '../../types';
+import { STORY_CATALOG } from '../../data';
 import { Search, BookOpen, Clock, Headphones, Sparkles, Filter } from 'lucide-react';
 import { ChineseText } from '../common/ChineseText';
 import { categoryZh } from '../../utils/labels';
 import { getProgress } from '../../utils/readingProgress';
 
 interface LibraryViewProps {
-  onSelectStory: (story: LongStory) => void;
+  onSelectStory: (story: StorySummary) => void;
+  /** The story being loaded after a click, if any. */
+  openingId?: string | null;
 }
 
-export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
+export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory, openingId }) => {
   const [selectedLevel, setSelectedLevel] = useState<'All' | 'HSK 5' | 'HSK 6'>('All');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -18,7 +20,7 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
   const categories = ['All', 'Fiction', 'History', 'Society', 'Philosophy'];
 
   const query = searchQuery.trim().toLowerCase();
-  const filteredStories = ALL_STORIES.filter(story => {
+  const filteredStories = STORY_CATALOG.filter(story => {
     const matchesLevel = selectedLevel === 'All' || story.level === selectedLevel;
     const matchesCategory = selectedCategory === 'All' || story.category === selectedCategory;
     // Pinyin is matched with and without tone marks and spaces, so
@@ -113,6 +115,7 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
           <div
             key={story.id}
             onClick={() => onSelectStory(story)}
+            aria-busy={openingId === story.id}
             className="group flex flex-col justify-between p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-400/80 dark:hover:border-amber-500/80 shadow-xs hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
           >
             <div>
@@ -162,7 +165,7 @@ export const LibraryView: React.FC<LibraryViewProps> = ({ onSelectStory }) => {
               </div>
 
               <span className="font-semibold text-amber-600 dark:text-amber-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-0.5 whitespace-nowrap">
-                {progress > 0 ? '继续阅读 →' : '进入阅读 →'}
+                {openingId === story.id ? '加载中…' : progress > 0 ? '继续阅读 →' : '进入阅读 →'}
               </span>
             </div>
             {progress > 0 && (
