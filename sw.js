@@ -1,14 +1,20 @@
 /* Service worker for 杜中文. Generated at build time by vite.config.ts, which
    fills in the build version and the list of app-shell files to precache. */
-const VERSION = '750eeaf3ae26';
+const VERSION = '721ef5774fb5';
 const SHELL_CACHE = `shell-${VERSION}`;
 const RUNTIME_CACHE = 'runtime-v1';
 const MEDIA_CACHE = 'media-v1';
 const PRECACHE = [
   "./",
   "index.html",
-  "assets/index-C_i2POR9.js",
-  "assets/index-CtCHULAe.css",
+  "assets/index-Cc0SFBKL.js",
+  "assets/hsk5_digital_nomads-DuTpizf-.js",
+  "assets/hsk5_hometown-DRydOxqZ.js",
+  "assets/hsk5_night_train-MIRR9cNG.js",
+  "assets/hsk6_battle_of_julu-37-JiDfU.js",
+  "assets/hsk6_school_611-DA60pdfz.js",
+  "assets/hsk6_zhuangzi_oak-DEuicri0.js",
+  "assets/index-BU4SiClq.css",
   "manifest.webmanifest",
   "icons/icon-192.png",
   "icons/icon-512.png",
@@ -69,7 +75,9 @@ async function networkFirstPage(req) {
 }
 
 async function cacheFirst(req) {
-  const cached = await caches.match(req, { ignoreSearch: true });
+  // Built files never vary, so ignore Vary: a story chunk loaded with import()
+  // carries an Origin header that the precached copy was stored without.
+  const cached = await caches.match(req, { ignoreSearch: true, ignoreVary: true });
   if (cached) return cached;
   const res = await fetch(req);
   if (res.ok && res.type === 'basic') (await caches.open(RUNTIME_CACHE)).put(req, res.clone());
