@@ -100,6 +100,12 @@ export interface LongStory {
   quiz: QuizQuestion[];
 }
 
+/** What the library shows for a story (src/data/index.ts); the full story is loaded on demand. */
+export type StorySummary = Pick<LongStory, 'id' | 'level' | 'category' | 'stats' | 'audioUrl'> & {
+  title: { cn: string; pinyin: string; en: string };
+  summary: { cn: string; en: string };
+};
+
 export type PinyinMode = 'off' | 'below' | 'on-demand';
 export type FontSize = 'sm' | 'base' | 'lg' | 'xl';
 export type FontFamily = 'sans' | 'serif' | 'kaiti';
@@ -113,6 +119,8 @@ export interface ReaderSettings {
   theme: AppTheme;
   autoScroll: boolean;
   playbackSpeed: number;
+  /** Underline HSK 5 and HSK 6 words in the story text. */
+  hskMarks: boolean;
 }
 
 export interface Flashcard {

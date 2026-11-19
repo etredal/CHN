@@ -25,10 +25,14 @@ import { categoryZh } from '../../utils/labels';
 import { paginate } from '../../utils/paginate';
 import { getSavedTime } from '../../utils/readingProgress';
 
-// Characters per page: a screen or so on a desktop; phones get long pages so
-// reading is still mostly scrolling.
+// Characters per page: a screen or so on a desktop, a few screens on a phone
+// (where a swipe or the floating page pill turns the page).
 const PAGE_CHARS_WIDE = 900;
-const PAGE_CHARS_NARROW = 3000;
+const PAGE_CHARS_NARROW = 1500;
+
+// A swipe that turns the page: mostly sideways, far enough, and quick.
+const SWIPE_MIN_PX = 60;
+const SWIPE_MAX_MS = 700;
 
 const WIDE_QUERY = '(min-width: 640px)';
 function useIsWide(): boolean {
@@ -52,7 +56,7 @@ const FONT_SIZE_LABELS = { sm: '小', base: '中', lg: '大', xl: '特大' } as 
 export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
   const { loadStoryAudio, pause, togglePlay, playFrom, isStorySentence, activeSentenceId, isPlaying, seekTo, hasAudioSource } = useAudioPlayer();
   const showPinyin = usePinyinVisible();
-  const { settings, setPinyinMode, toggleShowEnglish, setFontSize, setTheme } = useSettings();
+  const { settings, setPinyinMode, toggleShowEnglish, setFontSize, setTheme, setHskMarks } = useSettings();
 
   const [activeTab, setActiveTabState] = useState<'text' | 'grammar' | 'quiz' | 'vocab'>('text');
   // Each tab keeps its own scroll position, so going to the quiz and back
@@ -103,8 +107,12 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
   // the top of the page, page counter included.
   const scrollToArticleTop = () => window.scrollTo({ top: 0, behavior: 'auto' });
 
+  // Which way the last page turn went, so the new page slides in from that side.
+  const [turn, setTurn] = useState<'next' | 'prev' | null>(null);
+
   const goToPage = (next: number) => {
     if (next < 0 || next >= pages.length || next === page) return;
+    setTurn(next > page ? 'next' : 'prev');
     setPageIndex(next);
     // While paused, turning the page moves the start point with it, so play
     // reads the page in front of you. While playing, the audio carries on.
@@ -114,6 +122,26 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
     requestAnimationFrame(scrollToArticleTop);
   };
 
+  // Swipe left/right on the text to turn the page (touch screens).
+  const swipeStart = useRef<{ x: number; y: number; t: number } | null>(null);
+  const swipeHandlers = pages.length > 1 ? {
+    onTouchStart: (e: React.TouchEvent) => {
+      const t = e.touches[0];
+      swipeStart.current = e.touches.length === 1 ? { x: t.clientX, y: t.clientY, t: Date.now() } : null;
+    },
+    onTouchEnd: (e: React.TouchEvent) => {
+      const start = swipeStart.current;
+      swipeStart.current = null;
+      if (!start || window.getSelection()?.toString()) return;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - start.x;
+      const dy = t.clientY - start.y;
+      if (Math.abs(dx) < SWIPE_MIN_PX || Math.abs(dx) < Math.abs(dy) * 1.5 || Date.now() - start.t > SWIPE_MAX_MS) return;
+      goToPage(page + (dx < 0 ? 1 : -1));
+    },
+    onTouchCancel: () => { swipeStart.current = null; },
+  } : {};
+
   // Follow the audio onto another page: when it moves to a sentence there
   // (playing on, seeking, skipping) or when playback starts with the current
   // sentence on a page other than the one shown.
@@ -122,6 +150,7 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
     const target = pageOfSentence.get(activeSentenceId);
     if (target === undefined || target === page) return;
     scrollToSentenceRef.current = activeSentenceId;
+    setTurn(target > page ? 'next' : 'prev');
     setPageIndex(target);
     // Only react to the audio, not to the reader turning pages themselves.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -294,6 +323,23 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                   </button>
                 </div>
 
+                {/* HSK 5–6 word marks */}
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">标出 HSK 5–6 词</span>
+                  <button
+                    onClick={() => setHskMarks(!settings.hskMarks)}
+                    aria-pressed={settings.hskMarks}
+                    className={`p-1.5 rounded-lg border flex items-center gap-1 text-xs font-medium ${
+                      settings.hskMarks
+                        ? 'bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-900/40 dark:text-amber-300'
+                        : 'text-slate-500 border-slate-200 dark:border-slate-700'
+                    }`}
+                  >
+                    {settings.hskMarks ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+                    <span>{settings.hskMarks ? '显示中' : '已隐藏'}</span>
+                  </button>
+                </div>
+
                 {/* Font Size */}
                 <div>
                   <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">字号大小</span>
@@ -428,10 +474,17 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
 
         {/* Tab 1: Story Text View: continuous paragraphs, like a page */}
         <>
-          {pages.length > 1 && (
-            <Pager page={page} count={pages.length} onGo={goToPage} compact />
-          )}
-          <article className={`story-text ${getFontSizeClass()} ${getFontFamilyClass()}`}>
+          <div className="flex items-center justify-between gap-2 mb-4 min-h-8">
+            {settings.hskMarks && <HskLegend />}
+            {pages.length > 1 && (
+              <Pager page={page} count={pages.length} onGo={goToPage} compact />
+            )}
+          </div>
+          <article
+            key={page}
+            {...swipeHandlers}
+            className={`story-text ${getFontSizeClass()} ${getFontFamilyClass()}${turn ? ` page-turn-${turn}` : ''}`}
+          >
             {pages[page].map(({ section, paragraphs, startsSection }) => (
               <section key={section.partNumber} className="mb-12">
                 {startsSection ? (
@@ -469,6 +522,9 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
           {pages.length > 1 && (
             <Pager page={page} count={pages.length} onGo={goToPage} />
           )}
+          {pages.length > 1 && activeTab === 'text' && (
+            <FloatingPager page={page} count={pages.length} onGo={goToPage} />
+          )}
         </>
         </div>
 
@@ -498,6 +554,13 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                     tone: v.tone,
                     definitions: v.definitions,
                     hskLevel: v.hsk,
+                  }, v.exampleSentence && {
+                    // The word's example, shown in the popup as 语境例句.
+                    id: `example-${idx}`,
+                    ...v.exampleSentence,
+                    startTime: 0,
+                    endTime: 0,
+                    tokens: [],
                   })}
                   className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-400 cursor-pointer transition-all shadow-xs"
                 >
@@ -513,6 +576,11 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ story, onBack }) => {
                     <span className="text-xs text-amber-600 dark:text-amber-400 font-medium block mb-2 font-sans">
                       {v.pinyin}
                     </span>
+                  )}
+                  {v.exampleSentence && (
+                    <p data-testid="key-word-example" className="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400 font-chinese-sans line-clamp-2">
+                      {v.exampleSentence.cn}
+                    </p>
                   )}
                 </div>
               ))}
@@ -550,12 +618,12 @@ const Pager: React.FC<PagerProps> = ({ page, count, onGo, compact }) => {
 
   if (compact) {
     return (
-      <nav aria-label="分页" className="flex items-center justify-end gap-1 mb-4 text-xs text-slate-400 font-chinese-sans">
-        <button onClick={() => onGo(page - 1)} disabled={isFirst} aria-label="上一页" className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent">
+      <nav aria-label="分页" className="ml-auto flex items-center justify-end gap-1 text-xs text-slate-400 font-chinese-sans">
+        <button onClick={() => onGo(page - 1)} disabled={isFirst} aria-label="上一页" className="p-2 sm:p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent">
           <ChevronLeft className="w-4 h-4" />
         </button>
         <span>第 {page + 1} / {count} 页</span>
-        <button onClick={() => onGo(page + 1)} disabled={isLast} aria-label="下一页" className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent">
+        <button onClick={() => onGo(page + 1)} disabled={isLast} aria-label="下一页" className="p-2 sm:p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent">
           <ChevronRight className="w-4 h-4" />
         </button>
       </nav>
@@ -597,5 +665,40 @@ const Pager: React.FC<PagerProps> = ({ page, count, onGo, compact }) => {
         </div>
       )}
     </nav>
+  );
+};
+
+/* Phones: a small pill above the audio bar, always within thumb reach, so the
+   page can be turned from anywhere on it (as well as by swiping the text). */
+const FloatingPager: React.FC<Omit<PagerProps, 'compact'>> = ({ page, count, onGo }) => {
+  const btn = 'w-11 h-11 flex items-center justify-center rounded-full text-slate-600 dark:text-slate-300 active:bg-slate-200 dark:active:bg-slate-700 disabled:opacity-30';
+  return (
+    <nav
+      aria-label="翻页"
+      data-testid="floating-pager"
+      className="sm:hidden fixed right-3 z-30 bottom-[calc(5.75rem+env(safe-area-inset-bottom))] flex items-center rounded-full bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border border-slate-200 dark:border-slate-700 shadow-lg font-chinese-sans"
+    >
+      <button onClick={() => onGo(page - 1)} disabled={page === 0} aria-label="上一页" className={btn}>
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <span className="min-w-[3rem] text-center text-xs font-semibold tabular-nums text-slate-500 dark:text-slate-400">
+        {page + 1} / {count}
+      </span>
+      <button onClick={() => onGo(page + 1)} disabled={page === count - 1} aria-label="下一页" className={btn}>
+        <ChevronRight className="w-5 h-5" />
+      </button>
+    </nav>
+  );
+};
+
+/* What the underlines in the text mean. */
+const HskLegend: React.FC = () => {
+  const swatch = (cls: string) => <span aria-hidden="true" className={`inline-block w-4 border-b-2 ${cls}`} />;
+  return (
+    <div data-testid="hsk-legend" className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-slate-400 dark:text-slate-500 font-chinese-sans">
+      <span className="flex items-center gap-1">{swatch('border-emerald-500/60')}HSK 5</span>
+      <span className="flex items-center gap-1">{swatch('border-violet-500/60')}HSK 6</span>
+      <span className="flex items-center gap-1">{swatch('border-dotted border-sky-500/80')}生词本</span>
+    </div>
   );
 };

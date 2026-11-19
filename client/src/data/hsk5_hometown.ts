@@ -30372,6 +30372,227 @@ export const hsk5Hometown: LongStory = {
         "pinyin": "Chángqī de xīnkǔ gōngzuò ràng tā duì shēnghuó biàn de mámù le.",
         "en": "Years of hard work had left him numb to life."
       }
+    },
+    {
+      "word": "故乡",
+      "pinyin": "gùxiāng",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "home",
+        "homeland",
+        "native place"
+      ],
+      "exampleSentence": {
+        "cn": "我冒了严寒，回到相隔二千余里，别了二十余年的故乡去。",
+        "pinyin": "Wǒ mào le yánhán, huídào xiānggé èrqiān yúlǐ, bié le èrshí yú nián de gùxiāng qù.",
+        "en": "Braving the bitter cold, I went back to my hometown, more than two thousand li away, which I had left over twenty years before."
+      }
+    },
+    {
+      "word": "仿佛",
+      "pinyin": "fǎngfú",
+      "tone": 3,
+      "hsk": "HSK 5",
+      "definitions": [
+        "to seem; as if; seemingly",
+        "alike; similar",
+        "to seem; as if; seemingly"
+      ],
+      "exampleSentence": {
+        "cn": "仿佛也就如此。",
+        "pinyin": "Fǎngfú yějiù rúcǐ.",
+        "en": "It seemed it had been just like this after all."
+      }
+    },
+    {
+      "word": "日期",
+      "pinyin": "rìqī",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "date",
+        "量词: 个"
+      ],
+      "exampleSentence": {
+        "cn": "我已经将你到家的大约日期通知他，他也许就要来了。”",
+        "pinyin": "Wǒ yǐjīng jiāng nǐ dàojiā de dàyuē rìqī tōngzhī tā, tā yěxǔ jiùyào lái le.”",
+        "en": "I've let him know roughly when you'd be home, so he may come any time now.\""
+      }
+    },
+    {
+      "word": "忽然",
+      "pinyin": "hūrán",
+      "tone": 1,
+      "hsk": "HSK 5",
+      "definitions": [
+        "suddenly; all of a sudden"
+      ],
+      "exampleSentence": {
+        "cn": "这时候，我的脑里忽然闪出一幅神异的图画来：深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜，其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力的刺去，那猹却将身一扭，反从他的胯下逃走了。",
+        "pinyin": "Zhè shíhou, wǒ de nǎo lǐ hūrán shǎnchū yìfú shényì de túhuà lái: shēnlán de tiānkōng zhōng guà zhe yìlún jīnhuáng de yuányuè, xiàmiàn shì hǎibiān de shādì, dōu zhòng zhe yíwàngwújì de bìlǜ de xīguā, qíjiān yǒu yígè shíyī èr suì de shàonián, xiàng dài yínquān, shǒu niē yì bǐng gāngchā, xiàng yìpǐ chá jìnlì de cì qù, nà chá què jiāng shēn yì niǔ, fǎn cóng tā de kuàxià táozǒu le.",
+        "en": "At that moment a wonderful picture suddenly flashed into my mind: a round golden moon hanging in a deep blue sky, and below it sandy land by the sea, planted with jade-green watermelons stretching as far as the eye could see. Among them stood a boy of eleven or twelve, a silver ring around his neck and a steel pitchfork in his hand, stabbing with all his strength at a zha. But the zha twisted its body and escaped between his legs."
+      }
+    },
+    {
+      "word": "天空",
+      "pinyin": "tiānkōng",
+      "tone": 1,
+      "hsk": "HSK 5",
+      "definitions": [
+        "sky"
+      ],
+      "exampleSentence": {
+        "cn": "这时候，我的脑里忽然闪出一幅神异的图画来：深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜，其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力的刺去，那猹却将身一扭，反从他的胯下逃走了。",
+        "pinyin": "Zhè shíhou, wǒ de nǎo lǐ hūrán shǎnchū yìfú shényì de túhuà lái: shēnlán de tiānkōng zhōng guà zhe yìlún jīnhuáng de yuányuè, xiàmiàn shì hǎibiān de shādì, dōu zhòng zhe yíwàngwújì de bìlǜ de xīguā, qíjiān yǒu yígè shíyī èr suì de shàonián, xiàng dài yínquān, shǒu niē yì bǐng gāngchā, xiàng yìpǐ chá jìnlì de cì qù, nà chá què jiāng shēn yì niǔ, fǎn cóng tā de kuàxià táozǒu le.",
+        "en": "At that moment a wonderful picture suddenly flashed into my mind: a round golden moon hanging in a deep blue sky, and below it sandy land by the sea, planted with jade-green watermelons stretching as far as the eye could see. Among them stood a boy of eleven or twelve, a silver ring around his neck and a steel pitchfork in his hand, stabbing with all his strength at a zha. But the zha twisted its body and escaped between his legs."
+      }
+    },
+    {
+      "word": "人家",
+      "pinyin": "rénjiā",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "household",
+        "dwelling",
+        "family"
+      ],
+      "exampleSentence": {
+        "cn": "我家只有一个忙月（我们这里给人做工的分三种：整年给一定人家做工的叫长工；按日给人做工的叫短工；自己也种地，只在过年过节以及收租时候来给一定人家做工的称忙月），忙不过来，他便对父亲说，可以叫他的儿子闰土来管祭器的。",
+        "pinyin": "Wǒ jiā zhǐyǒu yígè mángyuè (wǒmen zhèlǐ gěirén zuògōng de fēn sān zhǒng: zhěng nián gěi yídìng rénjiā zuògōng de jiào chánggōng; àn rì gěirén zuògōng de jiào duǎngōng; zìjǐ yě zhòngdì, zhǐ zài guònián guòjié yǐjí shōuzū shíhou láigěi yídìng rénjiā zuògōng de chēng mángyuè), máng búguò lái, tā biàn duì fùqīn shuō, kěyǐ jiào tā de érzi Rùntǔ lái guǎn jìqì de.",
+        "en": "We had only one \"busy-month\" man (here, hired workers came in three kinds: those who worked all year for one family were long-term hands; those hired by the day were day labourers; and those who farmed their own land but came to work for a particular family only at New Year, at festivals and when rents were collected were called busy-month men). He couldn't manage it all alone, so he told my father he could send for his son Runtu to look after the ritual vessels."
+      }
+    },
+    {
+      "word": "贝壳",
+      "pinyin": "bèiké",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "shell (of a mollusk)"
+      ],
+      "exampleSentence": {
+        "cn": "我们日里到海边捡贝壳去，红的绿的都有，鬼见怕也有，观音手也有。",
+        "pinyin": "Wǒmen rìlǐ dào hǎibiān jiǎn bèiké qù, hóngde lǜ de dōu yǒu, guǐjiànpà yě yǒu, Guānyīnshǒu yě yǒu.",
+        "en": "In the daytime we'll go to the seashore to pick up shells — there are red ones and green ones, 'ghost-scarers' and 'Guanyin's hands' too."
+      }
+    },
+    {
+      "word": "先前",
+      "pinyin": "xiānqián",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": [
+        "before; previously"
+      ],
+      "exampleSentence": {
+        "cn": "我素不知道天下有这许多新鲜事：海边有如许五色的贝壳；西瓜有这样危险的经历，我先前单知道他在水果店里出卖罢了。",
+        "pinyin": "Wǒ sù bùzhīdào tiānxià yǒu zhè xǔduō xīnxiān shì: hǎibiān yǒu rúxǔ wǔsè de bèiké; xīguā yǒu zhèyàng wēixiǎn de jīnglì, wǒ xiānqián dān zhīdào tā zài shuǐguǒdiàn lǐ chūmài bàle.",
+        "en": "I had never known there were so many new and wonderful things in the world: that the seashore had shells of so many colours, and that watermelons had such dangerous adventures — before, I had only known that they were sold in fruit shops."
+      }
+    },
+    {
+      "word": "似的",
+      "pinyin": "shìde",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "seems as if",
+        "rather like"
+      ],
+      "exampleSentence": {
+        "cn": "“我们沙地里，潮汛要来的时候，就有许多跳鱼儿只是跳，都有青蛙似的两个脚……”",
+        "pinyin": "“Wǒmen shādì lǐ, cháoxùn yào lái de shíhou, jiùyǒu xǔduō tiàoyúr zhǐshì tiào, dōu yǒu qīngwā shìde liǎng gè jiǎo……”",
+        "en": "\"On our sandy land, when the high tide is coming, lots of jumping fish just keep jumping about. They all have two legs, like frogs…\""
+      }
+    },
+    {
+      "word": "记忆",
+      "pinyin": "jìyì",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "to remember; to recall",
+        "memory"
+      ],
+      "exampleSentence": {
+        "cn": "现在我的母亲提起了他，我这儿时的记忆，忽而全都闪电似的苏生过来，似乎看到了我的美丽的故乡了。",
+        "pinyin": "Xiànzài wǒ de mǔqīn tíqǐ le tā, wǒ zhè érshí de jìyì, hū'ér quándōu shǎndiàn shìde sūshēng guòlái, sìhū kàndào le wǒ de měilì de gùxiāng le.",
+        "en": "Now that my mother had mentioned him, all these childhood memories suddenly came back to life like a flash of lightning, and I seemed to see my beautiful hometown at last."
+      }
+    },
+    {
+      "word": "嘴唇",
+      "pinyin": "zuǐchún",
+      "tone": 3,
+      "hsk": "HSK 6",
+      "definitions": [
+        "lip",
+        "量词: 片"
+      ],
+      "exampleSentence": {
+        "cn": "我吃了一吓，赶忙抬起头，却见一个凸颧骨，薄嘴唇，五十岁上下的女人站在我面前，两手搭在髀间，没有系裙，张着两脚，正像一个画图仪器里细脚伶仃的圆规。",
+        "pinyin": "Wǒ chī le yí xià, gǎnmáng táiqǐ tóu, què jiàn yígè tū quángǔ, báo zuǐchún, wǔshí suì shàngxià de nǚrén zhànzài wǒ miànqián, liǎngshǒu dāzài bìjiān, méiyǒu jì qún, zhāng zhe liǎng jiǎo, zhèngxiàng yígè huàtú yíqì lǐ xìjiǎolíngdīng de yuánguī.",
+        "en": "Startled, I quickly looked up and saw a woman of about fifty standing in front of me, with high cheekbones and thin lips. Her hands were on her hips, she wore no skirt, and she stood with her legs apart, exactly like a pair of compasses from a drawing set, all thin spindly legs."
+      }
+    },
+    {
+      "word": "默默",
+      "pinyin": "mòmò",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "in silence; not speaking"
+      ],
+      "exampleSentence": {
+        "cn": "我知道无话可说了，便闭了口，默默的站着。",
+        "pinyin": "Wǒ zhīdào wúhuàkěshuō le, biàn bì le kǒu, mòmò de zhàn zhe.",
+        "en": "I knew there was nothing I could say, so I shut my mouth and stood there in silence."
+      }
+    },
+    {
+      "word": "皱纹",
+      "pinyin": "zhòuwén",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "wrinkle",
+        "量词: 道"
+      ],
+      "exampleSentence": {
+        "cn": "他身材增加了一倍；先前的紫色的圆脸，已经变作灰黄，而且加上了很深的皱纹；眼睛也像他父亲一样，周围都肿得通红，这我知道，在海边种地的人，终日吹着海风，大抵是这样的。",
+        "pinyin": "Tā shēncái zēngjiā le yíbèi; xiānqián de zǐsè de yuán liǎn, yǐjīng biànzuò huī huáng, érqiě jiāshàng le hěn shēn de zhòuwén; yǎnjing yěxiàng tā fùqīn yíyàng, zhōuwéi dōu zhǒng de tōnghóng, zhè wǒ zhīdào, zài hǎibiān zhòngdì de rén, zhōngrì chuīzhe hǎifēng, dàdǐ shì zhèyàng de.",
+        "en": "He was twice the size he had been. His round, ruddy face had turned a sallow grey and was lined with deep wrinkles; his eyes, like his father's, were swollen and red around the rims — I knew that people who farm by the sea, in the sea wind all day, mostly end up like that."
+      }
+    },
+    {
+      "word": "启程",
+      "pinyin": "qǐchéng",
+      "tone": 3,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to set out on a journey"
+      ],
+      "exampleSentence": {
+        "cn": "他又要所有的草灰（我们这里煮饭是烧稻草的，那灰，可以做沙地的肥料），待我们启程的时候，他用船来载去。",
+        "pinyin": "Tā yòu yào suǒyǒu de cǎohuī (wǒmen zhèlǐ zhǔ fàn shì shāo dàocǎo de, nà huī, kěyǐ zuò shādì de féiliào), dài wǒmen qǐchéng de shíhou, tā yòng chuán lái zài qù.",
+        "en": "He also asked for all the straw ash (here we burn rice straw to cook, and the ash can be used to fertilise the sandy soil); when we set off, he would come with a boat to carry it away."
+      }
+    },
+    {
+      "word": "偶像",
+      "pinyin": "ǒuxiàng",
+      "tone": 3,
+      "hsk": "HSK 6",
+      "definitions": [
+        "idol"
+      ],
+      "exampleSentence": {
+        "cn": "闰土要香炉和烛台的时候，我还暗地里笑他，以为他总是崇拜偶像，什么时候都不忘却。",
+        "pinyin": "Rùntǔ yào xiānglú hé zhútái de shíhou, wǒ hái àndìlǐ xiào tā, yǐwéi tā zǒngshì chóngbài ǒuxiàng, shénme shíhou dōu bú wàngquè.",
+        "en": "When Runtu asked for the incense burner and candlesticks, I had secretly laughed at him, thinking he still worshipped idols and could never forget them."
+      }
     }
   ],
   "grammarNotes": [

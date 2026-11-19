@@ -59,7 +59,9 @@ async function networkFirstPage(req) {
 }
 
 async function cacheFirst(req) {
-  const cached = await caches.match(req, { ignoreSearch: true });
+  // Built files never vary, so ignore Vary: a story chunk loaded with import()
+  // carries an Origin header that the precached copy was stored without.
+  const cached = await caches.match(req, { ignoreSearch: true, ignoreVary: true });
   if (cached) return cached;
   const res = await fetch(req);
   if (res.ok && res.type === 'basic') (await caches.open(RUNTIME_CACHE)).put(req, res.clone());

@@ -90,7 +90,7 @@ test.describe('English on demand', () => {
 
     await expect(page.getByText('共收藏 1 个单词', { exact: false })).toBeVisible();
     expect(await englishOnScreen(page)).toEqual([]);
-    await page.locator('.translatable').filter({ hasText: v.word }).click();
+    await page.locator('.translatable').filter({ hasText: new RegExp(`^${v.word}$`) }).click();
     await expect(page.getByText(v.definitions.join(', '))).toBeVisible();
   });
 });

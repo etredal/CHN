@@ -26302,6 +26302,231 @@ export const hsk6School611: LongStory = {
         "pinyin": "Yì tiān zhǐ shuì sì gè xiǎoshí, zhè zhǒng zuòfǎ tài jíduān le.",
         "en": "Sleeping only four hours a day is far too extreme."
       }
+    },
+    {
+      "word": "存在",
+      "pinyin": "cúnzài",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": [
+        "to exist",
+        "to be",
+        "existence"
+      ],
+      "exampleSentence": {
+        "cn": "由知名网络大V“李老师不是你老师”的团队发起的一项网上问卷调查显示，中国全国各地的小初高中的学生普遍存在超时学习的现象，导致学生苦不堪言。",
+        "pinyin": "Yóu zhīmíng wǎngluò dàV “Lǐ lǎoshī búshì nǐ lǎoshī” de tuánduì fāqǐ de yíxiàng wǎngshàng wènjuàn diàochá xiǎnshì, Zhōngguó quánguó gèdì de xiǎochūgāozhōng de xuéshēng pǔbiàn cúnzài chāoshí xuéxí de xiànxiàng, dǎozhì xuéshēng kǔbùkānyán.",
+        "en": "An online survey launched by the team of the well-known internet influencer \"Teacher Li Is Not Your Teacher\" shows that primary, middle and high school students all over China commonly study excessively long hours, leaving them in misery."
+      }
+    },
+    {
+      "word": "监狱",
+      "pinyin": "jiānyù",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": [
+        "prison"
+      ],
+      "exampleSentence": {
+        "cn": "有学生甚至说，学校像监狱。",
+        "pinyin": "Yǒu xuéshēng shènzhì shuō, xuéxiào xiàng jiānyù.",
+        "en": "Some students even say that school is like a prison."
+      }
+    },
+    {
+      "word": "以及",
+      "pinyin": "yǐjí",
+      "tone": 3,
+      "hsk": "HSK 5",
+      "definitions": [
+        "and; as well as"
+      ],
+      "exampleSentence": {
+        "cn": "美国的教育专家认为，评判一个教育体制的好坏取决于每个社会希望学生成为什么样的人，以及他们认为教育的目的是什么。",
+        "pinyin": "Měiguó de jiàoyù zhuānjiā rènwéi, píngpàn yígè jiàoyù tǐzhì de hǎohuài qǔjué yú měi gè shèhuì xīwàng xuéshēng chéngwéi shénmeyàng de rén, yǐjí tāmen rènwéi jiàoyù de mùdì shì shénme.",
+        "en": "American education experts say that whether an education system is good or bad depends on what kind of people each society wants its students to become, and on what it thinks education is for."
+      }
+    },
+    {
+      "word": "出路",
+      "pinyin": "chūlù",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": [
+        "a way out (lit. and fig.)",
+        "opportunity for advancement; a way forward",
+        "outlet (for one's products)"
+      ],
+      "exampleSentence": {
+        "cn": "他们还认为，教育体制应当给学生更多元的选择和出路。",
+        "pinyin": "Tāmen hái rènwéi, jiàoyù tǐzhì yīngdāng gěi xuéshēng gèng duōyuán de xuǎnzé hé chūlù.",
+        "en": "They also believe an education system should give students more varied choices and paths forward."
+      }
+    },
+    {
+      "word": "项目",
+      "pinyin": "xiàngmù",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "item",
+        "project",
+        "(sports) event"
+      ],
+      "exampleSentence": {
+        "cn": "截至2月10日，由“李老师不是你老师”的团队发起的“611 ICU全国小初高中超时学习学校耻辱名单”项目已经收到全国1800多所学校学生及家长的投稿。",
+        "pinyin": "Jiézhì 2 yuè 10 rì, yóu “Lǐ lǎoshī búshì nǐ lǎoshī” de tuánduì fāqǐ de “611ICU quánguó xiǎochūgāozhōng chāoshí xuéxí xuéxiào chǐrǔmíngdān” xiàngmù yǐjīng shōudào quánguó 1800 duō suǒ xuéxiào xuéshēng jí jiāzhǎng de tóugǎo.",
+        "en": "As of 10 February, the \"611 ICU National Wall of Shame for Schools with Excessive Study Hours\", a project launched by the \"Teacher Li Is Not Your Teacher\" team, had received submissions from students and parents at more than 1,800 schools across the country."
+      }
+    },
+    {
+      "word": "巨大",
+      "pinyin": "jùdà",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "huge; immense; enormous; gigantic"
+      ],
+      "exampleSentence": {
+        "cn": "由于该校为寄宿制学校，平日里几乎所有时间都待在学校，承受着巨大的学习和精神压力，而每周只有16个小时能回家，在家睡了一觉，还没干啥，就又该返校，离开家时就像上刑场，7天后才能重新回家（又是90多个小时的学习时间）。",
+        "pinyin": "Yóuyú gāixiào wéi jìsùzhì xuéxiào, píngrì lǐ jīhū suǒyǒu shíjiān dōu dài zài xuéxiào, chéngshòu zhe jùdà de xuéxí hé jīngshén yālì, ér měizhōu zhǐyǒu 16 gè xiǎoshí néng huíjiā, zàijiā shuì le yíjiào, hái méi gànshá, jiù yòu gāi fǎnxiào, líkāi jiā shí jiù xiàng shàng xíngchǎng, 7 tiān hòu cáinéng chóngxīn huíjiā (yòu shì 90 duō gè xiǎoshí de xuéxí shíjiān).",
+        "en": "Because it's a boarding school, you spend almost all your time at school under huge academic and mental pressure, and you only get 16 hours a week at home. You sleep once, and before you've done anything it's time to go back. Leaving home feels like walking to your execution, and you can't come home again for 7 days (another 90-plus hours of studying)."
+      }
+    },
+    {
+      "word": "证实",
+      "pinyin": "zhèngshí",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to confirm (sth to be true)",
+        "to verify"
+      ],
+      "exampleSentence": {
+        "cn": "不过，长期在福建厦门从事教育工作的一位陈姓老师证实说，的确存在这种情况，而学生家长也深受其害。",
+        "pinyin": "Búguò, chángqī zài Fújiàn Xiàmén cóngshì jiàoyù gōngzuò de yíwèi chén xìng lǎoshī zhèngshí shuō, díquè cúnzài zhèzhǒng qíngkuàng, ér xuéshēng jiāzhǎng yě shēnshòu qí hài.",
+        "en": "However, a teacher surnamed Chen who has worked in education in Xiamen, Fujian for many years confirmed that this really does happen, and that parents suffer from it too."
+      }
+    },
+    {
+      "word": "类似",
+      "pinyin": "lèisì",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "similar; analogous"
+      ],
+      "exampleSentence": {
+        "cn": "湖北省赤壁市一所实验高中的老师也向美国之音证实，重点高中大多是类似611学制的做法。",
+        "pinyin": "Húběishěng Chìbìshì yìsuǒ shíyàn gāo zhōng de lǎoshī yě xiàng Měiguózhīyīn zhèngshí, zhòngdiǎn gāozhōng dàduō shì lèisì 611 xuézhì de zuòfǎ.",
+        "en": "A teacher at an experimental high school in Chibi, Hubei Province also confirmed to VOA that most key high schools follow something like the 611 schedule."
+      }
+    },
+    {
+      "word": "协调",
+      "pinyin": "xiétiáo",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to coordinate",
+        "to harmonize",
+        "to fit together"
+      ],
+      "exampleSentence": {
+        "cn": "负责这个项目统筹协调工作的蒋不（网名）说，他看到数据时才意识到这个问题的严重性。",
+        "pinyin": "Fùzé zhège xiàngmù tǒngchóu xiétiáo gōngzuò de Jiǎngbù (wǎngmíng) shuō, tā kàndào shùjù shí cái yìshí dào zhège wèntí de yánzhòngxìng.",
+        "en": "Jiang Bu (an online name), who coordinates the project, said he only realised how serious the problem was when he saw the data."
+      }
+    },
+    {
+      "word": "意识",
+      "pinyin": "yìshí",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "consciousness; awareness",
+        "(usu. followed by 到) to be aware of; to realize"
+      ],
+      "exampleSentence": {
+        "cn": "负责这个项目统筹协调工作的蒋不（网名）说，他看到数据时才意识到这个问题的严重性。",
+        "pinyin": "Fùzé zhège xiàngmù tǒngchóu xiétiáo gōngzuò de Jiǎngbù (wǎngmíng) shuō, tā kàndào shùjù shí cái yìshí dào zhège wèntí de yánzhòngxìng.",
+        "en": "Jiang Bu (an online name), who coordinates the project, said he only realised how serious the problem was when he saw the data."
+      }
+    },
+    {
+      "word": "模式",
+      "pinyin": "móshì",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "mode; pattern; model"
+      ],
+      "exampleSentence": {
+        "cn": "蒋不认为，中国学生的611学制现象源自“衡水模式”在中国的扩张。",
+        "pinyin": "Jiǎngbù rènwéi, Zhōngguó xuéshēng de 611 xuézhì xiànxiàng yuánzì “Héngshuǐ móshì” zài Zhōngguó de kuòzhāng.",
+        "en": "Jiang Bu believes the 611 schedule comes from the spread of the \"Hengshui model\" across China."
+      }
+    },
+    {
+      "word": "战术",
+      "pinyin": "zhànshù",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "tactics"
+      ],
+      "exampleSentence": {
+        "cn": "1992年，李金池被任命为衡水中学校长后，提出了题海战术、激情教育等理念。",
+        "pinyin": "1992 nián, Lǐjīnchí bèi rènmìng wéi Héngshuǐ zhōngxué xiàozhǎng hòu, tíchū le tíhǎi zhànshù, jīqíng jiàoyù děng lǐniàn.",
+        "en": "After Li Jinchi was appointed head of Hengshui High School in 1992, he introduced ideas such as the \"sea of exercises\" tactic and \"passion education\"."
+      }
+    },
+    {
+      "word": "评论",
+      "pinyin": "pínglùn",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to comment on",
+        "to discuss",
+        "comment"
+      ],
+      "exampleSentence": {
+        "cn": "网友“杨二发”在李老师不是你老师的推文下评论：“少壮不努力，老大徒伤悲。”",
+        "pinyin": "Wǎngyǒu “Yáng'èrfā” zài Lǐ lǎoshī búshì nǐ lǎoshī de tuīwén xià pínglùn: “shàozhuàngbùnǔlì, lǎodà tú shāngbēi.”",
+        "en": "Under a post by Teacher Li Is Not Your Teacher, a user called \"Yang Erfa\" commented: \"If you don't work hard while you're young, you'll grieve in vain when you're old.\""
+      }
+    },
+    {
+      "word": "家庭",
+      "pinyin": "jiātíng",
+      "tone": 1,
+      "hsk": "HSK 5",
+      "definitions": [
+        "family",
+        "household",
+        "量词: 户, 个"
+      ],
+      "exampleSentence": {
+        "cn": "与以往不同的是，现在的学生不仅在校学习时间长，而且放学后还要上各种补习班，给家庭带来了巨大的经济压力。",
+        "pinyin": "Yǔ yǐwǎng bùtóng de shì, xiànzài de xuéshēng bùjǐn zàixiào xuéxí shíjiān cháng, érqiě fàngxué hòu hái yào shàng gèzhǒng bǔxíbān, gěi jiātíng dàilái le jùdà de jīngjì yālì.",
+        "en": "What is different from the past is that students now not only spend long hours studying at school, but also have to go to all kinds of tutoring classes after school, which puts huge financial pressure on families."
+      }
+    },
+    {
+      "word": "系统",
+      "pinyin": "xìtǒng",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "system",
+        "量词: 个"
+      ],
+      "exampleSentence": {
+        "cn": "纽约大学斯坦哈特文化教育和人类发展学院研究和公平副院长、国际教育教授程华宇(Hua-Yu Sebastian Cherng)每年至少去中国两次，对中国的教育系统有深刻的了解。",
+        "pinyin": "Niǔyuē dàxué Sītǎnhātè wénhuà jiàoyù hé rénlèi fāzhǎn xuéyuàn yánjiū hé gōngpíng fù yuànzhǎng, guójì jiàoyù jiàoshòu Chénghuáyǔ( Hua-YuSebastianCherng) měinián zhìshǎo qù Zhōngguó liǎngcì, duì Zhōngguó de jiàoyù xìtǒng yǒu shēnkè de liǎojiě.",
+        "en": "Hua-Yu Sebastian Cherng, Vice Dean for Research and Equity at New York University's Steinhardt School of Culture, Education, and Human Development and a professor of international education, goes to China at least twice a year and knows its education system well."
+      }
     }
   ],
   "grammarNotes": [

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useRef, useState } from 'react';
 import { SettingsProvider } from './context/SettingsContext';
 import { AudioPlayerProvider, useAudioPlayer } from './context/AudioPlayerContext';
 import { Header } from './components/layout/Header';
@@ -9,7 +9,8 @@ import { ImporterView } from './components/importer/ImporterView';
 import { VocabListView } from './components/flashcards/VocabListView';
 import { FlashcardDeck } from './components/flashcards/FlashcardDeck';
 import { UpdateToast } from './components/common/UpdateToast';
-import type { LongStory, Flashcard } from './types';
+import type { LongStory, Flashcard, StorySummary } from './types';
+import { loadStory } from './data';
 
 const MainApp: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'library' | 'vocab' | 'importer'>('library');
@@ -18,8 +19,30 @@ const MainApp: React.FC = () => {
 
   const { activeSentenceId } = useAudioPlayer();
 
-  const handleSelectStory = (story: LongStory) => {
-    setSelectedStory(story);
+  // Each story's full text is its own chunk, fetched when it is opened
+  // (and cached by the service worker for offline use).
+  const [openingId, setOpeningId] = useState<string | null>(null);
+  const latestRequest = useRef<string | null>(null);
+
+  const handleSelectStory = (summary: StorySummary) => {
+    latestRequest.current = summary.id;
+    setOpeningId(summary.id);
+    loadStory(summary.id)
+      .then(story => {
+        if (latestRequest.current === summary.id) setSelectedStory(story);
+      })
+      .catch(err => {
+        console.error(err);
+        if (latestRequest.current === summary.id) {
+          window.alert('故事加载失败，请检查网络后重试。\nThe story could not be loaded. Check your connection and try again.');
+        }
+      })
+      .finally(() => {
+        if (latestRequest.current === summary.id) {
+          latestRequest.current = null;
+          setOpeningId(null);
+        }
+      });
   };
 
   const handleBackToLibrary = () => {
@@ -54,7 +77,7 @@ const MainApp: React.FC = () => {
 
           <main className={`flex-1 ${activeSentenceId ? 'pb-[calc(10.5rem+env(safe-area-inset-bottom))] sm:pb-28' : 'pb-[calc(3.5rem+env(safe-area-inset-bottom))] sm:pb-0'}`}>
             {activeTab === 'library' && (
-              <LibraryView onSelectStory={handleSelectStory} />
+              <LibraryView onSelectStory={handleSelectStory} openingId={openingId} />
             )}
 
             {activeTab === 'vocab' && (

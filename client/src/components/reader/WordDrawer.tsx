@@ -6,6 +6,7 @@ import { Volume2, Bookmark, BookmarkCheck, X, Sparkles, PlayCircle } from 'lucid
 import { ChineseText } from '../common/ChineseText';
 import { useWordDetails } from '../../dictionary/useWordDetails';
 import { CEDICT_ATTRIBUTION_URL } from '../../dictionary/cedict';
+import { hskLevelOf } from '../../utils/hsk';
 
 interface WordDrawerProps {
   token: WordToken | null;
@@ -23,6 +24,7 @@ export const WordDrawer: React.FC<WordDrawerProps> = ({ token, ...rest }) =>
 
 const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ token, sentenceContext, wordAudio, onPlayFromHere, onClose }) => {
   const [saved, setSaved] = useState(() => isWordSaved(token.text));
+  const level = token.hskLevel ?? hskLevelOf(token.text);
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const details = useWordDetails(token);
 
@@ -52,7 +54,7 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
         pinyin: token.pinyin,
         tone: token.tone,
         definitions: details.definitions.length > 0 ? details.definitions : [NO_DEFINITION],
-        hskLevel: token.hskLevel,
+        hskLevel: level,
         exampleSentence: sentenceContext ? { cn: sentenceContext.cn, en: sentenceContext.en } : undefined,
         audioClip: sources.clip,
       });
@@ -77,9 +79,9 @@ const WordDrawerBody: React.FC<WordDrawerProps & { token: WordToken }> = ({ toke
               <h2 className="text-3xl font-bold text-slate-900 dark:text-white font-chinese-sans">
                 {token.text}
               </h2>
-              {token.hskLevel && (
+              {level && (
                 <span className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
-                  {token.hskLevel}
+                  {level}
                 </span>
               )}
             </div>

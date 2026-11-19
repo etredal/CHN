@@ -2915,6 +2915,328 @@ export const hsk5DigitalNomads: LongStory = {
         "pinyin": "Dàlǐ shūhuǎn de zìrán jiézòu, zhèngzài qiányí-mòhuà de gǎibiàn zhe zhè qún dūshì qīngnián de xīntài.",
         "en": "The soothing natural rhythm of Dali is subtly transforming the mindset of these urban youths."
       }
+    },
+    {
+      "word": "柔和",
+      "pinyin": "róuhé",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "gentle",
+        "soft"
+      ],
+      "exampleSentence": {
+        "cn": "早晨九点，阳光柔和地洒在苍山脚下的一间白族庭院里，三十岁的资深程序员李翔推开木窗，深吸了一口清新的空气。",
+        "pinyin": "Zǎochén jiǔ diǎn, yángguāng róuhé de sǎ zài Cāngshān jiǎoxià de yì jiān Báizú tíngyuàn lǐ, sānshí suì de zīshēn chéngxùyuán Lǐ Xiáng tuīkāi mùchuāng, shēn xī le yì kǒu qīngxīn de kōngqì.",
+        "en": "At nine in the morning, soft sunlight bathed a Bai-style courtyard at the foot of Mount Cangshan; thirty-year-old senior developer Li Xiang pushed open the wooden window and inhaled deeply."
+      }
+    },
+    {
+      "word": "程序",
+      "pinyin": "chéngxù",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": [
+        "procedures",
+        "sequence",
+        "order"
+      ],
+      "exampleSentence": {
+        "cn": "早晨九点，阳光柔和地洒在苍山脚下的一间白族庭院里，三十岁的资深程序员李翔推开木窗，深吸了一口清新的空气。",
+        "pinyin": "Zǎochén jiǔ diǎn, yángguāng róuhé de sǎ zài Cāngshān jiǎoxià de yì jiān Báizú tíngyuàn lǐ, sānshí suì de zīshēn chéngxùyuán Lǐ Xiáng tuīkāi mùchuāng, shēn xī le yì kǒu qīngxīn de kōngqì.",
+        "en": "At nine in the morning, soft sunlight bathed a Bai-style courtyard at the foot of Mount Cangshan; thirty-year-old senior developer Li Xiang pushed open the wooden window and inhaled deeply."
+      }
+    },
+    {
+      "word": "骨干",
+      "pinyin": "gǔgàn",
+      "tone": 3,
+      "hsk": "HSK 6",
+      "definitions": [
+        "diaphysis (long segment of a bone)",
+        "fig. backbone"
+      ],
+      "exampleSentence": {
+        "cn": "半年前，他还是深圳一家知名科技公司里日夜加班的骨干，每天在拥挤的地铁与无休止的“内卷”中疲于奔命。",
+        "pinyin": "Bàn nián qián, tā hái shì Shēnzhèn yì jiā zhīmíng kējì gōngsī lǐ rìyè jiābān de gǔgàn, měitiān zài yōngjǐ de dìtiě yǔ wúxiūzhǐ de “nèijuǎn” zhōng pí yú bēnmìng.",
+        "en": "Six months ago, he was a key engineer pulling day-and-night overtime at a Shenzhen tech firm, exhausted by crowded subways and endless involution."
+      }
+    },
+    {
+      "word": "拥挤",
+      "pinyin": "yōngjǐ",
+      "tone": 1,
+      "hsk": "HSK 5",
+      "definitions": [
+        "crowded",
+        "to throng",
+        "congestion"
+      ],
+      "exampleSentence": {
+        "cn": "半年前，他还是深圳一家知名科技公司里日夜加班的骨干，每天在拥挤的地铁与无休止的“内卷”中疲于奔命。",
+        "pinyin": "Bàn nián qián, tā hái shì Shēnzhèn yì jiā zhīmíng kējì gōngsī lǐ rìyè jiābān de gǔgàn, měitiān zài yōngjǐ de dìtiě yǔ wúxiūzhǐ de “nèijuǎn” zhōng pí yú bēnmìng.",
+        "en": "Six months ago, he was a key engineer pulling day-and-night overtime at a Shenzhen tech firm, exhausted by crowded subways and endless involution."
+      }
+    },
+    {
+      "word": "决心",
+      "pinyin": "juéxīn",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": [
+        "determination",
+        "resolution",
+        "determined"
+      ],
+      "exampleSentence": {
+        "cn": "最终，他下定决心辞职退租，带上一台笔记本电脑，加入了来到大理的“数字游民”浪潮。",
+        "pinyin": "Zuìzhōng, tā xiàdìng juéxīn cízhí tuìzū, dài shàng yì tái bǐjìběn diànnǎo, jiārù le láidào Dàlǐ de “shùzì yóumín” làngcháo.",
+        "en": "Ultimately, he resolved to resign, gave up his lease, packed a laptop, and joined the wave of digital nomads heading to Dali."
+      }
+    },
+    {
+      "word": "辞职",
+      "pinyin": "cízhí",
+      "tone": 2,
+      "hsk": "HSK 5",
+      "definitions": [
+        "to resign"
+      ],
+      "exampleSentence": {
+        "cn": "最终，他下定决心辞职退租，带上一台笔记本电脑，加入了来到大理的“数字游民”浪潮。",
+        "pinyin": "Zuìzhōng, tā xiàdìng juéxīn cízhí tuìzū, dài shàng yì tái bǐjìběn diànnǎo, jiārù le láidào Dàlǐ de “shùzì yóumín” làngcháo.",
+        "en": "Ultimately, he resolved to resign, gave up his lease, packed a laptop, and joined the wave of digital nomads heading to Dali."
+      }
+    },
+    {
+      "word": "想象",
+      "pinyin": "xiǎngxiàng",
+      "tone": 3,
+      "hsk": "HSK 5",
+      "definitions": [
+        "to imagine; to envision",
+        "imagination"
+      ],
+      "exampleSentence": {
+        "cn": "在许多人的想象中，大理是一片远离世俗压力的世外桃源，面朝洱海，春暖花开。",
+        "pinyin": "Zài xǔduō rén de xiǎngxiàng zhōng, Dàlǐ shì yí piàn yuǎnlí shìsú yālì de shìwàitáoyuán, miàn cháo Ěrhǎi, chūnnuǎn-huākāi.",
+        "en": "In many people's imagination, Dali is an idyllic Shangri-la far from worldly pressures—facing Erhai Lake as spring flowers blossom."
+      }
+    },
+    {
+      "word": "自由",
+      "pinyin": "zìyóu",
+      "tone": 4,
+      "hsk": "HSK 5",
+      "definitions": [
+        "freedom; liberty",
+        "free; unrestricted"
+      ],
+      "exampleSentence": {
+        "cn": "然而，自由往往是一把双刃剑：没有了公司考勤制度的约束，高度自律成了每天最大的考验，稍有懈怠便会陷入更深的虚无感。",
+        "pinyin": "Rán’ér, zìyóu wǎngwǎng shì yì bǎ shuāngrènjiàn: méiyǒu le gōngsī kǎoqín zhìdù de yuēshù, gāodù zìlǜ chéng le měitiān zuì dà de kǎoyàn, shāo yǒu xièdài biàn huì xiànrù gèng shēn de xūwúgǎn.",
+        "en": "Yet freedom is often a double-edged sword: without clock-in mandates, intense self-discipline becomes the daily test; the slightest laxity breeds nihilistic emptiness."
+      }
+    },
+    {
+      "word": "约束",
+      "pinyin": "yuēshù",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to restrict",
+        "to limit to",
+        "to constrain"
+      ],
+      "exampleSentence": {
+        "cn": "然而，自由往往是一把双刃剑：没有了公司考勤制度的约束，高度自律成了每天最大的考验，稍有懈怠便会陷入更深的虚无感。",
+        "pinyin": "Rán’ér, zìyóu wǎngwǎng shì yì bǎ shuāngrènjiàn: méiyǒu le gōngsī kǎoqín zhìdù de yuēshù, gāodù zìlǜ chéng le měitiān zuì dà de kǎoyàn, shāo yǒu xièdài biàn huì xiànrù gèng shēn de xūwúgǎn.",
+        "en": "Yet freedom is often a double-edged sword: without clock-in mandates, intense self-discipline becomes the daily test; the slightest laxity breeds nihilistic emptiness."
+      }
+    },
+    {
+      "word": "考验",
+      "pinyin": "kǎoyàn",
+      "tone": 3,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to test",
+        "to put to the test",
+        "trial"
+      ],
+      "exampleSentence": {
+        "cn": "然而，自由往往是一把双刃剑：没有了公司考勤制度的约束，高度自律成了每天最大的考验，稍有懈怠便会陷入更深的虚无感。",
+        "pinyin": "Rán’ér, zìyóu wǎngwǎng shì yì bǎ shuāngrènjiàn: méiyǒu le gōngsī kǎoqín zhìdù de yuēshù, gāodù zìlǜ chéng le měitiān zuì dà de kǎoyàn, shāo yǒu xièdài biàn huì xiànrù gèng shēn de xūwúgǎn.",
+        "en": "Yet freedom is often a double-edged sword: without clock-in mandates, intense self-discipline becomes the daily test; the slightest laxity breeds nihilistic emptiness."
+      }
+    },
+    {
+      "word": "陷入",
+      "pinyin": "xiànrù",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to sink into",
+        "to get caught up in",
+        "to land in (a predicament)"
+      ],
+      "exampleSentence": {
+        "cn": "然而，自由往往是一把双刃剑：没有了公司考勤制度的约束，高度自律成了每天最大的考验，稍有懈怠便会陷入更深的虚无感。",
+        "pinyin": "Rán’ér, zìyóu wǎngwǎng shì yì bǎ shuāngrènjiàn: méiyǒu le gōngsī kǎoqín zhìdù de yuēshù, gāodù zìlǜ chéng le měitiān zuì dà de kǎoyàn, shāo yǒu xièdài biàn huì xiànrù gèng shēn de xūwúgǎn.",
+        "en": "Yet freedom is often a double-edged sword: without clock-in mandates, intense self-discipline becomes the daily test; the slightest laxity breeds nihilistic emptiness."
+      }
+    },
+    {
+      "word": "保障",
+      "pinyin": "bǎozhàng",
+      "tone": 3,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to ensure",
+        "to guarantee",
+        "to safeguard"
+      ],
+      "exampleSentence": {
+        "cn": "不仅如此，波动的接单收入、异乡医疗保障的缺失，以及与传统家庭观念之间的隔阂，都在无声地提醒着他们现实的重量。",
+        "pinyin": "Bùjǐn rúcǐ, bōdòng de jiēdān shōurù, yìxiāng yīliáo bǎozhàng de quēshī, yǐjí yǔ chuántǒng jiātíng guānniàn zhījiān de géhé, dōu zài wúshēng de tíxǐng zhe tāmen xiànshí de zhòngliàng.",
+        "en": "Furthermore, fluctuating freelance contracts, lack of local healthcare, and estrangement from conservative family expectations silently remind them of reality's weight."
+      }
+    },
+    {
+      "word": "隔阂",
+      "pinyin": "géhé",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "misunderstanding",
+        "estrangement",
+        "(language etc) barrier"
+      ],
+      "exampleSentence": {
+        "cn": "不仅如此，波动的接单收入、异乡医疗保障的缺失，以及与传统家庭观念之间的隔阂，都在无声地提醒着他们现实的重量。",
+        "pinyin": "Bùjǐn rúcǐ, bōdòng de jiēdān shōurù, yìxiāng yīliáo bǎozhàng de quēshī, yǐjí yǔ chuántǒng jiātíng guānniàn zhījiān de géhé, dōu zài wúshēng de tíxǐng zhe tāmen xiànshí de zhòngliàng.",
+        "en": "Furthermore, fluctuating freelance contracts, lack of local healthcare, and estrangement from conservative family expectations silently remind them of reality's weight."
+      }
+    },
+    {
+      "word": "心得",
+      "pinyin": "xīndé",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": [
+        "what one has learned (through experience, reading etc)",
+        "knowledge",
+        "insight"
+      ],
+      "exampleSentence": {
+        "cn": "在洱海边的咖啡馆里，李翔与来自世界各地的设计师、写作者们交流心得，大家逐渐达成了一个共识。",
+        "pinyin": "Zài Ěrhǎi biān de kāfēiguǎn lǐ, Lǐ Xiáng yǔ láizì shìjiè gèdì de shèjìshī, xiězhe-men jiāoliú xīndé, dàjiā zhújiàn dáchéng le yí gè gòngshí.",
+        "en": "In a cafe by Erhai Lake, chatting with designers and writers from around the globe, Li Xiang and his peers gradually reached a consensus."
+      }
+    },
+    {
+      "word": "达成",
+      "pinyin": "dáchéng",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to reach (an agreement)",
+        "to accomplish"
+      ],
+      "exampleSentence": {
+        "cn": "在洱海边的咖啡馆里，李翔与来自世界各地的设计师、写作者们交流心得，大家逐渐达成了一个共识。",
+        "pinyin": "Zài Ěrhǎi biān de kāfēiguǎn lǐ, Lǐ Xiáng yǔ láizì shìjiè gèdì de shèjìshī, xiězhe-men jiāoliú xīndé, dàjiā zhújiàn dáchéng le yí gè gòngshí.",
+        "en": "In a cafe by Erhai Lake, chatting with designers and writers from around the globe, Li Xiang and his peers gradually reached a consensus."
+      }
+    },
+    {
+      "word": "迁徙",
+      "pinyin": "qiānxǐ",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to migrate",
+        "to move"
+      ],
+      "exampleSentence": {
+        "cn": "地理位置的迁徙固然能让人暂时跳出嘈杂的怪圈，但若内心无法建立起清晰的秩序，焦虑便会如影随形。",
+        "pinyin": "Dìlǐ wèizhì de qiānxǐ gùrán néng ràng rén zànshí tiàochū cáozá de guàiquān, dàn ruò nèixīn wúfǎ jiànlì qǐ qīngxī de zhìxù, jiāolǜ biàn huì rúyǐng-suíxíng.",
+        "en": "Relocating geographically can indeed help one step out of the noisy rat race, but without building order within, anxiety will follow like a shadow."
+      }
+    },
+    {
+      "word": "固然",
+      "pinyin": "gùrán",
+      "tone": 4,
+      "hsk": "HSK 6",
+      "definitions": [
+        "admittedly (it's true that...)"
+      ],
+      "exampleSentence": {
+        "cn": "地理位置的迁徙固然能让人暂时跳出嘈杂的怪圈，但若内心无法建立起清晰的秩序，焦虑便会如影随形。",
+        "pinyin": "Dìlǐ wèizhì de qiānxǐ gùrán néng ràng rén zànshí tiàochū cáozá de guàiquān, dàn ruò nèixīn wúfǎ jiànlì qǐ qīngxī de zhìxù, jiāolǜ biàn huì rúyǐng-suíxíng.",
+        "en": "Relocating geographically can indeed help one step out of the noisy rat race, but without building order within, anxiety will follow like a shadow."
+      }
+    },
+    {
+      "word": "清晰",
+      "pinyin": "qīngxī",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": [
+        "clear; distinct"
+      ],
+      "exampleSentence": {
+        "cn": "地理位置的迁徙固然能让人暂时跳出嘈杂的怪圈，但若内心无法建立起清晰的秩序，焦虑便会如影随形。",
+        "pinyin": "Dìlǐ wèizhì de qiānxǐ gùrán néng ràng rén zànshí tiàochū cáozá de guàiquān, dàn ruò nèixīn wúfǎ jiànlì qǐ qīngxī de zhìxù, jiāolǜ biàn huì rúyǐng-suíxíng.",
+        "en": "Relocating geographically can indeed help one step out of the noisy rat race, but without building order within, anxiety will follow like a shadow."
+      }
+    },
+    {
+      "word": "从容",
+      "pinyin": "cóngróng",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to go easy",
+        "unhurried",
+        "calm"
+      ],
+      "exampleSentence": {
+        "cn": "真正的从容，不是逃离某种生活方式，而是在看清生活的本质之后，依然拥有独立选择自己节奏的底气。",
+        "pinyin": "Zhēnzhèng de cóngróng, bú shì táolí mǒuzhǒng shēnghuó fāngshì, ér shì zài kànqīng shēnghuó de běnzhì zhīhòu, yīrán yōngyǒu dúlì xuǎnzé zìjǐ jiézòu de dǐqì.",
+        "en": "True serenity is not escaping a lifestyle, but after seeing life clearly, retaining the quiet confidence to march to your own rhythm."
+      }
+    },
+    {
+      "word": "拥有",
+      "pinyin": "yōngyǒu",
+      "tone": 1,
+      "hsk": "HSK 6",
+      "definitions": [
+        "to have; to possess"
+      ],
+      "exampleSentence": {
+        "cn": "真正的从容，不是逃离某种生活方式，而是在看清生活的本质之后，依然拥有独立选择自己节奏的底气。",
+        "pinyin": "Zhēnzhèng de cóngróng, bú shì táolí mǒuzhǒng shēnghuó fāngshì, ér shì zài kànqīng shēnghuó de běnzhì zhīhòu, yīrán yōngyǒu dúlì xuǎnzé zìjǐ jiézòu de dǐqì.",
+        "en": "True serenity is not escaping a lifestyle, but after seeing life clearly, retaining the quiet confidence to march to your own rhythm."
+      }
+    },
+    {
+      "word": "节奏",
+      "pinyin": "jiézòu",
+      "tone": 2,
+      "hsk": "HSK 6",
+      "definitions": [
+        "rhythm",
+        "tempo",
+        "musical pulse"
+      ],
+      "exampleSentence": {
+        "cn": "真正的从容，不是逃离某种生活方式，而是在看清生活的本质之后，依然拥有独立选择自己节奏的底气。",
+        "pinyin": "Zhēnzhèng de cóngróng, bú shì táolí mǒuzhǒng shēnghuó fāngshì, ér shì zài kànqīng shēnghuó de běnzhì zhīhòu, yīrán yōngyǒu dúlì xuǎnzé zìjǐ jiézòu de dǐqì.",
+        "en": "True serenity is not escaping a lifestyle, but after seeing life clearly, retaining the quiet confidence to march to your own rhythm."
+      }
     }
   ],
   "grammarNotes": [

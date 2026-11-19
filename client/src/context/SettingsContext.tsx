@@ -11,6 +11,7 @@ interface SettingsContextType {
   setTheme: (theme: AppTheme) => void;
   setAutoScroll: (auto: boolean) => void;
   setPlaybackSpeed: (speed: number) => void;
+  setHskMarks: (on: boolean) => void;
 }
 
 const DEFAULT_SETTINGS: ReaderSettings = {
@@ -21,6 +22,7 @@ const DEFAULT_SETTINGS: ReaderSettings = {
   theme: 'light',
   autoScroll: true,
   playbackSpeed: 1.0,
+  hskMarks: true,
 };
 
 const STORAGE_KEY = 'duchinese_reader_settings';
@@ -69,6 +71,7 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const setTheme = (theme: AppTheme) => setSettings(s => ({ ...s, theme }));
   const setAutoScroll = (autoScroll: boolean) => setSettings(s => ({ ...s, autoScroll }));
   const setPlaybackSpeed = (playbackSpeed: number) => setSettings(s => ({ ...s, playbackSpeed }));
+  const setHskMarks = (hskMarks: boolean) => setSettings(s => ({ ...s, hskMarks }));
 
   return (
     <SettingsContext.Provider
@@ -82,6 +85,7 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         setTheme,
         setAutoScroll,
         setPlaybackSpeed,
+        setHskMarks,
       }}
     >
       {children}
